@@ -14,7 +14,7 @@ On one level, you will be learning to program, a useful skill by itself. On anot
 
 一方面，你将学习如何编程，这本身就是一个有用的技能。另一方面，你将把编程作为实现自己目的的手段。随着学习的深入，你会更清楚自己的目的。
 
-1. 什么是程序？
+什么是程序？
 ----------------
 
 A program is a sequence of instructions that specifies how to perform a computation. The computation might be something mathematical, such as solving a system of equations or finding the roots of a polynomial, but it can also be a symbolic computation, such as searching and replacing text in a document or something graphical, like processing an image or playing a video.
@@ -59,7 +59,7 @@ Believe it or not, that’s pretty much all there is to it. Every program you’
 
 无论你是否相信，这几乎是程序的全部指令了。每个你曾经用过的程序，无论多么复杂，都是由跟这些差不多的指令构成的。因此，你可以认为编程就是将庞大、复杂的任务分解为越来越小的子任务，直到这些子任务简单到可以用这其中的一个基本指令执行。
 
-2. 运行Python
+运行Python
 --------------------
 
 One of the challenges of getting started with Python is that you might have to install Python and related software on your computer. If you are familiar with your operat‐ ing system, and especially if you are comfortable with the command-line interface, you will have no trouble installing Python. But for beginners, it can be painful to learn about system administration and programming at the same time.
@@ -93,8 +93,9 @@ The first three lines contain information about the interpreter and the operatin
 
 The last line is a prompt that indicates that the interpreter is ready for you to enter code. If you type a line of code and hit Enter, the interpreter displays the result:
 
-最后一行是一个提示符（prompt），表明你可以在解释器中输入代码了。如果你输入一行代码然后按回车（Enter），解释器就会显示结果： ::
+最后一行是一个提示符（prompt），表明你可以在解释器中输入代码了。如果你输入一行代码然后按回车（Enter），解释器就会显示结果： 
 
+::
     >>> 1 + 1
     2
 
@@ -102,21 +103,23 @@ Now you’re ready to get started. From here on, I assume that you know how to s
 
 现在你已经做好了开始学习的准备。接下来，我将默认你已经知道如何启动Python解释器和执行代码。
 
-3. 第一个程序
+第一个程序
 ----------------
 
 Traditionally, the first program you write in a new language is called “Hello, World!” because all it does is display the words “Hello, World!” In Python, it looks like this:
 
-根据传统，你用一门新的语言写的第一个程序叫做“Hello, World!”，因为它的功能只不过是显示单词“Hello, World!”。在Python中，它看起来是这样： ::
+根据传统，你用一门新语言写的第一个程序叫做“Hello, World!”，因为它的功能只不过是显示单词“Hello, World!”。在Python中，它看起来是这样： 
 
+::
     >>> print('Hello, World!')
 
 This is an example of a print statement, although it doesn’t actually print anything on paper. It displays a result on the screen. In this case, the result is the words
 
     Hello, World!
 
-这是一个 `print` 函数的示例，尽管它并不会真的在纸上打印。它将结果显示在屏幕上。在此例中，结果是单词： ::
+这是一个 `print` 函数的示例，尽管它并不会真的在纸上打印。它将结果显示在屏幕上。在此例中，结果是单词： 
 
+::
     Hello, World!
 
 The quotation marks in the program mark the beginning and end of the text to be displayed; they don’t appear in the result.
@@ -125,7 +128,64 @@ The quotation marks in the program mark the beginning and end of the text to be 
 
 The parentheses indicate that print is a function. We’ll get to functions in Chapter 3. In Python 2, the print statement is slightly different; it is not a function, so it doesn’t use parentheses.
 
+括号说明 `print` 是一个函数。我们将在第三章介绍函数。在Python 2中， print是一个语句；不是函数，所以不需要使用括号。
+
+::
     >>> print 'Hello, World!'
 
 This distinction will make more sense soon, but that’s enough to get started.
 
+很快你就会明白二者之间的区别，现在你知道这些就足够了。
+
+    译者注：Python核心开发者Brett Cannon详细解释了为什么print在Python 3中变成了函数。 http://codingpy.com/article/why-print-became-a-function-in-python-3/     
+
+算术运算符
+--------------------
+
+After “Hello, World”, the next step is arithmetic. Python provides
+**operators**, which are special symbols that represent computations
+like addition and multiplication.
+
+
+
+The operators +, -, and perform addition, subtraction, and
+multiplication, as in the following examples:
+
+::
+
+    >>> 40 + 2
+    42
+    >>> 43 - 1
+    42
+    >>> 6 * 7
+    42
+
+The operator / performs division:
+
+::
+
+    >>> 84 / 2
+    42.0
+
+You might wonder why the result is 42.0 instead of 42. I’ll explain in
+the next section.
+
+Finally, the operator \* performs exponentiation; that is, it raises a
+number to a power:
+
+::
+
+    >>> 6**2 + 6
+    42
+
+In some other languages, ``^`` is used for exponentiation, but in Python
+it is a bitwise operator called XOR. If you are not familiar with
+bitwise operators, the result will surprise you:
+
+::
+
+    >>> 6 ^ 2
+    4
+
+I won’t cover bitwise operators in this book, but you can read about
+them at http://wiki.python.org/moin/BitwiseOperators.

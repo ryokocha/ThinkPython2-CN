@@ -1172,7 +1172,6 @@ In Python 3, the syntax for printing is slightly different:
 在Python 3中，打印的语法有些不同：
 
 ::
-
     print('Hello, World!')
 
 The parentheses indicate that print is a function. We’ll get to
