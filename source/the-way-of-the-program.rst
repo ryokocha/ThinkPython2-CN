@@ -80,7 +80,9 @@ There are two versions of Python, called Python 2 and Python 3. They are very si
 
 The Python interpreter is a program that reads and executes Python code. Depend‐ ing on your environment, you might start the interpreter by clicking on an icon, or by typing python on a command line. When it starts, you should see output like this:
 
-Python的 **解释器** 是一个读取并执行Python代码的程序。根据你的电脑环境不同，你可以通过双击图标，或者在命令行输入`python`的方式来启动解释器。解释器启动后，你应该看到类似下面的输出： ::
+Python的 **解释器** 是一个读取并执行Python代码的程序。根据你的电脑环境不同，你可以通过双击图标，或者在命令行输入`python`的方式来启动解释器。解释器启动后，你应该看到类似下面的输出：
+
+::
 
     Python 3.4.0 (default, Jun 19 2015, 14:20:21)
     [GCC 4.8.2] on linux
@@ -96,6 +98,7 @@ The last line is a prompt that indicates that the interpreter is ready for you t
 最后一行是一个提示符（prompt），表明你可以在解释器中输入代码了。如果你输入一行代码然后按回车（Enter），解释器就会显示结果： 
 
 ::
+
     >>> 1 + 1
     2
 
@@ -111,15 +114,17 @@ Traditionally, the first program you write in a new language is called “Hello,
 根据传统，你用一门新语言写的第一个程序叫做“Hello, World!”，因为它的功能只不过是显示单词“Hello, World!”。在Python中，它看起来是这样： 
 
 ::
+
     >>> print('Hello, World!')
 
 This is an example of a print statement, although it doesn’t actually print anything on paper. It displays a result on the screen. In this case, the result is the words
 
     Hello, World!
 
-这是一个 `print` 函数的示例，尽管它并不会真的在纸上打印。它将结果显示在屏幕上。在此例中，结果是单词： 
+这是一个 ``print`` 函数的示例，尽管它并不会真的在纸上打印。它将结果显示在屏幕上。在此例中，结果是单词： 
 
 ::
+
     Hello, World!
 
 The quotation marks in the program mark the beginning and end of the text to be displayed; they don’t appear in the result.
@@ -128,9 +133,10 @@ The quotation marks in the program mark the beginning and end of the text to be 
 
 The parentheses indicate that print is a function. We’ll get to functions in Chapter 3. In Python 2, the print statement is slightly different; it is not a function, so it doesn’t use parentheses.
 
-括号说明 `print` 是一个函数。我们将在第三章介绍函数。在Python 2中， print是一个语句；不是函数，所以不需要使用括号。
+括号说明 ``print`` 是一个函数。我们将在第三章介绍函数。在Python 2中， print是一个语句；不是函数，所以不需要使用括号。
 
 ::
+
     >>> print 'Hello, World!'
 
 This distinction will make more sense soon, but that’s enough to get started.
@@ -148,7 +154,7 @@ like addition and multiplication.
 
 
 
-The operators +, -, and perform addition, subtraction, and
+The operators +, -, and * perform addition, subtraction, and
 multiplication, as in the following examples:
 
 ::
