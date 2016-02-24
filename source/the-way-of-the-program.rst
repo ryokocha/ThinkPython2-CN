@@ -147,22 +147,22 @@ This distinction will make more sense soon, but that’s enough to get started.
 
 很快你就会明白二者之间的区别，现在知道这些就足够了。
 
-    译者注：Python核心开发者Brett Cannon详细解释了`为什么print在Python 3中变成了函数 <http://codingpy.com/article/why-print-became-a-function-in-python-3/>`_。      
+    译者注：Python核心开发者Brett Cannon详细解释了 `为什么print在Python 3中变成了函数 <http://codingpy.com/article/why-print-became-a-function-in-python-3/>`_。      
 
 ---------
 
 算术运算符
 --------------------
 
-接下来介绍算术。Python提供了许多代表加法和乘法等运算的特殊符号，叫做 **运算符**（operators）。
+接下来介绍算术。Python提供了许多代表加法和乘法等运算的特殊符号，叫做 **运算符** （operators）。
 
 After “Hello, World”, the next step is arithmetic. Python provides
 **operators**, which are special symbols that represent computations
 like addition and multiplication.
 
-运算符+、-和* 分别执行加法、减法和乘法，详见以下示例：
+运算符 ``+`` 、``-`` 和 ``*`` 分别执行加法、减法和乘法，详见以下示例：
 
-The operators +, -, and * perform addition, subtraction, and
+The operators +, -, and \* perform addition, subtraction, and
 multiplication, as in the following examples:
 
 ::
@@ -188,7 +188,7 @@ The operator / performs division:
 You might wonder why the result is 42.0 instead of 42. I’ll explain in
 the next section.
 
-最后，运算符 \* 执行乘方运算；也就是说，它将某个数字乘以相应的次数：
+最后，运算符 ``*`` 执行乘方运算；也就是说，它将某个数字乘以相应的次数：
 
 Finally, the operator \* performs exponentiation; that is, it raises a
 number to a power:
@@ -198,7 +198,7 @@ number to a power:
     >>> 6**2 + 6
     42
 
-某些语言使用``^``运算符执行乘方运算，但是在Python中，它却属于一种位运算符，叫做XOR。如果你对位运算符不太了解，那么下面的结果会让你感到惊讶：
+某些语言使用 ``^`` 运算符执行乘方运算，但是在Python中，它却属于一种位运算符，叫做XOR。如果你对位运算符不太了解，那么下面的结果会让你感到惊讶：
 
 In some other languages, ``^`` is used for exponentiation, but in Python
 it is a bitwise operator called XOR. If you are not familiar with
@@ -219,13 +219,13 @@ them at http://wiki.python.org/moin/BitwiseOperators.
 值和类型
 ----------------
 
-**值（value）** 是程序处理的基本数据之一，比如说一个单词或一个数字。我们目前已经接触到的值有：2，42.0，和``'Hello World!'``。
+**值（value）** 是程序处理的基本数据之一，比如说一个单词或一个数字。我们目前已经接触到的值有：2，42.0，和 ``'Hello World!'`` 。
 
 A **value** is one of the basic things a program works with, like a
 letter or a number. Some values we have seen so far are 2, 42.0, and
 ``'Hello, World!'``.
 
-这些值又属于不同的 **类型（types）**：2是一个 **整型数（integer）**，42.0 是一个 **浮点数（floating point number）**，而 ``'Hello, World!'``则是一个 **字符串（string）**，之所以这么叫是因为其中的字符被串在了一起（strung together）。
+这些值又属于不同的 **类型（types）** ：2是一个 **整型数（integer）**，42.0 是一个 **浮点数（floating point number）**，而 ``'Hello, World!'`` 则是一个 **字符串（string）**，之所以这么叫是因为其中的字符被串在了一起（strung together）。
 
 These values belong to different **types**: 2 is an **integer**, 42.0 is
 a **floating-point number**, and ``'Hello, World!'`` is a **string**,
@@ -244,11 +244,17 @@ If you are not sure what type a value has, the interpreter can tell you:
     >>> type('Hello, World!')
     <class 'str'>
 
+“class”一词在上面的结果中，是类别的意思；一个类型就是一个类别的值。
+
 In these results, the word “class” is used in the sense of a category; a
 type is a category of values.
 
+不出意料，整型数属于 ``int`` 类型，字符串属于 ``str`` 类型，浮点数属于 ``float`` 类型。
+
 Not surprisingly, integers belong to the type int, strings belong to str
 and floating-point numbers belong to float.
+
+那么像 ``'2'`` 和 ``'42.0'`` 这样的值呢？它们看上去像数字，但是又和字符串一样被引号包围？
 
 What about values like ``'2'`` and ``'42.0'``? They look like numbers,
 but they are in quotation marks like strings.
@@ -260,7 +266,11 @@ but they are in quotation marks like strings.
     >>> type('42.0')
     <class 'str'>
 
+它们其实是字符串。
+
 They’re strings.
+
+当你输入一个大数值的整型数时，你可能会想用逗号进行区分，比如说这样：1,000,000。在Python中，这不是一个合法的 *整型数*，但是确实合法的值。
 
 When you type a large integer, you might be tempted to use commas
 between groups of digits, as in 1,000,000. This is not a legal *integer*
@@ -271,16 +281,24 @@ in Python, but it is legal:
     >>> 1,000,000
     (1, 0, 0)
 
+结果和我们预料的完全不同！Python把1,000,000当作成了一个以逗号区分的整型数序列。在后面的章节中，我们会介绍更多有关这种序列的知识。
+
 That’s not what we expected at all! Python interprets 1,000,000 as a
 comma-separated sequence of integers. We’ll learn more about this kind
 of sequence later.
 
-Formal and natural languages
+--------
+
+形式语言和自然语言
 ----------------------------
+
+**自然语言（natural language）** 是人们交流所使用的语言，例如英语、西班牙语和法语。它们不是人为设计出来的（尽管有人试图这样做）；而是自然演变而来。
 
 **Natural languages** are the languages people speak, such as English,
 Spanish, and French. They were not designed by people (although people
 try to impose some order on them); they evolved naturally.
+
+**形式语言（formal languages）**\ 是人类为了特殊用途而设计出来的。例如，数学家使用的记号（notation）就是形式语言，特别擅长表示数字和符号之间的关系。化学家使用形式语言表示分子的化学结构。 最重要的是：
 
 **Formal languages** are languages that are designed by people for
 specific applications. For example, the notation that mathematicians use
@@ -288,14 +306,22 @@ is a formal language that is particularly good at denoting relationships
 among numbers and symbols. Chemists use a formal language to represent
 the chemical structure of molecules. And most importantly:
 
+    **编程语言是被设计用于表达计算的形式语言。**
+
     **Programming languages are formal languages that have been designed
     to express computations.**
+
+形式语言通常拥有严格的 **语法** 规则，规定了详细的语句结构。例如，\ :math:`3 + 3 = 6`\ 是语法正确的数学表达式，而\ :math:`3 + = 3 \$ 6`\ 则不是；:math:`H_2O`\ 是语法正确的化学式，而\ :math:`_2Zz`\ 则不是。
 
 Formal languages tend to have strict **syntax** rules that govern the
 structure of statements. For example, in mathematics the statement
 :math:`3 + 3 = 6` has correct syntax, but :math:`3 + = 3 \$ 6` does not.
 In chemistry :math:`H_2O` is a syntactically correct formula, but
 :math:`_2Zz` is not.
+
+语法规则有两种类型，分别涉及\ **记号（tokens）**\ 和结构。记号是语言的基本元素，例如单词、数字和化学元素。
+:math:`3 + = 3 \$ 6`\ 这个式子的问题之一，就是 $ 在数学中不是一个合法的记号
+（至少据我所知）。类似的，:math:`_2Zz` 也不合法，因为没有一个元素的简写是 :math:`Zz`。
 
 Syntax rules come in two flavors, pertaining to **tokens** and
 structure. Tokens are the basic elements of the language, such as words,
@@ -304,21 +330,32 @@ numbers, and chemical elements. One of the problems with
 mathematics (at least as far as I know). Similarly, :math:`_2Zz` is not
 legal because there is no element with the abbreviation :math:`Zz`.
 
+第二种语法规则与标记的组合方式有关。\ :math:`3 + = 3`\ 这个方程是非法的，因为即使\ :math:`+`\ 和\ :math:`=`\ 都是合法的记号，但是你却不能把它们俩紧挨在一起。类似的，在化学式中，下标位于元素之后，而不是之前。
+
 The second type of syntax rule pertains to the way tokens are combined.
 The equation :math:`3 += 3` is illegal because even though :math:`+` and
 :math:`=` are legal tokens, you can’t have one right after the other.
 Similarly, in a chemical formula the subscript comes after the element
 name, not before.
 
-This is @ well-structured Engli$h sentence with invalid t\*kens in it.
-This sentence all valid tokens has, but invalid structure with.
+“This is @ well-structured Engli$h sentence with invalid t\*kens in it.
+This sentence all valid tokens has, but invalid structure with.”
+
+    译者注：上面两句英文都是不符合语法的，一个包含非法标记，另一个句子结构不和语法。
+
+当你读一个用英语写的句子或者用形式语言写的语句时，你都必须要理清各自的结构（尽管在阅读自然语言时，你是下意识地进行的）。这个过程被称为 **解析（parsing）**。
 
 When you read a sentence in English or a statement in a formal language,
 you have to figure out the structure (although in a natural language you
 do this subconsciously). This process is called **parsing**.
 
+虽然形式语言和自然语言有很多共同点——标记、结构和语法，它们也有一些不同：
+
 Although formal and natural languages have many features in
 common—tokens, structure, and syntax—there are some differences:
+
+*歧义性*：
+    自然语言充满歧义，人们使用上下文线索以及其它信息处理这些歧义。形式语言被设计成几乎或者完全没有歧义，这意味着不管上下文是什么，任何语句都只有一个意义。
 
 ambiguity:
     Natural languages are full of ambiguity, which people deal with by
@@ -326,10 +363,16 @@ ambiguity:
     designed to be nearly or completely unambiguous, which means that
     any statement has exactly one meaning, regardless of context.
 
+*冗余性*：
+    为了弥补歧义性并减少误解，自然语言使用很多冗余。结果，自然语言经常很冗长。形式语言则冗余较少，更简洁。
+
 redundancy:
     In order to make up for ambiguity and reduce misunderstandings,
     natural languages employ lots of redundancy. As a result, they are
     often verbose. Formal languages are less redundant and more concise.
+
+*字面性*：
+    自然语言充满成语和隐喻。如果我说“The penny dropped”，可能根本没有便士、也没什么东西掉下来（这个成语的意思是，经过一段时间的困惑后终于理解某事）。形式语言的含义，与它们字面的意思完全一致。
 
 literalness:
     Natural languages are full of idiom and metaphor. If I say, “The
@@ -337,23 +380,40 @@ literalness:
     (this idiom means that someone understood something after a period
     of confusion). Formal languages mean exactly what they say.
 
+由于我们都是说着自然语言长大的，我们有时候很难适应形式语言。形式语言与自然语言之间的不同，类似诗歌与散文之间的差异，而且更加明显：
+
 Because we all grow up speaking natural languages, it is sometimes hard
 to adjust to formal languages. The difference between formal and natural
 language is like the difference between poetry and prose, but more so:
+
+*诗歌*：
+    单词的含义和声音都有作用，
+    整首诗作为一个整理，会对人产生影响，或是引发情感上的共鸣。
+    歧义不但常见，而且经常是故意为之。
 
 Poetry:
     Words are used for their sounds as well as for their meaning, and
     the whole poem together creates an effect or emotional response.
     Ambiguity is not only common but often deliberate.
 
+*散文*：
+    单词表面的含义更重要，句子结构背后的寓意更深。
+    散文比诗歌更适合分析，但仍然经常有歧义。
+
 Prose:
     The literal meaning of words is more important, and the structure
     contributes more meaning. Prose is more amenable to analysis than
     poetry but still often ambiguous.
 
+*程序*：
+    计算机程序的含义是无歧义、无引申义的，
+    通过分析程序的标记和结构，即可完全理解。
+
 Programs:
     The meaning of a computer program is unambiguous and literal, and
     can be understood entirely by analysis of the tokens and structure.
+
+形式语言的信息密度要高于自然语言，因此阅读的时间会更长。另外，形式语言的结构也很重要，所以从上往下、从左往右阅读，并不总是最好的策略。相反，你得学会在脑海里分析一个程序，识别不同的标记并理解其结构。最后，注重细节。拼写和标点方面的小错误在自然语言中无伤大雅，但是在形式语言中却会产生很大的影响。
 
 Formal languages are more dense than natural languages, so it takes
 longer to read them. Also, the structure is important, so it is not
@@ -363,16 +423,22 @@ the structure. Finally, the details matter. Small errors in spelling and
 punctuation, which you can get away with in natural languages, can make
 a big difference in a formal language.
 
-Debugging
+--------
+
+调试
 ---------
 
 Programmers make mistakes. For whimsical reasons, programming errors are
 called **bugs** and the process of tracking them down is called
 **debugging**.
 
+程序员都会犯错。由于比较奇怪的原因，编程错误被称为 **故障（译者注：英文为bug，一般指虫子）**，追踪错误的过程被称为 **调试（debugging）**。
+
 Programming, and especially debugging, sometimes brings out strong
 emotions. If you are struggling with a difficult bug, you might feel
 angry, despondent, or embarrassed.
+
+编程，尤其是调试，有时会让人动情绪。如果你有个很难的bug解决不了，你可能会感到愤怒、忧郁抑或是丢人。
 
 There is evidence that people naturally respond to computers as if they
 were people. When they work well, we think of them as teammates, and
@@ -381,101 +447,184 @@ respond to rude, obstinate people (Reeves and Nass, *The Media Equation:
 How People Treat Computers, Television, and New Media Like Real People
 and Places*).
 
+有证据表明，人们很自然地把计算机当人来对待。当计算机表现好的时候，我们认为它们是队友，而当它们固执或无礼的时候，我们也会像对待固执或无礼人的一样对待它们（Reeves and Nass, *The Media Equation:
+How People Treat Computers, Television, and New Media Like Real People
+and Places*）。
+
 Preparing for these reactions might help you deal with them. One
 approach is to think of the computer as an employee with certain
 strengths, like speed and precision, and particular weaknesses, like
 lack of empathy and inability to grasp the big picture.
+
+对这些反应做好准备有助于你对付它们。
+一种方法是将计算机看做是一个雇员，拥有特定的长处，
+例如速度和精度，也有些特别的缺点，像缺乏沟通以及不善于把握大局。
 
 Your job is to be a good manager: find ways to take advantage of the
 strengths and mitigate the weaknesses. And find ways to use your
 emotions to engage with the problem, without letting your reactions
 interfere with your ability to work effectively.
 
+你的工作是当一个好的管理者：找到充分利用优点、摒弃弱点的方法。
+并且找到使用你的情感来解决问题的方法，
+而不是让你的情绪干扰你有效工作的能力。
+
 Learning to debug can be frustrating, but it is a valuable skill that is
 useful for many activities beyond programming. At the end of each
 chapter there is a section, like this one, with my suggestions for
 debugging. I hope they help!
 
-Glossary
+学习调试可能很令人泄气，
+但是它对于许多编程之外的活动也是一个非常有价值的技能。
+在每一章的结尾，我都会花一节内容介绍一些调试建议，比如说这一节。希望能帮到你！
+
+-------
+
+词汇表
 --------
+
+*解决问题*：
+    将问题形式化、寻找并表达解决方案的过程。
 
 problem solving:
     The process of formulating a problem, finding a solution, and
     expressing it.
 
+*高级语言（high-level language）*：
+    像Python这样被设计成人类容易阅读和编写的编程语言。
+
 high-level language:
     A programming language like Python that is designed to be easy for
     humans to read and write.
 
+*低级语言(low-level language)*：
+    被设计成计算机容易运行的编程语言；也被称为“机器语言”或“汇编语言（assembly language）”。
+    
 low-level language:
     A programming language that is designed to be easy for a computer to
     run; also called “machine language” or “assembly language”.
+
+*可移植性*：
+    程序能够在多种计算机上运行的特性。
 
 portability:
     A property of a program that can run on more than one kind of
     computer.
 
+*解释器*：
+    读取另一个程序并执行该程序的程序。
+
 interpreter:
     A program that reads another program and executes it
+
+*提示符*：
+    解释器所显示的字符，表明已准备好接受用户的输入。
 
 prompt:
     Characters displayed by the interpreter to indicate that it is ready
     to take input from the user.
 
+*程序*：
+    说明一个计算的一组指令。
+
 program:
     A set of instructions that specifies a computation.
+
+*打印语句*：
+    使Python解释器在屏幕上显示某个值的指令。
 
 print statement:
     An instruction that causes the Python interpreter to display a value
     on the screen.
 
+*运算符*：
+    代表类似加法、乘法或者字符串连接（string concatenation）等简单计算的特殊符号。
+
 operator:
     A special symbol that represents a simple computation like addition,
     multiplication, or string concatenation.
 
+*值*：
+    程序所处理数据的基本元素之一，例如数字或字符串。
+
 value:
     One of the basic units of data, like a number or string, that a
     program manipulates.
+
+*类型*：
+    值的类别。我们目前接触的类型有整型数（类型为 ``int``）、浮点数（类型为 ``float`` ）和字符串（类型为 ``str`` ）
 
 type:
     A category of values. The types we have seen so far are integers
     (type int), floating-point numbers (type float), and strings (type
     str).
 
+*整型数*：
+    代表整数的类型。
+
 integer:
     A type that represents whole numbers.
+
+*浮点数*：
+    代表一个有小数点的数字的类型。
 
 floating-point:
     A type that represents numbers with fractional parts.
 
+*字符串*：
+    代表一系列字符的类型。
+
 string:
     A type that represents sequences of characters.
 
+*自然语言*：
+    任意一种人们日常使用的、自然演变而来的语言。
+
 natural language:
     Any one of the languages that people speak that evolved naturally.
+
+*形式语言*：
+    任意一种人类为了某种目的而设计的语言，例如用来表示数学概念或者电脑程序；所有的编程语言都是形式语言。
 
 formal language:
     Any one of the languages that people have designed for specific
     purposes, such as representing mathematical ideas or computer
     programs; all programming languages are formal languages.
 
+*记号*：
+    程序语法结构中的基本元素之一，与自然语言中的单词类似。
+
 token:
     One of the basic elements of the syntactic structure of a program,
     analogous to a word in a natural language.
 
+*语法*：
+    规定了程序结构的规则。
+
 syntax:
     The rules that govern the structure of a program.
+
+*解析*：
+    阅读程序，并分析其语法结构的过程
 
 parse:
     To examine a program and analyze the syntactic structure.
 
+*故障*：
+    程序中的错误。
+
 bug:
     An error in a program.
 
+*调试*：
+    寻找并解决错误的过程。
+    
 debugging:
     The process of finding and correcting bugs.
 
-Exercises
+------
+
+练习题
 ---------
 
 It is a good idea to read this book in front of a computer so you can
