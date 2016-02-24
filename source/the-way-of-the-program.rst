@@ -59,6 +59,8 @@ Believe it or not, that’s pretty much all there is to it. Every program you’
 
 无论你是否相信，这几乎是程序的全部指令了。每个你曾经用过的程序，无论多么复杂，都是由跟这些差不多的指令构成的。因此，你可以认为编程就是将庞大、复杂的任务分解为越来越小的子任务，直到这些子任务简单到可以用这其中的一个基本指令执行。
 
+---------
+
 运行Python
 --------------------
 
@@ -106,6 +108,8 @@ Now you’re ready to get started. From here on, I assume that you know how to s
 
 现在你已经做好了开始学习的准备。接下来，我将默认你已经知道如何启动Python解释器和执行代码。
 
+---------
+
 第一个程序
 ----------------
 
@@ -141,18 +145,22 @@ The parentheses indicate that print is a function. We’ll get to functions in C
 
 This distinction will make more sense soon, but that’s enough to get started.
 
-很快你就会明白二者之间的区别，现在你知道这些就足够了。
+很快你就会明白二者之间的区别，现在知道这些就足够了。
 
-    译者注：Python核心开发者Brett Cannon详细解释了为什么print在Python 3中变成了函数。 http://codingpy.com/article/why-print-became-a-function-in-python-3/     
+    译者注：Python核心开发者Brett Cannon详细解释了`为什么print在Python 3中变成了函数 <http://codingpy.com/article/why-print-became-a-function-in-python-3/>`_。      
+
+---------
 
 算术运算符
 --------------------
+
+接下来介绍算术。Python提供了许多代表加法和乘法等运算的特殊符号，叫做 **运算符**（operators）。
 
 After “Hello, World”, the next step is arithmetic. Python provides
 **operators**, which are special symbols that represent computations
 like addition and multiplication.
 
-
+运算符+、-和* 分别执行加法、减法和乘法，详见以下示例：
 
 The operators +, -, and * perform addition, subtraction, and
 multiplication, as in the following examples:
@@ -166,6 +174,8 @@ multiplication, as in the following examples:
     >>> 6 * 7
     42
 
+运算符 / 执行除法运算：
+
 The operator / performs division:
 
 ::
@@ -173,8 +183,12 @@ The operator / performs division:
     >>> 84 / 2
     42.0
 
+你可能会问，为什么结果是42.0，而不是42。在下节中，我会进行解释。
+
 You might wonder why the result is 42.0 instead of 42. I’ll explain in
 the next section.
+
+最后，运算符 \* 执行乘方运算；也就是说，它将某个数字乘以相应的次数：
 
 Finally, the operator \* performs exponentiation; that is, it raises a
 number to a power:
@@ -183,6 +197,8 @@ number to a power:
 
     >>> 6**2 + 6
     42
+
+某些语言使用``^``运算符执行乘方运算，但是在Python中，它却属于一种位运算符，叫做XOR。如果你对位运算符不太了解，那么下面的结果会让你感到惊讶：
 
 In some other languages, ``^`` is used for exponentiation, but in Python
 it is a bitwise operator called XOR. If you are not familiar with
@@ -193,5 +209,309 @@ bitwise operators, the result will surprise you:
     >>> 6 ^ 2
     4
 
+我打算在本书中介绍位运算符，但是你可以阅读 `Python官方百科 <http://wiki.python.org/moin/BitwiseOperators>`_ ，了解相关内容。
+
 I won’t cover bitwise operators in this book, but you can read about
 them at http://wiki.python.org/moin/BitwiseOperators.
+
+--------
+
+值和类型
+----------------
+
+**值（value）** 是程序处理的基本数据之一，比如说一个单词或一个数字。我们目前已经接触到的值有：2，42.0，和``'Hello World!'``。
+
+A **value** is one of the basic things a program works with, like a
+letter or a number. Some values we have seen so far are 2, 42.0, and
+``'Hello, World!'``.
+
+这些值又属于不同的 **类型（types）**：2是一个 **整型数（integer）**，42.0 是一个 **浮点数（floating point number）**，而 ``'Hello, World!'``则是一个 **字符串（string）**，之所以这么叫是因为其中的字符被串在了一起（strung together）。
+
+These values belong to different **types**: 2 is an **integer**, 42.0 is
+a **floating-point number**, and ``'Hello, World!'`` is a **string**,
+so-called because the letters it contains are strung together.
+
+如果你不确定某个值的类型是什么，解释器可以告诉你：
+
+If you are not sure what type a value has, the interpreter can tell you:
+
+::
+
+    >>> type(2)
+    <class 'int'>
+    >>> type(42.0)
+    <class 'float'>
+    >>> type('Hello, World!')
+    <class 'str'>
+
+In these results, the word “class” is used in the sense of a category; a
+type is a category of values.
+
+Not surprisingly, integers belong to the type int, strings belong to str
+and floating-point numbers belong to float.
+
+What about values like ``'2'`` and ``'42.0'``? They look like numbers,
+but they are in quotation marks like strings.
+
+::
+
+    >>> type('2')
+    <class 'str'>
+    >>> type('42.0')
+    <class 'str'>
+
+They’re strings.
+
+When you type a large integer, you might be tempted to use commas
+between groups of digits, as in 1,000,000. This is not a legal *integer*
+in Python, but it is legal:
+
+::
+
+    >>> 1,000,000
+    (1, 0, 0)
+
+That’s not what we expected at all! Python interprets 1,000,000 as a
+comma-separated sequence of integers. We’ll learn more about this kind
+of sequence later.
+
+Formal and natural languages
+----------------------------
+
+**Natural languages** are the languages people speak, such as English,
+Spanish, and French. They were not designed by people (although people
+try to impose some order on them); they evolved naturally.
+
+**Formal languages** are languages that are designed by people for
+specific applications. For example, the notation that mathematicians use
+is a formal language that is particularly good at denoting relationships
+among numbers and symbols. Chemists use a formal language to represent
+the chemical structure of molecules. And most importantly:
+
+    **Programming languages are formal languages that have been designed
+    to express computations.**
+
+Formal languages tend to have strict **syntax** rules that govern the
+structure of statements. For example, in mathematics the statement
+:math:`3 + 3 = 6` has correct syntax, but :math:`3 + = 3 \$ 6` does not.
+In chemistry :math:`H_2O` is a syntactically correct formula, but
+:math:`_2Zz` is not.
+
+Syntax rules come in two flavors, pertaining to **tokens** and
+structure. Tokens are the basic elements of the language, such as words,
+numbers, and chemical elements. One of the problems with
+:math:`3 += 3 \$ 6` is that :math:` \$ ` is not a legal token in
+mathematics (at least as far as I know). Similarly, :math:`_2Zz` is not
+legal because there is no element with the abbreviation :math:`Zz`.
+
+The second type of syntax rule pertains to the way tokens are combined.
+The equation :math:`3 += 3` is illegal because even though :math:`+` and
+:math:`=` are legal tokens, you can’t have one right after the other.
+Similarly, in a chemical formula the subscript comes after the element
+name, not before.
+
+This is @ well-structured Engli$h sentence with invalid t\*kens in it.
+This sentence all valid tokens has, but invalid structure with.
+
+When you read a sentence in English or a statement in a formal language,
+you have to figure out the structure (although in a natural language you
+do this subconsciously). This process is called **parsing**.
+
+Although formal and natural languages have many features in
+common—tokens, structure, and syntax—there are some differences:
+
+ambiguity:
+    Natural languages are full of ambiguity, which people deal with by
+    using contextual clues and other information. Formal languages are
+    designed to be nearly or completely unambiguous, which means that
+    any statement has exactly one meaning, regardless of context.
+
+redundancy:
+    In order to make up for ambiguity and reduce misunderstandings,
+    natural languages employ lots of redundancy. As a result, they are
+    often verbose. Formal languages are less redundant and more concise.
+
+literalness:
+    Natural languages are full of idiom and metaphor. If I say, “The
+    penny dropped”, there is probably no penny and nothing dropping
+    (this idiom means that someone understood something after a period
+    of confusion). Formal languages mean exactly what they say.
+
+Because we all grow up speaking natural languages, it is sometimes hard
+to adjust to formal languages. The difference between formal and natural
+language is like the difference between poetry and prose, but more so:
+
+Poetry:
+    Words are used for their sounds as well as for their meaning, and
+    the whole poem together creates an effect or emotional response.
+    Ambiguity is not only common but often deliberate.
+
+Prose:
+    The literal meaning of words is more important, and the structure
+    contributes more meaning. Prose is more amenable to analysis than
+    poetry but still often ambiguous.
+
+Programs:
+    The meaning of a computer program is unambiguous and literal, and
+    can be understood entirely by analysis of the tokens and structure.
+
+Formal languages are more dense than natural languages, so it takes
+longer to read them. Also, the structure is important, so it is not
+always best to read from top to bottom, left to right. Instead, learn to
+parse the program in your head, identifying the tokens and interpreting
+the structure. Finally, the details matter. Small errors in spelling and
+punctuation, which you can get away with in natural languages, can make
+a big difference in a formal language.
+
+Debugging
+---------
+
+Programmers make mistakes. For whimsical reasons, programming errors are
+called **bugs** and the process of tracking them down is called
+**debugging**.
+
+Programming, and especially debugging, sometimes brings out strong
+emotions. If you are struggling with a difficult bug, you might feel
+angry, despondent, or embarrassed.
+
+There is evidence that people naturally respond to computers as if they
+were people. When they work well, we think of them as teammates, and
+when they are obstinate or rude, we respond to them the same way we
+respond to rude, obstinate people (Reeves and Nass, *The Media Equation:
+How People Treat Computers, Television, and New Media Like Real People
+and Places*).
+
+Preparing for these reactions might help you deal with them. One
+approach is to think of the computer as an employee with certain
+strengths, like speed and precision, and particular weaknesses, like
+lack of empathy and inability to grasp the big picture.
+
+Your job is to be a good manager: find ways to take advantage of the
+strengths and mitigate the weaknesses. And find ways to use your
+emotions to engage with the problem, without letting your reactions
+interfere with your ability to work effectively.
+
+Learning to debug can be frustrating, but it is a valuable skill that is
+useful for many activities beyond programming. At the end of each
+chapter there is a section, like this one, with my suggestions for
+debugging. I hope they help!
+
+Glossary
+--------
+
+problem solving:
+    The process of formulating a problem, finding a solution, and
+    expressing it.
+
+high-level language:
+    A programming language like Python that is designed to be easy for
+    humans to read and write.
+
+low-level language:
+    A programming language that is designed to be easy for a computer to
+    run; also called “machine language” or “assembly language”.
+
+portability:
+    A property of a program that can run on more than one kind of
+    computer.
+
+interpreter:
+    A program that reads another program and executes it
+
+prompt:
+    Characters displayed by the interpreter to indicate that it is ready
+    to take input from the user.
+
+program:
+    A set of instructions that specifies a computation.
+
+print statement:
+    An instruction that causes the Python interpreter to display a value
+    on the screen.
+
+operator:
+    A special symbol that represents a simple computation like addition,
+    multiplication, or string concatenation.
+
+value:
+    One of the basic units of data, like a number or string, that a
+    program manipulates.
+
+type:
+    A category of values. The types we have seen so far are integers
+    (type int), floating-point numbers (type float), and strings (type
+    str).
+
+integer:
+    A type that represents whole numbers.
+
+floating-point:
+    A type that represents numbers with fractional parts.
+
+string:
+    A type that represents sequences of characters.
+
+natural language:
+    Any one of the languages that people speak that evolved naturally.
+
+formal language:
+    Any one of the languages that people have designed for specific
+    purposes, such as representing mathematical ideas or computer
+    programs; all programming languages are formal languages.
+
+token:
+    One of the basic elements of the syntactic structure of a program,
+    analogous to a word in a natural language.
+
+syntax:
+    The rules that govern the structure of a program.
+
+parse:
+    To examine a program and analyze the syntactic structure.
+
+bug:
+    An error in a program.
+
+debugging:
+    The process of finding and correcting bugs.
+
+Exercises
+---------
+
+It is a good idea to read this book in front of a computer so you can
+try out the examples as you go.
+
+Whenever you are experimenting with a new feature, you should try to
+make mistakes. For example, in the “Hello, world!” program, what happens
+if you leave out one of the quotation marks? What if you leave out both?
+What if you spell print wrong?
+
+This kind of experiment helps you remember what you read; it also helps
+when you are programming, because you get to know what the error
+messages mean. It is better to make mistakes now and on purpose than
+later and accidentally.
+
+#. In a print statement, what happens if you leave out one of the
+   parentheses, or both?
+
+#. If you are trying to print a string, what happens if you leave out
+   one of the quotation marks, or both?
+
+#. You can use a minus sign to make a negative number like -2. What
+   happens if you put a plus sign before a number? What about 2++2?
+
+#. In math notation, leading zeros are ok, as in 02. What happens if you
+   try this in Python?
+
+#. What happens if you have two values with no operator between them?
+
+Start the Python interpreter and use it as a calculator.
+
+#. How many seconds are there in 42 minutes 42 seconds?
+
+#. How many miles are there in 10 kilometers? Hint: there are 1.61
+   kilometers in a mile.
+
+#. If you run a 10 kilometer race in 42 minutes 42 seconds, what is your
+   average pace (time per mile in minutes and seconds)? What is your
+   average speed in miles per hour?
