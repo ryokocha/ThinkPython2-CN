@@ -13,6 +13,7 @@ Contents:
 
    preface
    the-way-of-the-program
+   variables-expressions-and-statements
 
 
 Indices and tables
