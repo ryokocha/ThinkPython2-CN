@@ -13,6 +13,8 @@
 
   
   
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
 
   
 
@@ -169,7 +171,7 @@ result of the previous example.</p>
 这种图被称为<strong>状态图（state
 diagram）</strong>，因为它展示了每个变量所处的状态（可以把其看成是变量的心理状态）。
 下图展示了前面例子的结果。</p>
-<div class="figure" id="id12">
+<div class="figure" id="id18">
 <img alt="状态图。" src="_images/state2.png" />
 <p class="caption"><span class="caption-text">状态图。</span></p>
 </div>
@@ -620,7 +622,13 @@ programmer intended.</dd>
 <p>Repeating my advice from the previous chapter, whenever you learn a new
 feature, you should try it out in interactive mode and make errors on
 purpose to see what goes wrong.</p>
+<p>和上一章一样，我还是要建议大家在学习新特性之后，在交互模式下充分尝试，故意犯一些错误，看看到底会出什么问题。</p>
 <ul class="simple">
+<li>我们已经知道 <code class="docutils literal"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">42</span></code> 是合法的。那么 <a href="#id12"><span class="problematic" id="id13">``</span></a>42 = n``呢？</li>
+<li><code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">12</span></code> 又合法吗？</li>
+<li>在某些编程语言中，每个语句都是以分号 <a href="#id14"><span class="problematic" id="id15">``</span></a>；<a href="#id16"><span class="problematic" id="id17">``</span></a>结束的。如果你在一个Python语句后也以分号结尾，会发生什么？</li>
+<li>如果在语句最后带上分号呢？</li>
+<li>在数学记法中，你可以像这样将 <span class="math">\(x\)</span> 和 <span class="math">\(y\)</span> 相乘：<span class="math">\(x y\)</span>。如果你在Python中也这么写的话，会发生什么？</li>
 <li>We’ve seen that n = 42 is legal. What about 42 = n?</li>
 <li>How about x = y = 1?</li>
 <li>In some languages every statement ends with a semi-colon, ;. What
@@ -630,16 +638,26 @@ happens if you put a semi-colon at the end of a Python statement?</li>
 <span class="math">\(x y\)</span>. What happens if you try that in Python?</li>
 </ul>
 <p>Practice using the Python interpreter as a calculator:</p>
-<ol class="arabic simple">
-<li>The volume of a sphere with radius <span class="math">\(r\)</span> is
+<p>继续练习将Python解释器当做计算器使用：</p>
+<ol class="arabic">
+<li><p class="first">The volume of a sphere with radius <span class="math">\(r\)</span> is
 <span class="math">\(\frac{4}{3} \pi r^3\)</span>. What is the volume of a sphere with
-radius 5?</li>
-<li>Suppose the cover price of a book is $24.95, but bookstores get a 40%
+radius 5?
+半径为<span class="math">\(r\)</span>的球体积是<span class="math">\(\frac{4}{3} \pi r^3\)</span>。
+半径为5的球体积是多少？</p>
+</li>
+<li><p class="first">Suppose the cover price of a book is $24.95, but bookstores get a 40%
 discount. Shipping costs $3 for the first copy and 75 cents for each
-additional copy. What is the total wholesale cost for 60 copies?</li>
-<li>If I leave my house at 6:52 am and run 1 mile at an easy pace (8:15
+additional copy. What is the total wholesale cost for 60 copies?</p>
+<p>假设一本书的零售价是$24.95，但书店有40%的折扣。运费则是第一本$3，以后每本75美分。
+购买60本的总价是多少？</p>
+</li>
+<li><p class="first">If I leave my house at 6:52 am and run 1 mile at an easy pace (8:15
 per mile), then 3 miles at tempo (7:12 per mile) and 1 mile at easy
-pace again, what time do I get home for breakfast?</li>
+pace again, what time do I get home for breakfast?
+如果我上午6:52离开家，以随意的节奏跑1英里（每英里8:15），再以
+较快速度跑3英里（每英里7:12)，之后又以随意的节奏跑1英里，我什么时候回到家吃早饭？</p>
+</li>
 </ol>
 </div>
 </div>
@@ -662,6 +680,7 @@ pace again, what time do I get home for breakfast?</li>
   <div role="contentinfo">
     <p>
         &copy; 版权所有 2016, EarlGrey@codingpy.com.
+      最后更新于 Feb 28, 2016.
 
     </p>
   </div>

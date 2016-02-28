@@ -137,7 +137,7 @@ Python的 **解释器** 是一个读取并执行Python代码的程序。根据�
     >>> 6 ^ 2
     4
 
-我打算在本书中介绍位运算符，但是你可以阅读 `Python官方百科 <http://wiki.python.org/moin/BitwiseOperators>`_ ，了解相关内容。
+我不打算在本书中介绍位运算符，但是你可以阅读 `Python官方百科 <http://wiki.python.org/moin/BitwiseOperators>`_ ，了解相关内容。
 
 --------
 
@@ -205,7 +205,7 @@ Python的 **解释器** 是一个读取并执行Python代码的程序。根据�
 “This is @ well-structured Engli$h sentence with invalid t\*kens in it.
 This sentence all valid tokens has, but invalid structure with.”
 
-    译者注：上面两句英文都是不符合语法的，一个包含非法标记，另一个句子结构不和语法。
+    译者注：上面两句英文都是不符合语法的，一个包含非法标记，另一个结构不符合语法。
 
 当你读一个用英语写的句子或者用形式语言写的语句时，你都必须要理清各自的结构（尽管在阅读自然语言时，你是下意识地进行的）。这个过程被称为 **解析（parsing）**。
 

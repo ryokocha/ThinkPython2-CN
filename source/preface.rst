@@ -43,46 +43,35 @@ Python。2001年，通过Green Tea Press，我出版了本书的第一个Python�
 
 此后，我一直致力于改善本书，纠正错误，改进一些示例，新增教学材料，尤其是练习题。
 
-最后的结果，就是此书。现在的书名更加实在\ *Think
-Python*\ 。下面是一些变化：
+最后的结果，就是此书。现在的书名没有之前那么浮夸，就叫《\ *Think
+Python*\ 》 。下面是一些变化：
 
--  I added a section about debugging at the end of each chapter. These
-   sections present general techniques for finding and avoiding bugs,
-   and warnings about Python pitfalls.
+-  我在每章的最后新增了一个名叫调试的小节。我会在这些小节中，为大家介绍如何发现及避免bug的一般技巧，并提醒大家注意使用Python过程中可能的陷阱。
 
--  I added more exercises, ranging from short tests of understanding to
-   a few substantial projects. Most exercises include a link to my
-   solution.
+-  我增补了更多的练习题，从测试是否理解书中概念的小测试，到部分较大的项目。大部分的练习题后，我都会附上答案的链接。
 
--  I added a series of case studies—longer examples with exercises,
-   solutions, and discussion.
+-  我新增了一系列案例研究——更长的代码示例，既有练习题，也有答题解释和讨论。
 
--  I expanded the discussion of program development plans and basic
-   design patterns.
+-  我扩充了对程序开发计划及基本设计模式的内容介绍。
 
--  I added appendices about debugging and analysis of algorithms.
+-  我增加了关于调试和算法分析的附录。
 
-The second edition of *Think Python* has these new features:
+*《Think Python》* 第二版还有以下新特点：
 
--  The book and all supporting code have been updated to Python 3.
+-  本书及其中的代码都已更新至Python 3。
 
--  I added a few sections, and more details on the web, to help
-   beginners get started running Python in a browser, so you don’t have
-   to deal with installing Python until you want to.
+-  我增加了一些小节内容，还在本书网站上介绍如何在网络浏览器上运行Python。这样，如果你嫌麻烦的话，就可以先不用在本地安装Python。
 
--  For Chapter [turtle] I switched from my own turtle graphics package,
-   called Swampy, to a more standard Python module, turtle, which is
-   easier to install and more powerful.
+-  在海龟绘图这章中，我没有继续使用自己编写的海龟绘图包``Swampy``，改用了一个更标准的Python包 ``turtle``。这个包更容易安装，也更强大。
 
--  I added a new chapter called “The Goodies”, which introduces some
-   additional Python features that are not strictly necessary, but
-   sometimes handy.
+-  我新增了一个叫作“The Goodies”的章节，给大家介绍一些严格来说并不是必须了解的Python特性，不过有时候这些特性还是很方便的。
 
-I hope you enjoy working with this book, and that it helps you learn to
-program and think like a computer scientist, at least a little bit.
+我希望你能使用该书愉快的工作，也希望它能帮助你学习编程，学会像计算机科学家一样思考，至少有那么一点像。
 
 | Allen B. Downey
 | Olin College
+
+----
 
 Acknowledgments
 ---------------

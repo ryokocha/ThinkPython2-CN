@@ -644,6 +644,14 @@ Repeating my advice from the previous chapter, whenever you learn a new
 feature, you should try it out in interactive mode and make errors on
 purpose to see what goes wrong.
 
+和上一章一样，我还是要建议大家在学习新特性之后，在交互模式下充分尝试，故意犯一些错误，看看到底会出什么问题。
+
+- 我们已经知道 ``n = 42`` 是合法的。那么 ``42 = n``呢？
+- ``x = y = 12`` 又合法吗？
+- 在某些编程语言中，每个语句都是以分号 ``；``结束的。如果你在一个Python语句后也以分号结尾，会发生什么？
+- 如果在语句最后带上分号呢？
+- 在数学记法中，你可以像这样将 :math:`x` 和 :math:`y` 相乘：:math:`x y`。如果你在Python中也这么写的话，会发生什么？
+
 -  We’ve seen that n = 42 is legal. What about 42 = n?
 
 -  How about x = y = 1?
@@ -658,14 +666,23 @@ purpose to see what goes wrong.
 
 Practice using the Python interpreter as a calculator:
 
+继续练习将Python解释器当做计算器使用：
+
 #. The volume of a sphere with radius :math:`r` is
    :math:`\frac{4}{3} \pi r^3`. What is the volume of a sphere with
    radius 5?
+   半径为\ :math:`r`\ 的球体积是\ :math:`\frac{4}{3} \pi r^3`\ 。
+   半径为5的球体积是多少？
 
 #. Suppose the cover price of a book is $24.95, but bookstores get a 40%
    discount. Shipping costs $3 for the first copy and 75 cents for each
    additional copy. What is the total wholesale cost for 60 copies?
 
+   假设一本书的零售价是$24.95，但书店有40%的折扣。运费则是第一本$3，以后每本75美分。
+   购买60本的总价是多少？
+
 #. If I leave my house at 6:52 am and run 1 mile at an easy pace (8:15
    per mile), then 3 miles at tempo (7:12 per mile) and 1 mile at easy
    pace again, what time do I get home for breakfast?
+   如果我上午6:52离开家，以随意的节奏跑1英里（每英里8:15），再以
+   较快速度跑3英里（每英里7:12)，之后又以随意的节奏跑1英里，我什么时候回到家吃早饭？
