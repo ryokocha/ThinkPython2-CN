@@ -8,7 +8,12 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>《Think Python》第二版 &mdash; 《Think Python 2ed》中译本 1.0 文档</title>
+  <title>《Think Python 2ed》最新版中文翻译 &mdash; 《Think Python 2ed》中译本 1.0 文档</title>
+  
+
+  
+    <meta name="keywords" content="《Think Python》第二版中译文, Python 3版入门教材, Allen Downey, EarlGrey, 编程派">
+    <meta name="description" content="编程派翻译的《Think Python 2ed》中文版，为最新支持Python 3版的教材。">
   
 
   
@@ -33,11 +38,34 @@
 
   
     <link rel="top" title="《Think Python 2ed》中译本 1.0 文档" href="#"/>
-        <link rel="next" title="前言" href="preface.html"/> 
+        <link rel="next" title="译者的话" href="foreword.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?1a54d19172d7819c009872071839bfe3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-69612020-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -83,9 +111,17 @@
             
             
                 <ul>
-<li class="toctree-l1"><a class="reference internal" href="preface.html">前言</a></li>
-<li class="toctree-l1"><a class="reference internal" href="the-way-of-the-program.html">第一章：程序之道</a></li>
-<li class="toctree-l1"><a class="reference internal" href="variables-expressions-and-statements.html">第二章：变量、表达式和语句</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html">译者的话</a></li>
+<li class="toctree-l1"><a class="reference internal" href="00-preface.html">前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-case-study-interface-design.html">Case study: interface design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-conditionals-and-recursion.html">Conditionals and recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-fruitful-functions.html">Fruitful functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-iteration.html">Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-case-study-word-play.html">Case study: word play</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-dictionaries.html">Dictionaries</a></li>
 </ul>
 
             
@@ -116,7 +152,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="#">Docs</a> &raquo;</li>
       
-    <li>《Think Python》第二版</li>
+    <li>《Think Python 2ed》最新版中文翻译</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -130,40 +166,158 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="think-python">
-<h1>《Think Python》第二版<a class="headerlink" href="#think-python" title="永久链接至标题">¶</a></h1>
+  <div class="section" id="think-python-2ed">
+<h1>《Think Python 2ed》最新版中文翻译<a class="headerlink" href="#think-python-2ed" title="永久链接至标题">¶</a></h1>
 <p>Contents:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="preface.html">前言</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="preface.html#id2">本书与众不同的历史</a></li>
-<li class="toctree-l2"><a class="reference internal" href="preface.html#acknowledgments">Acknowledgments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="preface.html#contributor-list">Contributor List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html">译者的话</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="foreword.html#id2">为什么想要翻译一本书？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foreword.html#think-python">为什么选择《Think Python》</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foreword.html#python-3">为什么翻译Python 3版？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foreword.html#id3">微信放送计划</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foreword.html#id4">支持本书的翻译计划</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foreword.html#id5">加入本书的翻译</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foreword.html#id6">贡献者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foreword.html#id7">声明</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="the-way-of-the-program.html">第一章：程序之道</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="the-way-of-the-program.html#id2">什么是程序？</a></li>
-<li class="toctree-l2"><a class="reference internal" href="the-way-of-the-program.html#python">运行Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="the-way-of-the-program.html#id3">第一个程序</a></li>
-<li class="toctree-l2"><a class="reference internal" href="the-way-of-the-program.html#id4">算术运算符</a></li>
-<li class="toctree-l2"><a class="reference internal" href="the-way-of-the-program.html#id6">值和类型</a></li>
-<li class="toctree-l2"><a class="reference internal" href="the-way-of-the-program.html#id7">形式语言和自然语言</a></li>
-<li class="toctree-l2"><a class="reference internal" href="the-way-of-the-program.html#id8">调试</a></li>
-<li class="toctree-l2"><a class="reference internal" href="the-way-of-the-program.html#id9">词汇表</a></li>
-<li class="toctree-l2"><a class="reference internal" href="the-way-of-the-program.html#id10">练习题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="00-preface.html">前言</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="00-preface.html#id2">本书与众不同的历史</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00-preface.html#acknowledgments">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00-preface.html#contributor-list">Contributor List</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="variables-expressions-and-statements.html">第二章：变量、表达式和语句</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="variables-expressions-and-statements.html#id2">赋值语句</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variables-expressions-and-statements.html#id3">变量名</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variables-expressions-and-statements.html#id4">表达式和语句</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variables-expressions-and-statements.html#id5">脚本模式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variables-expressions-and-statements.html#id6">运算的顺序</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variables-expressions-and-statements.html#id7">字符串运算</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variables-expressions-and-statements.html#id8">注释</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variables-expressions-and-statements.html#id9">调试</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variables-expressions-and-statements.html#id10">词汇表</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variables-expressions-and-statements.html#id11">练习题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="03-functions.html#function-calls">Function calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-functions.html#math-functions">Math functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-functions.html#composition">Composition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-functions.html#adding-new-functions">Adding new functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-functions.html#definitions-and-uses">Definitions and uses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-functions.html#flow-of-execution">Flow of execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-functions.html#parameters-and-arguments">Parameters and arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-functions.html#variables-and-parameters-are-local">Variables and parameters are local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-functions.html#stack-diagrams">Stack diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-functions.html#fruitful-functions-and-void-functions">Fruitful functions and void functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-functions.html#why-functions">Why functions?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-functions.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-functions.html#glossary">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-functions.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04-case-study-interface-design.html">Case study: interface design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="04-case-study-interface-design.html#the-turtle-module">The turtle module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-case-study-interface-design.html#simple-repetition">Simple repetition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-case-study-interface-design.html#exercises">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-case-study-interface-design.html#encapsulation">Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-case-study-interface-design.html#generalization">Generalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-case-study-interface-design.html#interface-design">Interface design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-case-study-interface-design.html#refactoring">Refactoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-case-study-interface-design.html#a-development-plan">A development plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-case-study-interface-design.html#docstring">docstring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-case-study-interface-design.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-case-study-interface-design.html#glossary">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-case-study-interface-design.html#id1">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="05-conditionals-and-recursion.html">Conditionals and recursion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="05-conditionals-and-recursion.html#floor-division-and-modulus">Floor division and modulus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-conditionals-and-recursion.html#boolean-expressions">Boolean expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-conditionals-and-recursion.html#logical-operators">Logical operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-conditionals-and-recursion.html#conditional-execution">Conditional execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-conditionals-and-recursion.html#alternative-execution">Alternative execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-conditionals-and-recursion.html#chained-conditionals">Chained conditionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-conditionals-and-recursion.html#nested-conditionals">Nested conditionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-conditionals-and-recursion.html#recursion">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-conditionals-and-recursion.html#stack-diagrams-for-recursive-functions">Stack diagrams for recursive functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-conditionals-and-recursion.html#infinite-recursion">Infinite recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-conditionals-and-recursion.html#keyboard-input">Keyboard input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-conditionals-and-recursion.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-conditionals-and-recursion.html#glossary">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-conditionals-and-recursion.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="06-fruitful-functions.html">Fruitful functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="06-fruitful-functions.html#return-values">Return values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-fruitful-functions.html#incremental-development">Incremental development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-fruitful-functions.html#composition">Composition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-fruitful-functions.html#boolean-functions">Boolean functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-fruitful-functions.html#more-recursion">More recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-fruitful-functions.html#leap-of-faith">Leap of faith</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-fruitful-functions.html#one-more-example">One more example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-fruitful-functions.html#checking-types">Checking types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-fruitful-functions.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-fruitful-functions.html#glossary">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-fruitful-functions.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="07-iteration.html">Iteration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="07-iteration.html#reassignment">Reassignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-iteration.html#updating-variables">Updating variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-iteration.html#the-while-statement">The while statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-iteration.html#break">break</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-iteration.html#square-roots">Square roots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-iteration.html#algorithms">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-iteration.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-iteration.html#glossary">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-iteration.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="08-strings.html">Strings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="08-strings.html#a-string-is-a-sequence">A string is a sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-strings.html#len">len</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-strings.html#traversal-with-a-for-loop">Traversal with a for loop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-strings.html#string-slices">String slices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-strings.html#strings-are-immutable">Strings are immutable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-strings.html#searching">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-strings.html#looping-and-counting">Looping and counting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-strings.html#string-methods">String methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-strings.html#the-in-operator">The in operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-strings.html#string-comparison">String comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-strings.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-strings.html#glossary">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-strings.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="09-case-study-word-play.html">Case study: word play</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="09-case-study-word-play.html#reading-word-lists">Reading word lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-case-study-word-play.html#exercises">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-case-study-word-play.html#search">Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-case-study-word-play.html#looping-with-indices">Looping with indices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-case-study-word-play.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-case-study-word-play.html#glossary">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-case-study-word-play.html#id1">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="10-lists.html">Lists</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10-lists.html#a-list-is-a-sequence">A list is a sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-lists.html#lists-are-mutable">Lists are mutable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-lists.html#traversing-a-list">Traversing a list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-lists.html#list-operations">List operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-lists.html#list-slices">List slices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-lists.html#list-methods">List methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-lists.html#map-filter-and-reduce">Map, filter and reduce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-lists.html#deleting-elements">Deleting elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-lists.html#lists-and-strings">Lists and strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-lists.html#objects-and-values">Objects and values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-lists.html#aliasing">Aliasing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-lists.html#list-arguments">List arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-lists.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-lists.html#glossary">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-lists.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="11-dictionaries.html">Dictionaries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="11-dictionaries.html#a-dictionary-is-a-mapping">A dictionary is a mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-dictionaries.html#dictionary-as-a-collection-of-counters">Dictionary as a collection of counters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-dictionaries.html#looping-and-dictionaries">Looping and dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-dictionaries.html#reverse-lookup">Reverse lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-dictionaries.html#dictionaries-and-lists">Dictionaries and lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-dictionaries.html#memos">Memos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-dictionaries.html#global-variables">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-dictionaries.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-dictionaries.html#glossary">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-dictionaries.html#exercises">Exercises</a></li>
 </ul>
 </li>
 </ul>
@@ -185,7 +339,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="preface.html" class="btn btn-neutral float-right" title="前言" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="foreword.html" class="btn btn-neutral float-right" title="译者的话" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -195,8 +349,8 @@
 
   <div role="contentinfo">
     <p>
-        &copy; 版权所有 2016, EarlGrey@codingpy.com.
-      最后更新于 Feb 28, 2016.
+        &copy; 版权所有 2016, EarlGrey et.al.
+      最后更新于 Feb 29, 2016.
 
     </p>
   </div>

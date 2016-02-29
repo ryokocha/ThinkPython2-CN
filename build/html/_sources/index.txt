@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-《Think Python》第二版
+《Think Python 2ed》最新版中文翻译
 ========================================================================
 
 Contents:
@@ -11,9 +11,19 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   preface
-   the-way-of-the-program
-   variables-expressions-and-statements
+   foreword
+   00-preface
+   01-the-way-of-the-program
+   02-variables-expressions-and-statements
+   03-functions
+   04-case-study-interface-design
+   05-conditionals-and-recursion
+   06-fruitful-functions
+   07-iteration
+   08-strings
+   09-case-study-word-play
+   10-lists
+   11-dictionaries
 
 
 Indices and tables

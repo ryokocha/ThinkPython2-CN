@@ -53,7 +53,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = '《Think Python 2ed》中译本'
-copyright = '2016, EarlGrey@codingpy.com'
+copyright = '2016, EarlGrey et.al'
 author = 'Allen Downey'
 translator = 'EarlGrey'
 
@@ -119,7 +119,7 @@ import sphinx_rtd_theme
 
 html_theme = "sphinx_rtd_theme"
 
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+# html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -127,7 +127,7 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 #html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
-#html_theme_path = []
+html_theme_path = ["_theme"]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
