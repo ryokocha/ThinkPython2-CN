@@ -63,7 +63,7 @@
 
 ## 贡献者
 
-To be added。
+[F-Karl](https://github.com/F-Karl)：第七章 Iteration
 
 ## 声明
 
