@@ -1,5 +1,40 @@
 # 《Think Python 2ed》最新版中文翻译
 
+## 贡献者
+
+希望参与翻译的朋友，请提PR，直接在下面的表格中对应的章节（还未注明译者的章节）处加上自己的名字及Github主页链接。
+
+| 章节 | 译者 |
+|------|------|
+| [前言](./source/00-preface.rst) | [@bingjin](https://github.com/bingjin) |
+| [第一章]()     | [@bingjin](https://github.com/bingjin)  |
+| [第二章]()     | [@bingjin](https://github.com/bingjin)  |
+| [第三章]()     | [@bingjin](https://github.com/bingjin)  |
+| [第四章](./source/04-functions.rst)     | [@bingjin](https://github.com/bingjin)  |
+| [第五章](./source/05-conditionals-and-recursion.rst)     | [@ipyher](https://github.com/iphyer)    |
+| [第六章](./source/06-fruitful-functions.rst)     |      |
+| [第七章](./source/07-iterations.rst)     | [@F-Karl](https://github.com/F-Karl)    |
+| [第八章](./source/08-strings.rst)     | [@xpgeng](https://github.com/xpgeng)    |
+| 第九章     |      |
+| 第十章     |      |
+| 第十一章     |      |
+| 第十二章     |      |
+| 第十三章     |      |
+| 第十四章     |      |
+| 第十五章     |      |
+| 第十六章     |      |
+| 第十七章     |      |
+| 第十八章     |      |
+| 第十九章     |      |
+| 第二十章     |      |
+| 第二十一章     |      |
+
+校对将由我自己完成。
+
+本书翻译完成后，我会将最终的文档托管在[编程派网站](http://codingpy.com)，并提供PDF等其他格式的分享链接。
+
+## 编程派站长的自我介绍
+
 我是一名自学Python的编程爱好者。之所以说是爱好者，是因为我不是计算机专业毕业的。我的第一个单位是一家媒体，因为工作关系对当时新闻界流行的数据视觉化十分感兴趣，从《鲜活的数据》一书中了解到Python编程语言。而我使用的第一本教材，就是Allen Downey的《Think Python》，副标题叫“如何像计算机科学家一样思考”。
 
 后来，我到了一家互联网公司，接触运营工作。我也利用业余时间开发出了自己的网站——[编程派](http://codingpy.com)，而网站的定位就是专注Python编程，这也是网站名称和网站域名的由来：“编程派”中的“派”字，取自Python前两个字母的发音；codingpy，则是coding python的缩略。了解Python的朋友都知道，Python脚本的默认文件名后缀就是`.py`。
@@ -54,16 +89,6 @@
 当然，如果你愿意的话，你还可以扫描下面的二维码，让我能够一边翻书一边喝咖啡的。O(∩_∩)O~
 
 ![赞助编程派的翻译计划](http://ww1.sinaimg.cn/mw690/006faQNTgw1f1g1gf903aj308w0ai74q.jpg)
-
-## 加入本书的翻译
-
-已经有两位同学表示愿意加入本书的翻译工作，其他希望加入的同学可以fork该repo，并提交issue说明希望负责哪几章。你可以在所负责章节一开头处，注明你在Gitub的ID和链接。
-
-本书翻译完成后，我会将最终的文档托管在[编程派网站](http://codingpy.com)，并提供PDF等其他格式的分享链接。
-
-## 贡献者
-
-[F-Karl](https://github.com/F-Karl)：第七章 Iteration
 
 ## 声明
 
