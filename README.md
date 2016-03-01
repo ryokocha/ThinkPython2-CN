@@ -7,10 +7,10 @@
 | 章节 | 译者 |
 |------|------|
 | [前言](./source/00-preface.rst) | [@bingjin](https://github.com/bingjin) |
-| [第一章]()     | [@bingjin](https://github.com/bingjin)  |
-| [第二章]()     | [@bingjin](https://github.com/bingjin)  |
-| [第三章]()     | [@bingjin](https://github.com/bingjin)  |
-| [第四章](./source/04-functions.rst)     | [@bingjin](https://github.com/bingjin)  |
+| [第一章](./source/01-the-way-of-the-program.rst)     | [@bingjin](https://github.com/bingjin)  |
+| [第二章](./source/02-variables-expressions-and-statements.rst)     | [@bingjin](https://github.com/bingjin)  |
+| [第三章](./source/03-functions.rst)     | [@bingjin](https://github.com/bingjin)  |
+| [第四章](./source/04-case-study-interface-design.rst)     | [@bingjin](https://github.com/bingjin)  |
 | [第五章](./source/05-conditionals-and-recursion.rst)     | [@ipyher](https://github.com/iphyer)    |
 | [第六章](./source/06-fruitful-functions.rst)     |      |
 | [第七章](./source/07-iterations.rst)     | [@F-Karl](https://github.com/F-Karl)    |
