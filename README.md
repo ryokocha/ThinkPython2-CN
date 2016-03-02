@@ -12,7 +12,7 @@
 | [第三章](./source/03-functions.rst)     | [@bingjin](https://github.com/bingjin)  |
 | [第四章](./source/04-case-study-interface-design.rst)     | [@bingjin](https://github.com/bingjin)  |
 | [第五章](./source/05-conditionals-and-recursion.rst)     | [@ipyher](https://github.com/iphyer)    |
-| [第六章](./source/06-fruitful-functions.rst)     |      |
+| [第六章](./source/06-fruitful-functions.rst)     |   [@theJian](https://github.com/thejian)   |
 | [第七章](./source/07-iterations.rst)     | [@F-Karl](https://github.com/F-Karl)    |
 | [第八章](./source/08-strings.rst)     | [@xpgeng](https://github.com/xpgeng)    |
 | 第九章     |      |
