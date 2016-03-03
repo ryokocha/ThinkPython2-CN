@@ -83,52 +83,42 @@ in 运算符在列表中同样可以使用。
     >>> 'Brie' in cheeses
     False
 
-Traversing a list
+遍历一个列表
 -----------------
 
-The most common way to traverse the elements of a list is with a for
-loop. The syntax is the same as for strings:
+最常用的遍历列表的方式是使用for循环。语法和字符串类似：
 
 ::
 
     for cheese in cheeses:
         print(cheese)
 
-This works well if you only need to read the elements of the list. But
-if you want to write or update the elements, you need the indices. A
-common way to do that is to combine the built-in functions range and
-len:
+如果你只需要读取列表中的元素，这种方法已经足够。然而，如果你想要写入或者更新列表中的元素，你需要通过下标访问。一种常用的方法是结合内置函数range和len：
 
 ::
 
     for i in range(len(numbers)):
         numbers[i] = numbers[i] * 2
 
-This loop traverses the list and updates each element. len returns the
-number of elements in the list. range returns a list of indices from 0
-to :math:`n-1`, where :math:`n` is the length of the list. Each time
-through the loop i gets the index of the next element. The assignment
-statement in the body uses i to read the old value of the element and to
-assign the new value.
+这个循环对列表进行遍历并更新每个元素。len返回列表中的元素个数。range返回一个从0到:math:`n-1`下标的列表，其中:math:`n`是列表的长度。每次循环中，i得到下一个元素的下标。循环主体中的赋值语句使用i读取该元素旧值并且赋予其一个新值。
 
-A for loop over an empty list never runs the body:
+对一个空列表的for循环将不会执行循环的主体：
 
 ::
 
     for x in []:
         print('This never happens.')
 
-Although a list can contain another list, the nested list still counts
-as a single element. The length of this list is four:
+尽管一个列表可以包含另一个列表，一个嵌套到另一个列表中的列表本身还是被看作一个单个元素。下面这个列表的长度是4:
 
 ::
 
     ['spam', 1, ['Brie', 'Roquefort', 'Pol le Veq'], [1, 2, 3]]
 
-List operations
+列表操作
 ---------------
 
-The + operator concatenates lists:
++ 运算符连接多个列表:
 
 ::
 
@@ -138,7 +128,7 @@ The + operator concatenates lists:
     >>> c
     [1, 2, 3, 4, 5, 6]
 
-The operator repeats a list a given number of times:
+运算符*以给定次数的重复一个列表:
 
 ::
 
@@ -147,13 +137,12 @@ The operator repeats a list a given number of times:
     >>> [1, 2, 3] * 3
     [1, 2, 3, 1, 2, 3, 1, 2, 3]
 
-The first example repeats four times. The second example repeats the
-list three times.
+第一个例子重复4次.第二个例子重复了那个列表3次。
 
-List slices
+列表切片
 -----------
 
-The slice operator also works on lists:
+切片运算符同样对列表适用:
 
 ::
 
@@ -165,20 +154,18 @@ The slice operator also works on lists:
     >>> t[3:]
     ['d', 'e', 'f']
 
-If you omit the first index, the slice starts at the beginning. If you
-omit the second, the slice goes to the end. So if you omit both, the
-slice is a copy of the whole list.
+如果你忽略了第一个索引，切片将从列表头开始。如果你忽略了第二个，切片将会到列表尾结束。所以如果你两者都忽略，切片就是整个列表的一个拷贝。
 
 ::
 
     >>> t[:]
     ['a', 'b', 'c', 'd', 'e', 'f']
 
+由于列表是可变的，通常在对列表进行修改的操作之前做一个列表的拷贝会是很有用的。
 Since lists are mutable, it is often useful to make a copy before
 performing operations that modify lists.
 
-A slice operator on the left side of an assignment can update multiple
-elements:
+赋值语句左边的切片运算符可以更新多个元素:
 
 ::
 
@@ -187,11 +174,10 @@ elements:
     >>> t
     ['a', 'x', 'y', 'd', 'e', 'f']
 
-List methods
+列表方法
 ------------
 
-Python provides methods that operate on lists. For example, append adds
-a new element to the end of a list:
+Python为列表提供了一些方法. 例如, append 添加一个新元素到列表的末端:
 
 ::
 
@@ -200,7 +186,7 @@ a new element to the end of a list:
     >>> t
     ['a', 'b', 'c', 'd']
 
-extend takes a list as an argument and appends all of the elements:
+extend将一个列表作为参数，并以append方式添加其中的所有元素:
 
 ::
 
@@ -210,9 +196,9 @@ extend takes a list as an argument and appends all of the elements:
     >>> t1
     ['a', 'b', 'c', 'd', 'e']
 
-This example leaves t2 unmodified.
+这个例子中t2没有改动.
 
-sort arranges the elements of the list from low to high:
+sort 对列表中的元素从小到大进行排序:
 
 ::
 
@@ -221,9 +207,7 @@ sort arranges the elements of the list from low to high:
     >>> t
     ['a', 'b', 'c', 'd', 'e']
 
-Most list methods are void; they modify the list and return None. If you
-accidentally write t = t.sort(), you will be disappointed with the
-result.
+大部分列表的方法都是空的；他们对列表进行修改然后返回None。如果你意外的写了t.sort()，你将会对结果失望的。
 
 Map, filter and reduce
 ----------------------
