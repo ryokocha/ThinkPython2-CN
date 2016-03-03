@@ -326,12 +326,10 @@ remove的返回值是None.
 As usual, the slice selects all the elements up to but not including the
 second index.
 
-Lists and strings
+列表和字符串
 -----------------
 
-A string is a sequence of characters and a list is a sequence of values,
-but a list of characters is not the same as a string. To convert from a
-string to a list of characters, you can use list:
+一个字符串是一个字符的序列，一个列表是一个值的序列。但是一个字符的列表不同于字符串。可以使用list讲一个字符串转换为字符的列表:
 
 ::
 
@@ -340,12 +338,9 @@ string to a list of characters, you can use list:
     >>> t
     ['s', 'p', 'a', 'm']
 
-Because list is the name of a built-in function, you should avoid using
-it as a variable name. I also avoid l because it looks too much like 1.
-So that’s why I use t.
+由于list是内建函数名，所以你应避免使用它作为一个变量名。我同样避免使用l，因为它看起来很像1，因此我使用t。
 
-The list function breaks a string into individual letters. If you want
-to break a string into words, you can use the split method:
+list函数将字符串分割成单独的字符。如果你想将一个字符串分割成一些单词，你可以使用split方法:
 
 ::
 
@@ -354,9 +349,7 @@ to break a string into words, you can use the split method:
     >>> t
     ['pining', 'for', 'the', 'fjords']
 
-An optional argument called a **delimiter** specifies which characters
-to use as word boundaries. The following example uses a hyphen as a
-delimiter:
+一个叫做**分隔符**的可选参数指定了什么字符作为单词之间的分界线。下面的例子使用连字符作为分隔符:
 
 ::
 
@@ -366,9 +359,7 @@ delimiter:
     >>> t
     ['spam', 'spam', 'spam']
 
-join is the inverse of split. It takes a list of strings and
-concatenates the elements. join is a string method, so you have to
-invoke it on the delimiter and pass the list as a parameter:
+join功能和split相反。它将一个字符串列表的元素连接起来。join是一个字符串方法，所以你需要在一个分隔符上调用它，并传入一个列表作为参数:
 
 ::
 
@@ -378,34 +369,31 @@ invoke it on the delimiter and pass the list as a parameter:
     >>> s
     'pining for the fjords'
 
+在这个例子中分隔符是一个空格，所以join在单词之间添加一个空格。如果不使用空格连接字符串，你可以使用空字符串``''``作为分割符。
 In this case the delimiter is a space character, so join puts a space
 between words. To concatenate strings without spaces, you can use the
 empty string, ``''``, as a delimiter.
 
-Objects and values
+对象和值
 ------------------
 
-If we run these assignment statements:
+如果我们执行以下的赋值语句:
 
 ::
 
     a = 'banana'
     b = 'banana'
 
-We know that a and b both refer to a string, but we don’t know whether
-they refer to the *same* string. There are two possible states, shown in
-Figure [fig.list1].
+我们知道a和b都指向一个字符串，但是我们不知道是否他们指向*同一个*字符串。这里有两种可能的状态，在下图[fig.list1]中表示了出来：
 
 .. figure:: figs/list1.pdf
    :alt: State diagram.
 
-   State diagram.
+   状态图.
 
-In one case, a and b refer to two different objects that have the same
-value. In the second case, they refer to the same object.
+在一种情况中，a和b指向两个有相同值的不同对象。在第二种情况中，它们指向同一个对象。
 
-To check whether two variables refer to the same object, you can use the
-is operator.
+为了查看是否两个变量指向同一个同一个对象，你可以使用is运算符。
 
 ::
 
@@ -414,8 +402,7 @@ is operator.
     >>> a is b
     True
 
-In this example, Python only created one string object, and both a and b
-refer to it. But when you create two lists, you get two objects:
+在这个例子中，Python仅生成了一个字符串对象，a和b都指向它。但是当你创建两个列表，你将得到两个对象:
 
 ::
 
@@ -424,29 +411,21 @@ refer to it. But when you create two lists, you get two objects:
     >>> a is b
     False
 
-So the state diagram looks like Figure [fig.list2].
+状态图看起来是如图 [fig.list2]这样的.
 
 .. figure:: figs/list2.pdf
    :alt: State diagram.
 
-   State diagram.
+   状态图.
 
-In this case we would say that the two lists are **equivalent**, because
-they have the same elements, but not **identical**, because they are not
-the same object. If two objects are identical, they are also equivalent,
-but if they are equivalent, they are not necessarily identical.
+在这个例子中，我们称这两个列表是**相等**的，因为它们有相同的元素。但它们不是**相同**的，因为他们不是同一个对象。如果两个对象是**相同**的，它们也是相等的，但是如果它们是相等的，他们不一定是相同的。
 
-Until now, we have been using “object” and “value” interchangeably, but
-it is more precise to say that an object has a value. If you evaluate ,
-you get a list object whose value is a sequence of integers. If another
-list has the same elements, we say it has the same value, but it is not
-the same object.
+目前，我们一直交换的使用"对象"和“值”，但是更精确的说是一个对象拥有一个值。如果你运行 ！！！（缺失？），你会得到一个值为一个整数序列的列表对象。如果另一个列表有同样的元素，我们说它有相同的值，但是它并不是同一个对象。
 
-Aliasing
+别名
 --------
 
-If a refers to an object and you assign b = a, then both variables refer
-to the same object:
+如果a指向一个对象，然后你赋值b = a，那么两个变量指向同一个对象:
 
 ::
 
@@ -455,21 +434,18 @@ to the same object:
     >>> b is a
     True
 
-The state diagram looks like Figure [fig.list3].
+状态图如图 [fig.list3]所示.
 
 .. figure:: figs/list3.pdf
    :alt: State diagram.
 
-   State diagram.
+   状态图.
 
-The association of a variable with an object is called a **reference**.
-In this example, there are two references to the same object.
+一个变量和一个对象之间的关联称为**reference**。在这个例子中，有两个对同一个对象的引用。
 
-An object with more than one reference has more than one name, so we say
-that the object is **aliased**.
+如果一个对象有多于一个引用，我们成这个对象是**有别名的**。
 
-If the aliased object is mutable, changes made with one alias affect the
-other:
+如果一个有别名的对象是可变的，对其中一个别名的改变对影响到其它的别名：
 
 ::
 
@@ -477,19 +453,16 @@ other:
     >>> a
     [42, 2, 3]
 
-Although this behavior can be useful, it is error-prone. In general, it
-is safer to avoid aliasing when you are working with mutable objects.
+尽管这个行为很有用，但是容易造成错误。通常，对于可改变的对象避免使用别名相对更安全。
 
-For immutable objects like strings, aliasing is not as much of a
-problem. In this example:
+对于不可改变的对象，使用别名没有什么问题。例如：
 
 ::
 
     a = 'banana'
     b = 'banana'
 
-It almost never makes a difference whether a and b refer to the same
-string or not.
+使用a或b指向同一个字符串基本上没有任何区别。
 
 List arguments
 --------------
