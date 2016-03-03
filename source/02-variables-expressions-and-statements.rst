@@ -7,12 +7,14 @@ a value.
 
 编程语言最强大的特性之一，是操作\ **变量**\ 的能力。变量是指向某个值的名称。
 
+----
+
 赋值语句
 ---------------------
 
 An **assignment statement** creates a new variable and gives it a value:
 
-\ **赋值语句（assignment statement）**\ 会新建变量，并进行赋值。
+\ **赋值语句（assignment statement）**\ 会新建变量，并为这个变量赋值。
 
 ::
 
@@ -33,7 +35,7 @@ diagram** because it shows what state each of the variables is in (think
 of it as the variable’s state of mind). Figure [fig.state2] shows the
 result of the previous example.
 
-在纸上表示变量的一个常见方法，是写下变量名，然后用箭头指向变量的值。
+在纸上表示变量的一个常见方法，是写下变量名，并用箭头指向变量的值。
 这种图被称为\ **状态图（state
 diagram）**\ ，因为它展示了每个变量所处的状态（可以把其看成是变量的心理状态）。
 下图展示了前面例子的结果。
@@ -43,27 +45,29 @@ diagram）**\ ，因为它展示了每个变量所处的状态（可以把其看
 
    状态图。
 
+-----
+
 变量名
 --------------
 
 Programmers generally choose names for their variables that are
 meaningful—they document what the variable is used for.
 
-程序员通常为变量选择有意义的名字—它们说明了该变量的用途。
+程序员通常为变量选择有意义的名字—它们可以记录该变量的用途。
 
 Variable names can be as long as you like. They can contain both letters
 and numbers, but they can’t begin with a number. It is legal to use
 uppercase letters, but it is conventional to use only lower case for
 variables names.
 
-变量名可以任意长。它们可以包括字母和数字，但是不能用数字开头。
+变量名可以任意长。它们可以包括字母和数字，但是不能以数字开头。
 使用大写字母是合法的，但是根据惯例，变量名只使用小写字母。
 
 The underscore character, ``_``, can appear in a name. It is often used
 in names with multiple words, such as ``your_name`` or
 ``airspeed_of_unladen_swallow``.
 
-下划线字符\ ``_``\ 可以出现在变量名中。
+下划线\ ``_``\ 可以出现在变量名中。
 它经常用于有多个单词的变量名，例如\ ``my_name``\ 或者\ ``airspeed_of_unladen_swallow``\ 。
 
 If you give a variable an illegal name, you get a syntax error:
@@ -110,7 +114,7 @@ You don’t have to memorize this list. In most development environments,
 keywords are displayed in a different color; if you try to use one as a
 variable name, you’ll know.
 
-你没有必要记住上面的关键词。在大部分的开发环境中，会用不同的颜色区别显示关键词；如果你不小心使用关键词作为变量名，你肯定会发现的。
+你没有必要背诵上面的关键词。大部分的开发环境会用不同的颜色区别显示关键词；如果你不小心使用关键词作为变量名，你肯定会发现的。
 
 -----------
 
@@ -122,7 +126,7 @@ A value all by itself is considered an expression, and so is a variable,
 so the following are all legal expressions:
 
 \ **表达式（expression）**\ 是值、变量和运算符的组合。
-值自身被认为是一个表达式，变量也是，因此下面都是合法的表达式：
+值自身也被认为是一个表达式，变量也是，因此下面都是合法的表达式：
 
 ::
 
@@ -137,7 +141,7 @@ When you type an expression at the prompt, the interpreter **evaluates**
 it, which means that it finds the value of the expression. In this
 example, n has the value 17 and n + 25 has the value 42.
 
-当你在提示符中输入表达式后，解释器会\ ** 计算（evaluate）**\ 该表达式，即求它的值。在上面的例子中，n的值是17，n + 25的值是42。
+当你在提示符后输入表达式时，解释器会\ ** 计算（evaluate）**\ 该表达式，这就意味着解释器会求它的值。在上面的例子中，n的值是17，n + 25的值是42。
 
 A **statement** is a unit of code that has an effect, like creating a
 variable or displaying a value.

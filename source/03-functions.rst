@@ -597,7 +597,7 @@ is no such thing as bruce.
 
 ----
 
-栈图
+堆栈图
 --------------
 
 To keep track of which variables can be used where, it is sometimes
@@ -605,22 +605,22 @@ useful to draw a **stack diagram**. Like state diagrams, stack diagrams
 show the value of each variable, but they also show the function each
 variable belongs to.
 
-有时，画一个\ **栈图（stack diagram）**\ 可以帮助你跟踪哪个变量能在哪儿用。
-像状态图一样，栈图展示每个变量的值，但是它们也展示了每个变量所属的函数。
+有时，画一个\ **堆栈图（stack diagram）**\ 可以帮助你跟踪哪个变量能在哪儿用。
+像状态图一样，堆栈图展示每个变量的值，但是它们也展示了每个变量所属的函数。
 
 Each function is represented by a **frame**. A frame is a box with the
 name of a function beside it and the parameters and variables of the
 function inside it. The stack diagram for the previous example is shown
 in Figure [fig.stack].
 
-每个函数用一个\ **框架（frame）**\ 表示。
-一个框架是一个盒子，函数名写在旁边，形参以及函数内部的变量写在里面。
-前面例子的栈图如下图所示。
+每个函数用一个\ **栈帧（frame）**\ 表示。
+一个栈帧用一个盒子表示，函数名写在旁边，形参以及函数内部的变量写在里面。
+前面例子的堆栈图如下图所示。
 
 .. figure:: figs/stack.png
-   :alt: 栈图。
+   :alt: 堆栈图。
 
-   栈图。
+   堆栈图。
 
 The frames are arranged in a stack that indicates which function called
 which, and so on. In this example, ``print_twice`` was called by
@@ -628,9 +628,9 @@ which, and so on. In this example, ``print_twice`` was called by
 special name for the topmost frame. When you create a variable outside
 of any function, it belongs to ``__main__``.
 
-这些框架排列成栈的形式，其中说明了哪个函数调用了哪个函数等信息。
+这些栈帧排列成栈的形式，其中说明了哪个函数调用了哪个函数等信息。
 在此例中，\ ``print_twice``\ 被\ ``cat_twice``\ 调用，
-``cat_twice``\ 又被\ ``__main__``\ 调用，\ ``__main__``\ 是一个表示最上层框架的特殊名字。
+``cat_twice``\ 又被\ ``__main__``\ 调用，\ ``__main__``\ 是一个表示最上层栈帧的特殊名字。
 当你在所有函数之外创建一个变量时，它就属于\ ``__main__``\ 。
 
 Each parameter refers to the same value as its corresponding argument.
@@ -677,7 +677,7 @@ The order of the functions in the traceback is the same as the order of
 the frames in the stack diagram. The function that is currently running
 is at the bottom.
 
-回溯中的函数顺序，与栈图中的函数顺序一致。出错时正在运行的那个函数则位于回溯信息的底部。
+回溯中的函数顺序，与堆栈图中的函数顺序一致。出错时正在运行的那个函数则位于回溯信息的底部。
 
 ------
 
@@ -771,28 +771,48 @@ fruitful functions in a few chapters.
 It may not be clear why it is worth the trouble to divide a program into
 functions. There are several reasons:
 
+你可能还不明白为什么值得将一个程序分解成多个函数。 原因包括以下几点：
+
 -  Creating a new function gives you an opportunity to name a group of
    statements, which makes your program easier to read and debug.
+
+-  创建一个新的函数可以让你给一组语句命名，
+   这使得你的程序更容易阅读和调试。
 
 -  Functions can make a program smaller by eliminating repetitive code.
    Later, if you make a change, you only have to make it in one place.
 
+-  通过消除重复的代码，函数使得程序更小。
+   以后，如果你要做个变动，你只需在一处变动即可。
+
 -  Dividing a long program into functions allows you to debug the parts
    one at a time and then assemble them into a working whole.
+
+-  将一个长程序分解为多个函数，可以让你一次调试一部分，然后再将它们集成为一个可行的整体。
 
 -  Well-designed functions are often useful for many programs. Once you
    write and debug one, you can reuse it.
 
-Debugging
+-  设计良好的函数经常对多个程序都有用。一旦你写出并调试好一个函数，你就可以重复使用它。
+
+----
+
+调试
 ---------
 
 One of the most important skills you will acquire is debugging. Although
 it can be frustrating, debugging is one of the most intellectually rich,
 challenging, and interesting parts of programming.
 
+调试，是你能获得的最重要的技能之一。
+虽然过程可能令人泄气，但是调试是编程中最富含智慧、挑战以及乐趣的部分之一。
+
 In some ways debugging is like detective work. You are confronted with
 clues and you have to infer the processes and events that led to the
 results you see.
+
+在某些方面，调试像是侦探工作。
+你面对一些线索，必须推理出是什么过程和事件导致了你看到的结果。
 
 Debugging is also like an experimental science. Once you have an idea
 about what is going wrong, you modify your program and try again. If
@@ -803,10 +823,21 @@ Holmes pointed out, “When you have eliminated the impossible, whatever
 remains, however improbable, must be the truth.” (A. Conan Doyle, *The
 Sign of Four*)
 
+调试也像是一种实验性科学。一旦你猜到大概哪里出错了，
+你就修改你的程序，再试一次。
+如果你的假设是正确的，那么你就可以预测到修改的结果，并且离正常运行的程序又近了一步。
+如果你的假设是错误的，你就不得不再提一个新的假设。
+如夏洛克·福尔摩斯所指出的，“当你排除了所有的不可能，无论剩下的是什么，
+不管多么难以置信，一定就是真相。”（阿瑟·柯南·道尔，\ *《四签名》*\ ）
+
 For some people, programming and debugging are the same thing. That is,
 programming is the process of gradually debugging a program until it
 does what you want. The idea is that you should start with a working
 program and make small modifications, debugging them as you go.
+
+对一些人来说，编程和调试是同一件事。
+也就是说，编程是逐步调试一个程序，直到它满足了你的期待的过程。
+这意味着，你应该从一个能\ *正常运行*\ （working） 的程序开始，每次只做一些小改动，并同步进行调试。
 
 For example, Linux is an operating system that contains millions of
 lines of code, but it started out as a simple program Linus Torvalds
@@ -815,7 +846,14 @@ used to explore the Intel 80386 chip. According to Larry Greenfield,
 printing AAAA and BBBB. This later evolved to Linux.” (*The Linux Users’
 Guide* Beta Version 1).
 
-Glossary
+例如，Linux是一个有着数百万行代码的操作系统 但是它一开始，只是Linus
+Torvalds写的一个用于研究Intel 80386芯片的简单程序。 根据Larry
+Greenfield的描述，“Linus的早期项目中，有一个能够交替打印AAAA和BBBB的程序。
+这个程序后来演变为了Linux。”（\ *Linux用户手册* Beta Version 1）。
+
+----
+
+词汇表
 --------
 
 function:
@@ -823,89 +861,162 @@ function:
     Functions may or may not take arguments and may or may not produce a
     result.
 
+函数（function）：
+    执行某种有用运算的命名语句序列。函数可以接受形参，也可以不接受；可以返回一个结果，也可以不返回。
+
 function definition:
     A statement that creates a new function, specifying its name,
     parameters, and the statements it contains.
+
+函数定义（function definition）：
+    创建一个新函数的语句，指定了函数名、形参以及所包含的语句。
 
 function object:
     A value created by a function definition. The name of the function
     is a variable that refers to a function object.
 
+函数对象（function object）：
+    函数定义所创建的一个值。函数名是一个指向函数对象的变量。
+
 header:
     The first line of a function definition.
 
+函数头（header）：
+    函数定义的第一行。
+
 body:
     The sequence of statements inside a function definition.
+
+函数体（body）：
+    函数定义内部的语句序列。
 
 parameter:
     A name used inside a function to refer to the value passed as an
     argument.
 
+形参（parameters）：
+    函数内部用于指向被传作实参的值的名字。
+
 function call:
     A statement that runs a function. It consists of the function name
     followed by an argument list in parentheses.
+
+函数调用（function call）：
+    运行一个函数的语句。它包括了函数名，紧随其后的实参列表，实参用括号包围起来。
 
 argument:
     A value provided to a function when the function is called. This
     value is assigned to the corresponding parameter in the function.
 
+实参（argument）：
+    函数调用时传给函数的值。这个值被赋值给函数中相对应的形参。
+
 local variable:
     A variable defined inside a function. A local variable can only be
     used inside its function.
+
+局部变量（local variable）：
+    函数内部定义的变量。局部变量只能在函数内部使用。
 
 return value:
     The result of a function. If a function call is used as an
     expression, the return value is the value of the expression.
 
+返回值（return value）：
+    函数的结果。如果函数调用被用作表达式，其返回值是这个表达式的值。
+
 fruitful function:
     A function that returns a value.
+
+有返回值函数（fruitful function）：
+    会返回一个值的函数。
 
 void function:
     A function that always returns None.
 
+无返回值函数（void function）：
+    总是返回None的函数。
+
 None:
     A special value returned by void functions.
+
+None：
+    无返回值函数返回的一个特殊值。
 
 module:
     A file that contains a collection of related functions and other
     definitions.
 
+模块（module）：
+    包含了一组相关函数及其他定义的的文件。
+
 import statement:
     A statement that reads a module file and creates a module object.
+
+导入语句（import statement）：
+    读取一个模块文件，并创建一个模块对象的语句。
 
 module object:
     A value created by an import statement that provides access to the
     values defined in a module.
 
+模块对象（module object）：
+    导入语句创建的一个值，可以让开发者访问模块内部定义的值。
+
 dot notation:
     The syntax for calling a function in another module by specifying
     the module name followed by a dot (period) and the function name.
+
+句点记法（dot notation）：
+    调用另一个模块中函数的语法，需要指定模块名称，之后跟着一个句点（句号）和函数名。
 
 composition:
     Using an expression as part of a larger expression, or a statement
     as part of a larger statement.
 
+组合（composition）：
+    将一个表达式嵌入一个更长的表达式，或者是将一个语句嵌入一个更长语句的一部分。
+
 flow of execution:
     The order statements run in.
+
+执行流程（flow of execution）：
+    语句执行的顺序。
 
 stack diagram:
     A graphical representation of a stack of functions, their variables,
     and the values they refer to.
 
+堆栈图（stack diagram）：
+    一种图形化表示堆栈的方法，堆栈中包括函数、函数的变量及其所指向的值。
+
 frame:
     A box in a stack diagram that represents a function call. It
     contains the local variables and parameters of the function.
+
+栈帧（frame）：
+    堆栈图中一个栈帧，代表一个函数调用。其中包含了函数的本地变量和形参。
 
 traceback:
     A list of the functions that are executing, printed when an
     exception occurs.
 
-Exercises
+回溯（traceback）：
+    当出现异常时，解释器打印出的出错时正在执行的函数列表。
+
+-----
+
+练习题
 ---------
+
+习题 3-1.
 
 Write a function named ``right_justify`` that takes a string named s as
 a parameter and prints the string with enough leading spaces so that the
 last letter of the string is in column 70 of the display.
+
+写一个名为\ ``right_justify``\ 的函数，函数接受一个名为s的字符串作为形参，
+并在打印足够多的前导空格（leading space）之后打印这个字符串，使得字符串的最后一个字母位于显示屏的第70列。
 
 ::
 
@@ -916,9 +1027,14 @@ Hint: Use string concatenation and repetition. Also, Python provides a
 built-in function called len that returns the length of a string, so the
 value of ``len('monty')`` is 5.
 
+提示：使用字符串拼接和重复。另外，Python提供了一个名叫len的内建函数，可以返回一个字符串的长度，因此\ ``len('allen')``\ 的值是5。
+
 A function object is a value you can assign to a variable or pass as an
 argument. For example, ``do_twice`` is a function that takes a function
 object as an argument and calls it twice:
+
+函数对象是一个可以赋值给变量的值，也可以作为实参传递。例如，
+``do_twice``\ 函数接受函数对象作为实参，并调用这个函数对象两次：
 
 ::
 
@@ -929,6 +1045,8 @@ object as an argument and calls it twice:
 Here’s an example that uses ``do_twice`` to call a function named
 ``print_spam`` twice.
 
+这是一个使用\ ``do_twice``\ 来调用名为\ ``print_spam``\ 的函数两次的例子。
+
 ::
 
     def print_spam():
@@ -936,29 +1054,40 @@ Here’s an example that uses ``do_twice`` to call a function named
 
     do_twice(print_spam)
 
-#. Type this example into a script and test it.
+#. 将这个示例写入脚本，并测试。
 
 #. Modify ``do_twice`` so that it takes two arguments, a function object
    and a value, and calls the function twice, passing the value as an
-   argument.
+   argument. 修改\ ``do_twice``\ ，使其接受两个实参，一个是函数对象，另一个是值。
+   然后调用这一函数对象两次，将那个值传递给函数对象作为实参。
 
 #. Copy the definition of ``print_twice`` from earlier in this chapter
    to your script.
+   从本章之前的示例中，将 ``print_twice`` 函数的定义复制到脚本中。
 
 #. Use the modified version of ``do_twice`` to call ``print_twice``
    twice, passing ``'spam'`` as an argument.
+   使用修改过的\ ``do_twice``\ ，调用\ ``print_twice``\ 两次，将\ ``'spam'``\ 传递给它作为实参。
 
 #. Define a new function called ``do_four`` that takes a function object
    and a value and calls the function four times, passing the value as a
    parameter. There should be only two statements in the body of this
    function, not four.
+   定义一个名为\ ``do_four``\ 的新函数，其接受一个函数对象和一个值作为实参，
+   调用这个函数对象四次，将那个值作为形参传递给它。
+   函数体中应该只有两条语句，而不是四条。
 
-Solution: http://thinkpython2.com/code/do_four.py.
+答案： http://thinkpython2.com/code/do_four.py.
 
 Note: This exercise should be done using only the statements and other
 features we have learned so far.
 
+注意：这一习题只能使用我们目前学到的语句和特性来完成。
+
+习题 3-2.
+
 #. Write a function that draws a grid like the following:
+    写一个能画出如下网格（grid）的函数：
 
    ::
 
@@ -976,6 +1105,7 @@ features we have learned so far.
 
    Hint: to print more than one value on a line, you can print a
    comma-separated sequence of values:
+   提示：你可以使用一个用逗号分隔的值序列，在一行打印出多个值：
 
    ::
 
@@ -983,6 +1113,7 @@ features we have learned so far.
 
    By default, print advances to the next line, but you can override
    that behavior and put a space at the end, like this:
+   默认情况下，print会自动换行，但是你可以阻止这个行为，像这样将行结尾处变成一个空格：
 
    ::
 
@@ -990,13 +1121,19 @@ features we have learned so far.
        print('-')
 
    The output of these statements is ``'+ -'``.
+   这两个语句的输出结果是 ``'+ -'``。
 
    A print statement with no argument ends the current line and goes to
    the next line.
+   一个没有传入实参的print语句会结束当前行，开始下一行。
 
 #. Write a function that draws a similar grid with four rows and four
    columns.
+   写一个能够画出四行四列的类似网格的函数。
 
 Solution: http://thinkpython2.com/code/grid.py. Credit: This exercise is
 based on an exercise in Oualline, *Practical C Programming, Third
 Edition*, O’Reilly Media, 1997.
+
+答案： http://thinkpython2.com/code/grid.py 。致谢：这个习题基于 *Practical C Programming, Third
+Edition*一书中的习题改编，此书由O’Reilly出版社于1997年出版。
