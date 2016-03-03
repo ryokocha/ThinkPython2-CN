@@ -277,11 +277,10 @@ isupper 是一个字符串方法，如果字符串仅含有大写字母，则返
 
 大部分常用列表操作可以被表示为一个映射、筛选和归并的结合。
 
-Deleting elements
+删除元素
 -----------------
 
-There are several ways to delete elements from a list. If you know the
-index of the element you want, you can use pop:
+有多种方法去从列表中删除一个元素。如果你知道元素的下标，你可以使用pop:
 
 ::
 
@@ -292,10 +291,9 @@ index of the element you want, you can use pop:
     >>> x
     'b'
 
-pop modifies the list and returns the element that was removed. If you
-don’t provide an index, it deletes and returns the last element.
+pop 修改列表，并返回被移除的元素. 如果你不提供下标，它将移除最后一个元素并返回其值。
 
-If you don’t need the removed value, you can use the del operator:
+如果你不需要被移除的元素，可以使用del运算符:
 
 ::
 
@@ -304,8 +302,7 @@ If you don’t need the removed value, you can use the del operator:
     >>> t
     ['a', 'c']
 
-If you know the element you want to remove (but not the index), you can
-use remove:
+如果你知道要删除的值，但是不知道其下标，你可以使用remove:
 
 ::
 
@@ -314,9 +311,9 @@ use remove:
     >>> t
     ['a', 'c']
 
-The return value from remove is None.
+remove的返回值是None.
 
-To remove more than one element, you can use del with a slice index:
+要移除不止一个元素，你可以结合切片索引使用del:
 
 ::
 
@@ -325,6 +322,7 @@ To remove more than one element, you can use del with a slice index:
     >>> t
     ['a', 'f']
 
+同样的，切片选择到第二个下标（不包含第二个下标）中的所有元素
 As usual, the slice selects all the elements up to but not including the
 second index.
 
