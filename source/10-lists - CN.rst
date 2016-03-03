@@ -35,22 +35,17 @@
     >>> print(cheeses, numbers, empty)
     ['Cheddar', 'Edam', 'Gouda'] [42, 123] []
 
-Lists are mutable
+列表是可变的
 -----------------
 
-The syntax for accessing the elements of a list is the same as for
-accessing the characters of a string—the bracket operator. The
-expression inside the brackets specifies the index. Remember that the
-indices start at 0:
+访问列表中元素的语法和访问字符串中字符的语法相同，都是通过 括号！！！（方括号）运算符实现的。括号中的表达式指定了 下标！！！（索引位置）。记住，下标从0开始：
 
 ::
 
     >>> cheeses[0]
     'Cheddar'
 
-Unlike strings, lists are mutable. When the bracket operator appears on
-the left side of an assignment, it identifies the element of the list
-that will be assigned.
+和字符串不同，列表是可以改变的。当括号运算符出现在赋值语句的左边，它就指向了列表中将被赋值的元素。
 
 ::
 
@@ -59,33 +54,26 @@ that will be assigned.
     >>> numbers
     [42, 5]
 
-The one-eth element of numbers, which used to be 123, is now 5.
+numbers中下标为1的元素，原来是 123，现在是 5.
 
-Figure [fig.liststate] shows the state diagram for cheeses, numbers and
-empty:
+图 [fig.liststate] 展示了cheeses, number 和 empty 的状态图：
 
 .. figure:: figs/liststate.pdf
    :alt: State diagram.
 
-   State diagram.
+   状态图.
 
-Lists are represented by boxes with the word “list” outside and the
-elements of the list inside. cheeses refers to a list with three
-elements indexed 0, 1 and 2. numbers contains two elements; the diagram
-shows that the value of the second element has been reassigned from 123
-to 5. empty refers to a list with no elements.
+列表用外部标有"list"的盒子表示，盒子内部是列表的元素。 cheeses 是！！！（对应refers）一个有3个元素的列表，3个元素的下标分别是0,1,2。 numbers包含两个元素；状态图显示了第二个元素原来是 123，被重新赋值为 5。 empty 对应一个没有元素的列表。
 
-List indices work the same way as string indices:
+列表下标的工作原理和字符串的相同：
 
--  Any integer expression can be used as an index.
+-  任何整数表达式可以作为下标。
 
--  If you try to read or write an element that does not exist, you get
-   an IndexError.
+-  如果你试图读或写一个不存在的元素，你将会得到一个索引错误(IndexError).
 
--  If an index has a negative value, it counts backward from the end of
-   the list.
+-  如果下标是负数，它将从列表的末端开始访问列表。
 
-The in operator also works on lists.
+in 运算符在列表中同样可以使用。
 
 ::
 
