@@ -209,10 +209,10 @@ sort 对列表中的元素从小到大进行排序:
 
 大部分列表的方法都是空的；他们对列表进行修改然后返回None。如果你意外的写了t.sort()，你将会对结果失望的。
 
-Map, filter and reduce
+映射，筛选和归并
 ----------------------
 
-To add up all the numbers in a list, you can use a loop like this:
+对列表中所有元素求和，你可以这么使用循环:
 
 ::
 
@@ -222,25 +222,21 @@ To add up all the numbers in a list, you can use a loop like this:
             total += x
         return total
 
-total is initialized to 0. Each time through the loop, x gets one
-element from the list. The += operator provides a short way to update a
-variable. This **augmented assignment statement**,
+total 被初始化为 0. 每次经过循环, x 从列表中读取一个元素. 运算符+=提供了一个快捷的更新变量的方法。. 这是增量赋值语句,
 
 ::
 
         total += x
 
-is equivalent to
+等价于
 
 ::
 
         total = total + x
 
-As the loop runs, total accumulates the sum of the elements; a variable
-used this way is sometimes called an **accumulator**.
+当循环执行时，totel记录了元素的和; 一个这样的变量有时称为一个**累加器**.
 
-Adding up the elements of a list is such a common operation that Python
-provides it as a built-in function, sum:
+把一个列表中的元素加起来是一个很常用的操作，所以Python将其设置为一个内建！！！（内置）函数sum:
 
 ::
 
@@ -248,12 +244,9 @@ provides it as a built-in function, sum:
     >>> sum(t)
     6
 
-An operation like this that combines a sequence of elements into a
-single value is sometimes called **reduce**.
+一个像这样的将一系列的元素合并到成一个单一值的操作有时称为**归并**。
 
-Sometimes you want to traverse one list while building another. For
-example, the following function takes a list of strings and returns a
-new list that contains capitalized strings:
+有时在你构建一个列表时需要遍历另一个列表。例如，下面的函数读取一个字符串列表作为参数，返回大写后的新列表：
 
 ::
 
@@ -263,16 +256,11 @@ new list that contains capitalized strings:
             res.append(s.capitalize())
         return res
 
-res is initialized with an empty list; each time through the loop, we
-append the next element. So res is another kind of accumulator.
+res 被初始化为一个空的列表; 每次循环我们附加下一个元素，所以res是另一种累加器.
 
-An operation like ``capitalize_all`` is sometimes called a **map**
-because it “maps” a function (in this case the method capitalize) onto
-each of the elements in a sequence.
+类似``capitalize_all``的操作有时被称为**映射(map)**，因为它“映射”一个函数（在本例中是方法capitalize）到序列中的每个元素上。
 
-Another common operation is to select some of the elements from a list
-and return a sublist. For example, the following function takes a list
-of strings and returns a list that contains only the uppercase strings:
+另一个常见的操作是从列表中选择一些元素，并返回一个子列表。举例来说，下面的函数读取一个字符串列表，并返回一个仅包含大写字符串的列表:
 
 ::
 
@@ -283,14 +271,11 @@ of strings and returns a list that contains only the uppercase strings:
                 res.append(s)
         return res
 
-isupper is a string method that returns True if the string contains only
-upper case letters.
+isupper 是一个字符串方法，如果字符串仅含有大写字母，则返回True。
 
-An operation like ``only_upper`` is called a **filter** because it
-selects some of the elements and filters out the others.
+一个类似``only_upper``的操作称为**筛选**，因为它选出一部份元素，而滤掉其它元素。
 
-Most common list operations can be expressed as a combination of map,
-filter and reduce.
+大部分常用列表操作可以被表示为一个映射、筛选和归并的结合。
 
 Deleting elements
 -----------------
