@@ -63,7 +63,7 @@ numbers中下标为1的元素，原来是 123，现在是 5.
 
    状态图.
 
-列表用外部标有"list"的盒子表示，盒子内部是列表的元素。 cheeses 是！！！（对应refers）一个有3个元素的列表，3个元素的下标分别是0,1,2。 numbers包含两个元素；状态图显示了第二个元素原来是 123，被重新赋值为 5。 empty 对应一个没有元素的列表。
+列表用外部标有"list"的盒子表示，盒子内部是列表的元素。 cheeses 是！！！（对应refers）一个有3个元素的列表，3个元素的下标分别是0,1,2。numbers包含两个元素；状态图显示了第二个元素原来是 123，被重新赋值为 5。 empty对应一个没有元素的列表。
 
 列表下标的工作原理和字符串的相同：
 
@@ -162,8 +162,6 @@ in 运算符在列表中同样可以使用。
     ['a', 'b', 'c', 'd', 'e', 'f']
 
 由于列表是可变的，通常在对列表进行修改的操作之前做一个列表的拷贝会是很有用的。
-Since lists are mutable, it is often useful to make a copy before
-performing operations that modify lists.
 
 赋值语句左边的切片运算符可以更新多个元素:
 
@@ -323,8 +321,6 @@ remove的返回值是None.
     ['a', 'f']
 
 同样的，切片选择到第二个下标（不包含第二个下标）中的所有元素
-As usual, the slice selects all the elements up to but not including the
-second index.
 
 列表和字符串
 -----------------
@@ -370,9 +366,6 @@ join功能和split相反。它将一个字符串列表的元素连接起来。jo
     'pining for the fjords'
 
 在这个例子中分隔符是一个空格，所以join在单词之间添加一个空格。如果不使用空格连接字符串，你可以使用空字符串``''``作为分割符。
-In this case the delimiter is a space character, so join puts a space
-between words. To concatenate strings without spaces, you can use the
-empty string, ``''``, as a delimiter.
 
 对象和值
 ------------------
@@ -464,19 +457,17 @@ empty string, ``''``, as a delimiter.
 
 使用a或b指向同一个字符串基本上没有任何区别。
 
-List arguments
+列表参数
 --------------
 
-When you pass a list to a function, the function gets a reference to the
-list. If the function modifies the list, the caller sees the change. For
-example, ``delete_head`` removes the first element from a list:
+当你将一个列表作为参数传给一个函数，函数将得到这个列表的一个引用。如果函数对这个列表参数进行了修改，在原来的列表中会看见变动。例如， ``delete_head``删除列表的第一个元素：
 
 ::
 
     def delete_head(t):
         del t[0]
 
-Here’s how it is used:
+它是这么起作用的:
 
 ::
 
@@ -485,19 +476,16 @@ Here’s how it is used:
     >>> letters
     ['b', 'c']
 
-The parameter t and the variable letters are aliases for the same
-object. The stack diagram looks like Figure [fig.stack5].
+参数 t 和变量 letters 是同一个对象的别名。栈图如下 [fig.stack5].
 
 .. figure:: figs/stack5.pdf
    :alt: Stack diagram.
 
-   Stack diagram.
+   栈图.
 
-Since the list is shared by two frames, I drew it between them.
+由于列表被两个帧共享，我把它画在它们中间。
 
-It is important to distinguish between operations that modify lists and
-operations that create new lists. For example, the append method
-modifies a list, but the + operator creates a new list:
+需要注意的是修改列表操作和创建列表操作间的区别，例如， append 方法是修改一个列表，而 + 运算符是创建一个新的列表：
 
 ::
 
@@ -508,7 +496,7 @@ modifies a list, but the + operator creates a new list:
     >>> t2
     None
 
-append modifies the list and returns None.
+append修改列表并返回None。
 
 ::
 
@@ -519,20 +507,16 @@ append modifies the list and returns None.
     [1, 2, 3, 4]
     >>> t1
 
-The + operator creates a new list and leaves the original list
-unchanged.
+运算符 + 创建了一个新列表，而不改变原始的列表。
 
-This difference is important when you write functions that are supposed
-to modify lists. For example, this function *does not* delete the head
-of a list:
+如果你要编写一个修改列表的函数，这一点就很重要。例如，这个函数*不会*删除列表的第一个元素：
 
 ::
 
     def bad_delete_head(t):
         t = t[1:]              # WRONG!
 
-The slice operator creates a new list and the assignment makes t refer
-to it, but that doesn’t affect the caller.
+切片操作创建了一个新列表，然后这个表达式让 t 指向了它，但是并不会影响原来被调用的列表。
 
 ::
 
@@ -541,20 +525,16 @@ to it, but that doesn’t affect the caller.
     >>> t4
     [1, 2, 3]
 
-At the beginning of ``bad_delete_head``, t and t4 refer to the same
-list. At the end, t refers to a new list, but t4 still refers to the
-original, unmodified list.
+在 ``bad_delete_head``的开始，t和t4指向同一个列表。在结束时，t指向一个新列表，但是t4仍然指向原来的没有被改动列表。
 
-An alternative is to write a function that creates and returns a new
-list. For example, tail returns all but the first element of a list:
+一个替代的写法是写一个函数来创建并返回一个新的列表。例如，tail返回列表中除了第一个之外的所有元素：
 
 ::
 
     def tail(t):
         return t[1:]
 
-This function leaves the original list unmodified. Here’s how it is
-used:
+这个函数不会修改原来的列表。这里展示了它是怎么使用的：
 
 ::
 
@@ -563,42 +543,35 @@ used:
     >>> rest
     ['b', 'c']
 
-Debugging
+调试
 ---------
 
-Careless use of lists (and other mutable objects) can lead to long hours
-of debugging. Here are some common pitfalls and ways to avoid them:
 
-#. Most list methods modify the argument and return None. This is the
-   opposite of the string methods, which return a new string and leave
-   the original alone.
+粗心的使用列表（以及其他可改变的对象）会导致长时间的调试。下面给出一些常见的陷阱以及避免它们的方法：
 
-   If you are used to writing string code like this:
+#. 大多数的列表的方法对参数进行修改，然后返回None。这和字符串的方法相反。字符串的方法会保留原始的字符串并返回一个新的字符串。
+
+   如果你习惯这样写字符串代码：
 
    ::
 
        word = word.strip()
 
-   It is tempting to write list code like this:
+   那么你很可能会写出下面的代码：
 
    ::
 
        t = t.sort()           # WRONG!
 
-   Because sort returns None, the next operation you perform with t is
-   likely to fail.
+   因为sort返回None，所以你的下一个对t执行的操作很可能会失败。
 
-   Before using list methods and operators, you should read the
-   documentation carefully and then test them in interactive mode.
+   在使用list方法和操作符之前，你应该仔细的阅读文档然后在交互模式下测试。
 
-#. Pick an idiom and stick with it.
+#. 养成自己的代码风格.
 
-   Part of the problem with lists is that there are too many ways to do
-   things. For example, to remove an element from a list, you can use
-   pop, remove, del, or even a slice assignment.
+   列表的一个问题就是有太多途径去做同样的事情。例如，要删除列表中的一个元素，你可以使用pop，remove，del甚至切片赋值。
 
-   To add an element, you can use the append method or the + operator.
-   Assuming that t is a list and x is a list element, these are correct:
+   要添加一个元素，你可以使用append方法或者+运算符。假设t是一个列表，x是一个列表元素，以下是正确的：
 
    ::
 
@@ -606,7 +579,7 @@ of debugging. Here are some common pitfalls and ways to avoid them:
        t = t + [x]
        t += [x]
 
-   And these are wrong:
+   而这些是错误的：
 
    ::
 
@@ -615,15 +588,11 @@ of debugging. Here are some common pitfalls and ways to avoid them:
        t + [x]                # WRONG!
        t = t + x              # WRONG!
 
-   Try out each of these examples in interactive mode to make sure you
-   understand what they do. Notice that only the last one causes a
-   runtime error; the other three are legal, but they do the wrong
-   thing.
+   在交互模式下测试每一个例子，保证你明白它们做了什么。注意只有最后一个会导致运行时错误，其他的都是合乎规范的的，但做了错误的事情。
 
-#. Make copies to avoid aliasing.
+#. 通过创建拷贝来避免别名.
 
-   If you want to use a method like sort that modifies the argument, but
-   you need to keep the original list as well, you can make a copy.
+   如果你要使用类似 sort 的方法来修改参数，但同时有要保留原列表，你可以创建一个拷贝。
 
    ::
 
@@ -635,8 +604,7 @@ of debugging. Here are some common pitfalls and ways to avoid them:
        >>> t2
        [1, 2, 3]
 
-   In this example you could also use the built-in function sorted,
-   which returns a new, sorted list and leaves the original alone.
+   在这个例子中你还可以使用内建函数 sorted，它将返回一个新的已排序的列表，原列表将保持不变。
 
    ::
 
@@ -646,65 +614,58 @@ of debugging. Here are some common pitfalls and ways to avoid them:
        >>> t2
        [1, 2, 3]
 
-Glossary
+术语
 --------
 
-list:
-    A sequence of values.
+列表:
+    一个值的序列。
 
-element:
-    One of the values in a list (or other sequence), also called items.
+元素:
+    列表（或序列）中的一个值，也称为项目。
 
-nested list:
-    A list that is an element of another list.
+嵌套列表:
+	一个作为另一个列表的元素的列表。
 
-accumulator:
-    A variable used in a loop to add up or accumulate a result.
+累加器:
+    循环中用于相加或累积出一个结果的变量。
 
-augmented assignment:
-    A statement that updates the value of a variable using an operator
-    like ``+=``.
 
-reduce:
-    A processing pattern that traverses a sequence and accumulates the
-    elements into a single result.
+增量赋值:
+    一个使用类似``+=``操作符来更新一个变量的值的语句。
 
-map:
-    A processing pattern that traverses a sequence and performs an
-    operation on each element.
+归并:
+    遍历序列，将所有元素求和为一个值的处理模式。
 
-filter:
-    A processing pattern that traverses a list and selects the elements
-    that satisfy some criterion.
+映射:
+    遍历序列，对每个元素执行操作的处理模式。
 
-object:
-    Something a variable can refer to. An object has a type and a value.
+筛选:
+    遍历序列，选出满足一定标准的元素的处理模式。
 
-equivalent:
-    Having the same value.
+对象:
+    变量可以指向的东西。一个对象有其数据类型和值。
 
-identical:
-    Being the same object (which implies equivalence).
+相等:
+    有相同的值。
 
-reference:
-    The association between a variable and its value.
+相同:
+    是同一个对象（隐含着相等）。
 
-aliasing:
-    A circumstance where two or more variables refer to the same object.
+引用:
+    一个变量和它的值之间的关联。
 
-delimiter:
-    A character or string used to indicate where a string should be
-    split.
+别名使用:
+    一种两个或者两个以上变量指向同一个对象的情况。
 
-Exercises
+分隔符:
+    一个用于指示字符串分割位置的字符或者字符串。
+
+练习
 ---------
 
-You can download solutions to these exercises from
-http://thinkpython2.com/code/list_exercises.py.
+你可以从http://thinkpython2.com/code/list_exercises.py下载这些联系的解答。
 
-Write a function called ``nested_sum`` that takes a list of lists of
-integers and adds up the elements from all of the nested lists. For
-example:
+写一个叫做``nested_sum``的函数，这个函数读取一个由一些整数列表构成的列表，并将所有的嵌套列表中的元素相加。例如：
 
 ::
 
@@ -714,10 +675,7 @@ example:
 
 [cumulative]
 
-Write a function called cumsum that takes a list of numbers and returns
-the cumulative sum; that is, a new list where the :math:`i`\ th element
-is the sum of the first :math:`i+1` elements from the original list. For
-example:
+写一个叫做cumsum的函数，读取一个数值列表并返回累加和，即一个新列表，其中第:math:`i`\个元素是元列表中前:math:`i+1`个元素的和。例如：
 
 ::
 
@@ -725,8 +683,7 @@ example:
     >>> cumsum(t)
     [1, 3, 6]
 
-Write a function called ``middle`` that takes a list and returns a new
-list that contains all but the first and last elements. For example:
+写一个叫做``middle``的函数，读取一个列表，并返回一个除了第一个和最后一个元素的列表。例如：
 
 ::
 
@@ -734,8 +691,7 @@ list that contains all but the first and last elements. For example:
     >>> middle(t)
     [2, 3]
 
-Write a function called ``chop`` that takes a list, modifies it by
-removing the first and last elements, and returns None. For example:
+写一个叫做``chop``的函数，读取一个列表，移除第一个和最后一个列表，并返回None。例如：
 
 ::
 
@@ -744,9 +700,7 @@ removing the first and last elements, and returns None. For example:
     >>> t
     [2, 3]
 
-Write a function called ``is_sorted`` that takes a list as a parameter
-and returns True if the list is sorted in ascending order and False
-otherwise. For example:
+写一个叫做``is_sorted``的函数，读取一个列表，如果列表是递增排列的则返回True，否则返回False。例如：
 
 ::
 
@@ -757,70 +711,43 @@ otherwise. For example:
 
 [anagram]
 
-Two words are anagrams if you can rearrange the letters from one to
-spell the other. Write a function called ``is_anagram`` that takes two
-strings and returns True if they are anagrams.
+如果可以通过重拍一个单词中字幕的顺序得到另外一个，那么称这两个单词是变位词。写一个叫做``is_anagram``的函数，读取两个字符串，如果它们是变位词则返回True。
 
 [duplicate]
 
-Write a function called ``has_duplicates`` that takes a list and returns
-True if there is any element that appears more than once. It should not
-modify the original list.
+写一个叫做``has_duplicates``的函数，读取一个列表，如果一个元素在列表中出现了不止一次则返回True。这个函数不能改变原列表。
 
-This exercise pertains to the so-called Birthday Paradox, which you can
-read about at http://en.wikipedia.org/wiki/Birthday_paradox.
+这个练习是关于一个叫做生日悖论的问题。你可以在http://en.wikipedia.org/wiki/Birthday_paradox中了解更多相关的内容。
 
-If there are 23 students in your class, what are the chances that two of
-you have the same birthday? You can estimate this probability by
-generating random samples of 23 birthdays and checking for matches.
-Hint: you can generate random birthdays with the randint function in the
-random module.
+如果你的班级上有 23 个学生， 2 个学生生日相同的概率是多少？你可以通过随即产生
+23 个生日并检查匹配来估计概率。提示：你可以使用 random 模块中的 randint 函
+数来生成随即生日。
 
-You can download my solution from
-http://thinkpython2.com/code/birthday.py.
+你可以从http://thinkpython2.com/code/birthday.py.下载我的解答。
 
-Write a function that reads the file words.txt and builds a list with
-one element per word. Write two versions of this function, one using the
-append method and the other using the idiom t = t + [x]. Which one takes
-longer to run? Why?
 
-Solution: http://thinkpython2.com/code/wordlist.py.
+编写函数，读取文件 words.txt，建立一个列表，每个单词为一个元素。编写两个版本函数，一个使用 append 方法，另一个使用 t = t + [x]。那个版本运行得慢？为什么？
+解答: http://thinkpython2.com/code/wordlist.py.
 
 [wordlist1] [bisection]
 
-To check whether a word is in the word list, you could use the in
-operator, but it would be slow because it searches through the words in
-order.
+检查一个单词是否在单词表中，你可以使用 in 运算符，但这很慢，因为它按顺序查找单词。
 
-Because the words are in alphabetical order, we can speed things up with
-a bisection search (also known as binary search), which is similar to
-what you do when you look a word up in the dictionary. You start in the
-middle and check to see whether the word you are looking for comes
-before the word in the middle of the list. If so, you search the first
-half of the list the same way. Otherwise you search the second half.
+由于单词是按照字母顺序排序的，我们可以使用两分法（也称二进制搜索）来加快速度，类似你在字典中查找单词的方法。你从中间开始，如果你要找的单词在中间的单词之前，你查找前半部分，否则你查找后半部分。
 
-Either way, you cut the remaining search space in half. If the word list
-has 113,809 words, it will take about 17 steps to find the word or
-conclude that it’s not there.
+每次查找，你将搜索范围减小一半。如果单词表有 113,809 个单词，你只需要 17步来找到这个单词，或着知道单词不存在。
 
-Write a function called ``in_bisect`` that takes a sorted list and a
-target value and returns the index of the value in the list if it’s
-there, or None if it’s not.
+写一个叫做``in_bisect``，参数为一个已排序的列表和一个目标值，返回该值在列表中的位置，如果不存在则返回 None。
 
-Or you could read the documentation of the bisect module and use that!
-Solution: http://thinkpython2.com/code/inlist.py.
+或者你可以阅读bisect模块的文档并使用它！
+解答: http://thinkpython2.com/code/inlist.py.
 
-Two words are a “reverse pair” if each is the reverse of the other.
-Write a program that finds all the reverse pairs in the word list.
-Solution: http://thinkpython2.com/code/reverse_pair.py.
+两个单词被称为是“反转词对”，如果一个是另一个的反转。编写函数，找出单词表中所有的反转词对。
+解答: http://thinkpython2.com/code/reverse_pair.py.
 
-Two words “interlock” if taking alternating letters from each forms a
-new word. For example, “shoe” and “cold” interlock to form “schooled”.
-Solution: http://thinkpython2.com/code/interlock.py. Credit: This
-exercise is inspired by an example at http://puzzlers.org.
+两个单词被称为是“连锁词”，如果交替的从两个单词中取出字符将组成一个新的单词。例如，“ shoe”和“ cold”连锁后成为“ schooled”。
+解答: http://thinkpython2.com/code/interlock.py. 致谢: 这个练习的灵感由这个网站中的一个例子而来：http://puzzlers.org.
 
-#. Write a program that finds all pairs of words that interlock. Hint:
-   don’t enumerate all pairs!
+#. 编写程序，找出所有的连锁词。提示：不要列举所有的单词对。
 
-#. Can you find any words that are three-way interlocked; that is, every
-   third letter forms a word, starting from the first, second or third?
+#. 你能够找到三重连锁的单词吗？即每个字母依次从 3 个单词得到。
