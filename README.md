@@ -17,7 +17,7 @@
 | [第八章](./source/08-strings.rst)     | [@xpgeng](https://github.com/xpgeng)    |
 | [第九章](./source/09-case-study-word-play.rst)     | [@ipyher](https://github.com/iphyer)    |
 | [第十章](./source/10-lists.rst)     | [@obserthinker](https://github.com/obserthinker)     |
-| 第十一章     |      |
+| 第十一章     |   [@theJian](https://github.com/thejian)   |
 | 第十二章     | [@SeikaScarlet](https://github.com/SeikaScarlet)     |
 | 第十三章     |      |
 | 第十四章     |      |
