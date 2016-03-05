@@ -17,17 +17,17 @@
 | [第八章](./source/08-strings.rst)     | [@xpgeng](https://github.com/xpgeng)    |
 | [第九章](./source/09-case-study-word-play.rst)     | [@ipyher](https://github.com/iphyer)    |
 | [第十章](./source/10-lists.rst)     | [@obserthinker](https://github.com/obserthinker)     |
-| 第十一章     |   [@theJian](https://github.com/thejian)   |
-| 第十二章     | [@SeikaScarlet](https://github.com/SeikaScarlet)     |
-| 第十三章     |      |
-| 第十四章     |      |
-| 第十五章     |      |
-| 第十六章     |      |
-| 第十七章     |      |
-| 第十八章     |      |
-| 第十九章     |      |
-| 第二十章     |      |
-| 第二十一章     |      |
+| [第十一章](./source/11-dictionaries.rst)     |   [@theJian](https://github.com/thejian)   |
+| [第十二章](./source/12-tuples.rst)     | [@SeikaScarlet](https://github.com/SeikaScarlet)     |
+| [第十三章 ](./source/13-case-study-data-structure-selection.rst)    |      |
+| [第十四章](./source/14-files.rst)     |      |
+| [第十五章](./source/15-classes-and-objects.rst)     |      |
+| [第十六章](./source/16-classes-and-functions.rst)     |      |
+| [第十七章](./source/17-classes-and-methods.rst)     |      |
+| [第十八章](./source/18-inheritance.rst)     |      |
+| [第十九章](./source/19-the-goodies.rst)     |      |
+| [第二十章](./source/20-debugging.rst)     |      |
+| [第二十一章](./source/21-analysis-of-algorithms.rst)     |      |
 
 最终校对将由我自己完成。
 
