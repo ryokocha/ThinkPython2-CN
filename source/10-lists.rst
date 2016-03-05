@@ -5,7 +5,7 @@ Lists
 This chapter presents one of Python’s most useful built-in types, lists.
 You will also learn more about objects and what can happen when you have
 more than one name for the same object.
-这一章展示了Python中最有用的内置(built-in)类型之一：列表。你还会进一步关于对象(objects)的以及同一个对象有多个名称(name)时会发生什么。
+这一章展示了Python中最有用的内置(built-in)类型之一：列表（list）。你还会进一步关于对象(objects)的以及同一个对象有多个名称(name)时会发生什么。
 
 A list is a sequence
 一个列表是一个序列
@@ -14,11 +14,11 @@ A list is a sequence
 Like a string, a **list** is a sequence of values. In a string, the
 values are characters; in a list, they can be any type. The values in a
 list are called **elements** or sometimes **items**.
-类似于字符串，一个**列表**是 一个值的序列。在字符串中，每个值都是字符；在一个列表中，值可以使任何数据类型。一个列表中的值称为**元素**，或者是**项目**。
+类似于字符串，一个**列表**是 一个值（value）的序列。在字符串（string）中，每个值都是字符；在一个列表中，值可以使任何数据类型。一个列表中的值称为**元素（element）**，或者是**项目（item）**。
 
 There are several ways to create a new list; the simplest is to enclose
 the elements in square brackets (``[`` and ``]``):
-有多种方法可以常见一个新的列表；最简单的方法是用方括号"["和"]"将元素包括起来:
+有多种方法可以常见一个新的列表；最简单的方法是用方括号(``[``和``]``)将元素包括起来:
 
 ::
 
@@ -29,14 +29,14 @@ The first example is a list of four integers. The second is a list of
 three strings. The elements of a list don’t have to be the same type.
 The following list contains a string, a float, an integer, and (lo!)
 another list:
-第一个例子是包含4个整数的列表。第二个是一个包含3个字符串的列表。一个列表中的元素不需要是相同的数据类型。下面的列表包含一个字符串，一个浮点数，一个整数和另一个列表:
+第一个例子是包含4个整数的列表。第二个是一个包含3个字符串的列表。一个列表中的元素不需要是相同的数据类型。下面的列表包含一个字符串，一个浮点数，一个整数和(lo!)另一个列表:
 
 ::
 
     ['spam', 2.0, 5, [10, 20]]
 
 A list within another list is **nested**.
-一个列表在另一个列表中，称为嵌套。
+一个列表在另一个列表中，称为**嵌套（nested）**。
 
 A list that contains no elements is called an empty list; you can create
 one with empty brackets, ``[]``.
@@ -61,7 +61,7 @@ The syntax for accessing the elements of a list is the same as for
 accessing the characters of a string—the bracket operator. The
 expression inside the brackets specifies the index. Remember that the
 indices start at 0:
-访问列表中元素的语法和访问字符串中字符的语法相同，都是通过 括号（方括号？）运算符实现的。括号中的表达式指定了 下标（索引位置？）。记住，下标从0开始：
+访问列表中元素的语法和访问字符串中字符的语法相同，都是通过括号（方括号？）运算符实现的。括号中的表达式指定了下标（index）（索引位置？）。记住，下标从0开始：
 
 ::
 
@@ -205,7 +205,7 @@ List slices
 -----------
 
 The slice operator also works on lists:
-切片运算符同样对列表适用:
+切片（slice）运算符同样对列表适用:
 
 ::
 
@@ -304,7 +304,7 @@ To add up all the numbers in a list, you can use a loop like this:
 total is initialized to 0. Each time through the loop, x gets one
 element from the list. The += operator provides a short way to update a
 variable. This **augmented assignment statement**,
-total 被初始化为 0. 每次经过循环, x 从列表中读取一个元素. 运算符+=提供了一个快捷的更新变量的方法。. 这是增量赋值语句,
+total 被初始化为 0. 每次经过循环, x 从列表中读取一个元素. 运算符+=提供了一个快捷的更新变量的方法。. 这是**增量赋值语句（augmented assignment statement）**,
 
 ::
 
@@ -319,7 +319,7 @@ is equivalent to
 
 As the loop runs, total accumulates the sum of the elements; a variable
 used this way is sometimes called an **accumulator**.
-当循环执行时，totel记录了元素的和; 一个这样的变量有时称为一个**累加器**.
+当循环执行时，totel记录了元素的和; 一个这样的变量有时称为一个**累加器（accumulator）**.
 
 Adding up the elements of a list is such a common operation that Python
 provides it as a built-in function, sum:
@@ -333,7 +333,7 @@ provides it as a built-in function, sum:
 
 An operation like this that combines a sequence of elements into a
 single value is sometimes called **reduce**.
-一个像这样的将一系列的元素合并到成一个单一值的操作有时称为**归并**。
+一个像这样的将一系列的元素合并到成一个单一值的操作有时称为**归并（reduce）**。
 
 Sometimes you want to traverse one list while building another. For
 example, the following function takes a list of strings and returns a
@@ -377,7 +377,7 @@ isupper 是一个字符串方法，如果字符串仅含有大写字母，则返
 
 An operation like ``only_upper`` is called a **filter** because it
 selects some of the elements and filters out the others.
-一个类似``only_upper``的操作称为**筛选**
+一个类似``only_upper``的操作称为**筛选（filter）**
 
 Most common list operations can be expressed as a combination of map,
 filter and reduce.
@@ -477,7 +477,7 @@ list函数将字符串分割成单独的字符。如果你想将一个字符串�
 An optional argument called a **delimiter** specifies which characters
 to use as word boundaries. The following example uses a hyphen as a
 delimiter:
-一个叫做**分隔符**的可选参数指定了什么字符作为单词之间的分界线。下面的例子使用连字符作为分隔符:
+一个叫做**分隔符（delimiter）**的可选参数指定了什么字符作为单词之间的分界线。下面的例子使用连字符作为分隔符:
 
 ::
 
@@ -565,7 +565,7 @@ In this case we would say that the two lists are **equivalent**, because
 they have the same elements, but not **identical**, because they are not
 the same object. If two objects are identical, they are also equivalent,
 but if they are equivalent, they are not necessarily identical.
-在这个例子中，我们称这两个列表是**相等**的，因为它们有相同的元素。但它们不是**相同**的，因为他们不是同一个对象。如果两个对象是**相同**的，它们也是相等的，但是如果它们是相等的，他们不一定是相同的。
+在这个例子中，我们称这两个列表是**相等（equivalent）**的，因为它们有相同的元素。但它们不是**相同（identical）**的，因为他们不是同一个对象。如果两个对象是**相同**的，它们也是相等的，但是如果它们是相等的，他们不一定是相同的。
 
 Until now, we have been using “object” and “value” interchangeably, but
 it is more precise to say that an object has a value. If you evaluate ,
@@ -599,15 +599,15 @@ The state diagram looks like Figure [fig.list3].
 
 The association of a variable with an object is called a **reference**.
 In this example, there are two references to the same object.
-一个变量和一个对象之间的关联称为**reference**。在这个例子中，有两个对同一个对象的引用。
+一个变量和一个对象之间的关联称为**引用（reference）**。在这个例子中，有两个对同一个对象的引用。
 
 An object with more than one reference has more than one name, so we say
 that the object is **aliased**.
-如果一个对象有多于一个引用，我们成这个对象是**有别名的**。
+如果一个对象有多于一个引用，我们成这个对象是**有别名的（aliased）**。
 
 If the aliased object is mutable, changes made with one alias affect the
 other:
-如果一个有别名的对象是可变的，对其中一个别名的改变对影响到其它的别名：
+如果一个有别名的对象是可变的，对其中一个别名（alias）的改变对影响到其它的别名：
 
 ::
 
