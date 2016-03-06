@@ -19,7 +19,7 @@
 | [第十章](./source/10-lists.rst)     | [@obserthinker](https://github.com/obserthinker)     |
 | [第十一章](./source/11-dictionaries.rst)     |   [@theJian](https://github.com/thejian)   |
 | [第十二章](./source/12-tuples.rst)     | [@SeikaScarlet](https://github.com/SeikaScarlet)     |
-| [第十三章 ](./source/13-case-study-data-structure-selection.rst)    |      |
+| [第十三章 ](./source/13-case-study-data-structure-selection.rst)    |  [@ipyher](https://github.com/iphyer)  |
 | [第十四章](./source/14-files.rst)     |      |
 | [第十五章](./source/15-classes-and-objects.rst)     |      |
 | [第十六章](./source/16-classes-and-functions.rst)     |      |
