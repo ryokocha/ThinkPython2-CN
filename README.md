@@ -1,4 +1,4 @@
-# 《Think Python 2ed》最新版中文翻译
+﻿# 《Think Python 2ed》最新版中文翻译
 
 ## 贡献者
 
@@ -20,8 +20,8 @@
 | [第十一章](./source/11-dictionaries.rst)     |   [@theJian](https://github.com/thejian)   |
 | [第十二章](./source/12-tuples.rst)     | [@SeikaScarlet](https://github.com/SeikaScarlet)     |
 | [第十三章 ](./source/13-case-study-data-structure-selection.rst)    |  [@ipyher](https://github.com/iphyer)  |
-| [第十四章](./source/14-files.rst)     |      |
-| [第十五章](./source/15-classes-and-objects.rst)     |   [@obserthinker](https://github.com/obserthinker)   |
+| [第十四章](./source/14-files.rst)     |  [@obserthinker](https://github.com/obserthinker)    |
+| [第十五章](./source/15-classes-and-objects.rst)     |      |
 | [第十六章](./source/16-classes-and-functions.rst)     |      |
 | [第十七章](./source/17-classes-and-methods.rst)     |      |
 | [第十八章](./source/18-inheritance.rst)     |      |
