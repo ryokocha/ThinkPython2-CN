@@ -120,13 +120,21 @@ bob and before calling ``mainloop``):
 When you run this program, you should see bob move east and then north,
 leaving two line segments behind.
 
+当你运行此程序时，你应该会看到bob先朝东移动，然后向北移动，在身后留下两条线段。
+
 Now modify the program to draw a square. Don’t go on until you’ve got it
 working!
 
-Simple repetition
+现在修改程序，画一个正方形。在没有成功之前，不要继续往下读。
+
+---
+
+简单的重复
 -----------------
 
 Chances are you wrote something like this:
+
+很有可能你刚才写了像下面这样的一个程序：
 
 ::
 
@@ -144,12 +152,17 @@ Chances are you wrote something like this:
 We can do the same thing more concisely with a for statement. Add this
 example to mypolygon.py and run it again:
 
+我们可以利用for语句，以更简洁的代码来做相同的事情。
+将下面的示例代码加入mypolygon.py，并重新运行：
+
 ::
 
     for i in range(4):
         print('Hello!')
 
 You should see something like this:
+
+你会看到如下输出：
 
 ::
 
@@ -162,7 +175,12 @@ This is the simplest use of the for statement; we will see more later.
 But that should be enough to let you rewrite your square-drawing
 program. Don’t go on until you do.
 
+这是for语句最简单的用法；后面我们会介绍更多的用法。
+但是这对于让你重写你的画正方形程序已经足够了。 如果没有完成，请不要往下读。
+
 Here is a for statement that draws a square:
+
+这是一个画正方形的for语句：
 
 ::
 
@@ -174,9 +192,16 @@ The syntax of a for statement is similar to a function definition. It
 has a header that ends with a colon and an indented body. The body can
 contain any number of statements.
 
+for语句的语法和函数定义类似。
+它有一个以冒号结尾的语句头（header）以及一个缩进的语句体（body）。
+语句体可以包含任意条语句。
+
 A for statement is also called a **loop** because the flow of execution
 runs through the body and then loops back to the top. In this case, it
 runs the body four times.
+
+for语句有时被称为\ **循环（loop）**\ ，因为执行流程会贯穿整个语句体，然后再循环回顶部。
+在此例中，它将运行语句体四次。
 
 This version is actually a little different from the previous
 square-drawing code because it makes another turn after drawing the last
@@ -185,51 +210,91 @@ the code if we do the same thing every time through the loop. This
 version also has the effect of leaving the turtle back in the starting
 position, facing in the starting direction.
 
-Exercises
+这个版本和前面画正方形的代码有所不同，因为它在画完正方形最后一条边后，
+又多转了一下。这个额外的转动多花了些时间，
+但是如果我们每次都通过循环做相同的事情，反而是简化了代码。
+这个版本最终让海龟放回了初始位置，朝向也与出发时一致。
+
+练习
 ---------
 
 The following is a series of exercises using TurtleWorld. They are meant
 to be fun, but they have a point, too. While you are working on them,
 think about what the point is.
 
+下面是学习使用Turtle的一系列练习。
+它们是为了好玩而设计的，但是它们也有想表达的东西。
+当你做这些练习的时候，想一想它们想告诉你的是什么。
+
 The following sections have solutions to the exercises, so don’t look
 until you have finished (or at least tried).
+
+后面几节是这些练习的答案，因此如果你没完成（或者至少试过），不要看答案。
 
 #. Write a function called square that takes a parameter named t, which
    is a turtle. It should use the turtle to draw a square.
 
+   写一个名为square的函数，接受一个名为t的形参，t是一个海龟。
+   这个函数应该用这只海龟画一个正方形。
+
    Write a function call that passes bob as an argument to square, and
    then run the program again.
+
+   写一个函数调用，将bob作为实参传给square，然后再重新运行程序。
+
 
 #. Add another parameter, named length, to square. Modify the body so
    length of the sides is length, and then modify the function call to
    provide a second argument. Run the program again. Test your program
    with a range of values for length.
 
+   给square增加另一个名为length的形参。
+   修改函数体，使得正方形边的长度是length，然后修改函数调用，提供第二个实参。
+   重新运行程序。用一系列length值测试你的程序。
+
 #. Make a copy of square and change the name to polygon. Add another
    parameter named n and modify the body so it draws an n-sided regular
    polygon. Hint: The exterior angles of an n-sided regular polygon are
    :math:`360/n` degrees.
+
+   复制square，并将函数改名为polygon。
+   增加另外一个名为n的形参并修改函数体，让它画一个正n边形（n-sided regular polygon）。
+   提示：正n边形的外角是\ :math:`360/n`\ 度。
 
 #. Write a function called circle that takes a turtle, t, and radius, r,
    as parameters and that draws an approximate circle by calling polygon
    with an appropriate length and number of sides. Test your function
    with a range of values of r.
 
+   写一个名为circle的函数，它接受一个海龟t和半径r作为形参，
+   然后通过以合适的边长和边数调用polygon，画一个近似圆形。
+   用一系列r值测试你的函数。
+
    Hint: figure out the circumference of the circle and make sure that
    length \* n = circumference.
+
+   提示：算出圆的周长并确保length \* n = circumference。
 
 #. Make a more general version of circle called arc that takes an
    additional parameter angle, which determines what fraction of a
    circle to draw. angle is in units of degrees, so when angle=360, arc
    should draw a complete circle.
 
-Encapsulation
+   完成一个更一般化（general）的circle函数，称作arc，其接受一个额外的参数angle，
+   确定画多大部分的圆。angle的单位是度，因此当angle=360时， arc
+   应该画一个整圆。
+
+---
+
+封装
 -------------
 
 The first exercise asks you to put your square-drawing code into a
 function definition and then call the function, passing the turtle as a
 parameter. Here is a solution:
+
+第一个练习要求你将画正方形的代码放到函数定义中,然后调用该函数，
+将海龟作为形参传递给它。下面是一个解法：
 
 ::
 
@@ -245,10 +310,18 @@ are inside the for loop, which is inside the function definition. The
 next line, square(bob), is flush with the left margin, which indicates
 the end of both the for loop and the function definition.
 
+最内部的语句，fd和lt被缩进两次，以显示它们处在for循环内，
+而该循环又在函数定义内。下一行square(bob)和左边界（left margin）对齐，
+表示for循环和函数定义结束。
+
 Inside the function, t refers to the same turtle bob, so t.lt(90) has
 the same effect as bob.lt(90). In that case, why not call the parameter
 bob? The idea is that t can be any turtle, not just bob, so you could
 create a second turtle and pass it as an argument to square:
+
+在函数内部，t指的是同一只海龟bob， 所以t.lt(90)和bob.lt(90)的效果相同。
+那么为什么不将形参命名为bob呢？ 因为t可以是任何海龟而不仅仅是bob，
+也就是说你可以创建第二只海龟，并且将它作为实参传递给square：
 
 ::
 
@@ -261,11 +334,20 @@ code, which serves as a kind of documentation. Another advantage is that
 if you re-use the code, it is more concise to call a function twice than
 to copy and paste the body!
 
-Generalization
+将一部分代码包装在函数里被称作 **encapsulation（封装）**\ 。
+封装的好处之一，是它为这些代码赋予一个名字，
+这充当了某种文档说明。另一个好处是，如果你重复使用这些代码，
+调用函数两次比拷贝粘贴函数体要更加简洁！
+
+---
+
+泛化
 --------------
 
 The next step is to add a length parameter to square. Here is a
 solution:
+
+下一个练习是给square增加一个length形参。下面是一个解法：
 
 ::
 
@@ -280,9 +362,16 @@ Adding a parameter to a function is called **generalization** because it
 makes the function more general: in the previous version, the square is
 always the same size; in this version it can be any size.
 
+为函数增加一个形参被称作\ **泛化（generalization）**\ ，
+因为这使得函数更通用：在前面的版本中，
+正方形的边长总是一样的；此版本中它可以是任意大小。
+
 The next step is also a generalization. Instead of drawing squares,
 polygon draws regular polygons with any number of sides. Here is a
 solution:
+
+下一个练习也是一个泛化。不再是画一个正方形，polygon可以画任意的正多边形。
+下面是一个解法：
 
 ::
 
@@ -296,15 +385,22 @@ solution:
 
 This example draws a 7-sided polygon with side length 70.
 
+这个示例代码画了一个七边形，边长为70。
+
 If you are using Python 2, the value of angle might be off because of
 integer division. A simple solution is to compute angle = 360.0 / n.
 Because the numerator is a floating-point number, the result is floating
 point.
 
+如果你在使用Python 2，angle的值可能由于整型数除法（integer division）出现偏差。一个简单的解决办法是这样计算angle：angle = 360.0 / n。因为分子（numerator）是一个浮点数，最终的结果也会是一个浮点数。
+
 When a function has more than a few numeric arguments, it is easy to
 forget what they are, or what order they should be in. In that case it
 is often a good idea to include the names of the parameters in the
 argument list:
+
+如果一个函数有几个数字实参，很容易忘记它们是什么或者它们的顺序。在这种情况下，
+将在实参列表中加入形参的名称是通常是一个很好的办法：
 
 ::
 
@@ -314,16 +410,27 @@ These are called **keyword arguments** because they include the
 parameter names as “keywords” (not to be confused with Python keywords
 like while and def).
 
+这些被称作\ **关键字实参（keyword arguments）**\ ，
+因为它们使用了形参名作为“关键字”（不要和Python的关键字搞混了，如while和def）。
+
 This syntax makes the program more readable. It is also a reminder about
 how arguments and parameters work: when you call a function, the
 arguments are assigned to the parameters.
 
-Interface design
+这一语法使得程序更可读。 [4]_ 它也提醒了我们实参和形参的工作方式：
+当你调用函数时，实参被赋给形参。
+
+---
+
+接口设计
 ----------------
 
 The next step is to write circle, which takes a radius, r, as a
 parameter. Here is a simple solution that uses polygon to draw a
 50-sided polygon:
+
+下一个练习是写circle函数，它接受半径r作为形参。
+下面是一个使用polygon画一个50边形的简单解法：
 
 ::
 
@@ -335,14 +442,22 @@ parameter. Here is a simple solution that uses polygon to draw a
         length = circumference / n
         polygon(t, n, length)
 
+
 The first line computes the circumference of a circle with radius r
 using the formula :math:`2 \pi r`. Since we use math.pi, we have to
 import math. By convention, import statements are usually at the
 beginning of the script.
 
+函数的第一行通过半径r计算圆的周长，公式是\ :math:`2 \pi r`\ 。
+由于我们用了math.pi，我们需要导入math模块。
+按照惯例，import语句通常位于脚本的开始位置。
+
 n is the number of line segments in our approximation of a circle, so
 length is the length of each segment. Thus, polygon draws a 50-sides
 polygon that approximates a circle with radius r.
+
+n是我们的近似圆中线段的条数，所以length是每一段的长度。
+这样polygon画了一个50边形来近似一个半径为r的圆。
 
 One limitation of this solution is that n is a constant, which means
 that for very big circles, the line segments are too long, and for small
@@ -351,17 +466,31 @@ be to generalize the function by taking n as a parameter. This would
 give the user (whoever calls circle) more control, but the interface
 would be less clean.
 
+这种解法的一个局限在于n是常数，意味着对于非常大的圆，
+线段会非常长，而对于小圆，我们会浪费时间画非常小的线段。
+一个解决方案是通过将n作为形参来泛化函数。
+这将给用户（调用circle的人）更多的掌控力， 但是接口就不那么干净了。
+
 The **interface** of a function is a summary of how it is used: what are
 the parameters? What does the function do? And what is the return value?
 An interface is “clean” if it allows the caller to do what they want
 without dealing with unnecessary details.
 
+函数的\ **接口（interface）**\ 是一份关于如何使用的总结：
+形参是什么？函数做什么？返回值是什么？
+如果接口“尽可能简单，又不过于简单（爱因斯坦）”的话，则说它是“干净的”。
+
 In this example, r belongs in the interface because it specifies the
 circle to be drawn. n is less appropriate because it pertains to the
 details of *how* the circle should be rendered.
 
+在这个例子中，r属于接口的一部分，因为它指定了要画多大的圆。
+n就不太合适，因为它是关于*如何*画圆的细节。
+
 Rather than clutter up the interface, it is better to choose an
 appropriate value of n depending on circumference:
+
+与其把接口弄乱，不如根据circumference选择一个合适的n值。
 
 ::
 
@@ -376,15 +505,28 @@ length of each segment is approximately 3, which is small enough that
 the circles look good, but big enough to be efficient, and acceptable
 for any size circle.
 
-Refactoring
+现在线段的数量是大小约为circumference/3的整型数，
+所以每条线段的长度（大概）是3，小到足以使圆看上去不错，
+又大到对任何大小的圆都又快又合适。
+
+---
+
+重构
 -----------
 
 When I wrote circle, I was able to re-use polygon because a many-sided
 polygon is a good approximation of a circle. But arc is not as
 cooperative; we can’t use polygon or circle to draw an arc.
 
+当我写circle的时候，我能够重用polygon，
+因为一个多边形是与圆形非常近似。
+但是arc就不那么实现了；我们不能使用polygon或者circle来画一个弧。
+
 One alternative is to start with a copy of polygon and transform it into
 arc. The result might look like this:
+
+一种替代方案是从复制polygon开始，
+并将它转化为arc。结果看上去像这样：
 
 ::
 
@@ -404,6 +546,12 @@ take an angle as a third argument, but then polygon would no longer be
 an appropriate name! Instead, let’s call the more general function
 polyline:
 
+该函数的后半部分看上去很像polygon，
+但是在不改变接口的条件下，我们不能重用polygon。
+我们可以泛化polygon来接受一个角度作为第三个实参，
+但是这样polygon就不再是一个合适的名字了！
+让我们称这个更通用的函数为polyline：
+
 ::
 
     def polyline(t, n, length, angle):
@@ -412,6 +560,8 @@ polyline:
             t.lt(angle)
 
 Now we can rewrite polygon and arc to use polyline:
+
+现在，我们可以用polyline重写polygon和arc：
 
 ::
 
@@ -428,6 +578,8 @@ Now we can rewrite polygon and arc to use polyline:
 
 Finally, we can rewrite circle to use arc:
 
+最后，我们可以用arc重写circle：
+
 ::
 
     def circle(t, r):
@@ -438,13 +590,25 @@ code re-use—is called **refactoring**. In this case, we noticed that
 there was similar code in arc and polygon, so we “factored it out” into
 polyline.
 
+重新整理一个程序以改进函数接口和促进代码重用的这个过程，
+被称作\ **重构（refactoring）**\ 。
+在此例中，我们注意到arc和polygon中有相似的代码，
+因此，我们“将它分解出来”（factor it out）放入polyline。
+
 If we had planned ahead, we might have written polyline first and
 avoided refactoring, but often you don’t know enough at the beginning of
 a project to design all the interfaces. Once you start coding, you
 understand the problem better. Sometimes refactoring is a sign that you
 have learned something.
 
-A development plan
+如果我们提前已经计划好了，我们可能会首先写polyline，避免重构，
+但是在一个项目开始的时候，你常常并不知道那么多，不能设计好全部的接口。
+一旦你开始编码后，你才能更好地理解该问题。
+有时重构是一个说明你已经学到某些东西的预兆。
+
+---
+
+开发方案
 ------------------
 
 A **development plan** is a process for writing programs. The process we
