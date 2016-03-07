@@ -1,8 +1,10 @@
-Case study: interface design
+案例学习：接口设计
 ============================
 
 This chapter presents a case study that demonstrates a process for
 designing functions that work together.
+
+本章分享一个案例学习，演示如何设计出相互配合协作的函数的过程。
 
 It introduces the turtle module, which allows you to create images using
 turtle graphics. The turtle module is included in most Python
@@ -10,18 +12,26 @@ installations, but if you are running Python using PythonAnywhere, you
 won’t be able to run the turtle examples (at least you couldn’t when I
 wrote this).
 
+本章将会介绍 ``turtle`` 模块，可以让你使用海龟图形生成图片。大部分的Python安装环境下都内置了这个模块，但是如果你是在PythonAnywhere上运行Python的，你将无法运行本章中的代码示例（至少在我写下这章时是做不到的）。
+
 If you have already installed Python on your computer, you should be
 able to run the examples. Otherwise, now is a good time to install. I
 have posted instructions at http://tinyurl.com/thinkpython2e.
 
+如果你已经在自己的电脑上安装了Python，那么不会有问题。否则，建议你现在安装。我在 http://tinyurl.com/thinkpython2e 这个页面上发布了相关指南。
+
 Code examples from this chapter are available from
 http://thinkpython2.com/code/polygon.py.
 
-The turtle module
+本章的示例代码可以从\ http://thinkpython2.com/code/polygon.py\ 获得。
+
+turtle模块
 -----------------
 
 To check whether you have the turtle module, open the Python interpreter
 and type
+
+打开Python解释器，输入以下代码，检查你是否安装了turltle模块：
 
 ::
 
@@ -31,7 +41,11 @@ and type
 When you run this code, it should create a new window with small arrow
 that represents the turtle. Close the window.
 
+运行上面的代码后，应该会新建一个窗口，中间有一个小箭头，代表的就是海龟。现在关闭窗口。
+
 Create a file named mypolygon.py and type in the following code:
+
+新建一个名叫  ``mypolygon.py`` 的文件，输入以下代码：
 
 ::
 
@@ -44,6 +58,8 @@ The turtle module (with a lowercase ’t’) provides a function called
 Turtle (with an uppercase ’T’) that creates a Turtle object, which we
 assign to a variable named bob. Printing bob displays something like:
 
+turtle模块（t为小写）提供了一个叫作 ``Turtle`` 的函数（T为大写），这个函数会创建一个Turtle对象，我们将其赋值给名为 ``bob``的变量。打印bob的话，会输出下面这样的结果：
+
 ::
 
     <turtle.Turtle object at 0xb7bfbf4c>
@@ -51,13 +67,19 @@ assign to a variable named bob. Printing bob displays something like:
 This means that bob refers to an object with type Turtle as defined in
 module turtle.
 
+这意味着，bob指向一个类型为Turtle的对象，这个类型是由turtle模块定义的。
+
 ``mainloop`` tells the window to wait for the user to do something,
 although in this case there’s not much for the user to do except close
 the window.
 
+``mainloop`` 告诉窗口等待用户操作，尽管在这个例子中用户除了关闭窗口之外，并没有其他可做的事情。
+
 Once you create a Turtle, you can call a **method** to move it around
 the window. A method is similar to a function, but it uses slightly
 different syntax. For example, to move the turtle forward:
+
+创建了一个Turtle对象之后，你可以调用 **方法（method）**来在窗口中移动该对象。方法与函数类似，但是其语法略有不同。例如，要让turtle向前走：
 
 ::
 
@@ -67,16 +89,24 @@ The method, fd, is associated with the turtle object we’re calling bob.
 Calling a method is like making a request: you are asking bob to move
 forward.
 
+方法fd与我们称之为bob的对象是相关联的。调用方法就像提出一个请求：你在请求bob往前走。
+
 The argument of fd is a distance in pixels, so the actual size depends
 on your display.
+
+fd方法的实参是像素距离，所以实际行动的距离取决于你的屏幕大小。
 
 Other methods you can call on a Turtle are bk to move backward, lt for
 left turn, and rt right turn. The argument for lt and rt is an angle in
 degrees.
 
+对于一个Turtle，你能调用的其他方法还包括：让它向后走的bk，向左转的lt，向右转的rt。lt和rt这两个方法接受的实参是角度。
+
 Also, each Turtle is holding a pen, which is either down or up; if the
 pen is down, the Turtle leaves a trail when it moves. The methods pu and
 pd stand for “pen up” and “pen down”.
+
+另外，每个Turtle都握着一支笔，不是落笔就是抬笔；如果落笔了，Turtle就会在移动时留下痕迹。pu和pd这两个方法分别代表“抬笔（pen up）”和“落笔（pen down）”。
 
 To draw a right angle, add these lines to the program (after creating
 bob and before calling ``mainloop``):
