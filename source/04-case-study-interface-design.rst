@@ -747,7 +747,7 @@ method:
     notation.
 
 方法（method）：
-    与对象相关联的函数，并使用句点标记法（dot notation）调用。
+    与对象相关联的函数，并使用点标记法（dot notation）调用。
 
 loop:
     A part of a program that can run repeatedly.
