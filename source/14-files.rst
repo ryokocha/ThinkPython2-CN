@@ -19,7 +19,7 @@ Other programs are **persistent**: they run for a long time (or all the
 time); they keep at least some of their data in permanent storage (a
 hard drive, for example); and if they shut down and restart, they pick
 up where they left off.
-另一类程序是**持久**的：它们长时间运行（或者一直在运行）；它们至少将一部分数据记录在永久存储（如一个硬盘中）；当你关闭然后重新启动它们时，它们将从上次中断的地方开始继续。
+另一类程序是 **持久** 的：它们长时间运行（或者一直在运行）；它们至少将一部分数据记录在永久存储（如一个硬盘中）；当你关闭然后重新启动它们时，它们将从上次中断的地方开始继续。
 
 Examples of persistent programs are operating systems, which run pretty
 much whenever a computer is on, and web servers, which run all the time,
@@ -46,7 +46,7 @@ a file in Section [wordlist].
 
 To write a file, you have to open it with mode ``'w'`` as a second
 parameter:
-要写入一个文件，你必须在打开文件时用第二个参数来使用``'w'``模式：
+要写入一个文件，你必须在打开文件时用第二个参数来使用 ``'w'`` 模式：
 
 ::
 
@@ -105,16 +105,16 @@ write的参数必须是字符串，所以如果我们想要在文件中写入其
 An alternative is to use the **format operator**, %. When applied to
 integers, % is the modulus operator. But when the first operand is a
 string, % is the format operator.
-另一个方法是使用**格式运算符（format operator）**，即%。在作用于整数的时候，%是取模运算符，而当第一个运算数（operand）（或者翻译为操作数？《深入理解计算机系统》中就是这么翻译的）是字符串时%是格式运算符。
+另一个方法是使用 **格式运算符（format operator）** ，即 ``%``。在作用于整数的时候，%是取模运算符，而当第一个运算数（operand）（或者翻译为操作数？《深入理解计算机系统》中就是这么翻译的）是字符串时%是格式运算符。
 
 The first operand is the **format string**, which contains one or more
 **format sequences**, which specify how the second operand is formatted.
 The result is a string.
-第一个运算数是**格式字符串（format string）**，它包含一个或多个**格式序列（format sequence）**。格式序列指定了第二个运算数是如何格式化的。运算结果是一个字符串。
+第一个运算数是 **格式字符串（format string）** ，它包含一个或多个 **格式序列（format sequence）** 。格式序列指定了第二个运算数是如何格式化的。运算结果是一个字符串。
 
 For example, the format sequence ``'%d'`` means that the second operand
 should be formatted as a decimal integer:
-例如，格式序列``'%d'``意味着第二个运算数应该被格式化为一个十进制整数：
+例如，格式序列 ``'%d'`` 意味着第二个运算数应该被格式化为一个十进制整数：
 
 ::
 
@@ -124,7 +124,7 @@ should be formatted as a decimal integer:
 
 The result is the string ``'42'``, which is not to be confused with the
 integer value 42.
-结果是字符串``'42'``，需要和整数值42区分开来。
+结果是字符串 ``'42'`` ，需要和整数值42区分开来。
 
 A format sequence can appear anywhere in the string, so you can embed a
 value in a sentence:
@@ -142,7 +142,7 @@ element of the tuple, in order.
 
 The following example uses ``'%d'`` to format an integer, ``'%g'`` to
 format a floating-point number, and ``'%s'`` to format a string:
-下面的例子中使用``'%d'``来格式化一个整数，``'%g'``来格式化一个浮点数，以及``'%s'``来格式化一个字符串。
+下面的例子中使用 ``'%d'`` 来格式化一个整数， ``'%g'`` 来格式化一个浮点数，以及 ``'%s'`` 来格式化一个字符串。
 
 ::
 
@@ -179,7 +179,7 @@ Files are organized into **directories** (also called “folders”). Every
 running program has a “current directory”, which is the default
 directory for most operations. For example, when you open a file for
 reading, Python looks for it in the current directory.
-文件以**目录（directory）**（也称为“文件夹（folder）”）的形式组织起来。每个正在运行的程序都有一个“当前目录（current directory）”作为大多数操作的默认目录。例如，当你打开一个文件夹来读取时，Python在当前目录下寻找这个文件。
+文件以 **目录（directory）** （也称为“文件夹（folder）”）的形式组织起来。每个正在运行的程序都有一个“当前目录（current directory）”作为大多数操作的默认目录。例如，当你打开一个文件夹来读取时，Python在当前目录下寻找这个文件。
 
 The os module provides functions for working with files and directories
 (“os” stands for “operating system”). os.getcwd returns the name of the
@@ -199,18 +199,18 @@ cwd代表“current working directory”，即“当前工作目录”。在本�
 
 A string like ``'/home/dinsdale'`` that identifies a file or directory
 is called a **path**.
-一个类似``'/home/dinsdale'``的确定了一个文件或者目录的字符串叫做**路径（path）**。
+一个类似 ``'/home/dinsdale'`` 的确定了一个文件或者目录的字符串叫做 **路径（path）** 。
 
 A simple filename, like memo.txt is also considered a path, but it is a
 **relative path** because it relates to the current directory. If the
 current directory is /home/dinsdale, the filename memo.txt would refer
 to /home/dinsdale/memo.txt.
-一个简单的文件名例如memo.txt同样被看做是一个路径，只不过是**相对路径（relative path）**，因为它是和当前目录相联系了。如果当前目录是/home/dinsdale，那么文件名memo.txt就代表/home/dinsdale/memo.txt。
+一个简单的文件名例如memo.txt同样被看做是一个路径，只不过是 **相对路径（relative path）** ，因为它是和当前目录相联系了。如果当前目录是/home/dinsdale，那么文件名memo.txt就代表/home/dinsdale/memo.txt。
 
 A path that begins with / does not depend on the current directory; it
 is called an **absolute path**. To find the absolute path to a file, you
 can use os.path.abspath:
-一个以/开头的路径和当前目录无关，叫做“绝对路径（absolute path）”。要找一个文件的绝对路径，你可以使用os.path.abspath。
+一个以/开头的路径和当前目录无关，叫做 **绝对路径（absolute path）**。要找一个文件的绝对路径，你可以使用os.path.abspath。
 
 ::
 
@@ -331,7 +331,7 @@ exception. In this example, the except clause prints an error message
 that is not very helpful. In general, catching an exception gives you a
 chance to fix the problem, or try again, or at least end the program
 gracefully.
-使用try语句处理异常被称为是“捕获（catching）”。在本例中，except语句打印出一个并非很有帮助的错误信息。挺长来说，捕获异常给了你修补问题的机会，你可以继续尝试，或者至少可以优雅的结束程序。
+使用try语句处理异常被称为是 **捕获（catching）** 。在本例中，except语句打印出一个并非很有帮助的错误信息。挺长来说，捕获异常给了你修补问题的机会，你可以继续尝试，或者至少可以优雅的结束程序。
 
 Databases数据库
 ---------
@@ -341,7 +341,7 @@ databases are organized like a dictionary in the sense that they map
 from keys to values. The biggest difference between a database and a
 dictionary is that the database is on disk (or other permanent storage),
 so it persists after the program ends.
-一个**数据库**是一个用来存储数据的文集。大多数的数据库采用字典的形式，即将键映射到值。数据库和字典的最大区别是数据库是存储在硬盘上（或者其他永久存储中），所以即使程序结束它们依然存在。
+一个 **数据库** 是一个用来存储数据的文集。大多数的数据库采用字典的形式，即将键映射到值。数据库和字典的最大区别是数据库是存储在硬盘上（或者其他永久存储中），所以即使程序结束它们依然存在。
 
 The module dbm provides an interface for creating and updating database
 files. As an example, I’ll create a database that contains captions for
@@ -379,7 +379,7 @@ When you access one of the items, dbm reads the file:
 The result is a **bytes object**, which is why it begins with b. A bytes
 object is similar to a string in many ways. When you get farther into
 Python, the difference becomes important, but for now we can ignore it.
-返回结果是一个**字节对象（bytes object）**，这就是为什么以b开头。一个字节对象在很多方面都和一个字符串很像。当你深入了解Python时它们之间的差别会变得很重要，但是目前我们可以忽略掉那些差别。
+返回结果是一个 **字节对象（bytes object）** ，这就是为什么以b开头。一个字节对象在很多方面都和一个字符串很像。当你深入了解Python时它们之间的差别会变得很重要，但是目前我们可以忽略掉那些差别。
 
 If you make another assignment to an existing key, dbm replaces the old
 value:
@@ -471,11 +471,11 @@ Most operating systems provide a command-line interface, also known as a
 and launch applications. For example, in Unix you can change directories
 with cd, display the contents of a directory with ls, and launch a web
 browser by typing (for example) firefox.
-大多数的操作系统西贡一个命令行的接口，称为**shell**。shell通常提供浏览文件系统和启动程序的命令。例如，在Unix中你可以使用cd改变目录，使用ls显示一个目录的内容，通过输入firefox（举例来说）来启动一个网页浏览器。
+大多数的操作系统西贡一个命令行的接口，称为 **shell** 。shell通常提供浏览文件系统和启动程序的命令。例如，在Unix中你可以使用cd改变目录，使用ls显示一个目录的内容，通过输入firefox（举例来说）来启动一个网页浏览器。
 
 Any program that you can launch from the shell can also be launched from
 Python using a **pipe object**, which represents a running program.
-任何你在shell中可以启动的程序也可以在Python中通过使用**管道对象（pipe object）**来启动。一个管道是一个表示活动进程的对象。
+任何你在shell中可以启动的程序也可以在Python中通过使用 **管道对象（pipe object）** 来启动。一个管道是一个表示活动进程的对象。
 
 For example, the Unix command ls -l normally displays the contents of
 the current directory in long format. You can launch ls with
@@ -568,7 +568,7 @@ Now you have a module object wc:
     <module 'wc' from 'wc.py'>
 
 The module object provides ``linecount``:
-这个模块对象提供了``linecount``函数：
+这个模块对象提供了 ``linecount`` 函数：
 
 ::
 
@@ -600,7 +600,7 @@ module is being imported, the test code is skipped.
 As an exercise, type this example into a file named wc.py and run it as
 a script. Then run the Python interpreter and import wc. What is the
 value of ``__name__`` when the module is being imported?
-作为练习，将例子输入到文件wc.py中去然后以脚本形式运行。接着，打开Python解释器并导入wc。当模块被导入后``__name__``的值是什么？
+作为练习，将例子输入到文件wc.py中去然后以脚本形式运行。接着，打开Python解释器并导入wc。当模块被导入后 ``__name__`` 的值是什么？
 
 Warning: If you import a module that has already been imported, Python
 does nothing. It does not re-read the file, even if it has changed.
@@ -755,15 +755,16 @@ http://thinkpython2.com/code/anagram_sets.py, you’ll see that it creates
 a dictionary that maps from a sorted string of letters to the list of
 words that can be spelled with those letters. For example, ``'opst'``
 maps to the list ``['opts', 'post', 'pots', 'spot', 'stop', 'tops']``.
-如果你从http://thinkpython2.com/code/anagram_sets.py 下载了我对于练习[anagrams]的解答，你会看到解答中创建了一个字典，字典是从一个排序后的字母组成的字符串映射到一个可以由这些字母拼成的单词组成的列表。例如，``'opst'``映射到列表``['opts', 'post', 'pots', 'spot', 'stop', 'tops']``。
+如果你从http://thinkpython2.com/code/anagram_sets.py 下载了我对于练习[anagrams]的解答，你会看到解答中创建了一个字典，字典是从一个排序后的字母组成的字符串映射到一个可以由这些字母拼成的单词组成的列表。例如， ``'opst'`` 映射到列表 ``['opts', 'post', 'pots', 'spot', 'stop', 'tops']`` 。
 
 Write a module that imports ``anagram_sets`` and provides two new
 functions: ``store_anagrams`` should store the anagram dictionary in a
 “shelf”; ``read_anagrams`` should look up a word and return a list of
 its anagrams. Solution: http://thinkpython2.com/code/anagram_db.py.
-写一个模块，其中导入``anagram_sets``并提供两个新函数：函数``store_anagrams``在“shelf”中保存anagram字典；``read_anagrams``查找一个单词并返回它的anagram列表。解答：http://thinkpython2.com/code/anagram_db.py。
+写一个模块，其中导入 ``anagram_sets`` 并提供两个新函数：函数 ``store_anagrams`` 在“shelf”中保存anagram字典； ``read_anagrams`` 查找一个单词并返回它的anagram列表。解答：http://thinkpython2.com/code/anagram_db.py。
 
 [checksum]
+
 校验和
 
 In a large collection of MP3 files, there may be more than one copy of
