@@ -170,7 +170,7 @@ https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting.
 A more powerful alternative is the string format method, which you can
 read about at
 https://docs.python.org/3/library/stdtypes.html#str.format.
-可以在https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting中了解关于格式运算符的更多信息。一个更为强大的方法是使用字符串（string）的format方法，可以在https://docs.python.org/3/library/stdtypes.html#str.format中了解它。
+可以在https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting 中了解关于格式运算符的更多信息。一个更为强大的方法是使用字符串（string）的format方法，可以在https://docs.python.org/3/library/stdtypes.html#str.format 中了解它。
 
 Filenames and paths文件名和路径
 -------------------
@@ -273,7 +273,7 @@ one but more versatile. As an exercise, read the documentation and use
 it to print the names of the files in a given directory and its
 subdirectories. You can download my solution from
 http://thinkpython2.com/code/walk.py.
-os模块提供提供了一个叫做walk的函数，和我们写的类似但是功能更加更富。作为练习，阅读文档并且使用walk打印出给定目录下的文件名和子目录。你可以从http://thinkpython2.com/code/walk.py下载我的解答。
+os模块提供提供了一个叫做walk的函数，和我们写的类似但是功能更加更富。作为练习，阅读文档并且使用walk打印出给定目录下的文件名和子目录。你可以从http://thinkpython2.com/code/walk.py 下载我的解答。
 
 Catching exceptions捕获异常
 -------------------
@@ -359,7 +359,7 @@ Opening a database is similar to opening other files:
 The mode ``'c'`` means that the database should be created if it doesn’t
 already exist. The result is a database object that can be used (for
 most operations) like a dictionary.
-模式代表如果数据库不存在则被创建。这个操作的返回结果是一个数据库对象，可以像字典一样使用它（对于大多数操作）。
+模式 ``'c'`` 代表如果数据库不存在则被创建。这个操作的返回结果是一个数据库对象，可以像字典一样使用它（对于大多数操作）。
 
 When you create a new item, dbm updates the database file.
 当你创建一个新项目时，dnm将更新数据库文件。
@@ -480,7 +480,7 @@ Python using a **pipe object**, which represents a running program.
 For example, the Unix command ls -l normally displays the contents of
 the current directory in long format. You can launch ls with
 os.popen [1]_:
-例如，Unix命令ls -l将以详细格式显示当前目录下的内容。你可以使用op.popen[1]_来启动ls：
+例如，Unix命令ls -l将以详细格式显示当前目录下的内容。你可以使用op.popen [1]_来启动ls：
 
 ::
 
@@ -516,7 +516,7 @@ about MD5 at http://en.wikipedia.org/wiki/Md5. This command provides an
 efficient way to check whether two files have the same contents. The
 probability that different contents yield the same checksum is very
 small (that is, unlikely to happen before the universe collapses).
-例如，大多数Unix系统提供一个叫做md5sum的命令来读取一个文件的内容并计算出一个“校验和（checksum）”。你可以在http://en.wikipedia.org/wiki/Md5中了解更多MD5的信息。不同内容产生相同校验和的概率非常小（即是说在宇宙坍塌之前是不可能的）。
+例如，大多数Unix系统提供一个叫做md5sum的命令来读取一个文件的内容并计算出一个“校验和（checksum）”。你可以在http://en.wikipedia.org/wiki/Md5 中了解更多MD5的信息。不同内容产生相同校验和的概率非常小（即是说在宇宙坍塌之前是不可能的）。
 
 You can use a pipe to run md5sum from Python and get the result:
 你可以使用一个管道来从Python中运行md5sum并得到计算结果：
@@ -595,7 +595,7 @@ Programs that will be imported as modules often use the following idiom:
 If the program is running as a script, ``__name__`` has the value
 ``'__main__'``; in that case, the test code runs. Otherwise, if the
 module is being imported, the test code is skipped.
-``__name__``是一个在程序开始时设置好的内建变量。如果程序以脚本的形式运行，``__name__``的值为``__main__``，这时其中的代码将被执行。否则当被作为模块导入时，其中的代码将被跳过。
+``__name__`` 是一个在程序开始时设置好的内建变量。如果程序以脚本的形式运行，``__name__`` 的值为 ``__main__`` ，这时其中的代码将被执行。否则当被作为模块导入时，其中的代码将被跳过。
 
 As an exercise, type this example into a file named wc.py and run it as
 a script. Then run the Python interpreter and import wc. What is the
@@ -644,13 +644,13 @@ different characters to indicate the end of a line. Some systems use a
 newline, represented ``\n``. Others use a return character, represented
 ``\r``. Some use both. If you move files between different systems,
 these inconsistencies can cause problems.
-另一个你可能会遇到的问题是不同的的系统使用不同的符号来表示一行的结束。有些系统使用一个换行符``\n``，有的使用一个返回符号``\r``，有些两者都使用。如果你在不同的系统中移动文件，这些差异会导致问题。
+另一个你可能会遇到的问题是不同的的系统使用不同的符号来表示一行的结束。有些系统使用一个换行符 ``\n`` ，有的使用一个返回符号 ``\r`` ，有些两者都使用。如果你在不同的系统中移动文件，这些差异会导致问题。
 
 For most systems, there are applications to convert from one format to
 another. You can find them (and read more about this issue) at
 http://en.wikipedia.org/wiki/Newline. Or, of course, you could write one
 yourself.
-对大多数的系统，有一些在不同格式之间进行转换的应用。你可以在http://en.wikipedia.org/wiki/Newline中找到（并阅读更多相关内容）。当然你也可以自己编写一个转换程序。
+对大多数的系统，有一些在不同格式之间进行转换的应用。你可以在http://en.wikipedia.org/wiki/Newline 中找到（并阅读更多相关内容）。当然你也可以自己编写一个转换程序。
 
 Glossary术语
 --------
@@ -755,7 +755,7 @@ http://thinkpython2.com/code/anagram_sets.py, you’ll see that it creates
 a dictionary that maps from a sorted string of letters to the list of
 words that can be spelled with those letters. For example, ``'opst'``
 maps to the list ``['opts', 'post', 'pots', 'spot', 'stop', 'tops']``.
-如果你从http://thinkpython2.com/code/anagram_sets.py下载了我对于练习[anagrams]的解答，你会看到解答中创建了一个字典，字典是从一个排序后的字母组成的字符串映射到一个可以由这些字母拼成的单词组成的列表。例如，``'opst'``映射到列表``['opts', 'post', 'pots', 'spot', 'stop', 'tops']``。
+如果你从http://thinkpython2.com/code/anagram_sets.py 下载了我对于练习[anagrams]的解答，你会看到解答中创建了一个字典，字典是从一个排序后的字母组成的字符串映射到一个可以由这些字母拼成的单词组成的列表。例如，``'opst'``映射到列表``['opts', 'post', 'pots', 'spot', 'stop', 'tops']``。
 
 Write a module that imports ``anagram_sets`` and provides two new
 functions: ``store_anagrams`` should store the anagram dictionary in a
