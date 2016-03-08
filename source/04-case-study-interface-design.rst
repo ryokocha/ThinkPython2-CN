@@ -615,29 +615,49 @@ A **development plan** is a process for writing programs. The process we
 used in this case study is “encapsulation and generalization”. The steps
 of this process are:
 
+**开发计划（development plan）**\ 是编写程序的过程。
+此例中我们使用的过程是“封装和泛化”。 这个过程的具体步骤是：
+
 #. Start by writing a small program with no function definitions.
+   从写一个没有函数定义的小程序开始。
 
 #. Once you get the program working, identify a coherent piece of it,
    encapsulate the piece in a function and give it a name.
+   一旦该程序运行正常，找出其中相关性强的部分，将它们封装进一个函数并给它一个名字。
 
 #. Generalize the function by adding appropriate parameters.
 
+   通过增加适当的形参泛化该函数。
+
 #. Repeat steps 1–3 until you have a set of working functions. Copy and
    paste working code to avoid retyping (and re-debugging).
+   重复1–3步，直到你有一些可正常运行的函数。
+   复制粘贴有用的代码，避免重复输入（和重新调试）。
 
 #. Look for opportunities to improve the program by refactoring. For
    example, if you have similar code in several places, consider
    factoring it into an appropriately general function.
+   寻找机会通过重构改进程序。
+   例如，如果在多个地方有相似的代码，考虑将它分解到一个合适的通用函数中。
 
 This process has some drawbacks—we will see alternatives later—but it
 can be useful if you don’t know ahead of time how to divide the program
 into functions. This approach lets you design as you go along.
 
-docstring
+这个过程也有一些缺点—后面我们将介绍其他替代方案—
+但是如果你事先不知道如何将程序分解为函数，这是个很有用办法。
+该方法可以让你一边编程，一边设计。
+
+---
+
+文档字符串
 ---------
 
 A **docstring** is a string at the beginning of a function that explains
 the interface (“doc” is short for “documentation”). Here is an example:
+
+一个\ **文档字符串（docstring）**\ 是位于函数开始位置的字符串，
+解释了函数的接口（“doc”是“documentation”的缩写）。 下面是一个例子：
 
 ::
 
@@ -653,16 +673,27 @@ By convention, all docstrings are triple-quoted strings, also known as
 multiline strings because the triple quotes allow the string to span
 more than one line.
 
+按照惯例，所有的文档字符串都是三重引号字符串，也被称为多行字符串，
+因为三重引号允许字符串超过一行。
+
 It is terse, but it contains the essential information someone would
 need to use this function. It explains concisely what the function does
 (without getting into the details of how it does it). It explains what
 effect each parameter has on the behavior of the function and what type
 each parameter should be (if it is not obvious).
 
+它很简要（terse），但是包括了他人使用此函数时需要了解的关键信息。
+它扼要地说明该函数做什么（不介绍背后的具体细节）。
+它解释了每个形参对函数的行为有什么影响，以及每个形参应有的类型
+（如果它不明显的话）。
+
 Writing this kind of documentation is an important part of interface
 design. A well-designed interface should be simple to explain; if you
 have a hard time explaining one of your functions, maybe the interface
 could be improved.
+
+写这种文档是接口设计中很重要的一部分。 一个设计良好的接口应该很容易解释，
+如果你很难解释你的某个函数，那么你的接口也许还有改进空间。
 
 Debugging
 ---------
@@ -671,9 +702,16 @@ An interface is like a contract between a function and a caller. The
 caller agrees to provide certain parameters and the function agrees to
 do certain work.
 
+接口就像是一个函数和调用者之间的合同。
+调用者同意提供合适的参数，函数同意完成相应的工作。
+
 For example, polyline requires four arguments: t has to be a Turtle; n
 has to be an integer; length should be a positive number; and angle has
 to be a number, which is understood to be in degrees.
+
+例如，polyline函数需要4个实参：t必须是一个Turtle；
+n必须是一个整型数； length应该是一个正数；
+angle必须是一个数，单位是度数。
 
 These requirements are called **preconditions** because they are
 supposed to be true before the function starts executing. Conversely,
@@ -682,68 +720,120 @@ Postconditions include the intended effect of the function (like drawing
 line segments) and any side effects (like moving the Turtle or making
 other changes).
 
+这些要求被称作\ **先决条件（preconditions）**\ ，
+因为它们在函数开始执行之前应当是成立的（true）。
+相反，函数结束时的条件是\ **后置条件（postconditions）**\ 。
+后置条件包括函数预期的效果（如画线段）以及任何其他附带效果
+（如移动Turtle或者做其它改变）。
+
 Preconditions are the responsibility of the caller. If the caller
 violates a (properly documented!) precondition and the function doesn’t
 work correctly, the bug is in the caller, not the function.
+
+先决条件由调用者负责。如果调用者违反一个（已经充分记录文档）
+先决条件，导致函数没有正确工作，则故障（bug）出现在调用者一方，而不是函数。
 
 If the preconditions are satisfied and the postconditions are not, the
 bug is in the function. If your pre- and postconditions are clear, they
 can help with debugging.
 
-Glossary
+---
+
+词汇表
 --------
 
 method:
     A function that is associated with an object and called using dot
     notation.
 
+方法（method）：
+    与对象相关联的函数，并使用句点标记法（dot notation）调用。
+
 loop:
     A part of a program that can run repeatedly.
+
+循环（loop）：
+    程序中能够重复执行的那部分代码。
 
 encapsulation:
     The process of transforming a sequence of statements into a function
     definition.
+
+封装（encapsulation）：
+    将一个语句序列转换成函数定义的过程。
 
 generalization:
     The process of replacing something unnecessarily specific (like a
     number) with something appropriately general (like a variable or
     parameter).
 
+泛化（generalization）：
+    使用某种可以算是比较通用的东西（像变量和形参），替代某些没必要那么具体的东西（像一个数字）的过程。
+
 keyword argument:
     An argument that includes the name of the parameter as a “keyword”.
+
+关键字实参（keyword argument）：
+    包括了形参名称作为“关键字”的实参。
 
 interface:
     A description of how to use a function, including the name and
     descriptions of the arguments and return value.
 
+接口（interface）：
+    对如何使用一个函数的描述，包括函数名、参数说明和返回值。
+
 refactoring:
     The process of modifying a working program to improve function
     interfaces and other qualities of the code.
 
+重构（refactoring）：
+    修改一个正常运行的函数，改善函数接口及其他方面代码质量的过程。
+
 development plan:
     A process for writing programs.
+
+开发计划（development plan）：
+    编写程序的一种过程。
 
 docstring:
     A string that appears at the top of a function definition to
     document the function’s interface.
 
+文档字符串（docstring）：
+    出现在函数定义顶部的一个字符串，用于记录函数的接口。
+
 precondition:
     A requirement that should be satisfied by the caller before a
     function starts.
+
+先决条件（preconditions）：
+    在函数运行之前，调用者应该满足的一个要求。
 
 postcondition:
     A requirement that should be satisfied by the function before it
     ends.
 
-Exercises
+后置条件（postconditions）：
+    函数结束执行之前应该满足的一个条件。
+
+---
+
+练习题
 ---------
+
+习题 4-1.
 
 Download the code in this chapter from
 http://thinkpython2.com/code/polygon.py.
 
+可从\ http://thinkpython.com/code/polygon.py \ 下载本章的代码。
+
 #. Draw a stack diagram that shows the state of the program while
    executing circle(bob, radius). You can do the arithmetic by hand or
    add print statements to the code.
+
+   画一个执行circle(bob, radius)程序时的堆栈图（stack diagram），说明程序的各个状态。你可以手动进行计算，也可以在代码中加入print语句。
 
 #. The version of arc in Section [refactoring] is not very accurate
    because the linear approximation of the circle is always outside the
@@ -752,40 +842,71 @@ http://thinkpython2.com/code/polygon.py.
    of this error. Read the code and see if it makes sense to you. If you
    draw a diagram, you might see how it works.
 
-.. figure:: figs/flowers.pdf
-   :alt: Turtle flowers.
+   重构一节中给出的arc函数版本并不太精确，因为原型的线性近似用于处在真正的圆形之外。因此，Turtle总是和正确的终点相差几个像素。阅读其中的代码，看看是否能够理解。如果你画一个堆栈图的话，你可能会更容易明白为什么会这样。
 
-   Turtle flowers.
+.. figure:: figs/flowers.png
+   :alt: Turtle绘制的花朵。
+
+   Turtle绘制的花朵。
+
+习题 4-2.
 
 Write an appropriately general set of functions that can draw flowers as
 in Figure [fig.flowers].
 
+编写比较通用的一个函数集，可以画出像图-4-1中那样的花朵。
+
 Solution: http://thinkpython2.com/code/flower.py, also requires
 http://thinkpython2.com/code/polygon.py.
 
-.. figure:: figs/pies.pdf
-   :alt: Turtle pies.
+答案： http://thinkpython2.com/code/flower.py ，还要求这个模块
+http://thinkpython2.com/code/polygon.py.
 
-   Turtle pies.
 
+习题 4-3.
+
+.. figure:: figs/pies.png
+   :alt: Turtle饼状图。
+
+   Turtle饼状图。
+ 
 Write an appropriately general set of functions that can draw shapes as
 in Figure [fig.pies].
 
+编写比较通用的一个函数集，可以画出下面图-4-3中那样的图形。
+
 Solution: http://thinkpython2.com/code/pie.py.
+
+答案： http://thinkpython2.com/code/pie.py 。
 
 The letters of the alphabet can be constructed from a moderate number of
 basic elements, like vertical and horizontal lines and a few curves.
 Design an alphabet that can be drawn with a minimal number of basic
 elements and then write functions that draw the letters.
 
+字母表中的字母可以由少量基本元素构成，例如竖线和横线，以及一些曲线。
+设计一种可以经由最少的基本元素写出的字母表，然后编写能画出各个字母的函数。
+
 You should write one function for each letter, with names ``draw_a``,
 ``draw_b``, etc., and put your functions in a file named letters.py. You
 can download a “turtle typewriter” from
 http://thinkpython2.com/code/typewriter.py to help you test your code.
 
+你应该为每个字母写一个函数，起名为\ ``draw_a``\ ，\ ``draw_b``\ 等等，
+然后将你的函数放在一个名为letters.py的文件里。
+你可以从\ http://thinkpython.com/code/typewriter.py
+下载一个“海龟打字员”来帮你测试代码。
+
 You can get a solution from http://thinkpython2.com/code/letters.py; it
 also requires http://thinkpython2.com/code/polygon.py.
+
+你可以在 http://thinkpython2.com/code/letters.py 找到答案；这个解法还要求已经下载了 http://thinkpython2.com/code/polygon.py 。
 
 Read about spirals at http://en.wikipedia.org/wiki/Spiral; then write a
 program that draws an Archimedian spiral (or one of the other kinds).
 Solution: http://thinkpython2.com/code/spiral.py.
+
+上\ http://en.wikipedia.org/wiki/Spiral \ 阅读螺线（spiral）的相关知识；
+然后编写一个绘制阿基米德螺线（或者其他种类的螺线）的程序。
+
+答案：\ http://thinkpython.com/code/spiral.py \ 。
