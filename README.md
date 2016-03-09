@@ -23,11 +23,11 @@
 | [第十四章](./source/14-files.rst)     |  [@obserthinker](https://github.com/obserthinker)    |
 | [第十五章](./source/15-classes-and-objects.rst)     |   [@ipyher](https://github.com/iphyer)    |
 | [第十六章](./source/16-classes-and-functions.rst)     | [@cxyfreedom](https://github.com/cxyfreedom)     |
-| [第十七章](./source/17-classes-and-methods.rst)     |      |
-| [第十八章](./source/18-inheritance.rst)     |      |
-| [第十九章](./source/19-the-goodies.rst)     |      |
-| [第二十章](./source/20-debugging.rst)     |      |
-| [第二十一章](./source/21-analysis-of-algorithms.rst)     |      |
+| [第十七章](./source/17-classes-and-methods.rst)     | [@bingjin](https://github.com/bingjin)      |
+| [第十八章](./source/18-inheritance.rst)     | [@bingjin](https://github.com/bingjin)     |
+| [第十九章](./source/19-the-goodies.rst)     | [@bingjin](https://github.com/bingjin)     |
+| [第二十章](./source/20-debugging.rst)     | [@bingjin](https://github.com/bingjin)     |
+| [第二十一章](./source/21-analysis-of-algorithms.rst)     | [@bingjin](https://github.com/bingjin)     |
 
 最终校对将由我自己完成。
 
