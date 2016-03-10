@@ -1,7 +1,8 @@
 Classes and functions
+=====================
 
 类和函数
-=====================
+========
 
 Now that we know how to create new types, the next step is to write
 functions that take programmer-defined objects as parameters and return
@@ -15,10 +16,10 @@ Code examples from this chapter are available from
 http://thinkpython2.com/code/Time1.py. Solutions to the exercises are at
 http://thinkpython2.com/code/Time1_soln.py.
 
-本章的代码示例可以从 http://thinkpython2.com/code/Time1.py 下载。
-练习的解答可以从 http://thinkpython2.com/code/Time1_soln.py 下载。
+本章的代码示例可以从 http://thinkpython2.com/code/Time1.py 下载。练习的解答可以从 http://thinkpython2.com/code/Time1_soln.py 下载。
 
 Time
+----
 
 时间
 ----
@@ -75,9 +76,10 @@ and False otherwise. Challenge: don’t use an if statement.
    Object diagram.
 
 Pure functions
+--------------
 
 纯函数
---------------
+------
 
 In the next few sections, we’ll write two functions that add time
 values. They demonstrate two kinds of functions: pure functions and
@@ -179,9 +181,10 @@ see a shorter alternative later.
 这个函数虽然正确，但是它开始变得臃肿。我们会在后面看到一个较短的版本。
 
 Modifiers
+---------
 
 修改器
----------
+------
 
 Sometimes it is useful for a function to modify the objects it gets as
 parameters. In that case, the changes are visible to the caller.
@@ -255,9 +258,10 @@ returns a new Time object rather than modifying the parameter.
 练习：编写一个纯函数版本的increment，创建并返回一个Time对象，而不是修改参数。
 
 Prototyping versus planning
+---------------------------
 
 原型和方案
----------------------------
+----------
 
 The development plan I am demonstrating is called “prototype and patch”.
 For each function, I wrote a prototype that performed the basic
@@ -384,9 +388,10 @@ for error).
 （因为会有更少的特殊情况和更少出错的机会）。
 
 Debugging
+---------
 
 调试
----------
+----
 
 A Time object is well-formed if the values of minute and second are
 between 0 and 60 (including 0 but not 60) and if hour is positive. hour
@@ -436,7 +441,7 @@ sure they are valid:
 Or you could use an **assert statement**, which checks a given invariant
 and raises an exception if it fails:
 
-或者你可以使用assert语句，用于检查一个给定的不变式并在失败的情况下抛出异常：
+或者你可以使用 **assert语句**，用于检查一个给定的不变式并在失败的情况下抛出异常：
 
 ::
 
@@ -451,9 +456,10 @@ with normal conditions from code that checks for errors.
 assert语句非常有用，因为它们区分了处理普通条件的代码和检查错误的代码。
 
 Glossary
+--------
 
 术语表
---------
+-------
 
 prototype and patch:
     A development plan that involves writing a rough draft of a program,
@@ -506,9 +512,10 @@ assert statement:
     一种检查条件是否满足并在失败的情况下抛出异常的语句。
 
 Exercises
+---------
 
 练习
----------
+----
 
 Code examples from this chapter are available from
 http://thinkpython2.com/code/Time1.py; solutions to the exercises are
