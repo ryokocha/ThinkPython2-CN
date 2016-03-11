@@ -1,10 +1,10 @@
-案例学习：接口设计
+第四章：案例研究：接口设计
 ============================
 
 This chapter presents a case study that demonstrates a process for
 designing functions that work together.
 
-本章分享一个案例学习，演示如何设计出相互配合协作的函数的过程。
+本章将通过一个案例研究，介绍如何设计出相互配合的函数的过程。
 
 It introduces the turtle module, which allows you to create images using
 turtle graphics. The turtle module is included in most Python
@@ -12,18 +12,18 @@ installations, but if you are running Python using PythonAnywhere, you
 won’t be able to run the turtle examples (at least you couldn’t when I
 wrote this).
 
-本章将会介绍 ``turtle`` 模块，可以让你使用海龟图形生成图片。大部分的Python安装环境下都内置了这个模块，但是如果你是在PythonAnywhere上运行Python的，你将无法运行本章中的代码示例（至少在我写下这章时是做不到的）。
+本章会介绍 ``turtle`` 模块，它可以让你使用海龟图形（turtle graphics）创造图像。大部分的Python安装环境下都内置了这个模块，但是如果你是在PythonAnywhere上运行Python的，你将无法运行本章中的代码示例（至少在我写这章时是做不到的）。
 
 If you have already installed Python on your computer, you should be
 able to run the examples. Otherwise, now is a good time to install. I
 have posted instructions at http://tinyurl.com/thinkpython2e.
 
-如果你已经在自己的电脑上安装了Python，那么不会有问题。否则，建议你现在安装。我在 http://tinyurl.com/thinkpython2e 这个页面上发布了相关指南。
+如果你已经在自己的电脑上安装了Python，那么不会有问题。如果没有，现在就是安装Python的好时机。我在 http://tinyurl.com/thinkpython2e 这个页面上发布了相关指南。
 
 Code examples from this chapter are available from
 http://thinkpython2.com/code/polygon.py.
 
-本章的示例代码可以从\ http://thinkpython2.com/code/polygon.py\ 获得。
+本章的示例代码可以从\ http://thinkpython2.com/code/polygon.py \ 获得。
 
 turtle模块
 -----------------
@@ -31,7 +31,7 @@ turtle模块
 To check whether you have the turtle module, open the Python interpreter
 and type
 
-打开Python解释器，输入以下代码，检查你是否安装了turltle模块：
+打开Python解释器，输入以下代码，检查你是否安装了 ``turltle`` 模块：
 
 ::
 
@@ -41,11 +41,12 @@ and type
 When you run this code, it should create a new window with small arrow
 that represents the turtle. Close the window.
 
-运行上面的代码后，应该会新建一个窗口，中间有一个小箭头，代表的就是海龟。现在关闭窗口。
+上述代码运行后，应该会新建一个窗口，窗口中间有一个小箭头，代表的就是海龟。现在关闭窗口。
 
 Create a file named mypolygon.py and type in the following code:
 
 新建一个名叫  ``mypolygon.py`` 的文件，输入以下代码：
+
 
 ::
 
@@ -53,6 +54,7 @@ Create a file named mypolygon.py and type in the following code:
     bob = turtle.Turtle()
     print(bob)
     turtle.mainloop()
+
 
 The turtle module (with a lowercase ’t’) provides a function called
 Turtle (with an uppercase ’T’) that creates a Turtle object, which we
