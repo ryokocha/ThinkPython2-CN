@@ -1,21 +1,23 @@
-Conditionals and recursion 条件和递归
-========================================
+第五章：条件和递归
+=====================
 
 The main topic of this chapter is the if statement, which executes
 different code depending on the state of the program. But first I want
 to introduce two new operators: floor division and modulus.
 
-这章的中心话题是能够根据程序的状态执行不同命令的if语句。但是首先我想介绍两个新的运算符 : 地板除运算符和求余运算符。
+这章的中心话题是能够根据程序的状态执行不同命令的if语句。但是首先我想介绍两个新的运算符 : 地板除（floor division）和求余（modulus）。
 
-Floor division and modulus　地板除运算符和求余运算符
------------------------------------------------------------------
+----
+
+地板除和求余
+--------------
 
 The **floor division** operator, ``//``, divides two numbers and rounds
 down to an integer. For example, suppose the run time of a movie is 105
 minutes. You might want to know how long that is in hours. Conventional
 division returns a floating-point number:
 
-**地板除运算符(floor division operator)**\, ``//``, 先做除法然后将结果保留到整数。比如，如果一部电影有 105 分钟，你可能想知道这代表着多少小时，传统的除法操作会返回一个浮点数:
+**地板除** 运算符(floor division operator) ``//`` 先做除法，然后将结果保留到整数。例如，如果一部电影时长105 分钟，你可能想知道这代表着多少小时。传统的除法操作会返回一个浮点数：
 
 ::
 
@@ -26,7 +28,7 @@ division returns a floating-point number:
 But we don’t normally write hours with decimal points. Floor division
 returns the integer number of hours, dropping the fraction part:
 
-但是，用小时做单位的时候，我们通常并不写出小数部分。地板除丢弃除法运算结果的小数部分返回整数个小时:
+但是，用小时做单位的时候，我们通常并不写出小数部分。地板除丢弃除法运算结果的小数部分，返回整数个小时:
 
 ::
 
@@ -48,8 +50,7 @@ To get the remainder, you could subtract off one hour in minutes:
 An alternative is to use the **modulus operator**, ``%``, which divides
 two numbers and returns the remainder.
 
-另一个运算符就是 **求余运算符(modulus operator)**\ 对整数进行运算，
-返回第一个运算数除以第二个所得的余数。
+另一个方法就是使用 **求余运算符(modulus operator)**  ``%`` ，它会将两个数相除，返回余数。
 
 ::
 
@@ -61,23 +62,25 @@ The modulus operator is more useful than it seems. For example, you can
 check whether one number is divisible by another—if x % y is zero, then
 x is divisible by y.
 
-求余运算符比它看起更加有用。比如，你可以查看一个是否可以被另一个数整除——如果　x % y　是 0，那么 x 能被 y　整除。
+求余运算符比看起来更加有用。例如，你可以查看一个数是否可以被另一个数整除——如果　``x % y``　的结果是 0，那么 x 能被 y　整除。
 
 Also, you can extract the right-most digit or digits from a number. For
 example, x % 10 yields the right-most digit of x (in base 10). Similarly
 x % 100 yields the last two digits.
 
-此外，你也能获得一个数的最右一位或者各位的数字。 例如x %
-10产生x的最右一位数字（十进制中）。 相似的，x % 100产生最后两位数字。
+此外，你也能获得一个数的最右边一位或多位的数字。 例如， ``x %
+10`` 返回 x 最右边一位的数字（十进制）。 类似地，``x % 100`` 返回最后两位数字。
 
 If you are using Python 2, division works differently. The division
 operator, ``/``, performs floor division if both operands are integers,
 and floating-point division if either operand is a float.
 
-如果你正在使用　Python 2, 那么除法就会和前面的介绍有点不同。除法运算符， ``/``　在被除数和除数都是整数的时候进行地板除，但是当被除数和除数中任意一个是浮点数的时候进行浮点数除法。(译者注:在 Python3 版本中无论任何类型都会保持小数部分)
+如果你正在使用　Python 2, 那么除法就会和前面的介绍有点不同。除法运算符 ``/``　在被除数和除数都是整数的时候，会进行地板除，但是当被除数和除数中任意一个是浮点数的时候，则进行浮点数除法。(译者注：在 Python3 中，无论任何类型都会保持小数部分)
 
-Boolean expressions 布尔表达式
---------------------------------------
+----
+
+布尔表达式
+----------------
 
 A **boolean expression** is an expression that is either true or false.
 The following examples use the operator ==, which compares two operands
