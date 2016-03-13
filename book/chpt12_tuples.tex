@@ -6,13 +6,12 @@ shows how lists, dictionaries, and tuples work together.
 I also present a useful feature for variable-length argument lists,
 the gather and scatter operators.
 
-本章节介绍另一个内建的类型 --- 元组，然后向您展示列表、字典和元组如何在一起使用。我也会展示一个有用的功能......
-
 One note: there is no consensus on how to pronounce ``tuple''.
 Some people say ``tuh-ple'', which rhymes with ``supple''.  But
 in the context of programming, most people say ``too-ple'', which
 rhymes with ``quadruple''.
 
+本章介绍另一个内建的类型 --- 元组\footnote{值得注意的是，``tuple''并没有统一的发音，有些人读``tuh-ple''，音律类似于``supple''；而有人读``too-ple''音律类似于``quadruple''。}，同时向您展示列表、字典和元组如何结合使用。后面的章节也会展示关于可变长度参数列表的有用功能，以及\emph{汇集}和\emph{离散}操作。
 
 \section{Tuples are immutable | 元组的不可变性}
 \index{tuple}
@@ -25,7 +24,7 @@ like lists.  The important difference is that tuples are immutable.
 \index{mutability}
 \index{immutability}
 
-元组是一组值的序列。  其中的 \emph{值}可以是任意类型，使用整数索引其位置，因此元组与列表非常相似。  而重要的不同之处在于元组的不可变性。
+元组是一组\emph{值}的序列。  其中的值可以是任意类型，使用整数索引其位置，因此元组与列表非常相似。  而重要的不同之处在于元组的不可变性。
 
 Syntactically, a tuple is a comma-separated list of values:
 
@@ -49,7 +48,7 @@ parentheses:
 To create a tuple with a single element, you have to include a final
 comma:
 
-使用单一元素建立元组时，你需要在结尾使用一个逗号:
+使用单一元素建立元组时，需要在结尾使用一个逗号:
 
 \index{singleton}
 \index{tuple!singleton}
@@ -62,7 +61,7 @@ comma:
 %
 A value in parentheses is not a tuple:
 
-括号中仅包含元素（而没有使用逗号结尾）的对象其实不是元组:
+括号中仅包含元素（而没有使用逗号结尾）时被赋值的对象不是元组:
 
 \begin{lstlisting}
 >>> t2 = ('a')
@@ -680,7 +679,7 @@ for the BBC, so please don't call it.
 因此，Python风格的元组用法可用这两幅图来描述。 此图中的电话号码是BBC的投诉热线，请不要拨打它。
 
 
-\section{Sequences of sequences}
+\section{Sequences of sequences | 序列嵌套}
 \index{sequence}
 
 I have focused on lists of tuples, but almost all of the examples in
@@ -688,13 +687,14 @@ this chapter also work with lists of lists, tuples of tuples, and
 tuples of lists.  To avoid enumerating the possible combinations, it
 is sometimes easier to talk about sequences of sequences.
 
+我们已经谈过了包含元组的列表，事实上，本章大多数例子也适用于列表嵌套列表、元组嵌套元组，以及元组嵌套列表。 为了避免一一穷举这类可能的嵌套组合，我们简称为序列嵌套。
+
 In many contexts, the different kinds of sequences (strings, lists and
 tuples) can be used interchangeably.  So how should you choose one
 over the others?
-\index{string}
-\index{list}
-\index{tuple}
-\index{mutability}
+
+在很多情况下，不同类型的序列（字符串、列表、元组）可以互换使用。 因此，我们如何选用合适的嵌套对象呢？
+\index{string} \index{list} \index{tuple} \index{mutability}
 \index{immutability}
 
 To start with the obvious, strings are more limited than other
@@ -703,8 +703,12 @@ also immutable.  If you need the ability to change the characters
 in a string (as opposed to creating a new string), you might
 want to use a list of characters instead.
 
+首先，显而易见的是字符串的使用范围比其他序列更为有限，因为它的所有元素都是字符，且字符串不可变。如果你希望能够改变字符在字符串中的位置，使用列表嵌套字符比较合适。
+
 Lists are more common than tuples, mostly because they are mutable.
 But there are a few cases where you might prefer tuples:
+
+列表比元组更常见，这源于它们可变性的易用。  但是有些情况下我们不得不更青睐元组：
 
 \begin{enumerate}
 
@@ -720,23 +724,32 @@ due to aliasing.
 
 \end{enumerate}
 
+\begin{enumerate}
+
+\item 在一些情况下（例如\lstinline{return}语句），从句式上生成一个元组比列表要简单。
+
+\item 如果你想使用一个序列作为字典的键，那么你必须使用元组或字符串这样的不可变类型。
+
+\item 如果你向函数传入一个序列作为参数，那么使用元组以降低由于别名而产生的意外行为的可能性。
+
+\end{enumerate}
+
 Because tuples are immutable, they don't provide methods like {\tt
   sort} and {\tt reverse}, which modify existing lists.  But Python
 provides the built-in function {\tt sorted}, which takes any sequence
 and returns a new list with the same elements in sorted order, and
 {\tt reversed}, which takes a sequence and returns an iterator that
 traverses the list in reverse order.
-\index{sorted function}
-\index{function!sorted} \index{reversed function}
-\index{function!reversed}
-\index{iterator}
+
+正由于元组的不可变性，元组没有类似于列表中的 \lstinline{sort} （\emph{排序}） 和 \lstinline{reverser} （\emph{逆序}）这样的方法。  然而 Python 提供了内建函数 \lstinline{sorted}，用于对任意序列排序并输出相同元素的列表，以及 \lstinline {reversed}，用于对序列逆向排序并生成一个可以遍历的迭代器。
+
+\index{sorted function} \index{function!sorted} \index{reversed function}
+\index{function!reversed} \index{iterator}
 
 
-\section{Debugging}
-\index{debugging}
-\index{data structure}
-\index{shape error}
-\index{error!shape}
+\section{Debugging  |  调试}
+\index{debugging} \index{data structure}
+\index{shape error} \index{error!shape}
 
 Lists, dictionaries and tuples are examples of {\bf data
   structures}; in this chapter we are starting to see compound data
@@ -746,8 +759,9 @@ they are prone to what I call {\bf shape errors}; that is, errors
 caused when a data structure has the wrong type, size, or structure.
 For example, if you are expecting a list with one integer and I
 give you a plain old integer (not in a list), it won't work.
-\index{structshape module}
-\index{module!structshape}
+
+列表、字典和元组都是\emph{数据结构} （\textbf{data structures}）的实例；本章中我们开始接触到复合数据结构（\textbf{compound data structures}），如：列表嵌套元组，又如使用元组作为键而列表作为值的字典。复合数据结构非常实用，然而使用时容易出现所谓的\emph{形状错误}（\textbf{shape errors}），也就是说由于数据结构的类型、大小或结构问题而引发的错误。例如，当你希望使用封装整数的列表时却用成了没被列表包含的一串整数。
+\index{structshape module} \index{module!structshape}
 
 To help debug these kinds of errors, I have written a module
 called {\tt structshape} that provides a function, also called
@@ -755,7 +769,11 @@ called {\tt structshape} that provides a function, also called
 an argument and returns a string that summarizes its shape.
 You can download it from \url{http://thinkpython2.com/code/structshape.py}
 
+为了方面调试这类错误，笔者编写了一个叫做 \lstinline{structshape} 的模块， 它提供了一个名为 \lstinline{structshape}的函数，用于接受并分析数据结构对象作，并返回描述它形状的文字信息。你可以在\href{http://thinkpython2.com/code/structshape.py}{此处}下载到它(\url{http://thinkpython2.com/code/structshape.py})。
+
 Here's the result for a simple list:
+
+这里是它分析简单列表的结果展示：
 
 \begin{lstlisting}
 >>> from structshape import structshape
@@ -767,6 +785,8 @@ Here's the result for a simple list:
 A fancier program might write ``list of 3 int{\em s}'', but it
 was easier not to deal with plurals.  Here's a list of lists:
 
+更完美的程序应该显示 ``list of 3 int{\em s}''，但是忽略英文复数使程序简单的多。我们再看一个列表嵌套的例子：
+
 \begin{lstlisting}
 >>> t2 = [[1,2], [3,4], [5,6]]
 >>> structshape(t2)
@@ -776,6 +796,8 @@ was easier not to deal with plurals.  Here's a list of lists:
 If the elements of the list are not the same type,
 {\tt structshape} groups them, in order, by type:
 
+如果列表内嵌套的元素不是相同类型，\lstinline{structshape} 会按类型的组将它们归并:
+
 \begin{lstlisting}
 >>> t3 = [1, 2, 3, 4.0, '5', '6', [7], [8], 9]
 >>> structshape(t3)
@@ -783,6 +805,8 @@ If the elements of the list are not the same type,
 \end{lstlisting}
 %
 Here's a list of tuples:
+
+以下是一个元组的例子：
 
 \begin{lstlisting}
 >>> s = 'abc'
@@ -793,6 +817,8 @@ Here's a list of tuples:
 %
 And here's a dictionary with 3 items that map integers to strings.
 
+下面，一个包含3个映射整数到字符串的键值对的字典被分析：
+
 \begin{lstlisting}
 >>> d = dict(lt)
 >>> structshape(d)
@@ -802,8 +828,9 @@ And here's a dictionary with 3 items that map integers to strings.
 If you are having trouble keeping track of your data structures,
 {\tt structshape} can help.
 
+因此如果你对使用的数据结构有疑惑，可以使用\lstinline{structshape}来帮助解析。
 
-\section{Glossary}
+\section{Glossary  |  术语表}
 
 \begin{description}
 
@@ -817,39 +844,50 @@ right side and a tuple of variables on the left.  The right
 side is evaluated and then its elements are assigned to the
 variables on the left.
 
-\item[元组赋值：]
-
+\item[元组赋值：]一种通过赋值方式，通过等号右侧的序列向等号左侧的一组变量的元组进行赋值。右侧许两种的每个元素会被计算，然后赋给左侧元组中对应的变量。
 \index{tuple assignment} \index{assignment!tuple}
 
 \item[gather:] The operation of assembling a variable-length
 argument tuple.
 \index{gather}
 
+\item[汇集：] 组装可变长度变量元组的一种操作。
+
 \item[scatter:] The operation of treating a sequence as a list of
 arguments.
 \index{scatter}
 
+\item[分散：] 将一个序列变换成一个参数列表的操作。
+
+
 \item[zip object:] The result of calling a built-in function {\tt zip};
 an object that iterates through a sequence of tuples.
-\index{zip object}
-\index{object!zip}
+
+\item[zip 对象：] 使用内建函数\lstinline{zip}所返回的结果， 它是一个可通过元组序列逐个迭代的对象。
+\index{zip object} \index{object!zip}
 
 \item[iterator:] An object that can iterate through a sequence, but
 which does not provide list operators and methods.
+
+\item[迭代器：]: 一种可以通过一个序列逐个迭代的对象，但是它并不提供列表的某些操作和方法。
 \index{iterator}
 
 \item[data structure:] A collection of related values, often
 organized in lists, dictionaries, tuples, etc.
+
+\item[数据结构：] 一个有相关关联的数据的集合，通常使用列表、字典和元组等综合构成。
 \index{data structure}
 
 \item[shape error:] An error caused because a value has the
 wrong shape; that is, the wrong type or size.
+
+\item[形状错误：] 由于数据结构的类型、大小或结构问题而引发的错误。
 \index{shape}
 
 \end{description}
 
 
-\section{Exercises}
+\section{Exercises  |  练习}
 
 \begin{exercise}
 
@@ -858,9 +896,12 @@ prints the letters in decreasing order of frequency.  Find text
 samples from several different languages and see how letter frequency
 varies between languages.  Compare your results with the tables at
 \url{http://en.wikipedia.org/wiki/Letter_frequencies}.  Solution:
-\url{http://thinkpython2.com/code/most_frequent.py}.  \index{letter
-  frequency} \index{frequency!letter}
+\url{http://thinkpython2.com/code/most_frequent.py}.
 
+写一个名为\emph{\lstinline{most_frequent}}的函数，它接受字符串并按字母降序打印出字符出现频率。 找一些不同语言的文本样本来试试看不同语言文本间区别。 将你的结果和维基百科上\href{http://en.wikipedia.org/wiki/Letter_frequencies}{字母频率}表相比较。
+
+\href{http://thinkpython2.com/code/most_frequent.py}{参考答案}
+\index{letter frequency} \index{frequency!letter}
 \end{exercise}
 
 
@@ -885,6 +926,7 @@ Here is an example of what the output might look like:
 ['generating', 'greatening']
 ['resmelts', 'smelters', 'termless']
 \end{lstlisting}
+
 %
 Hint: you might want to build a dictionary that maps from a
 collection of letters to a list of words that can be spelled with those
@@ -906,7 +948,30 @@ Hint: there are seven.
 
 Solution: \url{http://thinkpython2.com/code/anagram_sets.py}.
 
+
+易位构词游戏 (\href{https://zh.wikipedia.org/wiki/%E6%98%93%E4%BD%8D%E6%9E%84%E8%AF%8D%E6%B8%B8%E6%88%8F}{anagrams})！
+
+\item 编写一个程序使之能从文件以列表形式读入单词 （参考章节~\ref{wordlist}） 并且打印出所有符合异位构词的组合。
+
+下面是一个输出异位构词的样例：
+
+\begin{lstlisting}
+['deltas', 'desalt', 'lasted', 'salted', 'slated', 'staled']
+['retainers', 'ternaries']
+['generating', 'greatening']
+['resmelts', 'smelters', 'termless']
+\end{lstlisting}
+
+提示：也许你可以建立一个字典用于映射一个字符集合到一个该集合可异位构词的词汇集合。
+
+\item 改写前面的程序，使之首先打印包含异位构词数量最多的词汇列表，第二多次之，依次按异位构词数量排列。
+
+\item \href{https://en.wikipedia.org/wiki/Scrabble}{Scrabble} \href{https://zh.wikipedia.org/wiki/Scrabble}{游戏} 中， “bingo” ...
+
+\href{http://thinkpython2.com/code/anagram_sets.py}{参考答案}
+
 \end{enumerate}
+
 \end{exercise}
 
 \begin{exercise}
@@ -919,6 +984,12 @@ in the dictionary.  Hint: don't test all pairs of words, and don't
 test all possible swaps.  Solution:
 \url{http://thinkpython2.com/code/metathesis.py}.  Credit: This
 exercise is inspired by an example at \url{http://puzzlers.org}.
+
+如果两个单词中的某一单词可以通过调换两个字母变为另一个，这两个单词就构成了``metatheisi pair''；比如``converse''和``conserve''。 写一个程序来找出给定字典里所有的``metatheisi pair''。提示：不用测试所有的单词组合，也不用测试所有的字母调换组合。
+
+\href{http://thinkpython2.com/code/metathesis.py}{参考答案}
+
+这个练习受\href{http://puzzlers.org}{http://puzzlers.org}的案例启发而成。
 
 \end{exercise}
 
@@ -948,8 +1019,17 @@ word, take the r away, and we're left with the word spite, then we
 take the e off the end, we're left with spit, we take the s off, we're
 left with pit, it, and I.
 \end{quote}
-\index{reducible word}
-\index{word, reducible}
+
+另一个猜谜题 \href{http://www.cartalk.com/content/puzzlers}{car talk puzzler} ：
+
+\begin{quote}
+世界上哪个最长的英文单词，当你每一次从中删掉一个字母以后，剩下的字符仍然能构成一个单词？
+
+被删掉的字母可以位于首尾或是中间，但不允许重新去排列剩下的字母，这样你得到一个新单词。这样一直下去最终你只剩一个字母，并且它也是一个单词 --- 一个你可以在字典里查到的单词。我们想找到最初的这个单词可以最长可以多长，有多少个字母构成？
+
+我先给出一个短小的例子：``Sprite''，从 sprite 起，我们可以拿掉中间的 `r' 从而获得单词 spite，拿去字母 `e' 得到 spit，再去掉 `s' 剩下 pit， it，最后 I。
+\end{quote}
+\index{reducible word} \index{word, reducible}
 
 Write a program to find all words that can be reduced in this way,
 and then find the longest one.
@@ -979,6 +1059,24 @@ to memoize the words that are known to be reducible.
 \end{enumerate}
 
 Solution: \url{http://thinkpython2.com/code/reducible.py}.
+
+写一个程序按照这种规则找到所有可以缩词的单词，然后看看其中哪个词最长。
+
+以下是对这个稍具挑战的练习的一些建议：
+
+\begin{enumerate}
+\item 可能你需要写一个函数将输入单词的所有``子词''（即拿掉一个字母后所有可能的新词）以列表形式输出。
+\index{recursive definition} \index{definition!recursive}
+
+\item 递归的看，如果一个可被缩词的单词是另一个单词的子词，那另一个单词也可被缩。 我们可从空字符串开始考虑。
+
+\item 我们提供的词汇表（\lstinline{words.txt}）并未包含诸如 `I'、 `a' 这样的单个字母词汇，因此你可能需要加上它们。
+
+\item 为了提高你程序的性能， 你可能需要暂存好已被发现的可被缩词的词汇。
+
+\end{enumerate}
+
+\href{http://thinkpython2.com/code/reducible.py}{参考答案}
 
 \end{exercise}
 

@@ -1,16 +1,16 @@
 # Fdb version 3
-["makeindex book_cn.idx"] 1456995649 "book_cn.idx" "book_cn.ind" "book_cn" 1456995709
-  "book_cn.idx" 1456995708 78730 34736df6b40e01289ec6ffa8be6456c1 ""
+["makeindex book_cn.idx"] 1457661492 "book_cn.idx" "book_cn.ind" "book_cn" 1457661880
+  "book_cn.idx" 1457661880 78826 a69f9c58ae5c52882cf5db4416b686d3 ""
   (generated)
-  "book_cn.ilg"
   "book_cn.ind"
-["pdflatex"] 1456995702 "book_cn.tex" "book_cn.pdf" "book_cn" 1456995709
-  "./book_cn.tex" 1456975988 499143 28d5f7f2151bbdb9d7e00dfcf44c974b ""
-  "book_cn.aux" 1456995708 35659 c95d28c8e65bcc3afebe326a4d4a4e87 ""
-  "book_cn.ind" 1456995650 53971 3922593a00255ee5fa25548ca0821f88 "makeindex book_cn.idx"
-  "book_cn.out" 1456995708 32334 51f4f16f9c8ca73f746601c2eca718ce ""
-  "book_cn.tex" 1456975988 499143 28d5f7f2151bbdb9d7e00dfcf44c974b ""
-  "book_cn.toc" 1456995708 20308 4c8cc75b5c43886aada8d9abbda998f6 ""
+  "book_cn.ilg"
+["pdflatex"] 1457661874 "book_cn.tex" "book_cn.pdf" "book_cn" 1457661880
+  "./book_cn.tex" 1457661442 499188 5d7e4cf25a290b8e0ce61cc0e126d785 ""
+  "book_cn.aux" 1457661880 35659 266d173d85a37da15eb4599147a6528d ""
+  "book_cn.ind" 1457661492 53984 63827fe067b04930dc549ef7d69b0dda "makeindex book_cn.idx"
+  "book_cn.out" 1457661880 32506 2b80b4b279a4caa29cce482859de7a83 ""
+  "book_cn.tex" 1457661442 499188 5d7e4cf25a290b8e0ce61cc0e126d785 ""
+  "book_cn.toc" 1457661880 20353 fad215c786970da11ed1510a242478ec ""
   "c:/texlive/2015/texmf-dist/fonts/map/fontname/texfonts.map" 1445411607 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "c:/texlive/2015/texmf-dist/fonts/tfm/adobe/palatino/pplb8t.tfm" 1445411865 3456 16dd534f88eb2bd21ebc7203786b436e ""
   "c:/texlive/2015/texmf-dist/fonts/tfm/adobe/palatino/pplr7t.tfm" 1445411865 1804 7b5f73028f6509167f47ace9d69509ed ""
@@ -136,8 +136,8 @@
   "c:/texlive/2015/texmf-dist/tex/xelatex/xetex-def/xetex.def" 1445412152 17536 f287c5eacddc627c62141f8a352c932d ""
   "c:/texlive/2015/texmf-dist/tex/xelatex/xunicode/xunicode.sty" 1445412162 205722 8027ed7ab2230086d647802c25f3ee42 ""
   "c:/texlive/2015/texmf-var/web2c/xetex/xelatex.fmt" 1445412262 3445683 9976b2e99f778712776e901ceb54dcf6 ""
-  "chpt12_tuples.aux" 1456995707 3174 36f7ba672e4fcaa17f68e1ca5eefccf8 ""
-  "chpt12_tuples.tex" 1456995692 33277 7bf3fa4ade00e204a20dac28cc0386e9 ""
+  "chpt12_tuples.aux" 1457661878 3219 dc61ad84cd23390e038785908ddf7820 ""
+  "chpt12_tuples.tex" 1457661871 41117 83b05c06bce984f433eb2f298f69546c ""
   "figs/assign2.pdf" 1456819022 3893 ae962b423b9ccf172882f42e67c1a76f ""
   "figs/banana.pdf" 1456819022 5443 f2a54d91e77d1f8cb1876fc421be87cb ""
   "figs/card1.pdf" 1456819022 5371 7dced7d538b01f480853eeac74a52931 ""
@@ -169,8 +169,8 @@
   (generated)
   "book_cn.toc"
   "book_cn.pdf"
-  "book_cn.aux"
-  "book_cn.out"
   "book_cn.idx"
-  "book_cn.log"
+  "book_cn.out"
   "chpt12_tuples.aux"
+  "book_cn.aux"
+  "book_cn.log"
