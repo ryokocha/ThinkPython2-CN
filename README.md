@@ -1,33 +1,33 @@
-# 《Think Python 2ed》最新版中文翻译
+﻿# 《Think Python 2ed》最新版中文翻译
 
 ## 贡献者
 
 希望参与翻译的朋友，请提PR，直接在下面的表格中对应的章节（还未注明译者的章节）处加上自己的名字及Github主页链接。
 
-| 章节 | 译者 |
-|------|------|
-| [前言](./source/00-preface.rst) | [@bingjin](https://github.com/bingjin) |
-| [第一章](./source/01-the-way-of-the-program.rst)     | [@bingjin](https://github.com/bingjin)  |
-| [第二章](./source/02-variables-expressions-and-statements.rst)     | [@bingjin](https://github.com/bingjin)  |
-| [第三章](./source/03-functions.rst)     | [@bingjin](https://github.com/bingjin)  |
-| [第四章](./source/04-case-study-interface-design.rst)     | [@bingjin](https://github.com/bingjin)  |
-| [第五章](./source/05-conditionals-and-recursion.rst)     | [@ipyher](https://github.com/iphyer)    |
-| [第六章](./source/06-fruitful-functions.rst)     |   [@theJian](https://github.com/thejian)   |
-| [第七章](./source/07-iterations.rst)     | [@F-Karl](https://github.com/F-Karl)    |
-| [第八章](./source/08-strings.rst)     | [@xpgeng](https://github.com/xpgeng)    |
-| [第九章](./source/09-case-study-word-play.rst)     | [@ipyher](https://github.com/iphyer)    |
-| [第十章](./source/10-lists.rst)     | [@obserthinker](https://github.com/obserthinker)     |
-| 第十一章     |      |
-| 第十二章     | [@SeikaScarlet](https://github.com/SeikaScarlet)     |
-| 第十三章     |      |
-| 第十四章     |      |
-| 第十五章     |      |
-| 第十六章     |      |
-| 第十七章     |      |
-| 第十八章     |      |
-| 第十九章     |      |
-| 第二十章     |      |
-| 第二十一章     |      |
+| 章节 | 译者 | 翻译进度 | 校对进度 |
+|------|------| ------ | -------- |
+| [前言](./source/00-preface.rst) | [@bingjin](https://github.com/bingjin) | 完成 | 完成 |
+| [第一章](./source/01-the-way-of-the-program.rst)     | [@bingjin](https://github.com/bingjin)  | 完成 | 完成 |
+| [第二章](./source/02-variables-expressions-and-statements.rst)     | [@bingjin](https://github.com/bingjin)  | 完成 | 完成 |
+| [第三章](./source/03-functions.rst)     | [@bingjin](https://github.com/bingjin)  | 完成 | 完成 |
+| [第四章](./source/04-case-study-interface-design.rst)     | [@bingjin](https://github.com/bingjin)  | 完成 | 完成 |
+| [第五章](./source/05-conditionals-and-recursion.rst)     | [@ipyher](https://github.com/iphyer)    |完成 |  |
+| [第六章](./source/06-fruitful-functions.rst)     |   [@theJian](https://github.com/thejian)   | 完成 |  |
+| [第七章](./source/07-iteration.rst)     | [@F-Karl](https://github.com/F-Karl)    |  |  |
+| [第八章](./source/08-strings.rst)     | [@xpgeng](https://github.com/xpgeng)    |  |  |
+| [第九章](./source/09-case-study-word-play.rst)     | [@ipyher](https://github.com/iphyer)    | 完成 |  |
+| [第十章](./source/10-lists.rst)     | [@obserthinker](https://github.com/obserthinker)     |完成 |  |
+| [第十一章](./source/11-dictionaries.rst)     |   [@theJian](https://github.com/thejian)   | 完成 |  |
+| [第十二章](./source/12-tuples.rst)     | [@SeikaScarlet](https://github.com/SeikaScarlet)     | |  |
+| [第十三章 ](./source/13-case-study-data-structure-selection.rst)    |  [@ipyher](https://github.com/iphyer)  |  完成 |  |
+| [第十四章](./source/14-files.rst)     |  [@obserthinker](https://github.com/obserthinker)    | 完成 |  |
+| [第十五章](./source/15-classes-and-objects.rst)     |   [@ipyher](https://github.com/iphyer)    | 完成 |  |
+| [第十六章](./source/16-classes-and-functions.rst)     | [@cxyfreedom](https://github.com/cxyfreedom)     | 完成 |  |
+| [第十七章](./source/17-classes-and-methods.rst)     | [@bingjin](https://github.com/bingjin)      | |  |
+| [第十八章](./source/18-inheritance.rst)     | [@bingjin](https://github.com/bingjin)     | |  |
+| [第十九章](./source/19-the-goodies.rst)     | [@bingjin](https://github.com/bingjin)     | |  |
+| [第二十章](./source/20-debugging.rst)     | [@bingjin](https://github.com/bingjin)     | |  |
+| [第二十一章](./source/21-analysis-of-algorithms.rst)     | [@bingjin](https://github.com/bingjin)     | |  |
 
 最终校对将由我自己完成。
 

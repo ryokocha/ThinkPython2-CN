@@ -52,7 +52,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = '《Think Python 2ed》中译本'
+project = '《Think Python 2e》中译本'
 copyright = '2016, EarlGrey et.al'
 author = 'Allen Downey'
 translator = 'EarlGrey'
@@ -62,7 +62,7 @@ translator = 'EarlGrey'
 # built documents.
 #
 # The short X.Y version.
-version = '1.0'
+version = '持续更新中'
 # The full version, including alpha/beta/rc tags.
 release = '1.0'
 
