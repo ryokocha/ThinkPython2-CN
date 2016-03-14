@@ -6,12 +6,12 @@ Strings are not like integers, floats, and booleans. A string is a
 In this chapter you’ll see how to access the characters that make up a
 string, and you’ll learn about some of the methods strings provide.
 
-字符串不像整数, 浮点数, 和布鲁尔型. 一个字符串是一个**序列**, 这就意味着它是其他
-值得一个有序的集合. 在这章你会看到怎么去访问字符串里的字符, 同时你也会学习到一些字
-符串提供的方法.
+字符串不像整数, 浮点数, 和布鲁尔型. 一个字符串是一个**序列(sequence)**, 这就意味着
+它是其他值的一个有序的集合. 在这章你会看到怎么去访问字符串里的字符, 同时你也会学习到一
+些字符串提供的方法.
 
 
-A string is a sequence - 字符串一个序列
+A string is a sequence - 字符串是一个序列
 ----------------------
 
 A string is a sequence of characters. You can access the characters one
@@ -33,7 +33,7 @@ it to letter.
 The expression in brackets is called an **index**. The index indicates
 which character in the sequence you want (hence the name).
 
-括号中的表达式被称作索引(index).索引指出在序列中你想要哪个字符(因此而得名).
+括号中的表达式被称作**索引(index)**.索引指出在序列中你想要哪个字符(因此而得名).
 
 But you might not get what you expect:
 
@@ -141,7 +141,8 @@ processing is called a **traversal**. One way to write a traversal is
 with a while loop:
 
 许多计算每次处理一个字符串的字符。 它们经常从头开始,依次选择每个字符,对其做一些工作,
-然后继续直到结束。 词处理模式被称作**遍历**(traversal)。 一种写遍历的方法是使用while循环:
+然后继续直到结束。 词处理模式被称作**遍历**(traversal)。 一种写遍历的方法是使用
+while循环:
 
 ::
 
@@ -157,9 +158,9 @@ to the length of the string, the condition is false, and the body of the
 loop doesn’t run. The last character accessed is the one with the index
 len(fruit)-1, which is the last character in the string.
 
-该循环遍历字符串并在每行显示一个字符串。该循环的条件是index < len(fruit), 
-所以当index和字符串的长度相等时, 条件为假, 并且循环体不被执行。 被访问的最
-后一个字符的索引为len(fruit)-1, 这是字符串的最后一个字符。
+该循环遍历字符串并在每行显示一个字符串。该循环的条件是index < len(fruit), 所以当
+index和字符串的长度相等时, 条件为假, 并且循环体不被执行。 被访问的最后一个字符的索
+引为len(fruit)-1, 这是字符串的最后一个字符。
 
 As an exercise, write a function that takes a string as an argument and
 displays the letters backward, one per line.
@@ -178,7 +179,7 @@ Another way to write a traversal is with a for loop:
 Each time through the loop, the next character in the string is assigned
 to the variable letter. The loop continues until no characters are left.
 
-每次通过循环,字符串中的下一个字符被赋给变量char。 循环继续,直到没有剩余的字符 串了。
+每次通过循环,字符串中的下一个字符被赋给变量char。 循环继续,直到没有剩余的字符串了。
 
 The following example shows how to use concatenation (string addition)
 and a for loop to generate an abecedarian series (that is, in
@@ -187,9 +188,9 @@ Ducklings*, the names of the ducklings are Jack, Kack, Lack, Mack, Nack,
 Ouack, Pack, and Quack. This loop outputs these names in order:
 
 下面的例子显示如何使用叠加(字符串相加)和for循环生成一个字母序列(以字母序)。 
-在Robert McCloskey的书《Make Way for Ducklings》中, 
-小鸭子的名字是Jack, Kack, Lack, Mack, Nack, Ouack, Pack, and Quack。
- 此循环按顺序输出这些名字:
+在Robert McCloskey的书《Make Way for Ducklings》中, 小鸭子的名字是
+Jack, Kack, Lack, Mack, Nack, Ouack, Pack, and Quack。此循环按顺
+序输出这些名字:
 
 
 ::
@@ -216,8 +217,8 @@ The output is:
 Of course, that’s not quite right because “Ouack” and “Quack” are
 misspelled. As an exercise, modify the program to fix this error.
 
-当然,这不是非常正确,因为“Ouack”和“Quack”被错误拼写了。作为一个练习, 
-修改这个程序使之正确.
+当然,这不是非常正确,因为“Ouack”和“Quack”被错误拼写了。作为一个练习, 修改这
+个程序使之正确。
 
 String slices - 字符串切片
 -------------
@@ -225,7 +226,7 @@ String slices - 字符串切片
 A segment of a string is called a **slice**. Selecting a slice is
 similar to selecting a character:
 
-一段字符串被称作切片(slice)。 选择一个切片类似于选择一个字符:
+一段字符串被称作**切片(slice)**。 选择一个切片类似于选择一个字符:
 
 ::
 
@@ -240,7 +241,7 @@ to the “m-eth” character, including the first but excluding the last.
 This behavior is counterintuitive, but it might help to imagine the
 indices pointing *between* the characters, as in Figure [fig.banana].
 
-[n:m]操作符返回从第n个字符到第m个字符的部分字符串, 包括第一个,但是不包括最后 一个。 
+[n:m]操作符返回从第n个字符到第m个字符的部分字符串, 包括第一个, 但是不包括最后一个。 
 这个行为违反直觉,但是它可能会帮助想象指向这两个字符之间的索引, 如图 [fig.banana]。
 
 .. figure:: figs/banana.pdf
@@ -252,8 +253,8 @@ If you omit the first index (before the colon), the slice starts at the
 beginning of the string. If you omit the second index, the slice goes to
 the end of the string:
 
-如果你省略第一个索引(冒号前面的),切片起始于字符串首位。 如果你省略第二个索 引,
-切片一直到字符串结尾:
+如果你省略第一个索引(冒号前面的),切片起始于字符串首位。 如果你省略第二个索引,切片一直
+到字符串结尾:
 
 ::
 
@@ -280,7 +281,7 @@ that, it is the same as any other string.
 Continuing this example, what do you think fruit[:] means? Try it and
 see.
 
-继续这个例子, 你认为fruit[:]是什么. 尝试运行看看.
+继续这个例子, 你认为fruit[:]是什么. 尝试运行看看。
 
 Strings are immutable - 字符串是不可变的
 ---------------------
@@ -307,7 +308,7 @@ The reason for the error is that strings are **immutable**, which means
 you can’t change an existing string. The best you can do is create a new
 string that is a variation on the original:
 
-此错误的原因是字符串是**不可变的**, 这意味着你不能改变一个已存在的字符串。 
+此错误的原因是字符串是**不可变的(immutable)**, 这意味着你不能改变一个已存在的字符串。 
 最好是生成一个新的字符串,它是原字符串的一个变种:
 
 ::
@@ -320,7 +321,7 @@ string that is a variation on the original:
 This example concatenates a new first letter onto a slice of greeting.
 It has no effect on the original string.
 
-此例连接一个新的第一个字母到greeting的一个切片上。 它不影响原字符串。
+此例连接一个新的第一个字母到greeting的一个切片上。它不影响原字符串。
 
 Searching - 搜索
 ---------
@@ -362,7 +363,7 @@ loop normally and returns -1.
 This pattern of computation—traversing a sequence and returning when we
 find what we are looking for—is called a **search**.
 
-这种计算的模式—遍历一个序列并在我们找到我们正在寻找的东西时返回— 被称作**搜索**。
+这种计算的模式—遍历一个序列并在我们找到我们正在寻找的东西时返回— 被称作**搜索(search)**。
 
 As an exercise, modify find so that it has a third parameter, the index
 in word where it should start looking.
@@ -413,9 +414,9 @@ method is similar to a function—it takes arguments and returns a
 value—but the syntax is different. For example, the method upper takes a
 string and returns a new string with all uppercase letters.
 
-字符串提供了一些**方法(method)**, 这些方法可以做各种有用的运算. 
-方法和函数类似—接受参数并返回一个值—但是语法不同。 例如, 
-**upper**方法接受一个字符串并返回一个新的都是大写字母的字符串:
+字符串提供了一些**方法(method)**, 这些方法可以做各种有用的运算. 方法和函数类似
+—接受参数并返回一个值—但是语法不同。 例如, **upper**方法接受一个字符串并返回一
+个新的都是大写字母的字符串:
 
 Instead of the function syntax upper(word), it uses the method syntax
 word.upper().
@@ -470,7 +471,7 @@ substrings, not just characters:
 By default, find starts at the beginning of the string, but it can take
 a second argument, the index where it should start:
 
-find默认从字符串的首字母开始, 但是它还可以接受第二个参数, 即从何处开始的索引.
+find默认从字符串的首字母开始, 但是它还可以接受第二个参数, 即从何处开始的索引。
 
 ::
 
@@ -492,8 +493,8 @@ This search fails because b does not appear in the index range from 1 to
 2, not including 2. Searching up to, but not including, the second index
 makes find consistent with the slice operator.
 
-此搜索失败是因为b没有出现在从1到2的索引之间, 不包括2。 一直搜索到第二个索引, 
-但是不包括它, 这使得find跟切片运算符一致.
+此搜索失败是因为b没有出现在从1到2的索引之间, 不包括2。 一直搜索到第二个索引, 但是不包
+括它, 这使得find跟切片运算符一致.
 
 The in operator - in运算符
 ---------------
@@ -525,8 +526,8 @@ With well-chosen variable names, Python sometimes reads like English.
 You could read this loop, “for (each) letter in (the first) word, if
 (the) letter (appears) in (the second) word, print (the) letter.”
 
-使用精心挑选的变量名,Python有时候读起来像是英语。你可以读此循环,
-“对于(每个)在(第一个)单词中的字母, 如果(该)字母(出现)在(第二个)单词中,打印(该)字母”。
+使用精心挑选的变量名,Python有时候读起来像是英语。你可以读此循环,“对于(每个)
+在(第一个)单词中的字母, 如果(该)字母(出现)在(第二个)单词中,打印(该)字母”。
 
 Here’s what you get if you compare apples and oranges:
 
@@ -647,7 +648,7 @@ return value True, but we get an IndexError:
 For debugging this kind of error, my first move is to print the values
 of the indices immediately before the line where the error appears.
 
-为了调试该类错误,我的第一步是在错误出现的行之前,马上打印索引的值。
+为了调试该类错误, 我的第一步是在错误出现的行之前, 马上打印索引的值。
 
 ::
 
@@ -661,7 +662,7 @@ of the indices immediately before the line where the error appears.
 
 Now when I run the program again, I get more information:
 
-现在,当我再次运行该程序时,我获得更多的信息:
+现在, 当我再次运行该程序时, 我获得更多的信息:
 
 ::
 
@@ -694,8 +695,8 @@ three times, which is suspicious. To get a better idea of what is
 happening, it is useful to draw a state diagram. During the first
 iteration, the frame for ``is_reverse`` is shown in Figure [fig.state4].
 
-这次, 我获得正确的答案, 但是看起来循环只运行了三次, 这很奇怪. 但是为了更好的理解发成了什么,
- 画出栈图会很有用. 在第一次循环期间, is_reverse的框架显示在(图8.2)中.
+这次, 我获得正确的答案, 但是看起来循环只运行了三次, 这很奇怪。但是为了更好的理解发成了什么,
+ 画出栈图会很有用。在第一次循环期间, is_reverse的框架显示在图 [fig.state4]中。
 
 .. figure:: figs/state4.pdf
    :alt: State diagram.
@@ -706,13 +707,13 @@ I took some license by arranging the variables in the frame and adding
 dotted lines to show that the values of i and j indicate characters in
 word1 and word2.
 
-我安排了框图中变量的为此并且增加了虚线展示i和j的值来指明 word1 和 word2. 
+我安排了框图中变量的为此并且增加了虚线展示i和j的值来指明 word1 和 word2。 
 
 Starting with this diagram, run the program on paper, changing the
 values of i and j during each iteration. Find and fix the second error
 in this function. [isreverse]
 
-利用这个图标, 将程序运行在纸上, 并在每次迭代改变i和j的值. 找到并修改这个函数中的第二个错误.
+利用这个图标, 将程序运行在纸上, 并在每次迭代改变i和j的值。 找到并修改这个函数中的第二个错误。
 
 Glossary-术语
 --------
@@ -721,46 +722,74 @@ object(对象):
     Something a variable can refer to. For now, you can use “object” and
     “value” interchangeably.
 
+object(对象):
+    一个变量可以引用对象. 现在你既可以可以使用"对象", 也可以使用"值".
+
 sequence(序列):
     An ordered collection of values where each value is identified by an
     integer index.
 
+sequence(序列):
+    一个有序的值的集合, 每个值都与一个整数的索引联系起来.
+
 item(项):
     One of the values in a sequence.
+item(项):
+    序列中的一个
 
 index(索引):
     An integer value used to select an item in a sequence, such as a
     character in a string. In Python indices start from 0.
+index(索引):
+    整数值, 被用来选择序列中的一项, 例如字符串中的一个字符. 在Python中索引从0开始.
 
 slice(切片):
     A part of a string specified by a range of indices.
+slice(切片):
+   以指定的索引范围选择字符串的一部分.
 
 empty string(空字符串):
     A string with no characters and length 0, represented by two
     quotation marks.
+empty string(空字符串):
+   一个没有字符的字符串, 长度为0, 用两个引号表示.
 
 immutable(不可变的):
     The property of a sequence whose items cannot be changed.
+immutable(不可变的):
+    一个序列的所有项不能被改变的性质.
+
 
 traverse(遍历):
     To iterate through the items in a sequence, performing a similar
     operation on each.
+traverse(遍历):
+    按照一个序列的项迭代, 并且对每一项都有相似的操作.
+    
 
 search(搜索):
     A pattern of traversal that stops when it finds what it is looking
     for.
+search(搜索):
+    遍历的一种模式, 当找到它所需要的就停止.
 
 counter(计数器):
     A variable used to count something, usually initialized to zero and
     then incremented.
+counter(计数器):
+    被用来计数的变量, 通常从0开始增加.	
 
 invocation(调用):
     A statement that calls a method.
-
+invocation(调用):
+    使用一个方法的声明.
+    
 optional argument(可选参数):
     A function or method argument that is not required.
+optional argument(可选参数):
+    一个函数或者一个方法中的参数并不是必要的.
 
-Exercises
+Exercises- 练习
 ---------
 
 Read the documentation of the string methods at
