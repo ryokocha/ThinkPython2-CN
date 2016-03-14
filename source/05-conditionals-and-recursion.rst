@@ -86,9 +86,9 @@ A **boolean expression** is an expression that is either true or false.
 The following examples use the operator ==, which compares two operands
 and produces True if they are equal and False otherwise:
 
-**布尔表达式（boolean expression）**\ 的结果为真或者假。
-下面的例子使用==运算符，它比较两个运算数，
-如果它们相等，则产生True，否则产生False。
+**布尔表达式（boolean expression）**\ 的结果要么为真要么为假。
+下面的例子使用 ``==`` 运算符。它比较两个运算数，
+如果它们相等，则结果为 ``True`` ，否则结果为 ``False`` 。
 
 ::
 
@@ -100,7 +100,7 @@ and produces True if they are equal and False otherwise:
 True and False are special values that belong to the type bool; they are
 not strings:
 
-True和False是属于bool类型的特殊的值， 它们不是字符串。
+``True`` 和 ``False`` 是属于bool类型的特殊值；它们不是字符串。
 
 ::
 
@@ -111,15 +111,15 @@ True和False是属于bool类型的特殊的值， 它们不是字符串。
 
 The == operator is one of the **relational operators**; the others are:
 
-==运算符是\ **关系运算符（relational operators）**\ 之一， 其它的是：
+``==`` 运算符是\ **关系运算符（relational operators）**\ 之一； 其他关系运算符还有：
 
 ::
 
-          x != y               # x is not equal to y
-          x > y                # x is greater than y
-          x < y                # x is less than y
-          x >= y               # x is greater than or equal to y
-          x <= y               # x is less than or equal to y
+          x != y               # x 不等于 y
+          x > y                # x 大于 y
+          x < y                # x 小于 y
+          x >= y               # x 大于或等于 y
+          x <= y               # x 小于或等于 y
 
 Although these operations are probably familiar to you, the Python
 symbols are different from the mathematical symbols. A common error is
@@ -128,41 +128,40 @@ Remember that = is an assignment operator and == is a relational
 operator. There is no such thing as =< or =>.
 
 虽然这些运算符对你来说可能很熟悉，但是Python的符号与数学符号不相同。
-一个通常的错误是使用单独一个等号（=）而不是双等号（==）。
-记住，=是赋值运算符，==是关系运算符。 没有类似=<或=>的东西。
+一个常见的错误是使用单独一个等号（=）而不是双等号（==）。
+请记住，``=`` 是赋值运算符，``==`` 是关系运算符。 没有类似 =< 或 => 的东西。
 
-Logical operators　逻辑运算符
-----------------------------------
+----
+
+逻辑运算符
+--------------------
 
 There are three **logical operators**: and, or, and not. The semantics
 (meaning) of these operators is similar to their meaning in English. For
 example, x > 0 and x < 10 is true only if x is greater than 0 *and* less
 than 10.
 
-有三个\ **逻辑运算符（logical operators）**\ ：and、or和not。
-这些运算符的含义和它们的英语意思相似。例如如果x大于0并且小于10，则只在　x > 0
-而且 x < 10　时为真。
-
+有三个\ **逻辑运算符（logical operators）**\ ：``and`` 、``or`` 和 ``not``。
+这些运算符的含义和它们在英语的意思相似。例如，``x > 0 and x < 10`` 只在x大于0并且小于10时为真。
 
 n%2 == 0 or n%3 == 0 is true if *either or both* of the conditions is
 true, that is, if the number is divisible by 2 *or* 3.
 
-只要有一个条件为真，也就是数字n能被2或者3整除， 则n%2 == 0 or n%3 ==
-0为真。
+ ``n%2 == 0 or n%3 ==
+0`` 中如果 **一个或两个** 条件为真，那么整个表达式即为真。也就是说，如果数字n能被2或者3整除， 则为真。
 
 Finally, the not operator negates a boolean expression, so not (x > y)
 is true if x > y is false, that is, if x is less than or equal to y.
 
-最后，not对一个布尔表达式取反， 因此，如果x >
-y为假，也就是说x小于或等于y， 则not (x > y)为真。
+最后，``not`` 运算符对一个布尔表达式取反， 因此，如果 ``x >
+y`` 为假，也就是说x小于或等于y， 则 ``not (x > y)`` 为真。
 
 Strictly speaking, the operands of the logical operators should be
 boolean expressions, but Python is not very strict. Any nonzero number
 is interpreted as True:
 
-严格来讲，布尔运算符的运算数应该是布尔表达式，
-但是Python并不严格。任何非0的数字都被解释成“真”。
-
+严格来讲，逻辑运算符的运算数应该是布尔表达式，
+但是Python并不严格要求。任何非0的数字都被解释成为真（ ``True`` ）。
 
 ::
 
@@ -173,9 +172,11 @@ This flexibility can be useful, but there are some subtleties to it that
 might be confusing. You might want to avoid it (unless you know what you
 are doing).
 
-这种灵活性很有用，但有一些细节可能容易令人困惑。你可能需要避免它（除非你知道你正在做什么）。
+这种灵活性很有用，但有一些细节可能容易令人困惑。你可能需要避免这种用法（除非你知道你正在做什么）。
 
-Conditional execution　有条件的执行
+----
+
+有条件的执行
 ------------------------------------------
 
 In order to write useful programs, we almost always need the ability to
@@ -183,9 +184,9 @@ check conditions and change the behavior of the program accordingly.
 **Conditional statements** give us this ability. The simplest form is
 the if statement:
 
-为了写出有用的程序，我们几乎总是需要检测条件并相应的改变程序行为的能力。
-**条件语句（Conditional statements）**\ 给予我们这一能力。
-最简单的形式是if语句：
+为了写出有用的程序，我们几乎总是需要能够检测条件，并相应地改变程序行为。
+**条件语句（Conditional statements）**\ 给予了我们这一能力。
+最简单的形式是 ``if`` 语句：
 
 ::
 
@@ -195,14 +196,14 @@ the if statement:
 The boolean expression after if is called the **condition**. If it is
 true, the indented statement runs. If not, nothing happens.
 
-if之后的布尔表达式被称作\ **条件（condition）**\ 。
+``if`` 之后的布尔表达式被称作\ **条件（condition）**\ 。
 如果它为真，则缩进的语句会被执行。 如果不是，则什么也不会发生。
 
 if statements have the same structure as function definitions: a header
 followed by an indented body. Statements like this are called **compound
 statements**.
 
-if语句和函数定义有相同的结构：一个语句头跟着一个缩进的语句体。
+``if`` 语句和函数定义有相同的结构：一个语句头跟着一个缩进的语句体。
 类似的语句被称作\ **复合语句（compound statements）**\ 。
 
 There is no limit on the number of statements that can appear in the
@@ -212,15 +213,17 @@ haven’t written yet). In that case, you can use the pass statement,
 which does nothing.
 
 语句体中可出现的语句数目没有限制，但是至少得有一个。
-偶尔，一条语句都没有的语句体也是有用的（通常是为你还没写的代码占一个位子）。
-这种情况下，你可以使用pass语句，它什么也不做。
+有时候，一条语句都没有的语句体也是有用的（通常是为你还没写的代码占一个位子）。
+这种情况下，你可以使用 ``pass`` 语句，它什么也不做。
 
 ::
 
     if x < 0:
-        pass          # TODO: need to handle negative values!
+        pass          # 待完成：需要处理负数值！
 
-Alternative execution　二选一执行
+----
+
+二选一执行
 ------------------------------------------
 
 A second form of the if statement is “alternative execution”, in which
@@ -228,7 +231,7 @@ there are two possibilities and the condition determines which one runs.
 The syntax looks like this:
 
 
-if语句的第二种形式是\ **二选一执行（alternative execution）**\ ，
+``if`` 语句的第二种形式是\ **二选一执行（alternative execution）**\ ，
 此时有两个可能的选择，由条件决定执行哪一个。 语法看起来是这样：
 
 ::
@@ -246,11 +249,13 @@ alternatives are called **branches**, because they are branches in the
 flow of execution.
 
 如果x除以2的余数是0，那么我们知道x是偶数，
-并且程序对这一效果显示一个信息。 如果条件为假，执行第二段语句。
-既然条件要么为真要么为假，两个选择之一必被执行。
+然后程序会打印相应的信息。 如果条件为假，则执行第二部分语句。
+由于条件要么为真要么为假，两个选择中只有一个会被执行。
 这些选择被称作\ **分支（branches）**\ ，因为它们是执行流程的分支。
 
-Chained conditionals 链式条件
+----
+
+链式条件
 ----------------------------------------
 
 Sometimes there are more than two possibilities and we need more than
@@ -273,9 +278,9 @@ elif is an abbreviation of “else if”. Again, exactly one branch will
 run. There is no limit on the number of elif statements. If there is an
 else clause, it has to be at the end, but there doesn’t have to be one.
 
-elif是“else if”的缩写。同样地，必有一个分支被执行。
-elif语句的数目没有限制。如果有一个else从句，
-它必须是在最后，但并不是必须要有一个。
+``elif`` 是“else if”的缩写。同样地，这里只有一个分支会被执行。
+``elif`` 语句的数目没有限制。如果有一个 ``else`` 从句，
+它必须是在最后，但这个语句并不是必须。
 
 ::
 
@@ -291,12 +296,14 @@ checked, and so on. If one of them is true, the corresponding branch
 runs and the statement ends. Even if more than one condition is true,
 only the first true branch runs.
 
-按顺序检测逐个条件，如果第一个为假，检测下一个，以此类推。
+程序将按顺序逐个检测条件，如果第一个为假，检测下一个，以此类推。
 如果它们中有一个为真，相应的分支被执行，并且语句结束。
 即便有不止一个条件为真，也只执行第一个为真的分支。
 
-Nested conditionals 嵌套条件
---------------------------------------
+----
+
+嵌套条件
+-------------------
 
 One conditional can also be nested within another. We could have written
 the example in the previous section like this:
@@ -319,22 +326,21 @@ has two branches of its own. Those two branches are both simple
 statements, although they could have been conditional statements as
 well.
 
-外面的条件包括两个分支。第一个分支包括一条简单的语句。
-第二个分支又包括一个if语句，它有自己的两个分支。
+外层的条件（outer conditional）包括两个分支。第一个分支包括一条简单的语句。
+第二个分支又包括一个 ``if`` 语句，它有自己的两个分支。
 那两个分支都是简单的语句，当然它们也可以是条件语句。
 
 Although the indentation of the statements makes the structure apparent,
 **nested conditionals** become difficult to read very quickly. It is a
 good idea to avoid them when you can.
 
-虽然语句的缩进使得结构很明显，但是\ **嵌套条件（nested conditionals）**
-仍然很难快速地阅读。一般来讲，当你可以的时候，避免使用嵌套条件是个好办法。
+虽然语句的缩进使得结构很明显，但是仍然很难快速地阅读\ **嵌套条件（nested conditionals）** 。当你可以的时候，避免使用嵌套条件是个好办法。
 
 Logical operators often provide a way to simplify nested conditional
 statements. For example, we can rewrite the following code using a
 single conditional:
 
-逻辑运算符经常提供一个化简嵌套条件语句的方法。
+逻辑运算符通常是一个简化嵌套条件语句的方法。
 例如，我们可以用一个单一条件重写下面的代码：
 
 ::
@@ -347,7 +353,7 @@ The print statement runs only if we make it past both conditionals, so
 we can get the same effect with the and operator:
 
 只有我们通过了两个条件检测的时候，print语句才被执行，
-因此我们可以用and运算符得到相同的效果：
+因此我们可以用 ``and`` 运算符得到相同的效果：
 
 ::
 
@@ -356,14 +362,16 @@ we can get the same effect with the and operator:
 
 For this kind of condition, Python provides a more concise option:
 
-但是对于这样的条件，Python 提供了一种更加简洁的选择。
+对于这样的条件，Python 提供了一种更加简洁的写法。
 
 ::
 
     if 0 < x < 10:
         print('x is a positive single-digit number.')
 
-Recursion　递归
+----
+
+递归
 ------------------
 
 It is legal for one function to call another; it is also legal for a
@@ -371,8 +379,8 @@ function to call itself. It may not be obvious why that is a good thing,
 but it turns out to be one of the most magical things a program can do.
 For example, look at the following function:
 
-一个函数调用另一个是合法的，一个函数调用它自己也是合法的。
-这样的好处可能并不是那么显然，但它实际上成为了程序能做到的最神奇的事情之一。
+一个函数调用另一个是合法的；一个函数调用它自己也是合法的。
+这样的好处可能并不是那么明显，但它实际上成为了程序能做到的最神奇的事情之一。
 例如，看一下这个程序：
 
 ::
