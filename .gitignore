@@ -23,7 +23,6 @@ tmp/
 *.out
 *.toc
 *.aux
-*.pdf
 *.synctex.gz
 
 =======
