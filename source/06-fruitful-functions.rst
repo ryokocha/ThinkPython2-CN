@@ -1,27 +1,12 @@
-Fruitful functions
-==================
+第六章：有返回值的函数
+=========================
 
-有返回值的函数
-=============
-
-Many of the Python functions we have used, such as the math functions,
-produce return values. But the functions we’ve written are all void:
-they have an effect, like printing a value or moving a turtle, but they
-don’t have a return value. In this chapter you will learn to write
-fruitful functions.
-
-许多我们使用过的 Python 函数都会产生返回值， 如数学函数。
-但目前我们所写的函数都是无返回值的: 他们起打印一个值或是移动小乌龟这样的作用。
-在本章中你将学习到如何写一个有返回值的函数。
-
-Return values
--------------
+许多我们前面使用过的 Python 函数都会产生返回值， 如数学函数。
+但目前我们所写的函数都是空函数（void）: 它们产生某种效果，像打印一个值或是移动乌龟，但是并没有返回值。
+在本章中，你将学习到如何写一个有返回值的函数。
 
 返回值
 -------
-
-Calling the function generates a return value, which we usually assign
-to a variable or use as part of an expression.
 
 调用一个有返回值的函数会生成一个返回值， 我们通常将其赋值给某个变量或是作为表达式的一部分。
 
@@ -30,17 +15,10 @@ to a variable or use as part of an expression.
     e = math.exp(1.0)
     height = radius * math.sin(radians)
 
-The functions we have written so far are void. Speaking casually, they
-have no return value; more precisely, their return value is None.
-
-目前我们所写的函数都是空函数， 他们没有返回值。更准确的说法是他们的返回值是 None 。
-
-In this chapter, we are (finally) going to write fruitful functions. The
-first example is area, which returns the area of a circle with the given
-radius:
+目前我们所写的函数都是空函数。泛泛地来看，它们没有返回值；更准确地说，它们的返回值是 None 。
 
 本章中， 我们（终于）要开始写有返回值的函数了。
-第一个例子是 area ， 给出半径， 其返回一个圆的面积。
+第一个例子是 ``area`` ， 返回给定半径的圆的面积。
 
 ::
 
@@ -48,28 +26,17 @@ radius:
         a = math.pi * radius**2
         return a
 
-We have seen the return statement before, but in a fruitful function the
-return statement includes an expression. This statement means: “Return
-immediately from this function and use the following expression as a
-return value.” The expression can be arbitrarily complicated, so we
-could have written this function more concisely:
-
-之前我们已经见过 return 语句了，但是在一个有返回值的函数中， return语句包含一个表 达式。 这条语句意思是：“马上从该函数返回并使用下面的表达式作为返回值”。 此表达式 可以是任意复杂的，因此我们可以将该函数写得更简洁些：
+之前我们已经见过 ``return`` 语句了，但是在一个有返回值的函数中， ``return`` 语句包含一个表达式。 这条语句的意思是：“马上从该函数返回，并使用接下来的表达式作为返回值”。 此表达式可以是任意复杂的，因此我们可以将该函数写得更简洁些：
 
 ::
 
     def area(radius):
         return math.pi * radius**2
 
-On the other hand, **temporary variables** like a can make debugging
-easier.
+另一方面， 像 a 这样的 **临时变量（temporary
+variables）** 能使调试变得更简单。
 
-另一方面， 像 a 这样的临时变量能使调试变得更简单。
-
-Sometimes it is useful to have multiple return statements, one in each
-branch of a conditional:
-
-有时，有多个返回语句会很有用，在条件语句的每一个分支内有一个。 
+有时，在条件语句的每一个分支内各有一个返回语句会很有用，。 
 
 ::
 
@@ -79,22 +46,12 @@ branch of a conditional:
         else:
             return x
 
-Since these return statements are in an alternative conditional, only
-one runs.
+因为这些 ``return`` 语句在不同的条件内，最后只有一个会被执行。
 
-既然这些 return 语句在不同的条件内，那么只有一个会被执行。
+一旦一条返回语句执行，函数则终止，不再执行后续的语句。出现在某条return语句之后的代码，或者在执行流程永远不会到达之处的
+代码，被称为\ **死代码（dead code）**\ 。
 
-As soon as a return statement runs, the function terminates without
-executing any subsequent statements. Code that appears after a return
-statement, or any other place the flow of execution can never reach, is
-called **dead code**.
-
-一旦一条返回语句执行，函数则终止，不再执行后续的语句
-
-In a fruitful function, it is a good idea to ensure that every possible
-path through the program hits a return statement. For example:
-
-在一个有返回值的函数中， 最好保证不论有怎样的执行流程， 最终都会返回。
+在一个有返回值的函数中， 最好保证程序执行的每一个流程最终都会碰到一个 ``return`` 语句。例如：
 
 ::
 
@@ -104,84 +61,46 @@ path through the program hits a return statement. For example:
         if x > 0:
             return x
 
-This function is incorrect because if x happens to be 0, neither
-condition is true, and the function ends without hitting a return
-statement. If the flow of execution gets to the end of a function, the
-return value is None, which is not the absolute value of 0.
-
-这个函数是有问题的。 原因是如果 x 恰好是 0， 则没有条件为真， 函数将会在未执行任何 return 语句的条件下终止。 这种执行流程下函数将会返回 None， 这可不是 0 的绝对值啊！
+这个函数是有问题的。 原因是如果 ``x`` 恰好是 0， 则没有条件为真， 函数将会在未执行任何 ``return`` 语句的情况下终止。 如果函数按照这种执行流程执行完毕，返回值将是 ``None``， 这可不是 0 的绝对值。
 
 ::
 
     >>> absolute_value(0)
     None
 
-By the way, Python provides a built-in function called abs that computes
-absolute values.
 
-顺便说一下，Python提供了一个的内建函数 abs 用来计算绝对值。
+顺便说一下，Python提供了一个的内建函数 ``abs`` 用来计算绝对值。
 
-As an exercise, write a compare function takes two values, x and y, and
-returns 1 if x > y, 0 if x == y, and -1 if x < y.
+我们来做个练习，写一个比较函数，接受两个值 x 和 y 。
+如果 ``x > y``， 则返回 1 ；如果 ``x == y``， 则返回 0 ；如果 ``x < y``，则返回 -1 。
 
-练习： 试写一个比较函数，它有两个参数， x 和 y 。
-如果 x > y 则返回 1 ，如果 x == y 则返回 0 ，如果 x < y 则返回 -1 。
-
-Incremental development
------------------------
 
 增量式开发
 -----------
 
-As you write larger functions, you might find yourself spending more
-time debugging.
+随着你写的函数越来越大，你在调试上花的时候可能会越来越多。
 
-当你在写一个复杂函数的时候，你可能发现你花费了大量时间在调试上。
+为了应对越来越复杂的程序，你可能会想尝试一种叫作 **增量式开发（ incremental development )** 的方法。增量式开发的目标，是通过每次只增加和测试少量代码，来避免长时间的调试。
 
-To deal with increasingly complex programs, you might want to try a
-process called **incremental development**. The goal of incremental
-development is to avoid long debugging sessions by adding and testing
-only a small amount of code at a time.
-
-为了应对越来越复杂的程序，你可能会想尝试一种叫做 **增量式开发（ incremental development )** 的方法。
-
-As an example, suppose you want to find the distance between two points,
-given by the coordinates :math:`(x_1, y_1)` and :math:`(x_2, y_2)`. By
-the Pythagorean theorem, the distance is:
-
-举个栗子，假设你想运用毕达哥斯拉定理计算两个给定坐标点  :math:`(x_1, y_1)`  和  :math:`(x_2, y_2)` 。
-距离公式是：
+举个例子，假设你想计算两个给定坐标点  :math:`(x_1, y_1)`  和  :math:`(x_2, y_2)` 之间的距离。根据勾股定理（the Pythagorean theorem）
+距离是：
 
 .. math:: \mathrm{distance} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
 
-The first step is to consider what a distance function should look like
-in Python. In other words, what are the inputs (parameters) and what is
-the output (return value)?
 
 第一步要考虑的是在 Python 中，距离函数看起来会是什么样。换句话说，输入（形参）和输出（返回值）是什么？
 
-In this case, the inputs are two points, which you can represent using
-four numbers. The return value is the distance represented by a
-floating-point value.
 
 本例中，输入是可以用 4 个数表示的两个点。返回值是距离， 用浮点数表示。
 
-Immediately you can write an outline of the function:
-
-现在你就可以写出此函数的轮廓了。
+现在你就可以写出此函数的轮廓了：
 
 ::
 
     def distance(x1, y1, x2, y2):
         return 0.0
 
-Obviously, this version doesn’t compute distances; it always returns
-zero. But it is syntactically correct, and it runs, which means that you
-can test it before you make it more complicated.
-
-显然，此版本不能计算距离；它总是返回 0 。但是在语法上它是正确的，并且能运行，你可以在使它变得更复杂之前测试它。
-
-To test the new function, call it with sample arguments:
+显然，此版本不能计算距离；它总是返回 0 。但是在语法上它是正确的，并且能运行，这意味着你可以在使它变得更复杂之前测试它。
 
 用样例实参调用它来进行测试。
 
@@ -190,22 +109,12 @@ To test the new function, call it with sample arguments:
     >>> distance(1, 2, 4, 6)
     0.0
 
-I chose these values so that the horizontal distance is 3 and the
-vertical distance is 4; that way, the result is 5, the hypotenuse of a
-3-4-5 triangle. When testing a function, it is useful to know the right
-answer.
 
-我选择的这个例子使得水平距离为 3 ，垂直距离为 4 ，这样结果自然是 5（勾三股四弦五）。
-测试一个函数时，知道正确的期望结果是很有用的。
+我选择的这些值，可以使水平距离为 3 ，垂直距离为 4 ；这样结果自然是 5（勾三股四弦五）。
+测试一个函数时，知道正确的答案是很有用的。
 
-At this point we have confirmed that the function is syntactically
-correct, and we can start adding code to the body. A reasonable next
-step is to find the differences :math:`x_2 - x_1` and :math:`y_2 - y_1`.
-The next version stores those values in temporary variables and prints
-them.
-
-此时我们已经确认这个函数是语法正确的，我们可以开始往函数体中增加代码。
-下一步应该是找到 :math:`x_2 - x_1` 和 :math:`y_2 - y_1` 的区别。
+此时我们已经确认这个函数在语法上是正确的，我们可以开始往函数体中增加代码。
+下一步合理的操作，应该是求 :math:`x_2 - x_1` 和 :math:`y_2 - y_1` 这两个差值。
 下一个版本在临时变量中存储这些值并打印出来。
 
 ::
@@ -217,18 +126,12 @@ them.
         print('dy is', dy)
         return 0.0
 
-If the function is working, it should display ``dx is 3`` and
-``dy is 4``. If so, we know that the function is getting the right
-arguments and performing the first computation correctly. If not, there
-are only a few lines to check.
 
-如果这个函数好使，它应该显示 ``dx is 3``  以及 ``dy is 4`` 。
+如果这个函数正常运行，它应该显示 ``dx is 3``  以及 ``dy is 4`` 。
 这样的话我们就知道函数获得了正确的实参并且正确执行了第一步计算。
-如果不是，也只要检查很少的几行。
+如果不是，也只要检查几行代码。
 
-Next we compute the sum of squares of dx and dy:
-
-下一步我们计算 dx 和 dy 的平方和。
+下一步我们计算 ``dx`` 和 ``dy`` 的平方和。
 
 ::
 
@@ -239,11 +142,7 @@ Next we compute the sum of squares of dx and dy:
         print('dsquared is: ', dsquared)
         return 0.0
 
-Again, you would run the program at this stage and check the output
-(which should be 25). Finally, you can use math.sqrt to compute and
-return the result:
-
-再一次运行程序并检查结果（应该是 25 ）。最后，你可以使用 math.sqrt 计算并返回结果。
+再一次运行程序并检查结果（应该是 25 ）。最后，你可以使用 ``math.sqrt`` 计算并返回结果。
 
 ::
 
@@ -254,95 +153,50 @@ return the result:
         result = math.sqrt(dsquared)
         return result
 
-If that works correctly, you are done. Otherwise, you might want to
-print the value of result before the return statement.
 
-如果其正确运行的话你就成功了。否则你也许需要在 return 语句前打印结果检查一下。
-
-The final version of the function doesn’t display anything when it runs;
-it only returns a value. The print statements we wrote are useful for
-debugging, but once you get the function working, you should remove
-them. Code like that is called **scaffolding** because it is helpful for
-building the program but is not part of the final product.
+如果其正确运行的话，你就成功了。否则你可能想在 ``return`` 语句前打印结果检查一下。
 
 该函数的最终版不会在运行时显示任何东西，仅仅返回一个值。
-print 语句在调试时是很有用的，不过在函数能够正确运行之后，你就该删了他们。
-这样的代码我们称之为 **脚手架代码（scaffolding)** ， 它对程序的构建很有用，但不是最终产品的一部分。
+我们之前写的 ``print`` 语句在调试时是很有用的，不过在函数能够正确运行之后，你就该删了它们。
+我们称这样的代码为 **脚手架代码（scaffolding)** ， 因为它对程序的构建很有用，但不是最终产品的一部分。
 
-When you start out, you should add only a line or two of code at a time.
-As you gain more experience, you might find yourself writing and
-debugging bigger chunks. Either way, incremental development can save
-you a lot of debugging time.
 
 当你刚开始的时候，最好每次只加入一两行代码。
-随着经验见长，你会发现自己可以编写调试更大的代码块了。
+随着经验见长，你会发现自己可以编写、调试更大的代码块了。
 无论哪种方式，增量式开发都能节省你大量的调试时间。
 
-The key aspects of the process are:
-这种处理方式的关键是：
+这种开发方式的关键是：
 
-#. Start with a working program and make small incremental changes. At
-   any point, if there is an error, you should have a good idea where it
-   is.
 
-#. 从一个好似的程序开始并且每次只增加少量改动。无论何时你遇到错误都能够清楚定位错误的产生源。
-
-#. Use variables to hold intermediate values so you can display and
-   check them.
+#. 从一个能运行的程序开始，并且每次只增加少量改动。无论你何时遇到错误，都能够清楚定位错误的源头。
 
 #. 用临时变量存储中间值，这样你就能显示并检查它们。
 
-#. Once the program is working, you might want to remove some of the
-   scaffolding or consolidate multiple statements into compound
-   expressions, but only if it does not make the program difficult to
-   read.
+#. 一旦程序正确运行，你要删除一些脚手架代码，或者将多条语句组成复合表达式，但是前提是不会影响程序的可读性。
 
-#. 一旦程序正确运行，你要删除一些脚手架代码并且将多条语句组成复合表达式。但是仅仅在不会影响可读性的前提下这么做。
 
-As an exercise, use incremental development to write a function called
-hypotenuse that returns the length of the hypotenuse of a right triangle
-given the lengths of the other two legs as arguments. Record each stage
-of the development process as you go.
+我们来做个练习：运用增量开发方式，写一个叫作 ``hypotenuse`` 的函数，接受直角三角形的两直角边长作为实参，返回该三角形斜边的长度。记录下你开发过程中的每一步。
 
-练习：运用增量开发，试写一个计算弦的函数，参数为直角三角形的两直角边长，返回该三角形弦长。记录下你开发过程中的每一步。
-
-Composition
------------
 
 组合
 ------
 
-As you should expect by now, you can call one function from within
-another. As an example, we’ll write a function that takes two points,
-the center of the circle and a point on the perimeter, and computes the
-area of the circle.
+你现在应该已经猜到了，你可以从一个函数内部调用另一个函数。
+作为示例，我们接下来写一个函数，接受两个点为参数，分别是圆心和圆周上一点，然后计算圆的面积。
 
-和你现在可能预想的一样，你可以从一个函数内部调用另一个函数。
-举个栗子，我们要写一个函数，接受两个点为参数，圆心和圆周上一点，然后计算圆面积。
-
-Assume that the center point is stored in the variables xc and yc, and
-the perimeter point is in xp and yp. The first step is to find the
-radius of the circle, which is the distance between the two points. We
-just wrote a function, distance, that does that:
-
-假设圆心坐标存储在变量 xc 和 yc 中，圆周坐标在 xp 和 yp 中。第一步是计算圆半径，也就是这两个点的距离。我们刚写了个 distance 函数来做这个：
+假设圆心坐标存储在变量 ``xc`` 和 ``yc`` 中，圆周上的点的坐标存储在 ``xp`` 和 ``yp`` 中。第一步是计算圆半径，也就是这两个点的距离。我们刚写的`` distance`` 函数就可以计算距离：
 
 ::
 
     radius = distance(xc, yc, xp, yp)
 
-The next step is to find the area of a circle with that radius; we just
-wrote that, too:
-
-下一步是用得到的半径计算圆面积；我们也刚写过了：
+下一步是用得到的半径计算圆面积；我们也刚写了这样的函数：
 
 ::
 
     result = area(radius)
 
-Encapsulating these steps in a function, we get:
-
-将这些步骤封装在一个函数中，我们获得：
+将这些步骤封装在一个函数中，可以得到下面的函数：
 
 ::
 
@@ -351,29 +205,20 @@ Encapsulating these steps in a function, we get:
         result = area(radius)
         return result
 
-The temporary variables radius and result are useful for development and
-debugging, but once the program is working, we can make it more concise
-by composing the function calls:
-
-对于开发调试很有用的临时变量 radius 和 result 。
-一旦函数正确运行了，我们可以通过合并函数调用把它变得更简洁。
+临时变量 ``radius`` 和 ``result`` 对于开发调试很有用的，但是
+一旦函数正确运行了，我们可以通过合并函数调用，将程序变得更简洁：
 
 ::
 
     def circle_area(xc, yc, xp, yp):
         return area(distance(xc, yc, xp, yp))
 
-Boolean functions
------------------
 
 布尔函数
----------
+-------------
 
-Functions can return booleans, which is often convenient for hiding
-complicated tests inside functions. For example:
-
-返回布尔值的函数可以很方便的用于把复杂的测试隐藏其中。
-举个栗子：
+函数可以返回布尔值（booleans），通常对于隐藏函数内部的复杂测试代码非常方便。
+例如：
 
 ::
 
@@ -383,15 +228,9 @@ complicated tests inside functions. For example:
         else:
             return False
 
-It is common to give boolean functions names that sound like yes/no
-questions; ``is_divisible`` returns either True or False to indicate
-whether x is divisible by y.
+通常布尔函数名听起来像是一个疑问句，回答不是 Yes 就是 No， ``is_divisible`` 通过返回 ``True`` 或 ``False`` 来表示 x 是否可以被 y 整除。
 
-通常布尔函数名都是一个疑问句，回答不是 Yes 就是 No， ``is_divisible`` 通过返回 True 或 False 来表示 x 是否可以被 y 整除。
-
-Here is an example:
-
-这有个栗子：
+请看下面的示例：
 
 ::
 
@@ -400,17 +239,12 @@ Here is an example:
     >>> is_divisible(6, 3)
     True
 
-The result of the == operator is a boolean, so we can write the function
-more concisely by returning it directly:
-
-== 运算符的结果是布尔值，因此我们直接返回它可以写出更简洁的代码。
+\ ``==``\ 运算符的结果是布尔值，因此我们直接返回它，让代码变得更简洁。
 
 ::
 
     def is_divisible(x, y):
         return x % y == 0
-
-Boolean functions are often used in conditional statements:
 
 布尔函数通常被用于条件语句中：
 
@@ -419,75 +253,44 @@ Boolean functions are often used in conditional statements:
     if is_divisible(x, y):
         print('x is divisible by y')
 
-It might be tempting to write something like:
-
-很容易写出下面的代码：
+很容易写出下面这样的代码：
 
 ::
 
     if is_divisible(x, y) == True:
         print('x is divisible by y')
 
-But the extra comparison is unnecessary.
-
 但这里的比较是多余的。
 
 As an exercise, write a function ``is_between(x, y, z)`` that returns
 True if :math:`x \le y \le z` or False otherwise.
 
-练习：试写一个函数  ``is_between(x, y, z)`` ，如果 :math:`x \le y \le z` 返回 True 否则返回 False。
+我们来做个练习：写一个函数  ``is_between(x, y, z)`` ，如果 :math:`x \le y \le z` 返回 ``True`` 否则返回 ``False``。
 
-More recursion
---------------
-
-更多的递归
+再谈递归
 ----------
 
-We have only covered a small subset of Python, but you might be
-interested to know that this subset is a *complete* programming
-language, which means that anything that can be computed can be
-expressed in this language. Any program ever written could be rewritten
-using only the language features you have learned so far (actually, you
-would need a few commands to control devices like the mouse, disks,
-etc., but that’s all).
+我们目前只介绍了 Python 中一个很小的子集，但是当你知道这个子集已经是一个 **完备的** 编程语言，你可能会觉得很有意思。这意味任何能被计算的东西都能用这个语言表达。
+有史以来所有程序你都可以仅仅用目前学过的语言特性重写（事实上，你可能还需要一些命令来控制鼠标、磁盘等设备，但仅此而已）。
 
-我们只介绍了 Python 中一个很小的部分，你可能会很感兴趣这个小小的部分即是一个 **完备** 的编程语言，这意味任何能被计算的东西都能用它表达。
-有史以来所有程序你都可以仅仅用目前学过的语言特性重写（事实上，你可能需要一些命令来控制如鼠标、磁盘等设备，但仅此而已）。
+阿兰·图灵第一个证明了这种说法的正确性，这可是一项非凡的工作。他是首批计算机科学家之一（一些人认为他是数学家，但很多早期的计算机科学家也是出身于数学家）。
+相应地，这被称为图灵理论。关于图灵理论更完整（和更准确）的讨论，我推荐Michael Sipser的书 *《Introduction to the Theory of Computation》*。
 
-Proving that claim is a nontrivial exercise first accomplished by Alan
-Turing, one of the first computer scientists (some would argue that he
-was a mathematician, but a lot of early computer scientists started as
-mathematicians). Accordingly, it is known as the Turing Thesis. For a
-more complete (and accurate) discussion of the Turing Thesis, I
-recommend Michael Sipser’s book *Introduction to the Theory of
-Computation*.
+为了让你明白能用目前学过的工具做什么，我们将计算一些递归定义的数学函数。
+递归定义类似循环定义，因为定义中包含一个对已经被定义的事物的引用。
+一个纯粹的循环定义并没有什么用：
 
-证明这种说法是一个非凡的工作，首先由阿兰图灵完成，他是首批计算机科学家之一（一些人认为他是数学家，但很多计算机科学家也是出身于数学家）。
-相应地这被称为图灵理论。关于图灵理论更完整（和准确）的讨论，我推荐Michael Sipser的书 《Introduction to the Theory of Computation》。
 
-To give you an idea of what you can do with the tools you have learned
-so far, we’ll evaluate a few recursively defined mathematical functions.
-A recursive definition is similar to a circular definition, in the sense
-that the definition contains a reference to the thing being defined. A
-truly circular definition is not very useful:
-
-为了说明目前学过的工具能做什么，我们将计算一些递归定义的数学函数。
-递归定义类似循环定义，在这个意义上定义包含一个指向已经被定义的事物的引用。
-真的循环定义并不是很有用。
-
-vorpal:
-    An adjective used to describe something that is vorpal.
-
-漩涡：
-	一个用以描述漩涡的形容词。
+漩涡状：
+	一个用以描述漩涡状物体的形容词。
 
 If you saw that definition in the dictionary, you might be annoyed. On
 the other hand, if you looked up the definition of the factorial
 function, denoted with the symbol :math:`!`, you might get something
 like this:
 
-如果你看到字典里是这样定义的，你该要头疼了。
-另一方面：如果你查找用!符号表示的阶乘函数的定义，你可能得到如下的东西：
+如果你看到字典里是这样定义的，你大概会生气。
+另一方面，如果你查找用 :math:`!` 符号表示的阶乘函数的定义，你可能看到类似下面的内容：
 
 .. math::
 
@@ -495,31 +298,17 @@ like this:
    &&  0! = 1 \\
    &&  n! = n (n-1)!\end{aligned}
 
- This definition says that the factorial of 0 is 1, and the factorial of
-any other value, :math:`n`, is :math:`n` multiplied by the factorial of
-:math:`n-1`.
+该定义指出 0 的阶乘是 1 ，任何其他值 :math:`n` 的阶乘是 :math:`n` 乘以 :math:`n-1` 的阶乘。
 
-定义说 0 的阶乘是 1 ， 任何其他值， :math:`n` ，的阶乘是 :math:`n` 乘以 :math:`n-1` 的阶乘。
+所以 :math:`3!` 的阶乘是 3 乘以 :math:`2!` ，它又是 2 乘以 :math:`1!` ， 后者又是 1 乘以  :math:`0!` 。 放到一起， :math:`3!` 等于 3 乘以 2 乘以 1 乘以 1 ，结果是 6 。
 
-So :math:`3!` is 3 times :math:`2!`, which is 2 times :math:`1!`, which
-is 1 times :math:`0!`. Putting it all together, :math:`3!` equals 3
-times 2 times 1 times 1, which is 6.
-
-所以 :math:`3!` 的阶乘是 3 乘以 :math:`2!` ，它又是 2 乘以 :math:`1!` ， 它又是 1 乘以  :math:`0!` 。 放到一起， :math:`3!` 等于 3 乘以 2 乘以 1 乘以 1 ，是 6 。
-
-If you can write a recursive definition of something, you can write a
-Python program to evaluate it. The first step is to decide what the
-parameters should be. In this case it should be clear that factorial
-takes an integer:
-
-如果你可以写出一些东西的递归定义，你就可以写出 Python 程序计算它。
-第一步是决定形参应该是什么。在此例中应该很明显是一个整数的阶乘：
+如果你可以递归定义某个东西，你就可以写一个 Python 程序计算它。
+第一步是决定应该有哪些形参。在此例中 ``factorial``函数很明显接受一个整型数：
 
 ::
 
     def factorial(n):
 
-If the argument happens to be 0, all we have to do is return 1:
 
 如果实参刚好是 0 ，我们就返回 1 ：
 
@@ -529,11 +318,7 @@ If the argument happens to be 0, all we have to do is return 1:
         if n == 0:
             return 1
 
-Otherwise, and this is the interesting part, we have to make a recursive
-call to find the factorial of :math:`n-1` and then multiply it by
-:math:`n`:
-
-否则，这部分很有趣，我们要进行递归调用来找到 :math:`n-1` 的阶乘然后乘以 :math:`n`: 
+否则，就到了有意思的部分，我们要进行递归调用来找到 :math:`n-1` 的阶乘然后乘以 :math:`n`: 
 
 ::
 
@@ -548,37 +333,26 @@ call to find the factorial of :math:`n-1` and then multiply it by
 The flow of execution for this program is similar to the flow of
 countdown in Section [recursion]. If we call factorial with the value 3:
 
-程序的执行流程和 [recursion] 小节中的 countdown 类似。如果我们传入参数值是 3 ：
+程序的执行流程和第五章\ :ref:`recursion`\ 一节中的 ``countdown`` 类似。如果我们传入参数的值是 3 ：
 
-Since 3 is not 0, we take the second branch and calculate the factorial
-of n-1...
 
-既然3不是0，我们执行第二个分支并计算n-1的阶乘... 
+由于3不等于0，我们执行第二个分支并计算n-1的阶乘... 
 
-    Since 2 is not 0, we take the second branch and calculate the
-    factorial of n-1...
+	由于2不等于0，我们执行第二个分支并计算n-1的阶乘... 
 
-	既然2不是0，我们执行第二个分支并计算n-1的阶乘... 
+		由于1不等于0，我们执行第二个分支并计算n-1的阶乘... 
 
-        Since 1 is not 0, we take the second branch and calculate the
-        factorial of n-1...
-
-		既然1不是0，我们执行第二个分支并计算n-1的阶乘... 
-
-            Since 0 equals 0, we take the first branch and return 1
-            without making any more recursive calls.
-
-			既然0是0，我们执行第一个分支并返回1，不进行任何递归调 用。 
+			由于0等于0，我们执行第一个分支并返回1，不再进行任何递归调用。 
 
         The return value, 1, is multiplied by :math:`n`, which is 1, and
         the result is returned.
 
-		返回值（1）与 :math:`n` （其为1）相乘，并返回结果
+		返回值 1 与 :math:`n` （其为1）相乘，并返回结果。
 
     The return value, 1, is multiplied by :math:`n`, which is 2, and the
     result is returned.
 
-	返回值（1）被与 :math:`n` （其为2）相乘，并返回结果
+	返回值（1）被与 :math:`n` （其为2）相乘，并返回结果。
 
 The return value (2) is multiplied by :math:`n`, which is 3, and the
 result, 6, becomes the return value of the function call that started

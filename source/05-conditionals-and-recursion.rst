@@ -227,6 +227,9 @@ y`` 为假，也就是说x小于或等于y， 则 ``not (x > y)`` 为真。
     if 0 < x < 10:
         print('x is a positive single-digit number.')
 
+
+.. _recursion:
+
 递归
 --------------
 
