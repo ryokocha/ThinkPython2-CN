@@ -515,7 +515,7 @@ Greenfield的描述，“Linus的早期项目中，有一个能够交替打印AA
 这个程序后来演变为了Linux。”（\ *Linux用户手册* Beta 版本1）。
 
 
-词汇表
+术语表
 --------
 
 函数（function）：
