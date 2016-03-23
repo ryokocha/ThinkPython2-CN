@@ -3,7 +3,7 @@
 
 本章将通过一个案例研究，介绍如何设计出相互配合的函数。
 
-本章会介绍 ``turtle`` 模块，它可以让你使用海龟图形（turtle graphics）绘制图像。大部分的Python安装环境下都包含了这个模块，但是如果你是在PythonAnywhere上运行Python的，你将无法运行本章中的代码示例（至少在我写这章时是做不到的）。
+本章会介绍 \lstinline{turtle} 模块，它可以让你使用海龟图形（turtle graphics）绘制图像。大部分的Python安装环境下都包含了这个模块，但是如果你是在PythonAnywhere上运行Python的，你将无法运行本章中的代码示例（至少在我写这章时是做不到的）。
 
 如果你已经在自己的电脑上安装了Python，那么不会有问题。如果没有，现在就是安装Python的好时机。我在 http://tinyurl.com/thinkpython2e 这个页面上发布了相关指南。
 
@@ -14,7 +14,7 @@
 turtle模块
 -----------------
 
-打开Python解释器，输入以下代码，检查你是否安装了 ``turltle`` 模块：
+打开Python解释器，输入以下代码，检查你是否安装了 \lstinline{turltle} 模块：
 
 ::
 
@@ -23,7 +23,7 @@ turtle模块
 
 上述代码运行后，应该会新建一个窗口，窗口中间有一个小箭头，代表的就是海龟。现在关闭窗口。
 
-新建一个名叫  ``mypolygon.py`` 的文件，输入以下代码：
+新建一个名叫  \lstinline{mypolygon.py} 的文件，输入以下代码：
 
 ::
 
@@ -32,31 +32,31 @@ turtle模块
     print(bob)
     turtle.mainloop()
 
-``turtle`` 模块（小写的t）提供了一个叫作 ``Turtle`` 的函数（大写的T），这个函数会创建一个 ``Turtle`` 对象，我们将其赋值给名为 ``bob`` 的变量。打印 ``bob`` 的话，会输出下面这样的结果：
+``turtle} 模块（小写的t）提供了一个叫作 \lstinline{Turtle} 的函数（大写的T），这个函数会创建一个 \lstinline{Turtle} 对象，我们将其赋值给名为 \lstinline{bob} 的变量。打印 \lstinline{bob} 的话，会输出下面这样的结果：
 
 ::
 
     <turtle.Turtle object at 0xb7bfbf4c>
 
-这意味着，``bob`` 指向一个类型为Turtle的对象，这个类型是由 ``turtle`` 模块定义的。
+这意味着，``bob} 指向一个类型为Turtle的对象，这个类型是由 \lstinline{turtle} 模块定义的。
 
-``mainloop`` 告诉窗口等待用户操作，尽管在这个例子中，用户除了关闭窗口之外，并没有其他可做的事情。
+``mainloop} 告诉窗口等待用户操作，尽管在这个例子中，用户除了关闭窗口之外，并没有其他可做的事情。
 
-创建了一个 ``Turtle`` 对象之后，你可以调用 **方法（method）** 来在窗口中移动该对象。方法与函数类似，但是其语法略有不同。例如，要让海龟向前走：
+创建了一个 \lstinline{Turtle} 对象之后，你可以调用 **方法（method）** 来在窗口中移动该对象。方法与函数类似，但是其语法略有不同。例如，要让海龟向前走：
 
 ::
 
     bob.fd(100)
 
-方法 ``fd`` 与我们称之为 ``bob`` 的对象是相关联的。调用方法就像提出一个请求：你在请求 ``bob`` 往前走。
+方法 \lstinline{fd} 与我们称之为 \lstinline{bob} 的对象是相关联的。调用方法就像提出一个请求：你在请求 \lstinline{bob} 往前走。
 
-``fd`` 方法的实参是像素距离，所以实际前进的距离取决于你的屏幕。
+``fd} 方法的实参是像素距离，所以实际前进的距离取决于你的屏幕。
 
-``Turtle`` 对象中你能调用的其他方法还包括：让它向后走的 ``bk`` ，向左转的 ``lt`` ，向右转的 ``rt`` 。 ``lt`` 和 ``rt`` 这两个方法接受的实参是角度。
+``Turtle} 对象中你能调用的其他方法还包括：让它向后走的 \lstinline{bk} ，向左转的 \lstinline{lt} ，向右转的 \lstinline{rt} 。 \lstinline{lt} 和 \lstinline{rt} 这两个方法接受的实参是角度。
 
-另外，每个 ``Turtle`` 都握着一支笔，不是落笔就是抬笔；如果落笔了，``Turtle`` 就会在移动时留下痕迹。``pu`` 和 ``pd`` 这两个方法分别代表“抬笔（pen up）”和“落笔（pen down）”。
+另外，每个 \lstinline{Turtle} 都握着一支笔，不是落笔就是抬笔；如果落笔了，``Turtle} 就会在移动时留下痕迹。``pu} 和 \lstinline{pd} 这两个方法分别代表“抬笔（pen up）”和“落笔（pen down）”。
 
-如果要画一个直角（right angle），请在程序中添加以下代码（放在创建 ``bob`` 之后，调用 ``mainloop`` 之前）：
+如果要画一个直角（right angle），请在程序中添加以下代码（放在创建 \lstinline{bob} 之后，调用 \lstinline{mainloop} 之前）：
 
 ::
 
@@ -64,7 +64,7 @@ turtle模块
     bob.lt(90)
     bob.fd(100)
 
-当你运行此程序时，你应该会看到 ``bob`` 先朝东移动，然后向北移动，同时在身后留下两条线段（line segment）。
+当你运行此程序时，你应该会看到 \lstinline{bob} 先朝东移动，然后向北移动，同时在身后留下两条线段（line segment）。
 
 现在修改程序，画一个正方形。在没有成功之前，不要继续往下看。
 
@@ -88,8 +88,8 @@ turtle模块
 
     bob.fd(100)
 
-我们可以利用一个 ``for`` 语句，以更简洁的代码来做相同的事情。
-将下面的示例代码加入 ``mypolygon.py`` ，并重新运行：
+我们可以利用一个 \lstinline{for} 语句，以更简洁的代码来做相同的事情。
+将下面的示例代码加入 \lstinline{mypolygon.py} ，并重新运行：
 
 ::
 
@@ -105,10 +105,10 @@ turtle模块
     Hello!
     Hello!
 
-这是 ``for`` 语句最简单的用法；后面我们会介绍更多的用法。
+这是 \lstinline{for} 语句最简单的用法；后面我们会介绍更多的用法。
 但是这对于让你重写画正方形的程序已经足够了。 如果没有完成，请不要往下看。
 
-下面是一个画正方形的 ``for`` 语句：
+下面是一个画正方形的 \lstinline{for} 语句：
 
 ::
 
@@ -120,7 +120,7 @@ for语句的语法和函数定义类似。
 它有一个以冒号结尾的语句头（header）以及一个缩进的语句体（body）。
 语句体可以包含任意条语句。
 
-``for`` 语句有时也被称为\ **循环（loop）**\ ，因为执行流程会贯穿整个语句体，然后再循环回顶部。
+``for} 语句有时也被称为\ **循环（loop）**\ ，因为执行流程会贯穿整个语句体，然后再循环回顶部。
 在此例中，它将运行语句体四次。
 
 这个版本事实上和前面画正方形的代码有所不同，因为它在画完正方形的最后一条边后，
@@ -133,34 +133,34 @@ for语句的语法和函数定义类似。
 练习
 ---------
 
-下面是一系列学习使用 ``Turtle`` 的练习。
+下面是一系列学习使用 \lstinline{Turtle} 的练习。
 这些练习虽说是为了好玩，但是也有自己的目的。
 你在做这些练习的时候，想一想它们的目的是什么。
 
-    译者注：原文中使用的还是 ``TurtleWorld`` ，应该是作者忘了修改。
+    译者注：原文中使用的还是 \lstinline{TurtleWorld} ，应该是作者忘了修改。
 
 后面几节是中介绍了这些练习的答案，因此如果你还没完成（或者至少试过），请不要看答案。
 
-#. 写一个名为 ``square`` 的函数，接受一个名为 ``t`` 的形参，``t`` 是一个海龟。
+#. 写一个名为 \lstinline{square} 的函数，接受一个名为 \lstinline{t} 的形参，``t} 是一个海龟。
    这个函数应用这只海龟画一个正方形。
 
-   写一个函数调用，将 ``bob`` 作为实参传给 ``square`` ，然后再重新运行程序。
+   写一个函数调用，将 \lstinline{bob} 作为实参传给 \lstinline{square} ，然后再重新运行程序。
 
-#. 给 ``square`` 增加另一个名为 ``length`` 的形参。
-   修改函数体，使得正方形边的长度是 ``length`` ，然后修改函数调用，提供第二个实参。
-   重新运行程序。用一系列 ``length`` 值测试你的程序。
+#. 给 \lstinline{square} 增加另一个名为 \lstinline{length} 的形参。
+   修改函数体，使得正方形边的长度是 \lstinline{length} ，然后修改函数调用，提供第二个实参。
+   重新运行程序。用一系列 \lstinline{length} 值测试你的程序。
 
-#. 复制 ``square`` ，并将函数改名为 ``polygon`` 。
-   增加另外一个名为 ``n`` 的形参并修改函数体，让它画一个正n边形（n-sided regular polygon）。
+#. 复制 \lstinline{square} ，并将函数改名为 \lstinline{polygon} 。
+   增加另外一个名为 \lstinline{n} 的形参并修改函数体，让它画一个正n边形（n-sided regular polygon）。
    提示：正n边形的外角是\ :math:`360/n`\ 度。
 
-#. 编写一个名为 ``circle`` 的函数，它接受一个海龟t和半径r作为形参，
-   然后以合适的边长和边数调用 ``polygon`` ，画一个近似圆形。
+#. 编写一个名为 \lstinline{circle} 的函数，它接受一个海龟t和半径r作为形参，
+   然后以合适的边长和边数调用 \lstinline{polygon} ，画一个近似圆形。
    用一系列r值测试你的函数。
 
-   提示：算出圆的周长，并确保 ``length \* n = circumference`` 。
+   提示：算出圆的周长，并确保 \lstinline{length \* n = circumference} 。
 
-#. 完成一个更泛化（general）的 ``circle`` 函数，称其为 ``arc`` ，接受一个额外的参数 ``angle`` ，确定画多完整的圆。``angle`` 的单位是度，因此当 ``angle=360`` 时， ``arc`` 
+#. 完成一个更泛化（general）的 \lstinline{circle} 函数，称其为 \lstinline{arc} ，接受一个额外的参数 \lstinline{angle} ，确定画多完整的圆。``angle} 的单位是度，因此当 \lstinline{angle=360} 时， \lstinline{arc}
    应该画一个完整的圆。
 
 ----
@@ -180,13 +180,13 @@ for语句的语法和函数定义类似。
 
     square(bob)
 
-最内层的语句 ``fd`` 和 ``lt`` 被缩进两次，以显示它们处在 ``for`` 循环内，
-而该循环又在函数定义内。下一行 ``square(bob)`` 和左边界（left margin）对齐，
-表示 ``for`` 循环和函数定义结束。
+最内层的语句 \lstinline{fd} 和 \lstinline{lt} 被缩进两次，以显示它们处在 \lstinline{for} 循环内，
+而该循环又在函数定义内。下一行 \lstinline{square(bob)} 和左边界（left margin）对齐，
+表示 \lstinline{for} 循环和函数定义结束。
 
-在函数内部，``t`` 指的是同一只海龟 ``bob`` ， 所以 ``t.lt(90)`` 和 ``bob.lt(90)`` 的效果相同。
-那么既然这样，为什么不将形参命名为 ``bob`` 呢？ 因为 ``t`` 可以是任何海龟而不仅仅是 ``bob`` ，
-也就是说你可以创建第二只海龟，并且将它作为实参传递给 ``square`` ：
+在函数内部，``t} 指的是同一只海龟 \lstinline{bob} ， 所以 \lstinline{t.lt(90)} 和 \lstinline{bob.lt(90)} 的效果相同。
+那么既然这样，为什么不将形参命名为 \lstinline{bob} 呢？ 因为 \lstinline{t} 可以是任何海龟而不仅仅是 \lstinline{bob} ，
+也就是说你可以创建第二只海龟，并且将它作为实参传递给 \lstinline{square} ：
 
 ::
 
@@ -203,7 +203,7 @@ for语句的语法和函数定义类似。
 泛化
 --------------
 
-下一个练习是给 ``square`` 增加一个 ``length`` 形参。下面是一个解法：
+下一个练习是给 \lstinline{square} 增加一个 \lstinline{length} 形参。下面是一个解法：
 
 ::
 
@@ -218,7 +218,7 @@ for语句的语法和函数定义类似。
 因为这使得函数更通用：在前面的版本中，
 正方形的边长总是一样的；此版本中，它可以是任意大小。
 
-下一个练习也是泛化。泛化之后不再是只能画一个正方形，``polygon`` 可以画任意的正多边形。
+下一个练习也是泛化。泛化之后不再是只能画一个正方形，``polygon} 可以画任意的正多边形。
 下面是一个解法：
 
 ::
@@ -233,7 +233,7 @@ for语句的语法和函数定义类似。
 
 这个示例代码画了一个边长为70的七边形。
 
-如果你在使用Python 2，``angle`` 的值可能由于整型数除法（integer division）出现偏差。一个简单的解决办法是这样计算 ``angle`` ：``angle = 360.0 / n``。因为分子（numerator）是一个浮点数，最终的结果也会是一个浮点数。
+如果你在使用Python 2，``angle} 的值可能由于整型数除法（integer division）出现偏差。一个简单的解决办法是这样计算 \lstinline{angle} ：``angle = 360.0 / n``。因为分子（numerator）是一个浮点数，最终的结果也会是一个浮点数。
 
 如果一个函数有几个数字实参，很容易忘记它们是什么或者它们的顺序。在这种情况下，
 在实参列表中加入形参的名称是通常是一个很好的办法：
@@ -243,7 +243,7 @@ for语句的语法和函数定义类似。
     polygon(bob, n=7, length=70)
 
 这些被称作\ **关键字实参（keyword arguments）**\ ，
-因为它们j加上了形参名作为“关键字”（不要和Python的关键字搞混了，如 ``while`` 和 ``def`` ）。
+因为它们j加上了形参名作为“关键字”（不要和Python的关键字搞混了，如 \lstinline{while} 和 \lstinline{def} ）。
 
 这一语法使得程序的可读性更强。它也提醒了我们实参和形参的工作方式：
 当你调用函数时，实参被赋给形参。
@@ -253,8 +253,8 @@ for语句的语法和函数定义类似。
 接口设计
 ----------------
 
-下一个练习是编写接受半径r作为形参的 ``circle`` 函数。
-下面是一个使用 ``polygon`` 画一个50边形的简单解法：
+下一个练习是编写接受半径r作为形参的 \lstinline{circle} 函数。
+下面是一个使用 \lstinline{polygon} 画一个50边形的简单解法：
 
 ::
 
@@ -267,22 +267,22 @@ for语句的语法和函数定义类似。
         polygon(t, n, length)
 
 函数的第一行通过半径r计算圆的周长，公式是\ :math:`2 \pi r`\ 。
-由于用了 ``math.pi`` ，我们需要导入 ``math`` 模块。
-按照惯例，``import`` 语句通常位于脚本的开始位置。
+由于用了 \lstinline{math.pi} ，我们需要导入 \lstinline{math} 模块。
+按照惯例，``import} 语句通常位于脚本的开始位置。
 
-n是我们的近似圆中线段的条数， ``length`` 是每一条线段的长度。
-这样 ``polygon`` 画出的就是一个50边形，近似一个半径为r的圆。
+n是我们的近似圆中线段的条数， \lstinline{length} 是每一条线段的长度。
+这样 \lstinline{polygon} 画出的就是一个50边形，近似一个半径为r的圆。
 
 这种解法的一个局限在于，n是一个常量，意味着对于非常大的圆，
 线段会非常长，而对于小圆，我们会浪费时间画非常小的线段。
 一个解决方案是将n作为形参，泛化函数。
-这将给用户（调用 ``circle`` 的人）更多的掌控力， 但是接口就不那么干净了。
+这将给用户（调用 \lstinline{circle} 的人）更多的掌控力， 但是接口就不那么干净了。
 
 函数的\ **接口（interface）**\ 是一份关于如何使用该函数的总结：
 形参是什么？函数做什么？返回值是什么？
 如果接口让调用者避免处理不必要的细节，直接做自己想做的式，那么这个接口就是“干净的”。
 
-在这个例子中，``r`` 属于接口的一部分，因为它指定了要画多大的圆。
+在这个例子中，``r} 属于接口的一部分，因为它指定了要画多大的圆。
 n就不太合适，因为它是关于 **如何** 画圆的细节。
 
 与其把接口弄乱，不如根据周长（circumference）选择一个合适的n值：
@@ -304,12 +304,12 @@ n就不太合适，因为它是关于 **如何** 画圆的细节。
 重构
 -----------
 
-当我写 ``circle`` 程序的时候，我能够复用 ``polygon`` ，
+当我写 \lstinline{circle} 程序的时候，我能够复用 \lstinline{polygon} ，
 因为一个多边形是与圆形非常近似。
-但是 ``arc`` 就不那么容易实现了；我们不能使用 ``polygon`` 或者 ``circle`` 来画一个弧。
+但是 \lstinline{arc} 就不那么容易实现了；我们不能使用 \lstinline{polygon} 或者 \lstinline{circle} 来画一个弧。
 
-一种替代方案是从复制 ``polygon`` 开始，
-然后将它转化为 ``arc`` 。最后的函数看上去可像这样：
+一种替代方案是从复制 \lstinline{polygon} 开始，
+然后将它转化为 \lstinline{arc} 。最后的函数看上去可像这样：
 
 ::
 
@@ -318,16 +318,16 @@ n就不太合适，因为它是关于 **如何** 画圆的细节。
         n = int(arc_length / 3) + 1
         step_length = arc_length / n
         step_angle = angle / n
-        
+
         for i in range(n):
             t.fd(step_length)
             t.lt(step_angle)
 
-该函数的后半部分看上去很像 ``polygon`` ，
-但是在不改变接口的条件下，我们无法复用 ``polygon`` 。
-我们可以泛化 ``polygon`` 来接受一个角度作为第三个实参，
-但是这样 ``polygon`` 就不再是一个合适的名字了！
-让我们称这个更通用的函数为 ``polyline`` ：
+该函数的后半部分看上去很像 \lstinline{polygon} ，
+但是在不改变接口的条件下，我们无法复用 \lstinline{polygon} 。
+我们可以泛化 \lstinline{polygon} 来接受一个角度作为第三个实参，
+但是这样 \lstinline{polygon} 就不再是一个合适的名字了！
+让我们称这个更通用的函数为 \lstinline{polyline} ：
 
 ::
 
@@ -336,7 +336,7 @@ n就不太合适，因为它是关于 **如何** 画圆的细节。
             t.fd(length)
             t.lt(angle)
 
-现在，我们可以用 ``polyline`` 重写 ``polygon`` 和 ``arc`` ：
+现在，我们可以用 \lstinline{polyline} 重写 \lstinline{polygon} 和 \lstinline{arc} ：
 
 ::
 
@@ -351,7 +351,7 @@ n就不太合适，因为它是关于 **如何** 画圆的细节。
         step_angle = float(angle) / n
         polyline(t, n, step_length, step_angle)
 
-最后，我们可以用 ``arc`` 重写 ``circle`` ：
+最后，我们可以用 \lstinline{arc} 重写 \lstinline{circle} ：
 
 ::
 
@@ -360,10 +360,10 @@ n就不太合适，因为它是关于 **如何** 画圆的细节。
 
 重新整理一个程序以改进函数接口和促进代码复用的这个过程，
 被称作\ **重构（refactoring）**\ 。
-在此例中，我们注意到 ``arc`` 和 ``polygon`` 中有相似的代码，
-因此，我们“将它分解出来”（factor it out），放入 ``polyline`` 函数。
+在此例中，我们注意到 \lstinline{arc} 和 \lstinline{polygon} 中有相似的代码，
+因此，我们“将它分解出来”（factor it out），放入 \lstinline{polyline} 函数。
 
-如果我们提前已经计划好了，我们可能会首先写 ``polyline`` 函数，避免重构，
+如果我们提前已经计划好了，我们可能会首先写 \lstinline{polyline} 函数，避免重构，
 但是在一个项目开始的时候，你常常并不知道那么多，不能设计好全部的接口。
 一旦你开始编码后，你才能更好地理解问题。
 有时重构是一个说明你已经学到某些东西的预兆。
@@ -405,7 +405,7 @@ n就不太合适，因为它是关于 **如何** 画圆的细节。
     def polyline(t, n, length, angle):
         """Draws n line segments with the given length and
         angle (in degrees) between them.  t is a turtle.
-        """    
+        """
         for i in range(n):
             t.fd(length)
             t.lt(angle)
@@ -429,15 +429,15 @@ n就不太合适，因为它是关于 **如何** 画圆的细节。
 接口就像是函数和调用者之间的合同。
 调用者同意提供合适的参数，函数同意完成相应的工作。
 
-例如，``polyline`` 函数需要4个实参：``t`` 必须是一个 ``Turtle`` ；
-``n`` 必须是一个整型数； ``length`` 应该是一个正数；
-``angle`` 必须是一个数，单位是度数。
+例如，``polyline} 函数需要4个实参：``t} 必须是一个 \lstinline{Turtle} ；
+``n} 必须是一个整型数； \lstinline{length} 应该是一个正数；
+``angle} 必须是一个数，单位是度数。
 
 这些要求被称作\ **先决条件（preconditions）**\ ，
 因为它们应当在函数开始执行之前成立（true）。
 相反，函数结束时的条件是\ **后置条件（postconditions）**\ 。
 后置条件包括函数预期的效果（如画线段）以及任何其他附带效果
-（如移动 ``Turtle`` 或者做其它改变）。
+（如移动 \lstinline{Turtle} 或者做其它改变）。
 
 先决条件由调用者负责满足。如果调用者违反一个（已经充分记录文档的！）
 先决条件，导致函数没有正确工作，则故障（bug）出现在调用者一方，而不是函数。
@@ -449,38 +449,38 @@ n就不太合适，因为它是关于 **如何** 画圆的细节。
 词汇表
 --------
 
-方法（method）：
+\item[方法（method）：]
     与对象相关联的函数，并使用点标记法（dot notation）调用。
 
-循环（loop）：
+\item[循环（loop）：]
     程序中能够重复执行的那部分代码。
 
-封装（encapsulation）：
+\item[封装（encapsulation）：]
     将一个语句序列转换成函数定义的过程。
 
-泛化（generalization）：
+\item[泛化（generalization）：]
     使用某种可以算是比较通用的东西（像变量和形参），替代某些没必要那么具体的东西（像一个数字）的过程。
 
-关键字实参（keyword argument）：
+\item[关键字实参（keyword argument）：]
     包括了形参名称作为“关键字”的实参。
 
-接口（interface）：
+\item[接口（interface）：]
     对如何使用一个函数的描述，包括函数名、参数说明和返回值。
 
-重构（refactoring）：
+\item[重构（refactoring）：]
     修改一个正常运行的函数，改善函数接口及其他方面代码质量的过程。
 
-开发计划（development plan）：
+\item[开发计划（development plan）：]
     编写程序的一种过程。
 
-文档字符串（docstring）：
+\item[文档字符串（docstring）：]
     出现在函数定义顶部的一个字符串，用于记录函数的接口。
 
-先决条件（preconditions）：
+\item[先决条件（preconditions）：]
     在函数运行之前，调用者应该满足的要求。
     ends.
 
-后置条件（postconditions）：
+\item[后置条件（postconditions）：]
     函数终止之前应该满足的条件。
 
 ----
@@ -492,9 +492,9 @@ n就不太合适，因为它是关于 **如何** 画圆的细节。
 
 可从\ http://thinkpython2.com/code/polygon.py \ 下载本章的代码。
 
-#. 画一个执行 ``circle(bob, radius)`` 时的堆栈图（stack diagram），说明程序的各个状态。你可以手动进行计算，也可以在代码中加入打印语句。
+#. 画一个执行 \lstinline{circle(bob, radius)} 时的堆栈图（stack diagram），说明程序的各个状态。你可以手动进行计算，也可以在代码中加入打印语句。
 
-#. “重构”一节中给出的 ``arc`` 函数版本并不太精确，因为圆形的线性近似（linear approximation）永远处在真正的圆形之外。因此，``Turtle`` 总是和正确的终点相差几个像素。我的答案中展示了降低这个错误影响的一种方法。阅读其中的代码，看看你是否能够理解。如果你画一个堆栈图的话，你可能会更容易明白背后的原理。
+#. “重构”一节中给出的 \lstinline{arc} 函数版本并不太精确，因为圆形的线性近似（linear approximation）永远处在真正的圆形之外。因此，``Turtle} 总是和正确的终点相差几个像素。我的答案中展示了降低这个错误影响的一种方法。阅读其中的代码，看看你是否能够理解。如果你画一个堆栈图的话，你可能会更容易明白背后的原理。
 
 习题 4-2.
 
@@ -525,8 +525,8 @@ http://thinkpython2.com/code/polygon.py.
 字母表中的字母可以由少量基本元素构成，例如竖线和横线，以及一些曲线。
 设计一种可用由最少的基本元素绘制出的字母表，然后编写能画出各个字母的函数。
 
-你应该为每个字母写一个函数，起名为\ ``draw_a``\ ，\ ``draw_b``\ 等等，
-然后将你的函数放在一个名为 ``letters.py`` 的文件里。
+你应该为每个字母写一个函数，起名为\ \lstinline{draw_a``\ ，\ \lstinline{draw_b``\ 等等，
+然后将你的函数放在一个名为 \lstinline{letters.py} 的文件里。
 你可以从\ http://thinkpython2.com/code/typewriter.py
 下载一个“海龟打字员”来帮你测试代码。
 
