@@ -1,0 +1,1360 @@
+
+
+\chapter{Debugging}
+\index{debugging}
+
+When you are debugging, you should distinguish among different
+kinds of errors in order to track them down more quickly:
+
+\begin{itemize}
+
+\item Syntax errors are discovered by the interpreter when it is
+  translating the source code into byte code.  They indicate
+  that there is something wrong with the structure of the program.
+  Example: Omitting the colon at the end of a {\tt def} statement
+  generates the somewhat redundant message {\tt SyntaxError: invalid
+    syntax}.
+\index{syntax error}
+\index{error!syntax}
+
+\item Runtime errors are produced by the interpreter if something goes
+  wrong while the program is running.  Most runtime error messages
+  include information about where the error occurred and what
+  functions were executing.  Example: An infinite recursion eventually
+  causes the runtime error ``maximum recursion depth exceeded''.
+\index{runtime error}
+\index{error!runtime}
+\index{exception}
+
+\item Semantic errors are problems with a program that runs without
+  producing error messages but doesn't do the right thing.  Example:
+  An expression may not be evaluated in the order you expect, yielding
+  an incorrect result.
+\index{semantic error}
+\index{error!semantic}
+
+\end{itemize}
+
+The first step in debugging is to figure out which kind of
+error you are dealing with.  Although the following sections are
+organized by error type, some techniques are
+applicable in more than one situation.
+
+
+\section{Syntax errors}
+\index{error message}
+
+Syntax errors are usually easy to fix once you figure out what they
+are.  Unfortunately, the error messages are often not helpful.
+The most common messages are {\tt SyntaxError: invalid syntax} and
+{\tt SyntaxError: invalid token}, neither of which is very informative.
+
+On the other hand, the message does tell you where in the program the
+problem occurred.  Actually, it tells you where Python
+noticed a problem, which is not necessarily where the error
+is.  Sometimes the error is prior to the location of the error
+message, often on the preceding line.
+\index{incremental development}
+\index{development plan!incremental}
+
+If you are building the program incrementally, you should have
+a good idea about where the error is.  It will be in the last
+line you added.
+
+If you are copying code from a book, start by comparing
+your code to the book's code very carefully.  Check every character.
+At the same time, remember that the book might be wrong, so
+if you see something that looks like a syntax error, it might be.
+
+Here are some ways to avoid the most common syntax errors:
+\index{syntax}
+
+\begin{enumerate}
+
+\item Make sure you are not using a Python keyword for a variable name.
+\index{keyword}
+
+\item Check that you have a colon at the end of the header of every
+compound statement, including {\tt for}, {\tt while},
+{\tt if}, and {\tt def} statements.
+\index{header}
+\index{colon}
+
+\item Make sure that any strings in the code have matching
+quotation marks.  Make sure that all quotation marks are
+``straight quotes'', not ``curly quotes''.
+\index{quotation mark}
+
+\item If you have multiline strings with triple quotes (single or double), make
+sure you have terminated the string properly.  An unterminated string
+may cause an {\tt invalid token} error at the end of your program,
+or it may treat the following part of the program as a string until it
+comes to the next string.  In the second case, it might not produce an error
+message at all!
+\index{multiline string}
+\index{string!multiline}
+
+\item An unclosed opening operator---\verb+(+, \verb+{+, or
+  \verb+[+---makes Python continue with the next line as part of the
+  current statement.  Generally, an error occurs almost immediately in
+  the next line.
+
+\item Check for the classic {\tt =} instead of {\tt ==} inside
+a conditional.
+\index{conditional}
+
+\item Check the indentation to make sure it lines up the way it
+is supposed to.  Python can handle space and tabs, but if you mix
+them it can cause problems.  The best way to avoid this problem
+is to use a text editor that knows about Python and generates
+consistent indentation.
+\index{indentation}
+\index{whitespace}
+
+\item If you have non-ASCII characters in the code (including strings
+and comments), that might cause a problem, although Python 3 usually
+handles non-ASCII characters.  Be careful if you paste in text from
+a web page or other source.
+
+\end{enumerate}
+
+If nothing works, move on to the next section...
+
+
+\subsection{I keep making changes and it makes no difference.}
+
+If the interpreter says there is an error and you don't see it, that
+might be because you and the interpreter are not looking at the same
+code.  Check your programming environment to make sure that the
+program you are editing is the one Python is trying to run.
+
+If you are not sure, try putting an obvious and deliberate syntax
+error at the beginning of the program.  Now run it again.  If the
+interpreter doesn't find the new error, you are not running the
+new code.
+
+There are a few likely culprits:
+
+\begin{itemize}
+
+\item You edited the file and forgot to save the changes before
+running it again.  Some programming environments do this
+for you, but some don't.
+
+\item You changed the name of the file, but you are still running
+the old name.
+
+\item Something in your development environment is configured
+incorrectly.
+
+\item If you are writing a module and using {\tt import},
+make sure you don't give your module the same name as one
+of the standard Python modules.
+
+\item If you are using {\tt import} to read a module, remember
+that you have to restart the interpreter or use {\tt reload}
+to read a modified file.  If you import the module again, it
+doesn't do anything.
+\index{module!reload}
+\index{reload function}
+\index{function!reload}
+
+\end{itemize}
+
+If you get stuck and you can't figure out what is going on, one
+approach is to start again with a new program like ``Hello, World!'',
+and make sure you can get a known program to run.  Then gradually add
+the pieces of the original program to the new one.
+
+
+\section{Runtime errors}
+
+Once your program is syntactically correct,
+Python can read it and at least start running it.  What could
+possibly go wrong?
+
+
+\subsection{My program does absolutely nothing.}
+
+This problem is most common when your file consists of functions and
+classes but does not actually invoke a function to start execution.
+This may be intentional if you only plan to import this module to
+supply classes and functions.
+
+If it is not intentional, make sure there is a function call
+in the program, and make sure the flow of execution reaches
+it (see ``Flow of Execution'' below).
+
+
+\subsection{My program hangs.}
+\index{infinite loop}
+\index{infinite recursion}
+\index{hanging}
+
+If a program stops and seems to be doing nothing, it is ``hanging''.
+Often that means that it is caught in an infinite loop or infinite
+recursion.
+
+\begin{itemize}
+
+\item If there is a particular loop that you suspect is the
+problem, add a {\tt print} statement immediately before the loop that says
+``entering the loop'' and another immediately after that says
+``exiting the loop''.
+
+Run the program.  If you get the first message and not the second,
+you've got an infinite loop.  Go to the ``Infinite Loop'' section
+below.
+
+\item Most of the time, an infinite recursion will cause the program
+to run for a while and then produce a ``RuntimeError: Maximum
+recursion depth exceeded'' error.  If that happens, go to the
+``Infinite Recursion'' section below.
+
+If you are not getting this error but you suspect there is a problem
+with a recursive method or function, you can still use the techniques
+in the ``Infinite Recursion'' section.
+
+\item If neither of those steps works, start testing other
+loops and other recursive functions and methods.
+
+\item If that doesn't work, then it is possible that
+you don't understand the flow of execution in your program.
+Go to the ``Flow of Execution'' section below.
+
+\end{itemize}
+
+
+\subsubsection{Infinite Loop}
+\index{infinite loop}
+\index{loop!infinite}
+\index{condition}
+\index{loop!condition}
+
+If you think you have an infinite loop and you think you know
+what loop is causing the problem, add a {\tt print} statement at
+the end of the loop that prints the values of the variables in
+the condition and the value of the condition.
+
+For example:
+
+\begin{verbatim}
+while x > 0 and y < 0 :
+    # do something to x
+    # do something to y
+
+    print('x: ', x)
+    print('y: ', y)
+    print("condition: ", (x > 0 and y < 0))
+\end{verbatim}
+%
+Now when you run the program, you will see three lines of output
+for each time through the loop.  The last time through the
+loop, the condition should be {\tt False}.  If the loop keeps
+going, you will be able to see the values of {\tt x} and {\tt y},
+and you might figure out why they are not being updated correctly.
+
+
+\subsubsection{Infinite Recursion}
+\index{infinite recursion}
+\index{recursion!infinite}
+
+Most of the time, infinite recursion causes the program to run
+for a while and then produce a {\tt Maximum recursion depth exceeded}
+error.
+
+If you suspect that a function is causing an infinite
+recursion, make sure that there is a base case.
+There should be some condition that causes the
+function to return without making a recursive invocation.
+If not, you need to rethink the algorithm and identify a base
+case.
+
+If there is a base case but the program doesn't seem to be reaching
+it, add a {\tt print} statement at the beginning of the function
+that prints the parameters.  Now when you run the program, you will see
+a few lines of output every time the function is invoked,
+and you will see the parameter values.  If the parameters are not moving
+toward the base case, you will get some ideas about why not.
+
+
+\subsubsection{Flow of Execution}
+\index{flow of execution}
+
+If you are not sure how the flow of execution is moving through
+your program, add {\tt print} statements to the beginning of each
+function with a message like ``entering function {\tt foo}'', where
+{\tt foo} is the name of the function.
+
+Now when you run the program, it will print a trace of each
+function as it is invoked.
+
+
+\subsection{When I run the program I get an exception.}
+\index{exception}
+\index{runtime error}
+
+If something goes wrong during runtime, Python
+prints a message that includes the name of the
+exception, the line of the program where the problem occurred,
+and a traceback.
+\index{traceback}
+
+The traceback identifies the function that is currently running, and
+then the function that called it, and then the function that called
+{\em that}, and so on.  In other words, it traces the sequence of
+function calls that got you to where you are, including the line
+number in your file where each call occurred.
+
+The first step is to examine the place in the program where
+the error occurred and see if you can figure out what happened.
+These are some of the most common runtime errors:
+
+\begin{description}
+
+\item[NameError:]  You are trying to use a variable that doesn't
+exist in the current environment.  Check if the name
+is spelled right, or at least consistently.
+And remember that local variables are local; you
+cannot refer to them from outside the function where they are defined.
+\index{NameError}
+\index{exception!NameError}
+
+\item[TypeError:] There are several possible causes:
+\index{TypeError}
+\index{exception!TypeError}
+
+\begin{itemize}
+
+\item  You are trying to use a value improperly.  Example: indexing
+a string, list, or tuple with something other than an integer.
+\index{index}
+
+\item There is a mismatch between the items in a format string and
+the items passed for conversion.  This can happen if either the number
+of items does not match or an invalid conversion is called for.
+\index{format operator}
+\index{operator!format}
+
+\item You are passing the wrong number of arguments to a function.
+For methods, look at the method definition and
+check that the first parameter is {\tt self}.  Then look at the
+method invocation; make sure you are invoking the method on an
+object with the right type and providing the other arguments
+correctly.
+
+\end{itemize}
+
+\item[KeyError:]  You are trying to access an element of a dictionary
+using a key that the dictionary does not contain.  If the keys
+are strings, remember that capitalization matters.
+\index{KeyError}
+\index{exception!KeyError}
+\index{dictionary}
+
+\item[AttributeError:] You are trying to access an attribute or method
+  that does not exist.  Check the spelling!  You can use the built-in
+  function {\tt vars} to list the attributes that do exist.
+\index{dir function}
+\index{function!dir}
+
+If an AttributeError indicates that an object has {\tt NoneType},
+that means that it is {\tt None}.  So the problem is not the
+attribute name, but the object.
+
+The reason the object is none might be that you forgot
+to return a value from a function; if you get to the end of
+a function without hitting a {\tt return} statement, it returns
+{\tt None}.  Another common cause is using the result from
+a list method, like {\tt sort}, that returns {\tt None}.
+\index{AttributeError}
+\index{exception!AttributeError}
+
+\item[IndexError:] The index you are using
+to access a list, string, or tuple is greater than
+its length minus one.  Immediately before the site of the error,
+add a {\tt print} statement to display
+the value of the index and the length of the array.
+Is the array the right size?  Is the index the right value?
+\index{IndexError}
+\index{exception!IndexError}
+
+\end{description}
+
+The Python debugger ({\tt pdb}) is useful for tracking down
+exceptions because it allows you to examine the state of the
+program immediately before the error.  You can read
+about {\tt pdb} at \url{https://docs.python.org/3/library/pdb.html}.
+\index{debugger (pdb)}
+\index{pdb (Python debugger)}
+
+
+\subsection{I added so many {\tt print} statements I get inundated with
+output.}
+\index{print statement}
+\index{statement!print}
+
+One of the problems with using {\tt print} statements for debugging
+is that you can end up buried in output.  There are two ways
+to proceed: simplify the output or simplify the program.
+
+To simplify the output, you can remove or comment out {\tt print}
+statements that aren't helping, or combine them, or format
+the output so it is easier to understand.
+
+To simplify the program, there are several things you can do.  First,
+scale down the problem the program is working on.  For example, if you
+are searching a list, search a {\em small} list.  If the program takes
+input from the user, give it the simplest input that causes the
+problem.
+\index{dead code}
+
+Second, clean up the program.  Remove dead code and reorganize the
+program to make it as easy to read as possible.  For example, if you
+suspect that the problem is in a deeply nested part of the program,
+try rewriting that part with simpler structure.  If you suspect a
+large function, try splitting it into smaller functions and testing them
+separately.
+\index{testing!minimal test case}
+\index{test case, minimal}
+
+Often the process of finding the minimal test case leads you to the
+bug.  If you find that a program works in one situation but not in
+another, that gives you a clue about what is going on.
+
+Similarly, rewriting a piece of code can help you find subtle
+bugs.  If you make a change that you think shouldn't affect the
+program, and it does, that can tip you off.
+
+
+\section{Semantic errors}
+
+In some ways, semantic errors are the hardest to debug,
+because the interpreter provides no information
+about what is wrong.  Only you know what the program is supposed to
+do.
+\index{semantic error}
+\index{error!semantic}
+
+The first step is to make a connection between the program
+text and the behavior you are seeing.  You need a hypothesis
+about what the program is actually doing.  One of the things
+that makes that hard is that computers run so fast.
+
+You will often wish that you could slow the program down to human
+speed, and with some debuggers you can.  But the time it takes to
+insert a few well-placed {\tt print} statements is often short compared to
+setting up the debugger, inserting and removing breakpoints, and
+``stepping'' the program to where the error is occurring.
+
+
+\subsection{My program doesn't work.}
+
+You should ask yourself these questions:
+
+\begin{itemize}
+
+\item Is there something the program was supposed to do but
+which doesn't seem to be happening?  Find the section of the code
+that performs that function and make sure it is executing when
+you think it should.
+
+\item Is something happening that shouldn't?  Find code in
+your program that performs that function and see if it is
+executing when it shouldn't.
+
+\item Is a section of code producing an effect that is not
+what you expected?  Make sure that you understand the code in
+question, especially if it involves functions or methods in
+other Python modules.  Read the documentation for the functions you call.
+Try them out by writing simple test cases and checking the results.
+
+\end{itemize}
+
+In order to program, you need a mental model of how
+programs work.  If you write a program that doesn't do what you expect,
+often the problem is not in the program; it's in your mental
+model.
+\index{model, mental}
+\index{mental model}
+
+The best way to correct your mental model is to break the program
+into its components (usually the functions and methods) and test
+each component independently.  Once you find the discrepancy
+between your model and reality, you can solve the problem.
+
+Of course, you should be building and testing components as you
+develop the program.  If you encounter a problem,
+there should be only a small amount of new code
+that is not known to be correct.
+
+
+\subsection{I've got a big hairy expression and it doesn't
+do what I expect.}
+\index{expression!big and hairy}
+\index{big, hairy expression}
+
+Writing complex expressions is fine as long as they are readable,
+but they can be hard to debug.  It is often a good idea to
+break a complex expression into a series of assignments to
+temporary variables.
+
+For example:
+
+\begin{verbatim}
+self.hands[i].addCard(self.hands[self.findNeighbor(i)].popCard())
+\end{verbatim}
+%
+This can be rewritten as:
+
+\begin{verbatim}
+neighbor = self.findNeighbor(i)
+pickedCard = self.hands[neighbor].popCard()
+self.hands[i].addCard(pickedCard)
+\end{verbatim}
+%
+The explicit version is easier to read because the variable
+names provide additional documentation, and it is easier to debug
+because you can check the types of the intermediate variables
+and display their values.
+\index{temporary variable}
+\index{variable!temporary}
+
+Another problem that can occur with big expressions is
+that the order of evaluation may not be what you expect.
+For example, if you are translating the expression
+$\frac{x}{2 \pi}$ into Python, you might write:
+
+\begin{verbatim}
+y = x / 2 * math.pi
+\end{verbatim}
+%
+That is not correct because multiplication and division have
+the same precedence and are evaluated from left to right.
+So this expression computes $x \pi / 2$.
+\index{order of operations}
+\index{precedence}
+
+A good way to debug expressions is to add parentheses to make
+the order of evaluation explicit:
+
+\begin{verbatim}
+ y = x / (2 * math.pi)
+\end{verbatim}
+%
+Whenever you are not sure of the order of evaluation, use
+parentheses.  Not only will the program be correct (in the sense
+of doing what you intended), it will also be more readable for
+other people who haven't memorized the order of operations.
+
+
+\subsection{I've got a function that doesn't return what I
+expect.}
+\index{return statement}
+\index{statement!return}
+
+If you have a {\tt return} statement with a complex expression,
+you don't have a chance to print the result before
+returning.  Again, you can use a temporary variable.  For
+example, instead of:
+
+\begin{verbatim}
+return self.hands[i].removeMatches()
+\end{verbatim}
+%
+you could write:
+
+\begin{verbatim}
+count = self.hands[i].removeMatches()
+return count
+\end{verbatim}
+%
+Now you have the opportunity to display the value of
+{\tt count} before returning.
+
+
+\subsection{I'm really, really stuck and I need help.}
+
+First, try getting away from the computer for a few minutes.
+Computers emit waves that affect the brain, causing these
+symptoms:
+
+\begin{itemize}
+
+\item Frustration and rage.
+\index{frustration}
+\index{rage}
+\index{debugging!emotional response}
+\index{emotional debugging}
+
+\item Superstitious beliefs (``the computer hates me'') and
+magical thinking (``the program only works when I wear my
+hat backward'').
+\index{debugging!superstition}
+\index{superstitious debugging}
+
+\item Random walk programming (the attempt to program by writing
+every possible program and choosing the one that does the right
+thing).
+\index{random walk programming}
+\index{development plan!random walk programming}
+
+\end{itemize}
+
+If you find yourself suffering from any of these symptoms, get
+up and go for a walk.  When you are calm, think about the program.
+What is it doing?  What are some possible causes of that
+behavior?  When was the last time you had a working program,
+and what did you do next?
+
+Sometimes it just takes time to find a bug.  I often find bugs
+when I am away from the computer and let my mind wander.  Some
+of the best places to find bugs are trains, showers, and in bed,
+just before you fall asleep.
+
+
+\subsection{No, I really need help.}
+
+It happens.  Even the best programmers occasionally get stuck.
+Sometimes you work on a program so long that you can't see the
+error.  You need a fresh pair of eyes.
+
+Before you bring someone else in, make sure you are prepared.
+Your program should be as simple
+as possible, and you should be working on the smallest input
+that causes the error.  You should have {\tt print} statements in the
+appropriate places (and the output they produce should be
+comprehensible).  You should understand the problem well enough
+to describe it concisely.
+
+When you bring someone in to help, be sure to give
+them the information they need:
+
+\begin{itemize}
+
+\item If there is an error message, what is it
+and what part of the program does it indicate?
+
+\item What was the last thing you did before this error occurred?
+What were the last lines of code that you wrote, or what is
+the new test case that fails?
+
+\item What have you tried so far, and what have you learned?
+
+\end{itemize}
+
+When you find the bug, take a second to think about what you
+could have done to find it faster.  Next time you see something
+similar, you will be able to find the bug more quickly.
+
+Remember, the goal is not just to make the program
+work.  The goal is to learn how to make the program work.
+
+
+\chapter{Analysis of Algorithms}
+\label{algorithms}
+
+\begin{quote}
+This appendix is an edited excerpt from {\it Think Complexity}, by
+Allen B. Downey, also published by O'Reilly Media (2012).  When you
+are done with this book, you might want to move on to that one.
+\end{quote}
+
+{\bf Analysis of algorithms} is a branch of computer science that
+studies the performance of algorithms, especially their run time and
+space requirements.  See
+\url{http://en.wikipedia.org/wiki/Analysis_of_algorithms}.
+\index{algorithm} \index{analysis of algorithms}
+
+The practical goal of algorithm analysis is to predict the performance
+of different algorithms in order to guide design decisions.
+
+During the 2008 United States Presidential Campaign, candidate
+Barack Obama was asked to perform an impromptu analysis when
+he visited Google.  Chief executive Eric Schmidt jokingly asked him
+for ``the most efficient way to sort a million 32-bit integers.''
+Obama had apparently been tipped off, because he quickly
+replied, ``I think the bubble sort would be the wrong way to go.''
+See \url{http://www.youtube.com/watch?v=k4RRi_ntQc8}.
+\index{Obama, Barack}
+\index{Schmidt, Eric}
+\index{bubble sort}
+
+This is true: bubble sort is conceptually simple but slow for
+large datasets.  The answer Schmidt was probably looking for is
+``radix sort'' (\url{http://en.wikipedia.org/wiki/Radix_sort})\footnote{
+But if you get a question like this in an interview, I think
+a better answer is, ``The fastest way to sort a million integers
+is to use whatever sort function is provided by the language
+I'm using.  Its performance is good enough for the vast majority
+of applications, but if it turned out that my application was too
+slow, I would use a profiler to see where the time was being
+spent.  If it looked like a faster sort algorithm would have
+a significant effect on performance, then I would look
+around for a good implementation of radix sort.''}.
+\index{radix sort}
+
+The goal of algorithm analysis is to make meaningful
+comparisons between algorithms, but there are some problems:
+\index{comparing algorithms}
+
+\begin{itemize}
+
+\item The relative performance of the algorithms might
+depend on characteristics of the hardware, so one algorithm
+might be faster on Machine A, another on Machine B.
+The general solution to this problem is to specify a
+{\bf machine model} and analyze the number of steps, or
+operations, an algorithm requires under a given model.
+\index{machine model}
+
+\item Relative performance might depend on the details of
+the dataset.  For example, some sorting
+algorithms run faster if the data are already partially sorted;
+other algorithms run slower in this case.
+A common way to avoid this problem is to analyze the
+{\bf worst case} scenario.  It is sometimes useful to
+analyze average case performance, but that's usually harder,
+and it might not be obvious what set of cases to average over.
+\index{worst case}
+\index{average case}
+
+\item Relative performance also depends on the size of the
+problem.  A sorting algorithm that is fast for small lists
+might be slow for long lists.
+The usual solution to this problem is to express run time
+(or number of operations) as a function of problem size,
+and group functions into categories depending on how quickly
+they grow as problem size increases.
+
+\end{itemize}
+
+The good thing about this kind of comparison is that it lends
+itself to simple classification of algorithms.  For example,
+if I know that the run time of Algorithm A tends to be
+proportional to the size of the input, $n$, and Algorithm B
+tends to be proportional to $n^2$, then I
+expect A to be faster than B, at least for large values of $n$.
+
+This kind of analysis comes with some caveats, but we'll get
+to that later.
+
+
+\section{Order of growth}
+
+Suppose you have analyzed two algorithms and expressed
+their run times in terms of the size of the input:
+Algorithm A takes $100n+1$ steps to solve a problem with
+size $n$; Algorithm B takes $n^2 + n + 1$ steps.
+\index{order of growth}
+
+The following table shows the run time of these algorithms
+for different problem sizes:
+
+\begin{tabular}{|r|r|r|}
+\hline
+Input     &   Run time of     & Run time of \\
+size      &   Algorithm A     & Algorithm B \\
+\hline
+10        &   1 001           & 111         \\
+100       &   10 001          & 10 101         \\
+1 000     &   100 001         & 1 001 001         \\
+10 000    &   1 000 001       & $> 10^{10}$         \\
+\hline
+\end{tabular}
+
+At $n=10$, Algorithm A looks pretty bad; it takes almost 10 times
+longer than Algorithm B.  But for $n=100$ they are about the same, and
+for larger values A is much better.
+
+The fundamental reason is that for large values of $n$, any function
+that contains an $n^2$ term will grow faster than a function whose
+leading term is $n$.  The {\bf leading term} is the term with the
+highest exponent.
+\index{leading term}
+\index{exponent}
+
+For Algorithm A, the leading term has a large coefficient, 100, which
+is why B does better than A for small $n$.  But regardless of the
+coefficients, there will always be some value of $n$ where
+$a n^2 > b n$, for any values of $a$ and $b$.
+\index{leading coefficient}
+
+The same argument applies to the non-leading terms.  Even if the run
+time of Algorithm A were $n+1000000$, it would still be better than
+Algorithm B for sufficiently large $n$.
+
+In general, we expect an algorithm with a smaller leading term to be a
+better algorithm for large problems, but for smaller problems, there
+may be a {\bf crossover point} where another algorithm is better.  The
+location of the crossover point depends on the details of the
+algorithms, the inputs, and the hardware, so it is usually ignored for
+purposes of algorithmic analysis.  But that doesn't mean you can forget
+about it.
+\index{crossover point}
+
+If two algorithms have the same leading order term, it is hard to say
+which is better; again, the answer depends on the details.  So for
+algorithmic analysis, functions with the same leading term
+are considered equivalent, even if they have different coefficients.
+
+An {\bf order of growth} is a set of functions whose growth
+behavior is considered equivalent.  For example, $2n$, $100n$ and $n+1$
+belong to the same order of growth, which is written $O(n)$ in
+{\bf Big-Oh notation} and often called {\bf linear} because every function
+in the set grows linearly with $n$.
+\index{big-oh notation}
+\index{linear growth}
+
+All functions with the leading term $n^2$ belong to $O(n^2)$; they are
+called {\bf quadratic}.
+\index{quadratic growth}
+
+The following table shows some of the orders of growth that
+appear most commonly in algorithmic analysis,
+in increasing order of badness.
+\index{badness}
+
+\begin{tabular}{|r|r|r|}
+\hline
+Order of     &   Name      \\
+growth       &               \\
+\hline
+$O(1)$             & constant \\
+$O(\log_b n)$      & logarithmic (for any $b$) \\
+$O(n)$             & linear \\
+$O(n \log_b n)$    & linearithmic \\
+$O(n^2)$           & quadratic     \\
+$O(n^3)$           & cubic     \\
+$O(c^n)$           & exponential (for any $c$)    \\
+\hline
+\end{tabular}
+
+For the logarithmic terms, the base of the logarithm doesn't matter;
+changing bases is the equivalent of multiplying by a constant, which
+doesn't change the order of growth.  Similarly, all exponential
+functions belong to the same order of growth regardless of the base of
+the exponent.
+Exponential functions grow very quickly, so exponential algorithms are
+only useful for small problems.
+\index{logarithmic growth}
+\index{exponential growth}
+
+
+\begin{exercise}
+
+Read the Wikipedia page on Big-Oh notation at
+\url{http://en.wikipedia.org/wiki/Big_O_notation} and
+answer the following questions:
+
+\begin{enumerate}
+\item What is the order of growth of $n^3 + n^2$?
+What about $1000000 n^3 + n^2$?
+What about $n^3 + 1000000 n^2$?
+
+\item What is the order of growth of $(n^2 + n) \cdot (n + 1)$?  Before
+  you start multiplying, remember that you only need the leading term.
+
+\item If $f$ is in $O(g)$, for some unspecified function $g$, what can
+  we say about $af+b$?
+
+\item If $f_1$ and $f_2$ are in $O(g)$, what can we say about $f_1 + f_2$?
+
+\item If  $f_1$ is in $O(g)$
+and $f_2$ is in $O(h)$,
+what can we say about  $f_1 + f_2$?
+
+\item If  $f_1$ is in $O(g)$ and $f_2$ is $O(h)$,
+what can we say about  $f_1 \cdot f_2$?
+\end{enumerate}
+
+\end{exercise}
+
+Programmers who care about performance often find this kind of
+analysis hard to swallow.  They have a point: sometimes the
+coefficients and the non-leading terms make a real difference.
+Sometimes the details of the hardware, the programming language, and
+the characteristics of the input make a big difference.  And for small
+problems asymptotic behavior is irrelevant.
+
+But if you keep those caveats in mind, algorithmic analysis is a
+useful tool.  At least for large problems, the ``better'' algorithms
+is usually better, and sometimes it is {\em much} better.  The
+difference between two algorithms with the same order of growth is
+usually a constant factor, but the difference between a good algorithm
+and a bad algorithm is unbounded!
+
+
+\section{Analysis of basic Python operations}
+
+In Python, most arithmetic operations are constant time;
+multiplication usually takes longer than addition and subtraction, and
+division takes even longer, but these run times don't depend on the
+magnitude of the operands.  Very large integers are an exception; in
+that case the run time increases with the number of digits.
+\index{analysis of primitives}
+
+Indexing operations---reading or writing elements in a sequence
+or dictionary---are also constant time, regardless of the size
+of the data structure.
+\index{indexing}
+
+A {\tt for} loop that traverses a sequence or dictionary is
+usually linear, as long as all of the operations in the body
+of the loop are constant time.  For example, adding up the
+elements of a list is linear:
+
+\begin{verbatim}
+    total = 0
+    for x in t:
+        total += x
+\end{verbatim}
+
+The built-in function {\tt sum} is also linear because it does
+the same thing, but it tends to be faster because it is a more
+efficient implementation; in the language of algorithmic analysis,
+it has a smaller leading coefficient.
+
+As a rule of thumb, if the body of a loop is in $O(n^a)$ then
+the whole loop is in $O(n^{a+1})$.  The exception is if you can
+show that the loop exits after a constant number of iterations.
+If a loop runs $k$ times regardless of $n$, then
+the loop is in $O(n^a)$, even for large $k$.
+
+Multiplying by $k$ doesn't change the order of growth, but neither
+does dividing.  So if the body of a loop is in $O(n^a)$ and it runs
+$n/k$ times, the loop is in $O(n^{a+1})$, even for large $k$.
+
+Most string and tuple operations are linear, except indexing and {\tt
+  len}, which are constant time.  The built-in functions {\tt min} and
+{\tt max} are linear.  The run-time of a slice operation is
+proportional to the length of the output, but independent of the size
+of the input.
+\index{string methods}
+\index{tuple methods}
+
+String concatenation is linear; the run time depends on the sum
+of the lengths of the operands.
+\index{string concatenation}
+
+All string methods are linear, but if the lengths of
+the strings are bounded by a constant---for example, operations on single
+characters---they are considered constant time.
+The string method {\tt join} is linear; the run time depends on
+the total length of the strings.
+\index{join@{\tt join}}
+
+Most list methods are linear, but there are some exceptions:
+\index{list methods}
+
+\begin{itemize}
+
+\item Adding an element to the end of a list is constant time on
+average; when it runs out of room it occasionally gets copied
+to a bigger location, but the total time for $n$ operations
+is $O(n)$, so the average time for each
+operation is $O(1)$.
+
+\item Removing an element from the end of a list is constant time.
+
+\item Sorting is $O(n \log n)$.
+\index{sorting}
+
+\end{itemize}
+
+Most dictionary operations and methods are constant time, but
+there are some exceptions:
+\index{dictionary methods}
+
+\begin{itemize}
+
+\item The run time of {\tt update} is
+  proportional to the size of the dictionary passed as a parameter,
+  not the dictionary being updated.
+
+\item {\tt keys}, {\tt values} and {\tt items} are constant time because
+  they return iterators.  But
+  if you loop through the iterators, the loop will be linear.
+\index{iterator}
+
+\end{itemize}
+
+The performance of dictionaries is one of the minor miracles of
+computer science.  We will see how they work in
+Section~\ref{hashtable}.
+
+
+\begin{exercise}
+
+Read the Wikipedia page on sorting algorithms at
+\url{http://en.wikipedia.org/wiki/Sorting_algorithm} and answer
+the following questions:
+\index{sorting}
+
+\begin{enumerate}
+
+\item What is a ``comparison sort?'' What is the best worst-case order
+  of growth for a comparison sort?  What is the best worst-case order
+  of growth for any sort algorithm?
+\index{comparison sort}
+
+\item What is the order of growth of bubble sort, and why does Barack
+  Obama think it is ``the wrong way to go?''
+
+\item What is the order of growth of radix sort?  What preconditions
+  do we need to use it?
+
+\item What is a stable sort and why might it matter in practice?
+\index{stable sort}
+
+\item What is the worst sorting algorithm (that has a name)?
+
+\item What sort algorithm does the C library use?  What sort algorithm
+  does Python use?  Are these algorithms stable?  You might have to
+  Google around to find these answers.
+
+\item Many of the non-comparison sorts are linear, so why does does
+  Python use an $O(n \log n)$ comparison sort?
+
+\end{enumerate}
+
+\end{exercise}
+
+
+\section{Analysis of search algorithms}
+
+A {\bf search} is an algorithm that takes a collection and a target
+item and determines whether the target is in the collection, often
+returning the index of the target.
+\index{search}
+
+The simplest search algorithm is a ``linear search'', which traverses
+the items of the collection in order, stopping if it finds the target.
+In the worst case it has to traverse the entire collection, so the run
+time is linear.
+\index{linear search}
+
+The {\tt in} operator for sequences uses a linear search; so do string
+methods like {\tt find} and {\tt count}.
+\index{in@{\tt in} operator}
+
+If the elements of the sequence are in order, you can use a {\bf
+  bisection search}, which is $O(\log n)$.  Bisection search is
+similar to the algorithm you might use to look a word up in a
+dictionary (a paper dictionary, not the data structure).  Instead of
+starting at the beginning and checking each item in order, you start
+with the item in the middle and check whether the word you are looking
+for comes before or after.  If it comes before, then you search the
+first half of the sequence.  Otherwise you search the second half.
+Either way, you cut the number of remaining items in half.
+\index{bisection search}
+
+If the sequence has 1,000,000 items, it will take about 20 steps to
+find the word or conclude that it's not there.  So that's about 50,000
+times faster than a linear search.
+
+Bisection search can be much faster than linear search, but
+it requires the sequence to be in order, which might require
+extra work.
+
+There is another data structure, called a {\bf hashtable} that
+is even faster---it can do a search in constant time---and it
+doesn't require the items to be sorted.  Python dictionaries
+are implemented using hashtables, which is why most dictionary
+operations, including the {\tt in} operator, are constant time.
+
+
+\section{Hashtables}
+\label{hashtable}
+
+To explain how hashtables work and why their performance is so
+good, I start with a simple implementation of a map and
+gradually improve it until it's a hashtable.
+\index{hashtable}
+
+I use Python to demonstrate these implementations, but in real
+life you wouldn't write code like this in Python; you would just use a
+dictionary!  So for the rest of this chapter, you have to imagine that
+dictionaries don't exist and you want to implement a data structure
+that maps from keys to values.  The operations you have to
+implement are:
+
+\begin{description}
+
+\item[{\tt add(k, v)}:] Add a new item that maps from key {\tt k}
+to value {\tt v}.  With a Python dictionary, {\tt d}, this operation
+is written {\tt d[k] = v}.
+
+\item[{\tt get(k)}:] Look up and return the value that corresponds
+to key {\tt k}.  With a Python dictionary, {\tt d}, this operation
+is written {\tt d[k]} or {\tt d.get(k)}.
+
+\end{description}
+
+For now, I assume that each key only appears once.
+The simplest implementation of this interface uses a list of
+tuples, where each tuple is a key-value pair.
+\index{LinearMap@{\tt LinearMap}}
+
+\begin{verbatim}
+class LinearMap:
+
+    def __init__(self):
+        self.items = []
+
+    def add(self, k, v):
+        self.items.append((k, v))
+
+    def get(self, k):
+        for key, val in self.items:
+            if key == k:
+                return val
+        raise KeyError
+\end{verbatim}
+
+{\tt add} appends a key-value tuple to the list of items, which
+takes constant time.
+
+{\tt get} uses a {\tt for} loop to search the list:
+if it finds the target key it returns the corresponding value;
+otherwise it raises a {\tt KeyError}.
+So {\tt get} is linear.
+\index{KeyError@{\tt KeyError}}
+
+An alternative is to keep the list sorted by key.  Then {\tt get}
+could use a bisection search, which is $O(\log n)$.  But inserting a
+new item in the middle of a list is linear, so this might not be the
+best option.  There are other data structures that can implement {\tt
+  add} and {\tt get} in log time, but that's still not as good as
+constant time, so let's move on.
+\index{red-black tree}
+
+One way to improve {\tt LinearMap} is to break the list of key-value
+pairs into smaller lists.  Here's an implementation called
+{\tt BetterMap}, which is a list of 100 LinearMaps.  As we'll see
+in a second, the order of growth for {\tt get} is still linear,
+but {\tt BetterMap} is a step on the path toward hashtables:
+\index{BetterMap@{\tt BetterMap}}
+
+\begin{verbatim}
+class BetterMap:
+
+    def __init__(self, n=100):
+        self.maps = []
+        for i in range(n):
+            self.maps.append(LinearMap())
+
+    def find_map(self, k):
+        index = hash(k) % len(self.maps)
+        return self.maps[index]
+
+    def add(self, k, v):
+        m = self.find_map(k)
+        m.add(k, v)
+
+    def get(self, k):
+        m = self.find_map(k)
+        return m.get(k)
+\end{verbatim}
+
+\verb"__init__" makes a list of {\tt n} {\tt LinearMap}s.
+
+\verb"find_map" is used by
+{\tt add} and {\tt get}
+to figure out which map to put the
+new item in, or which map to search.
+
+\verb"find_map" uses the built-in function {\tt hash}, which takes
+almost any Python object and returns an integer.  A limitation of this
+implementation is that it only works with hashable keys.  Mutable
+types like lists and dictionaries are unhashable.
+\index{hash function}
+
+Hashable objects that are considered equivalent return the same hash
+value, but the converse is not necessarily true: two objects with
+different values can return the same hash value.
+
+\verb"find_map" uses the modulus operator to wrap the hash values
+into the range from 0 to {\tt len(self.maps)}, so the result is a legal
+index into the list.  Of course, this means that many different
+hash values will wrap onto the same index.  But if the hash function
+spreads things out pretty evenly (which is what hash functions
+are designed to do), then we expect $n/100$ items per LinearMap.
+
+Since the run time of {\tt LinearMap.get} is proportional to the
+number of items, we expect BetterMap to be about 100 times faster
+than LinearMap.  The order of growth is still linear, but the
+leading coefficient is smaller.  That's nice, but still not
+as good as a hashtable.
+
+Here (finally) is the crucial idea that makes hashtables fast: if you
+can keep the maximum length of the LinearMaps bounded, {\tt
+  LinearMap.get} is constant time.  All you have to do is keep track
+of the number of items and when the number of
+items per LinearMap exceeds a threshold, resize the hashtable by
+adding more LinearMaps.
+\index{bounded}
+
+Here is an implementation of a hashtable:
+\index{HashMap}
+
+\begin{verbatim}
+class HashMap:
+
+    def __init__(self):
+        self.maps = BetterMap(2)
+        self.num = 0
+
+    def get(self, k):
+        return self.maps.get(k)
+
+    def add(self, k, v):
+        if self.num == len(self.maps.maps):
+            self.resize()
+
+        self.maps.add(k, v)
+        self.num += 1
+
+    def resize(self):
+        new_maps = BetterMap(self.num * 2)
+
+        for m in self.maps.maps:
+            for k, v in m.items:
+                new_maps.add(k, v)
+
+        self.maps = new_maps
+\end{verbatim}
+
+Each {\tt HashMap} contains a {\tt BetterMap}; \verb"__init__" starts
+with just 2 LinearMaps and initializes {\tt num}, which keeps track of
+the number of items.
+
+{\tt get} just dispatches to {\tt BetterMap}.  The real work happens
+in {\tt add}, which checks the number of items and the size of the
+{\tt BetterMap}: if they are equal, the average number of items per
+LinearMap is 1, so it calls {\tt resize}.
+
+{\tt resize} make a new {\tt BetterMap}, twice as big as the previous
+one, and then ``rehashes'' the items from the old map to the new.
+
+Rehashing is necessary because changing the number of LinearMaps
+changes the denominator of the modulus operator in
+\verb"find_map".  That means that some objects that used
+to hash into the same LinearMap will get split up (which is
+what we wanted, right?).
+\index{rehashing}
+
+Rehashing is linear, so
+{\tt resize} is linear, which might seem bad, since I promised
+that {\tt add} would be constant time.  But remember that
+we don't have to resize every time, so {\tt add} is usually
+constant time and only occasionally linear.  The total amount
+of work to run {\tt add} $n$ times is proportional to $n$,
+so the average time of each {\tt add} is constant time!
+\index{constant time}
+
+To see how this works, think about starting with an empty
+HashTable and adding a sequence of items.  We start with 2 LinearMaps,
+so the first 2 adds are fast (no resizing required).  Let's
+say that they take one unit of work each.  The next add
+requires a resize, so we have to rehash the first two
+items (let's call that 2 more units of work) and then
+add the third item (one more unit).  Adding the next item
+costs 1 unit, so the total so far is
+6 units of work for 4 items.
+
+The next {\tt add} costs 5 units, but the next three
+are only one unit each, so the total is 14 units for the
+first 8 adds.
+
+The next {\tt add} costs 9 units, but then we can add 7 more
+before the next resize, so the total is 30 units for the
+first 16 adds.
+
+After 32 adds, the total cost is 62 units, and I hope you are starting
+to see a pattern.  After $n$ adds, where $n$ is a power of two, the
+total cost is $2n-2$ units, so the average work per add is
+a little less than 2 units.  When $n$ is a power of two, that's
+the best case; for other values of $n$ the average work is a little
+higher, but that's not important.  The important thing is that it
+is $O(1)$.
+\index{average cost}
+
+Figure~\ref{fig.hash} shows how this works graphically.  Each
+block represents a unit of work.  The columns show the total
+work for each add in order from left to right: the first two
+{\tt adds} cost 1 units, the third costs 3 units, etc.
+
+\begin{figure}
+\centerline{\includegraphics[width=5.5in]{../source/figs/towers.pdf}}
+\caption{The cost of a hashtable add.\label{fig.hash}}
+\end{figure}
+
+The extra work of rehashing appears as a sequence of increasingly
+tall towers with increasing space between them.  Now if you knock
+over the towers, spreading the cost of resizing over all
+adds, you can see graphically that the total cost after $n$
+adds is $2n - 2$.
+
+An important feature of this algorithm is that when we resize the
+HashTable it grows geometrically; that is, we multiply the size by a
+constant.  If you increase the size
+arithmetically---adding a fixed number each time---the average time
+per {\tt add} is linear.
+\index{geometric resizing}
+
+You can download my implementation of HashMap from
+\url{http://thinkpython2.com/code/Map.py}, but remember that there
+is no reason to use it; if you want a map, just use a Python dictionary.
+
+\section{Glossary}
+
+\begin{description}
+
+\item[analysis of algorithms:] A way to compare algorithms in terms of
+their run time and/or space requirements.
+\index{analysis of algorithms}
+
+\item[machine model:] A simplified representation of a computer used
+to describe algorithms.
+\index{machine model}
+
+\item[worst case:] The input that makes a given algorithm run slowest (or
+require the most space.
+\index{worst case}
+
+\item[leading term:] In a polynomial, the term with the highest exponent.
+\index{leading term}
+
+\item[crossover point:] The problem size where two algorithms require
+the same run time or space.
+\index{crossover point}
+
+\item[order of growth:] A set of functions that all grow in a way
+considered equivalent for purposes of analysis of algorithms.
+For example, all functions that grow linearly belong to the same
+order of growth.
+\index{order of growth}
+
+\item[Big-Oh notation:] Notation for representing an order of growth;
+for example, $O(n)$ represents the set of functions that grow
+linearly.
+\index{Big-Oh notation}
+
+\item[linear:] An algorithm whose run time is proportional to
+problem size, at least for large problem sizes.
+\index{linear}
+
+\item[quadratic:] An algorithm whose run time is proportional to
+$n^2$, where $n$ is a measure of problem size.
+\index{quadratic}
+
+\item[search:] The problem of locating an element of a collection
+(like a list or dictionary) or determining that it is not present.
+\index{search}
+
+\item[hashtable:] A data structure that represents a collection of
+key-value pairs and performs search in constant time.
+\index{hashtable}
+
+\end{description}

@@ -10,4 +10,21 @@ __pycache__/
 .Python
 
 tmp/
+<<<<<<< HEAD
+
+
+# tex related files
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.log
+*.out
+*.toc
+*.aux
+*.synctex.gz
+
+=======
 build/
+>>>>>>> e3953d114b30eb1de0e7844ee7f658dff862b8cf
