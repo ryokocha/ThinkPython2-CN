@@ -601,7 +601,7 @@ Instead, let's call the more general function {\tt polyline}:
 
 该函数的后半部分看上去很像 \lstinline{polygon} ，
 但是在不改变接口的条件下，我们无法复用 \lstinline{polygon} 。
-我们可以泛化 \lstinline{pol
+我们可以泛化 \lstinline{polygon} 来接受一个角度作为第三个实参， 但是这样 \lstinline{polygon} 就不再是一个合适的名字了！ 让我们称这个更通用的函数为 \lstinline{polyline} ：
 
 \begin{lstlisting}
 def polyline(t, n, length, angle):
