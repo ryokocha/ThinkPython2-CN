@@ -580,8 +580,6 @@ Ackermann 函数 :math:`A(m, n)` 的定义如下：
 如果m 和 n 的值较大时，会发生什么？
 答案： http://thinkpython2.com/code/ackermann.py 。
 
-.. _ex6-3:
-
 习题6-3。
 
 回文词（palindrome）指的是正着拼反着拼都一样的单词，如 “noon”和“redivider”。

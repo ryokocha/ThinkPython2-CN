@@ -1,7 +1,7 @@
 第八章：字符串
 ===============
 
-字符串不像整数、浮点数和布尔型。字符串是一个**序列(sequence)**， 这就意味着
+字符串不像整数、浮点数和布尔型。字符串是一个 **序列(sequence)** ，这就意味着
 它是其他值的一个有序的集合。在这章中，你将学习怎么去访问字符串里的字符， 同时你也会学习到字符串提供的一些方法.
 
 
@@ -18,7 +18,7 @@
 
 第2条语句从 ``fruit`` 中选择索引为1的字符并将它赋给 ``letter`` 。 
 
-括号中的表达式被称作**索引(index)** 。索引指出在序列中你想要哪个字符(因此而得名)。
+括号中的表达式被称作 **索引(index)** 。索引指出在序列中你想要哪个字符(因此而得名)。
 
 但是你可能不会获得你期望的东西：
 
@@ -27,8 +27,8 @@
     >>> letter
     'a'
 
-对于大多数人，``'banana'`` 的第一个字母是b而不是a。 但是对于计算机科学家，索引是从字
-符串起点开始的位移量(offset)，第一个字母的位移量就是0。
+对于大多数人，``'banana'`` 的第一个字母是b而不是a。
+但是对于计算机科学家，索引是从字符串起点开始的位移量(offset)，第一个字母的位移量就是0。
 
 ::
 
@@ -91,7 +91,7 @@ len
 -------------------------
 
 许多计算中需要一个字符一个字符地处理字符串。 通常计算从字符串的头部开始，依次选择每个字符，对其做一些处理，
-然后继续直到结束。 这种处理模式被称作**遍历**(traversal)。 编写遍历的方法之一是使用
+然后继续直到结束。 这种处理模式被称作 **遍历(traversal)** 。 编写遍历的方法之一是使用
 while循环：
 
 ::
@@ -106,7 +106,8 @@ while循环：
 ``index`` 和字符串的长度相等时， 条件为假， 循环体不被执行。 被访问的最后一个字符的索
 引为 ``len(fruit)-1`` ， 这也是字符串的最后一个字符。
 
-我们做个练习， 编写一个函数， 接受一个字符串作为实参， 按照从后向前的顺序显示字符，每行只显示一个。
+我们做个练习，编写一个函数，接受一个字符串作为实参，
+按照从后向前的顺序显示字符，每行只显示一个。
 
 编写遍历的另一种方法是使用for循环：
 
@@ -119,8 +120,7 @@ while循环：
 
 下面的例子演示了如何使用拼接（字符串相加）和for循环生成一个字母表序列（即按照字母表顺序排列）。
 在Robert McCloskey的书 *《Make Way for Ducklings》* 中， 小鸭子的名字是
-Jack、Kack、Lack、Mack、Nack、Ouack、Pack和Quack。此循环按顺
-序输出这些名字：
+Jack、Kack、Lack、Mack、Nack、Ouack、Pack和Quack。此循环按顺序输出这些名字：
 
 
 ::
@@ -144,9 +144,6 @@ Jack、Kack、Lack、Mack、Nack、Ouack、Pack和Quack。此循环按顺
     Pack
     Qack
 
-Of course， that’s not quite right because “Ouack” and “Quack” are
-misspelled. As an exercise， modify the program to fix this error.
-
 当然，输出并不完全正确，因为“Ouack”和“Quack”拼写错了。我们做个练习， 修改这
 个程序，解决这个问题。
 
@@ -168,10 +165,10 @@ misspelled. As an exercise， modify the program to fix this error.
 
 .. _fig.banana:
 
-.. figure:: figs/banana.pdf
-   :alt: Slice indices.
+.. figure:: figs/banana.png
+   :alt: 图8-1：切片索引
 
-   Slice indices.
+   图8-1：切片索引
 
 如果你省略第一个索引(冒号前面的值)，切片起始于字符串头部。 如果你省略第二个索引，切片一直
 到字符串结尾：
@@ -211,7 +208,7 @@ misspelled. As an exercise， modify the program to fix this error.
 错误信息中的“object（对象）”是那个字符串，“item(元素)”是你要赋值的字符。目前，我们认为
 对象(object)和值是同一样的东西，但是我们后面将改进此定义（详见“对象与值”一节）。 
 
-出现此错误的原因是字符串是**不可变的(immutable)**， 这意味着你不能改变一个已存在的字符串。
+出现此错误的原因是字符串是 **不可变的(immutable)** ，这意味着你不能改变一个已存在的字符串。
 你最多只能创建一个新的字符串，在原有字符串的基础上略有变化：
 
 ::
@@ -290,7 +287,7 @@ misspelled. As an exercise， modify the program to fix this error.
 
 点标记法的形式指出方法的名字，``upper``，以及应用该方法的字符串的名字，``word`` 。 空括号表明该方法不接受实参。
 
-方法调用被称作 **调用(invocation)** ；在此例中， 我们可以说是在 ``word`` 上调用 ``upper`` 。
+这被称作 **方法调用(invocation)** ；在此例中， 我们可以说是在 ``word`` 上调用 ``upper`` 。
 
 
 事实上，有一个被称为 ``find`` 的字符串方法， 与我们之前写的函数极其相似：
@@ -351,8 +348,6 @@ in运算符
 
 变量名挑选得当的话，Python代码有时候读起来像是自然语言。你可以这样读此循环，“对于(每个)
 在(第一个)单词中的字母，如果(该)字母(出现)在(第二个)单词中，打印(该)字母”。
-
-Here’s what you get if you compare apples and oranges:
 
 如果你比较 ``'apples'`` 和 ``'oranges'``，你会得到下面的结果：
 
@@ -417,11 +412,11 @@ Python处理大写和小写字母的方式和人不同。所有的大写字母�
 
         return True
 
-第一条 ``if`` 语句检查两个单词是否等长。如果不是，我们可以马上返回 ``False`` 。否则，在函数其余的部分，我们可以假定单词是等长的。这是\ :ref:`guardian`\ y一节中提到的监护人模式的一个例子。
+第一条 ``if`` 语句检查两个单词是否等长。如果不是，我们可以马上返回 ``False`` 。否则，在函数其余的部分，我们可以假定单词是等长的。这是\ :ref:`guardian`\ 一节中提到的监护人模式的一个例子。
 
 \ ``i``\ 和 ``j`` 是索引：``i`` 向前遍历 ``word1`` ，``j`` 向后遍历 ``word2``。如果我们找到两个不匹配的字母，我们可以立即返回 ``False`` 。 如果我们完成整个循环并且所有字母都匹配，我们返回 ``True`` 。
 
-如果我们用单词“pots”和“stop”测试该函数，我们期望返回 ``True`` ， 但是却得到一个IndexError: 
+如果我们用单词“pots”和“stop”测试该函数，我们期望返回 ``True`` ， 但是却得到一个IndexError：
 
 ::
 
@@ -468,17 +463,13 @@ Python处理大写和小写字母的方式和人不同。所有的大写字母�
 
 .. _fig.state4:
 
-.. figure:: figs/state4.pdf
+.. figure:: figs/state4.png
    :alt: 图8-2：堆栈图
 
    图8-2：堆栈图
 
 
 我对堆栈图做了些调整，重新排列了栈帧中的变量，增加了虚线来说明 ``i`` 和 ``j`` 的值表示 ``word1`` 和 ``word2`` 中的字符。
-
-Starting with this diagram， run the program on paper， changing the
-values of i and j during each iteration. Find and fix the second error
-in this function. [isreverse]
 
 从这个堆栈图开始，在纸上运行程序，每次迭代时修改 ``i`` 和 ``j`` 的值。查找并解决这个函数的中第二个错误。
 
@@ -515,7 +506,7 @@ in this function. [isreverse]
 计数器（counter）：
     用来计数的变量，通常初始化为0，并以此递增。	
 
-invocation(调用):
+方法调用(invocation):
     执行一个方法的声明.
 
 可选参数（optional argument）
@@ -546,7 +537,7 @@ invocation(调用):
 
 步长为-1就是从单词的尾部开始进行， 所以切片 ``[::-1]`` 生成一个倒序的字符串。
 
-利用这个惯用法（idiom）写一个\ :ref:`ex6-3`\ 中 ``is_palindrome`` 函数的一行代码版。
+利用这个惯用法（idiom），将习题6-3中 ``is_palindrome`` 函数改写为一行代码版。
 
 习题8-4.
 
@@ -605,11 +596,6 @@ invocation(调用):
     2
 
 因为 ``'c'`` 是字母表中的第二个字母。但是请注意：大写字母的数值代码是不同的。
-
-Potentially offensive jokes on the Internet are sometimes encoded in
-ROT13， which is a Caesar cypher with rotation 13. If you are not easily
-offended， find and decode some of them. Solution:
-http://thinkpython2.com/code/rotate.py.
 
 网上一些可能冒犯人的笑话有时以ROT13编码，即以13为偏移量的凯撒
 密码。如果你不是很容易就被冒犯，那么可以找些这样的笑话，并解码。答案： http://thinkpython2.com/code/rotate.py 。
