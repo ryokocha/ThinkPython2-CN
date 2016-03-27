@@ -606,6 +606,6 @@ Python处理大写和小写字母的方式和人不同。所有的大写字母�
 #. 校对：`@bingjin`_
 #. 参考：`@carfly`_
 
-.. _@xpgeng: https://github.com/xpgeng
+.. _@xpeng: https://github.com/xpgeng
 .. _@bingjin: https://github.com/bingjin
 .. _@carfly: https://github.com/carfly
