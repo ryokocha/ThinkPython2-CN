@@ -14,17 +14,15 @@ rhymes with ``quadruple''.
 本章介绍另一个内建的类型 --- 元组\footnote{值得注意的是，``tuple''并没有统一的发音，有些人读``tuh-ple''，音律类似于``supple''；而有人读``too-ple''音律类似于``quadruple''。}，同时向您展示列表、字典和元组如何结合使用。后面的章节也会展示关于可变长度参数列表的有用功能，以及\emph{汇集}和\emph{离散}操作。
 
 \section{Tuples are immutable | 元组的不可变性}
-\index{tuple}
-\index{type!tuple}
-\index{sequence}
+\index{tuple}  \index{type!tuple}  \index{sequence}
 
 A tuple is a sequence of values.  The values can be any type, and
 they are indexed by integers, so in that respect tuples are a lot
 like lists.  The important difference is that tuples are immutable.
-\index{mutability}
-\index{immutability}
+\index{mutability}  \index{immutability}
 
-元组是一组\emph{值}的序列。  其中的值可以是任意类型，使用整数索引其位置，因此元组与列表非常相似。  而重要的不同之处在于元组的不可变性。
+元组是一组\emph{值}的序列。
+其中的值可以是任意类型， 使用整数索引其位置， 因此元组与列表非常相似。 而重要的不同之处在于元组的不可变性。
 
 Syntactically, a tuple is a comma-separated list of values:
 
@@ -48,7 +46,7 @@ parentheses:
 To create a tuple with a single element, you have to include a final
 comma:
 
-使用单一元素建立元组时，需要在结尾使用一个逗号:
+使用单一元素建立元组时，需要在结尾使用一个逗号：
 
 \index{singleton}
 \index{tuple!singleton}
@@ -61,7 +59,7 @@ comma:
 %
 A value in parentheses is not a tuple:
 
-括号中仅包含元素（而没有使用逗号结尾）时被赋值的对象不是元组:
+括号中仅包含元素（而没有使用逗号结尾）时被赋值的对象不是元组：
 
 \begin{lstlisting}
 >>> t2 = ('a')
@@ -86,13 +84,13 @@ With no argument, it creates an empty tuple:
 If the argument is a sequence (string, list or tuple), the result
 is a tuple with the elements of the sequence:
 
+如果实参是一个序列（字符串、列表或者元组），结果将是包含序列内元素的一个元组。
 
-
-\begin{verbatim}
+\begin{lstlisting}
 >>> t = tuple('lupins')
 >>> t
 ('l', 'u', 'p', 'i', 'n', 's')
-\end{verbatim}
+\end{lstlisting}
 %
 Because {\tt tuple} is the name of a built-in function, you should
 avoid using it as a variable name.
@@ -117,10 +115,10 @@ indexes an element:
 And the slice operator selects a range of elements.
 
 切片操作可以选取一个范围内的元素:
-\index{slice operator}
-\index{operator!slice}
-\index{tuple!slice}
-\index{slice!tuple}
+\index{slice operator}  \index{operator!slice}
+\index{tuple!slice}  \index{slice!tuple}
+\index{切片操作符}  \index{操作符!切片}
+\index{元组!切片}  \index{切片!元组}
 
 \begin{lstlisting}
 >>> t[1:3]
@@ -132,15 +130,14 @@ an error:
 
 但是，如果你试图元组中的一个元素，会得到错误信息：
 
-\index{exception!TypeError}
-\index{TypeError}
-\index{item assignment}
-\index{assignment!item}
+\index{exception!TypeError}  \index{TypeError}
+\index{item assignment}  \index{assignment!item}
 
 \begin{lstlisting}
 >>> t[0] = 'A'
 TypeError: object doesn't support item assignment
 \end{lstlisting}
+
 %
 Because tuples are immutable, you can't modify the elements.  But you
 can replace one tuple with another:
