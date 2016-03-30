@@ -1,74 +1,38 @@
-Case study: word play 案例分析：word play
+第九章：文字游戏 word play
 =========================================
 
-This chapter presents the second case study, which involves solving word
-puzzles by searching for words that have certain properties. For
-example, we’ll find the longest palindromes in English and search for
-words whose letters appear in alphabetical order. And I will present
-another program development plan: reduction to a previously solved
-problem.
+这一章将介绍第二个案例研究，即通过查找具有特定属性的单词来解答字谜游戏。
+例如，我们将找出英文中最长的回文单词，以及字母按照字母表顺序出现的单词。
+另外，我还将介绍另一种程序开发方法：简化为之前已解决的问题。
 
-这一章将提供第二个案例分析，主要是关于如何通过查找具有特定特点的单词来解决文本问题。比如，我们会
-找出最长的回文英文单词还有找出单词中字母按照字母表顺序出现的单词。同时，我也会采用新的程序开发方法:转化法,也就是
-把未解决的问题转化成已经解决的问题的程序开发方法。
-
-Reading word lists 读取单词列表
+读取单词列表
 -------------------------------
 
-For the exercises in this chapter we need a list of English words. There
-are lots of word lists available on the Web, but the one most suitable
-for our purpose is one of the word lists collected and contributed to
-the public domain by Grady Ward as part of the Moby lexicon project (see
-http://wikipedia.org/wiki/Moby_Project). It is a list of 113,809
-official crosswords; that is, words that are considered valid in
-crossword puzzles and other word games. In the Moby collection, the
-filename is 113809of.fic; you can download a copy, with the simpler name
-words.txt, from http://thinkpython2.com/code/words.txt.
+为了完成本章的习题，我们需要一个英语单词的列表。
+网络上有许多单词列表，但是最符合我们目的列表之一是由 Grady
+Ward收集并贡献给公众的列表，这也是Moby词典项目的一部分
+（见：\ http://wikipedia.org/wiki/Moby_Project \ ）。
+它由113,809个填字游戏单词组成，即在填字游戏以及其它文字游戏中被认为有效的单词。
+在Moby集合中，该列表的文件名是113809of.fic ；你可以从\ http://thinkpython.com/code/words.txt \ 下载一个拷贝，文件名已被简化为 words.txt。
 
-对于本章的习题，我们需要一个英语单词的列表。
-互联网上有许多单词列表，但是最适合我们目的之一的列表是由 Grady
-Ward收集并贡献给公众的，并成为Moby词典项目的一部分
-（见：\ http://wikipedia.org/wiki/Moby_Project\ ）。
-它是一个由113,809个填字游戏单词组成的列表，
-也就是在填字游戏以及其它文字有戏中被认为合理的单词。
-在Moby集合中，文件名是113809of.fic，
-你可以从\ http://thinkpython.com/code/words.txt\ 下载一个拷贝，
-其使用了一个简化的名字words.txt。
 
-This file is in plain text, so you can open it with a text editor, but
-you can also read it from Python. The built-in function open takes the
-name of the file as a parameter and returns a **file object** you can
-use to read the file.
-
-该文件是纯文本，所以你可以用一个文本编辑器打开它，
-但是你也可以从Python中读它。 内建函数open接受文件名作为形参，并返回一个
-**文件对象（file object）**\ ，你可以使用它读取该文件。
+该文件是纯文本，因此你可以用一个文本编辑器打开它，但是你也可以从Python中读取它。
+内建函数 ``open`` 接受文件名作为形参，并返回一个 **文件对象（file object）** ，你可以使用它读取该文件。
 
 ::
 
     >>> fin = open('words.txt')
 
-fin is a common name for a file object used for input. The file object
-provides several methods for reading, including readline, which reads
-characters from the file until it gets to a newline and returns the
-result as a string:
-
-fin是输入文件对象的一个常用名。该文件对象为读取提供了几个方法，包括readline，
-其从文件中读取字符直到到达新行并将结果作为字符串返回：
+\ ``fin``\ 是输入文件对象的一个常用名。该文件对象提供了几个读取方法，
+包括 ``readline`` ，其从文件中读取字符直到碰到新行，并将结果作为字符串返回：
 ::
 
     >>> fin.readline()
     'aa\r\n'
 
-The first word in this particular list is “aa”, which is a kind of lava.
-The sequence ``\r\n`` represents two whitespace characters, a carriage
-return and a newline, that separate this word from the next.
 
 在此列表中，第一个单词是“aa”，它是一种岩浆。
-序列\ ``\r\n``\ 代表两个空白字符，回车和换行， 其将此单词和下一个分开。
-
-The file object keeps track of where it is in the file, so if you call
-readline again, you get the next word:
+序列\ ``\r\n``\ 代表两个空白字符，回车和换行， 它们将这个单词和下一个分开。
 
 此文件对象跟踪它在文件中的位置，
 所以如果你再次调用readline，你获得下一个单词：
@@ -78,12 +42,9 @@ readline again, you get the next word:
     >>> fin.readline()
     'aah\r\n'
 
-The next word is “aah”, which is a perfectly legitimate word, so stop
-looking at me like that. Or, if it’s the whitespace that’s bothering
-you, we can get rid of it with the string method strip:
 
 下一个单词是“aah”，它是一个完全合法的单词， 所以不要那样看我。
-或者，如果空格困扰了你，我们可以用字符串方法strip删掉它：
+或者，如果空格困扰了你，我们可以用字符串方法 ``strip`` 删掉它：
 
 ::
 
@@ -92,11 +53,9 @@ you, we can get rid of it with the string method strip:
     >>> word
     'aahed'
 
-You can also use a file object as part of a for loop. This program reads
-words.txt and prints each word, one per line:
 
 你也可以将文件对象用做for循环的一部分。
-此程序读取words.txt并打印每个单词，每行一个：
+此程序读取 ``words.txt`` 并打印每个单词，每行一个：
 
 ::
 
@@ -108,107 +67,54 @@ words.txt and prints each word, one per line:
 Exercises 习题
 --------------
 
-There are solutions to these exercises in the next section. You should
-at least attempt each one before you read the solutions.
-
-下一节有这些习题的答案。
-在你看这些答案之前，应该至少试这解决一下每个题目。
+下一节给出了这些习题的答案。
+在你看这些答案之前，应该至少试着解答一下。
 
 习题 9-1
-^^^^^^^^
 
-Write a program that reads words.txt and prints only the words with more
-than 20 characters (not counting whitespace).
-
-写一个程序，使得它可以读取 words.txt　然后只打印出那些长度超过20个字母的单词(不包括空格)。
+编程写一个程序，使得它可以读取 ``words.txt``　，然后只打印出那些长度超过20个字母的单词(不包括空格)。
 
 习题 9-2
-^^^^^^^^
 
-In 1939 Ernest Vincent Wright published a 50,000 word novel called
-*Gadsby* that does not contain the letter “e”. Since “e” is the most
-common letter in English, that’s not easy to do.
+1939年，Ernest Vincent Wright出版了一本名为 *《Gadsby》* 的小说，
+该小说里完全没有使用字母“e”。由于“e”是最常用的英文字母，因此这并容易做到。
 
-1939年，Ernest Vincent Wright发表了一本名为\ *Gadsby*\ 的小说，
-该小说不包括字母“e”。由于“e”是最常用的英文字母，因此这并容易做到。
+事实上，不使用这个最常用的符号(字母e)来构建一个孤立的想法是很难的。
+开始进展缓慢，但是经过有意识的、长时间的训练，你可以逐渐地熟练。
 
-In fact, it is difficult to construct a solitary thought without using
-that most common symbol. It is slow going at first, but with caution and
-hours of training you can gradually gain facility.
+好啦，不再说题外话了(让我们开始编程练习)。
 
-事实上，不使用这个最常用的符号(字母e)来构建是很难的。
-开始进展缓慢，但是经过有意识的长时间的训练，你可以逐渐地熟练。
+写一个叫做\ ``has_no_e``\ 的函数，如果给定的单词中不包含字母“e”，其返回 ``True`` 。
 
-All right, I’ll stop now.
-
-好的，现在我不再说题外话(让我们开始编程练习)。
-
-Write a function called ``has_no_e`` that returns True if the given word
-doesn’t have the letter “e” in it.
-
-写一个称作\ ``has_no_e``\ 的函数，如果给定的单词中不包含字母“e”，其返回True
-
-Modify your program from the previous section to print only the words
-that have no “e” and compute the percentage of the words in the list
-that have no “e”.
-
-修改你前面小节中的程序以只打印不包含“e”的单词，
-并且计算列表中不含“e”的单词的百分百。
+修改上一节中的程序，只打印不包含“e”的单词，并且计算列表中不含“e”单词的比例。
 
 习题 9-3
-^^^^^^^^
 
-Write a function named avoids that takes a word and a string of
-forbidden letters, and that returns True if the word doesn’t use any of
-the forbidden letters.
+编写一个名为 ``avoids`` 的函数，接受一个单词和一个指定禁止使用字母的字符串，
+如果单词中不包含任意被禁止的字母，则返回True 。
 
-写一个名为avoids的函数，接受一个单词和一个禁止字母字符串，
-如果单词中不包含任意禁止字母，则返回True 。
-
-Modify your program to prompt the user to enter a string of forbidden
-letters and then print the number of words that don’t contain any of
-them. Can you find a combination of 5 forbidden letters that excludes
-the smallest number of words?
-
-修改你的程序，提示用户输入一个禁止字母字符串然后打印不包含它们的单词的数量。
-你能找到一个5个禁止字母的组合，使得其排除的单词数目最少么？
+修改你的程序，提示用户输入一个禁止使用的字母，然后打印不包含这些字母的单词的数量。
+你能找到一个5个禁止使用字母的组合，使得其排除的单词数目最少么？
 
 习题 9-4
-^^^^^^^^
 
-Write a function named ``uses_only`` that takes a word and a string of
-letters, and that returns True if the word contains only letters in the
-list. Can you make a sentence using only the letters acefhlo? Other than
-“Hoe alfalfa?”
-
-写一个名为\ ``uses_only``\ 的函数，其接受一个单词和一个字符串，
+编写一个名为\ ``uses_only``\ 的函数，接受一个单词和一个字符串。
 如果该单词只包括此字符串中的字母，则返回True。
-你能只是用字母acefhlo造一个句子么？ 除了“Hoe alfalfa”外。
+你能只用 ``acefhlo`` 这几个字母造一个句子么？ 除了“Hoe alfalfa”外。
 
 习题 9-5
-^^^^^^^^
 
-Write a function named ``uses_all`` that takes a word and a string of
-required letters, and that returns True if the word uses all the
-required letters at least once. How many words are there that use all
-the vowels aeiou? How about aeiouy?
-
-写一个名为\ ``uses_all``\ 的函数，其接受一个单词和一个字符串，
+编写一个名为\ ``uses_all``\ 的函数，接受一个单词和一个必须使用的字母组成的字符串。
 如果该单词包括此字符串中的全部字母至少一次，则返回True。
-你能统计出多少单词包含了所有的元音字母aeiou吗？aeiouy呢？
+你能统计出多少单词包含了所有的元音字母aeiou吗？如果换成aeiouy呢？
 
 习题 9-6
-^^^^^^^^
 
-Write a function called ``is_abecedarian`` that returns True if the
-letters in a word appear in alphabetical order (double letters are ok).
-How many abecedarian words are there?
-
-写一个名为\ ``is_abecedarian``\ 的函数，
+编写一个名为\ ``is_abecedarian``\ 的函数，
 如果单词中的字母以字母表的顺序出现（允许重复字母），则返回True 。
-有多少个abecedarian单词？
+有多少个具备这种特征的单词？
 
-Search 搜索
+搜索
 -----------
 
 All of the exercises in the previous section have something in common;
