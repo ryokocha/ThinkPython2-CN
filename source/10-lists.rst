@@ -1,49 +1,34 @@
-Lists
-列表
-=====
+第十章：列表
+===============
 
-This chapter presents one of Python’s most useful built-in types, lists.
-You will also learn more about objects and what can happen when you have
-more than one name for the same object.
-这一章展示了Python中最有用的内置(built-in)类型之一：列表（list）。你还会进一步关于对象(objects)的以及同一个对象有多个名称(name)时会发生什么。
+本章介绍Python中最有用的内置类型之一：列表（list）。你还将进一步学习关于对象的知识
+以及同一个对象拥有多个名称时会发生什么。
 
-A list is a sequence
-一个列表是一个序列
+列表是一个序列
 --------------------
 
-Like a string, a **list** is a sequence of values. In a string, the
-values are characters; in a list, they can be any type. The values in a
-list are called **elements** or sometimes **items**.
-类似于字符串，一个**列表**是 一个值（value）的序列。在字符串（string）中，每个值都是字符；在一个列表中，值可以使任何数据类型。一个列表中的值称为**元素（element）**，或者是**项目（item）**。
+与字符串类似，**列表** 是由多个值组成的序列。在字符串中，每个值都是字符；
+在列表中，值可以是任何数据类型。列表中的值称为 **元素（element）** ，有时也被称为 **项（item）** 。
 
-There are several ways to create a new list; the simplest is to enclose
-the elements in square brackets (``[`` and ``]``):
-有多种方法可以常见一个新的列表；最简单的方法是用方括号(``[``和``]``)将元素包括起来:
+创建新列表的方法有多种；最简单的方法是用方括号(``[``和``]``)将元素包括起来:
 
 ::
 
     [10, 20, 30, 40]
     ['crunchy frog', 'ram bladder', 'lark vomit']
 
-The first example is a list of four integers. The second is a list of
-three strings. The elements of a list don’t have to be the same type.
-The following list contains a string, a float, an integer, and (lo!)
-another list:
-第一个例子是包含4个整数的列表。第二个是一个包含3个字符串的列表。一个列表中的元素不需要是相同的数据类型。下面的列表包含一个字符串，一个浮点数，一个整数和(lo!)另一个列表:
+第一个例子是包含4个整数的列表。第二个是一个包含3个字符串的列表。
+一个列表中的元素不需要是相同的数据类型。下面的列表包含一个字符串、一个浮点数、一个整数和另一个列表：
 
 ::
 
     ['spam', 2.0, 5, [10, 20]]
 
-A list within another list is **nested**.
-一个列表在另一个列表中，称为**嵌套（nested）**。
+一个列表在另一个列表中，称为**嵌套（nested）列表**。
 
-A list that contains no elements is called an empty list; you can create
-one with empty brackets, ``[]``.
-一个不包含元素的列表称为空列表。你可以用空的方括号``[]``创建一个空列表。
+一个不包含元素的列表被称为空列表；你可以用空的方括号 ``[]`` 创建一个空列表。
 
-As you might expect, you can assign list values to variables:
-正如你可能期望的，你可以将列表的值赋给变量：
+正如你想的那样，你可以将列表的值赋给变量：
 
 ::
 
@@ -53,25 +38,18 @@ As you might expect, you can assign list values to variables:
     >>> print(cheeses, numbers, empty)
     ['Cheddar', 'Edam', 'Gouda'] [42, 123] []
 
-Lists are mutable
 列表是可变的
 -----------------
 
-The syntax for accessing the elements of a list is the same as for
-accessing the characters of a string—the bracket operator. The
-expression inside the brackets specifies the index. Remember that the
-indices start at 0:
-访问列表中元素的语法和访问字符串中字符的语法相同，都是通过括号（方括号？）运算符实现的。括号中的表达式指定了下标（index）（索引位置？）。记住，下标从0开始：
+访问列表中元素的语法，与访问字符串中字符的语法相同，都是通过方括号运算符实现的。
+括号中的表达式指定了元素的索引。记住，索引从0开始：
 
 ::
 
     >>> cheeses[0]
     'Cheddar'
 
-Unlike strings, lists are mutable. When the bracket operator appears on
-the left side of an assignment, it identifies the element of the list
-that will be assigned.
-和字符串不同，列表是可以改变的。当括号运算符出现在赋值语句的左边，它就指向了列表中将被赋值的元素。
+和字符串不同的是，列表是可变的。当括号运算符出现在赋值语句的左边时，它就指向了列表中将被赋值的元素。
 
 ::
 
@@ -80,17 +58,16 @@ that will be assigned.
     >>> numbers
     [42, 5]
 
-The one-eth element of numbers, which used to be 123, is now 5.
-numbers中下标为1的元素，原来是 123，现在是 5.
+\ ``numbers``\ 中索引为1的元素，原来是123，现在变成了5。
 
-Figure [fig.liststate] shows the state diagram for cheeses, numbers and
-empty:
-图 [fig.liststate] 展示了cheeses, number 和 empty 的状态：
+\ :ref:`fig.liststate` \ 是 ``cheeses`` 、 ``nubmers`` 和 ``empty`` 的状态图。
+
+.. _fig.liststate:
 
 .. figure:: figs/liststate.pdf
-   :alt: State diagram.
+   :alt: 图10-1：状态图
 
-   State diagram.
+   图10-1：状态图
 
 Lists are represented by boxes with the word “list” outside and the
 elements of the list inside. cheeses refers to a list with three

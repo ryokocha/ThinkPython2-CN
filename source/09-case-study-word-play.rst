@@ -1,4 +1,4 @@
-第九章：文字游戏 word play
+第九章：文字游戏
 =========================================
 
 这一章将介绍第二个案例研究，即通过查找具有特定属性的单词来解答字谜游戏。
@@ -64,17 +64,19 @@ Ward收集并贡献给公众的列表，这也是Moby词典项目的一部分
         word = line.strip()
         print(word)
 
-Exercises 习题
+练习题
 --------------
 
 下一节给出了这些习题的答案。
 在你看这些答案之前，应该至少试着解答一下。
 
 习题 9-1
+^^^^^^^^^^^^
 
 编程写一个程序，使得它可以读取 ``words.txt``　，然后只打印出那些长度超过20个字符的单词(不包括空格)。
 
 习题 9-2
+^^^^^^^^^^^^
 
 1939年，Ernest Vincent Wright出版了一本名为 *《Gadsby》* 的小说，
 该小说里完全没有使用字符“e”。由于“e”是最常用的英文字符，因此这并容易做到。
@@ -82,13 +84,14 @@ Exercises 习题
 事实上，不使用这个最常用的符号(字符e)来构建一个孤立的想法是很难的。
 开始进展缓慢，但是经过有意识的、长时间的训练，你可以逐渐地熟练。
 
-好啦，不再说题外话了(让我们开始编程练习)。
+好啦，不再说题外话了（让我们开始编程练习）。
 
 写一个叫做\ ``has_no_e``\ 的函数，如果给定的单词中不包含字符“e”，其返回 ``True`` 。
 
 修改上一节中的程序，只打印不包含“e”的单词，并且计算列表中不含“e”单词的比例。
 
 习题 9-3
+^^^^^^^^^^^^
 
 编写一个名为 ``avoids`` 的函数，接受一个单词和一个指定禁止使用字符的字符串，
 如果单词中不包含任意被禁止的字符，则返回True 。
@@ -97,18 +100,21 @@ Exercises 习题
 你能找到一个5个禁止使用字符的组合，使得其排除的单词数目最少么？
 
 习题 9-4
+^^^^^^^^^^^^
 
 编写一个名为\ ``uses_only``\ 的函数，接受一个单词和一个字符串。
 如果该单词只包括此字符串中的字符，则返回True。
 你能只用 ``acefhlo`` 这几个字符造一个句子么？ 除了“Hoe alfalfa”外。
 
 习题 9-5
+^^^^^^^^^^^^
 
 编写一个名为\ ``uses_all``\ 的函数，接受一个单词和一个必须使用的字符组成的字符串。
 如果该单词包括此字符串中的全部字符至少一次，则返回True。
 你能统计出多少单词包含了所有的元音字符aeiou吗？如果换成aeiouy呢？
 
 习题 9-6
+^^^^^^^^^^^^
 
 编写一个名为\ ``is_abecedarian``\ 的函数，
 如果单词中的字符以字符表的顺序出现（允许重复字符），则返回True 。
@@ -134,7 +140,7 @@ Exercises 习题
 否则我们必须检查下一个字符。
 如果我们正常退出循环，就意味着我们没有找到一个“e”， 所以我们返回 ``True`` 。
 
-你也可以用 ``in`` 操作符简化上述函数，但是我之所以一开始写成这样，是因为它展示了搜索模式的罗辑。
+你也可以用 ``in`` 操作符简化上述函数，但是我之所以一开始写成这样，是因为它展示了搜索模式的逻辑。
 
 \ ``avoid``\　是一个更通用的\ ``has_no_e``\ 函数，但是结构是相同的：
 
@@ -159,7 +165,8 @@ Exercises 习题
                 return False
         return True
 
-这里我们传入一个允许使用字符的列表，而不是禁止使用字符的列表。如果我们在 ``word``中找到一个不在``available``中的字符，我们就可以返回 ``False`` 。
+这里我们传入一个允许使用字符的列表，而不是禁止使用字符的列表。
+如果我们在 ``word`` 中找到一个不在 ``available`` 中的字符，我们就可以返回 ``False`` 。
 
 
 除了将 ``word`` 与所要求的字符的角色进行了调换之外，
@@ -328,10 +335,7 @@ previously solved problem）**\ 的程序开发方法的一个示例，
 习题 9-8
 ^^^^^^^^
 
-Here’s another *Car Talk* Puzzler
-(http://www.cartalk.com/content/puzzlers):
-
-下面是另一个来自 *《Car Talk》* 的谜题:
+下面是另一个来自 *《Car Talk》* 的谜题（ http://www.cartalk.com/content/puzzlers ）:
     
     "有一天，我正在高速公路上开车，我偶然注意到我的里程表。和大多数里程表一样，它只显示6位数字的整数英里数。
     所以，如果我的车开了300,000英里，我能够看到的数字是:3-0-0-0-0-0。
@@ -349,7 +353,7 @@ Here’s another *Car Talk* Puzzler
 习题 9-9
 ^^^^^^^^
 
-还是 *《Car Talk》* 的谜题（ http://www.cartalk.com/content/puzzlers ），你可以通过搜索解答：
+还是 *《Car Talk》* 的谜题（ http://www.cartalk.com/content/puzzlers ），你可以通过利用搜索模式解答：
     
     “最近我探望了我的妈妈，我们忽然意识到把我的年纪数字反过来就是她的年龄。比如，如果她73岁，那么我就是37岁。
     我们想知道过去这些年来，发生了多少次这样的巧合，但是我们很快偏离到其他话题上，最后并没有找到答案。
@@ -359,10 +363,16 @@ Here’s another *Car Talk* Puzzler
     运气再好点的话，之后还会出现一次这样的巧合。
     换句话说，这样的巧合一共会发生8次。那么，问题来了，我现在多大了？”
 
-Write a Python program that searches for solutions to this Puzzler.
-Hint: you might find the string method zfill useful.
+编写一个查找谜题答案的Python函数。提示：字符串的 ``zfill`` 方法特别有用。
+答案：\ http://thinkpython2.com/code/cartalk3.py \ 。
 
-Solution: http://thinkpython2.com/code/cartalk3.py.
+**贡献者**
+^^^^^^^^^^^
 
-写一个Python函数来找到这个谜题的答案。提示，你会发现字符串的zfill方法特别有用。
-答案在:http://thinkpython2.com/code/cartalk3.py。
+#. 翻译：`@iphyer`_
+#. 校对：`@bingjin`_
+#. 参考：`@carfly`_
+
+.. _@iphyer: https://github.com/iphyer
+.. _@bingjin: https://github.com/bingjin
+.. _@carfly: https://github.com/carfly
