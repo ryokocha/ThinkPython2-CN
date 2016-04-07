@@ -10,7 +10,6 @@ __pycache__/
 .Python
 
 tmp/
-<<<<<<< HEAD
 
 
 # tex related files
@@ -25,6 +24,5 @@ tmp/
 *.aux
 *.synctex.gz
 
-=======
 build/
->>>>>>> e3953d114b30eb1de0e7844ee7f658dff862b8cf
+

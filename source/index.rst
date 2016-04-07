@@ -9,7 +9,7 @@
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    foreword
    00-preface
@@ -23,7 +23,6 @@ Contents:
    08-strings
    09-case-study-word-play
    10-lists
-   11-dictionaries
 
 
 Indices and tables
