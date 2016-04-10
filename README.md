@@ -17,7 +17,7 @@
 | [第八章](./source/08-strings.rst)     | [@xpgeng](https://github.com/xpgeng)    | 完成 | 完成 | TeX |
 | [第九章](./source/09-case-study-word-play.rst)     | [@ipyher](https://github.com/iphyer)    | 完成 | 完成 |  |
 | [第十章](./source/10-lists.rst)     | [@obserthinker](https://github.com/obserthinker)     |完成 | 完成 |  |
-| [第十一章](./source/11-dictionaries.rst)     |   [@theJian](https://github.com/thejian)   | 完成 |  |  |
+| [第十一章](./source/11-dictionaries.rst)     |   [@theJian](https://github.com/thejian)   | 完成 | 完成 |  |
 | [第十二章](./source/12-tuples.rst)     | [@SeikaScarlet](https://github.com/SeikaScarlet)     | |  |  |
 | [第十三章 ](./source/13-case-study-data-structure-selection.rst)    |  [@ipyher](https://github.com/iphyer)  |  完成 |  |  |
 | [第十四章](./source/14-files.rst)     |  [@obserthinker](https://github.com/obserthinker)    | 完成 |  |  |
