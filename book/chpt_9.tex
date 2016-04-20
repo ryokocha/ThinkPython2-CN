@@ -1,6 +1,6 @@
 
 
-\chapter{Case study: word play}
+\chapter{Case study: word play  |  文字游戏}
 \label{wordplay}
 
 This chapter presents the second case study, which involves
@@ -10,8 +10,11 @@ in English and search for words whose letters appear in
 alphabetical order.  And I will present another program development
 plan: reduction to a previously solved problem.
 
+这一章将介绍第二个案例研究，即通过查找具有特定属性的单词来解答字谜游戏。
+例如，我们将找出英文中最长的回文单词，以及字符按照字符表顺序出现的单词。
+另外，我还将介绍另一种程序开发方法：简化为之前已解决的问题。
 
-\section{Reading word lists}
+\section{Reading word lists  |  读取单词列表}
 \label{wordlist}
 
 For the exercises in this chapter we need a list of English words.
@@ -24,23 +27,31 @@ considered valid in crossword puzzles and other word games.  In the
 Moby collection, the filename is {\tt 113809of.fic}; you can download
 a copy, with the simpler name {\tt words.txt}, from
 \url{http://thinkpython2.com/code/words.txt}.
-\index{Moby Project}
-\index{crosswords}
+\index{Moby Project}  \index{crosswords}
+
+为了完成本章的习题，我们需要一个英语单词的列表。
+网络上有许多单词列表，但是最符合我们目的列表之一是由 Grady
+Ward收集并贡献给公众的列表，这也是Moby词典项目的一部分
+（见：\url{http://wikipedia.org/wiki/Moby_Project}）。
+它由 113,809 个填字游戏单词组成，即在填字游戏以及其它文字游戏中被认为有效的单词。
+在 Moby 集合中，该列表的文件名是 113809of.fic ；你可以从 \url{http://thinkpython.com/code/words.txt} 下载一个拷贝，文件名已被简化为 words.txt。
+\index{Moby Project}  \index{crosswords}
 
 This file is in plain text, so you can open it with a text
 editor, but you can also read it from Python.  The built-in
 function {\tt open} takes the name of the file as a parameter
 and returns a {\bf file object} you can use to read the file.
-\index{open function}
-\index{function!open}
-\index{plain text}
-\index{text!plain}
-\index{object!file}
-\index{file object}
 
-\begin{verbatim}
+该文件是纯文本， 因此你可以用一个文本编辑器打开它， 但是你也可以从Python中读取它。 内建函数 \li{open} 接受文件名作为形参， 并返回一个 {\em 文件对象} (file object)， 你可以使用它读取该文件。
+
+\index{open function}  \index{function!open}
+\index{plain text}  \index{text!plain}
+\index{object!file}  \index{file object}
+
+\begin{lstlisting}
 >>> fin = open('words.txt')
-\end{verbatim}
+\end{lstlisting}
+
 %
 {\tt fin} is a common name for a file object used for input.  The file
 object provides several methods for reading, including {\tt readline},
@@ -48,60 +59,84 @@ which reads characters from the file until it gets to a newline and
 returns the result as a string: \index{readline method}
 \index{method!readline}
 
-\begin{verbatim}
+\li{`fin} 是输入文件对象的一个常用名。 该文件对象提供了几个读取方法，
+包括 \li{readline}， 其从文件中读取字符直到碰到新行， 并将结果作为字符串返回：
+\index{method!readline}
+
+\begin{lstlisting}
 >>> fin.readline()
 'aa\r\n'
-\end{verbatim}
+\end{lstlisting}
+
 %
 The first word in this particular list is ``aa'', which is a kind of
 lava.  The sequence \verb"\r\n" represents two whitespace characters,
 a carriage return and a newline, that separate this word from the
 next.
 
+在此列表中，第一个单词是 ``aa''， 它是一类熔岩的名称。 序列 \li{\r\n} 代表两个空白字符， 回车和换行， 它们将这个单词和下一个分开。
+
 The file object keeps track of where it is in the file, so
 if you call {\tt readline} again, you get the next word:
 
-\begin{verbatim}
+此文件对象跟踪它在文件中的位置，
+所以如果你再次调用 \li{readline}，你获得下一个单词：
+
+\begin{lstlisting}
 >>> fin.readline()
 'aah\r\n'
-\end{verbatim}
+\end{lstlisting}
+
 %
 The next word is ``aah'', which is a perfectly legitimate
 word, so stop looking at me like that.
 Or, if it's the whitespace that's bothering you,
 we can get rid of it with the string method {\tt strip}:
-\index{strip method}
-\index{method!strip}
 
-\begin{verbatim}
+下一个单词是 ``aah''，不要惊讶，它是一个完全合法的单词。
+或者， 如果空格困扰了你， 我们可以用字符串方法 \li{strip} 删掉它：
+\index{strip method}  \index{method!strip}
+\index{strip 方法}  \index{方法!strip}
+
+
+\begin{lstlisting}
 >>> line = fin.readline()
 >>> word = line.strip()
 >>> word
 'aahed'
-\end{verbatim}
+\end{lstlisting}
+
 %
 You can also use a file object as part of a {\tt for} loop.
 This program reads {\tt words.txt} and prints each word, one
 per line:
-\index{open function}
-\index{function!open}
 
-\begin{verbatim}
+你也可以将文件对象用做 \li{for} 循环的一部分。
+此程序读取 \li{words.txt} 并打印每个单词，每行一个：
+\index{open function}  \index{function!open}
+
+\begin{lstlisting}
 fin = open('words.txt')
 for line in fin:
     word = line.strip()
     print(word)
-\end{verbatim}
+\end{lstlisting}
+
 %
 
-\section{Exercises}
+\section{Exercises  |  练习}
 
 There are solutions to these exercises in the next section.
 You should at least attempt each one before you read the solutions.
 
+\hyperref[search]{下一节}将给出了这些习题的答案。
+在你看答案之前，应该试着解答一下。
+
 \begin{exercise}
 Write a program that reads {\tt words.txt} and prints only the
 words with more than 20 characters (not counting whitespace).
+
+编程写一个程序，使得它可以读取 \li{words.txt}　， 然后只打印出那些长度超过 20 个字符的单词 （不包括空格）。
 \index{whitespace}
 
 \end{exercise}
@@ -112,18 +147,30 @@ In 1939 Ernest Vincent Wright published a 50,000 word novel called
 {\em Gadsby} that does not contain the letter ``e''.  Since ``e'' is
 the most common letter in English, that's not easy to do.
 
+1939年，Ernest Vincent Wright 出版了一本名为 《Gadsby》 的小说，
+该小说里完全没有使用字符 ``e''。 由于 ``e'' 是英文中最常用的字符， 因此写出这本书并不容易。
+
 In fact, it is difficult to construct a solitary thought without using
 that most common symbol.  It is slow going at first, but with caution
 and hours of training you can gradually gain facility.
 
+事实上，不使用这个最常用的字符来构建一个简单的想法都是很难的。
+开始进展缓慢，但是经过有意识的、长时间的训练，你可以逐渐地熟练。
+
 All right, I'll stop now.
+
+好啦，不说题外话了，我们开始编程练习。
 
 Write a function called \verb"has_no_e" that returns {\tt True} if
 the given word doesn't have the letter ``e'' in it.
 
+写一个叫做 \li{has_no_e} 的函数， 如果给定的单词中不包含字符 ``e''，返回 \li{True} 。
+
 Modify your program from the previous section to print only the words
 that have no ``e'' and compute the percentage of the words in the list
 that have no ``e''.
+
+修改上一节中的程序， 只打印不包含 ``e'' 的单词，并且计算列表中不含 ``e'' 单词的比例。
 \index{lipogram}
 
 \end{exercise}
@@ -136,11 +183,17 @@ that takes a word and a string of forbidden letters, and
 that returns {\tt True} if the word doesn't use any of the forbidden
 letters.
 
+编写一个名为 \li{avoids} 的函数，接受一个单词和一个指定禁止使用字符的字符串，
+如果单词中不包含任意被禁止的字符，则返回 \li{True} 。
+
 Modify your program to prompt the user to enter a string
 of forbidden letters and then print the number of words that
 don't contain any of them.
 Can you find a combination of 5 forbidden letters that
 excludes the smallest number of words?
+
+修改你的程序，提示用户输入一个禁止使用的字符，然后打印不包含这些字符的单词的数量。
+你能找到一个5个禁止使用字符的组合，使得其排除的单词数目最少么？
 
 \end{exercise}
 
@@ -181,20 +234,19 @@ How many abecedarian words are there?
 
 \section{Search}
 \label{search}
-\index{search pattern}
-\index{pattern!search}
+\index{search pattern}  \index{pattern!search}
 
 All of the exercises in the previous section have something
 in common; they can be solved with the search pattern we saw
 in Section~\ref{find}.  The simplest example is:
 
-\begin{verbatim}
+\begin{lstlisting}
 def has_no_e(word):
     for letter in word:
         if letter == 'e':
             return False
     return True
-\end{verbatim}
+\end{lstlisting}
 %
 The {\tt for} loop traverses the characters in {\tt word}.  If we find
 the letter ``e'', we can immediately return {\tt False}; otherwise we
@@ -202,8 +254,7 @@ have to go to the next letter.  If we exit the loop normally, that
 means we didn't find an ``e'', so we return {\tt True}.
 \index{traversal}
 
-\index{in operator}
-\index{operator!in}
+\index{in operator}  \index{operator!in}
 You could write this function more concisely using the {\tt in}
 operator, but I started with this version because it
 demonstrates the logic of the search pattern.
@@ -212,13 +263,13 @@ demonstrates the logic of the search pattern.
 {\tt avoids} is a more general version of \verb"has_no_e" but it
 has the same structure:
 
-\begin{verbatim}
+\begin{lstlisting}
 def avoids(word, forbidden):
     for letter in word:
         if letter in forbidden:
             return False
     return True
-\end{verbatim}
+\end{lstlisting}
 %
 We can return {\tt False} as soon as we find a forbidden letter;
 if we get to the end of the loop, we return {\tt True}.
@@ -226,13 +277,13 @@ if we get to the end of the loop, we return {\tt True}.
 \verb"uses_only" is similar except that the sense of the condition
 is reversed:
 
-\begin{verbatim}
+\begin{lstlisting}
 def uses_only(word, available):
     for letter in word:
         if letter not in available:
             return False
     return True
-\end{verbatim}
+\end{lstlisting}
 %
 Instead of a list of forbidden letters, we have a list of available
 letters.  If we find a letter in {\tt word} that is not in
@@ -241,13 +292,13 @@ letters.  If we find a letter in {\tt word} that is not in
 \verb"uses_all" is similar except that we reverse the role
 of the word and the string of letters:
 
-\begin{verbatim}
+\begin{lstlisting}
 def uses_all(word, required):
     for letter in required:
         if letter not in word:
             return False
     return True
-\end{verbatim}
+\end{lstlisting}
 %
 Instead of traversing the letters in {\tt word}, the loop
 traverses the required letters.  If any of the required letters
@@ -258,10 +309,10 @@ If you were really thinking like a computer scientist, you would
 have recognized that \verb"uses_all" was an instance of a
 previously solved problem, and you would have written:
 
-\begin{verbatim}
+\begin{lstlisting}
 def uses_all(word, required):
     return uses_only(required, word)
-\end{verbatim}
+\end{lstlisting}
 %
 This is an example of a program development plan called {\bf
   reduction to a previously solved problem}, which means that you
@@ -281,7 +332,7 @@ have to do anything with the indices.
 For \verb"is_abecedarian" we have to compare adjacent letters,
 which is a little tricky with a {\tt for} loop:
 
-\begin{verbatim}
+\begin{lstlisting}
 def is_abecedarian(word):
     previous = word[0]
     for c in word:
@@ -289,22 +340,22 @@ def is_abecedarian(word):
             return False
         previous = c
     return True
-\end{verbatim}
+\end{lstlisting}
 
 An alternative is to use recursion:
 
-\begin{verbatim}
+\begin{lstlisting}
 def is_abecedarian(word):
     if len(word) <= 1:
         return True
     if word[0] > word[1]:
         return False
     return is_abecedarian(word[1:])
-\end{verbatim}
+\end{lstlisting}
 
 Another option is to use a {\tt while} loop:
 
-\begin{verbatim}
+\begin{lstlisting}
 def is_abecedarian(word):
     i = 0
     while i < len(word)-1:
@@ -312,7 +363,7 @@ def is_abecedarian(word):
             return False
         i = i+1
     return True
-\end{verbatim}
+\end{lstlisting}
 %
 The loop starts at {\tt i=0} and ends when {\tt i=len(word)-1}.  Each
 time through the loop, it compares the $i$th character (which you can
@@ -337,7 +388,7 @@ Here is a version of \verb"is_palindrome" (see
 Exercise~\ref{palindrome}) that uses two indices; one starts at the
 beginning and goes up; the other starts at the end and goes down.
 
-\begin{verbatim}
+\begin{lstlisting}
 def is_palindrome(word):
     i = 0
     j = len(word)-1
@@ -349,17 +400,17 @@ def is_palindrome(word):
         j = j-1
 
     return True
-\end{verbatim}
+\end{lstlisting}
 
 Or we could reduce to a previously solved
 problem and write:
 \index{reduction to a previously solved problem}
 \index{development plan!reduction}
 
-\begin{verbatim}
+\begin{lstlisting}
 def is_palindrome(word):
     return is_reverse(word, word)
-\end{verbatim}
+\end{lstlisting}
 %
 Using \verb"is_reverse" from Section~\ref{isreverse}.
 
