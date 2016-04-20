@@ -23,6 +23,10 @@ Contents:
    08-strings
    09-case-study-word-play
    10-lists
+   11-dictionaries
+   12-tuples
+   13-case-study-data-structure-selection
+   
 
 
 Indices and tables

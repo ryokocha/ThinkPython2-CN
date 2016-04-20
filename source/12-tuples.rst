@@ -59,9 +59,6 @@
 
 因为 ``tuple`` 是内建函数名，所以应该避免将它用作变量名。
 
-Most list operators also work on tuples. The bracket operator indexes an
-element:
-
 列表的大多数操作符同样也适用于元组。 方括号运算符将索引一个元素：
 
 ::
@@ -208,7 +205,7 @@ Python 会首先比较序列中的第一个元素，如果它们相等，就继�
     >>> printall(1, 2.0, '3')
     (1, 2.0, '3')
 
-与汇集相对的，是 **离散（scatter）** 。
+与汇集相对的，是 **分散（scatter）** 。
 如果你有一个值序列，并且希望将其作为多个参数传递给一个函数，
 你可以使用运算符\*。 例如，``divmod`` 只接受两个实参；
 元组则无法作为参数传递进去：
@@ -219,7 +216,7 @@ Python 会首先比较序列中的第一个元素，如果它们相等，就继�
     >>> divmod(t)
     TypeError: divmod expected 2 arguments, got 1
 
-但是如果你将这个元组打散（scatter），它就可以被传递进函数：
+但是如果你将这个元组分散，它就可以被传递进函数：
 
 ::
 
@@ -298,8 +295,8 @@ Python 会首先比较序列中的第一个元素，如果它们相等，就继�
     for letter, number in t:
         print(number, letter)
 
-每次循环时，Python 会选择列表中的下一个元组，并将其内容赋给 ``letter`` 和
- ``number`` 。循环的输出是：
+每次循环时，Python 会选择列表中的下一个元组，
+并将其内容赋给 ``letter`` 和 ``number`` 。循环的输出是：
 
 ::
 
@@ -327,8 +324,8 @@ Python 会首先比较序列中的第一个元素，如果它们相等，就继�
     for index, element in enumerate('abc'):
         print(index, element)
 
-\ ``enumerate``\ 的返回结果是一个枚举对象(enumerate
-object)，可迭代一个包含若干个\ *对*\ 的序列；
+\ ``enumerate``\ 的返回结果是一个枚举对象（enumerate
+object），可迭代一个包含若干个\ *对*\ 的序列；
 每个对包含了（从0开始计数）的索引和给定序列中的对应元素。
 在这个例子中，输出结果是：
 
@@ -415,7 +412,7 @@ object)，可迭代一个包含若干个\ *对*\ 的序列；
    图12-1：状态图
 
 在更大的图表中，你不会想要再描述这些细节。
-例如，该电话簿的状态图可能如\ :ref:``fig.dict2\ 所示。
+例如，该电话簿的状态图可能如\ :ref:`fig.dict2`\ 所示。
 
 .. _fig.dict2:
 
@@ -516,31 +513,35 @@ int\ *s*”，但是忽略英文复数使程序变得简单的多。
 ------------------
 
 元组（tuple）：
+
     一个由多个元素组成的不可变序列。
 
 元组赋值（tuple assignment）：
+
     一种赋值方式，等号右侧为一个序列，等号左侧为一个变量组成的元组。右侧的表达式先求值，然后其元素被赋值给左侧元组中对应的变量。
 
 汇集（gather）：
+
     组装可变长度实参元组的一种操作。
 
 分散（scatter）：
+
     将一个序列变换成一个参数列表的操作。
 
 zip 对象：
+
     使用内建函数 ``zip`` 所返回的结果；它是一个可以对元组序列进行迭代的对象。
 
 迭代器（iterator）：
+
     一个可以对序列进行迭代的对象，但是并不提供列表操作符和方法。
 
 数据结构（data structure）：
+
     一个由关联值组成的的数据集合，通常组织成列表、字典、元组等。
 
-shape error:
-    An error caused because a value has the wrong shape; that is, the
-    wrong type or size.
-
 形状错误（shape error）：
+
     由于某个值的形状出错，而导致的错误；即拥有错误的类型或大小。
 
 练习题
