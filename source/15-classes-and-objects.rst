@@ -212,10 +212,7 @@ so we’ll implement the first one, just as an example.
         p.y = rect.corner.y + rect.height/2
         return p
 
-Here is an example that passes box as an argument and assigns the
-resulting Point to center:
-
-这个例子将box作为参数传递，将返回的Point赋值给center：
+下面这个例子将 ``box`` 作为参数传递，然后将返回的 ``Point`` 赋值给 ``center``：
 
 ::
 
@@ -223,28 +220,21 @@ resulting Point to center:
     >>> print_point(center)
     (50, 100)
 
-Objects are mutable 对象是可变的
+
+对象是可变的
 --------------------------------
 
-You can change the state of an object by making an assignment to one of
-its attributes. For example, to change the size of a rectangle without
-changing its position, you can modify the values of width and height:
-
 你可以通过给一个对象的属性赋值来改变这个对象的状态。
-例如，要改变一个矩形的大小而不改变它的位置，你可以修改width和height的值：
+例如，要改变一个矩形的大小而不改变它的位置，你可以修改 ``width`` 和 ``height`` 的值：
 
 ::
 
     box.width = box.width + 50
     box.height = box.height + 100
 
-You can also write functions that modify objects. For example,
-``grow_rectangle`` takes a Rectangle object and two numbers, dwidth and
-dheight, and adds the numbers to the width and height of the rectangle:
-
 你也可以编写函数来修改对象。
-例如，\ ``grow_rectangle``\ 接受了一个Rectangle对象和两个数字，
-dwidth和dheight，并将其加到矩形的宽度和高度上：
+例如，\ ``grow_rectangle``\ 接受一个 ``Rectangle`` 对象和两个数字，
+\ ``dwidth``\ 和 ``dheight`` ，并将其加到矩形的宽度和高度上：
 
 ::
 
@@ -252,9 +242,7 @@ dwidth和dheight，并将其加到矩形的宽度和高度上：
         rect.width += dwidth
         rect.height += dheight
 
-Here is an example that demonstrates the effect:
-
-这个例子展示了调用后的结果：
+下面的例子展示了具体效果：
 
 ::
 
@@ -264,36 +252,22 @@ Here is an example that demonstrates the effect:
     >>> box.width, box.height
     (200.0, 400.0)
 
-Inside the function, rect is an alias for box, so when the function
-modifies rect, box changes.
 
-在函数内部，rect是box的一个别名，
-所以如果函数修改了rect，则box也随之改变。
+在函数内部，``rect`` 是 ``box`` 的一个别名，
+所以如果函数修改了 ``rect`` ，则 ``box`` 也随之改变。
 
-As an exercise, write a function named ``move_rectangle`` that takes a
-Rectangle and two numbers named dx and dy. It should change the location
-of the rectangle by adding dx to the x coordinate of corner and adding
-dy to the y coordinate of corner.
-
-编写一个叫做\ ``move_rectangle``\ 的函数，接受一个Rectangle以及两个数字，
-dx和dy。 它把corner的x坐标加上dx，把corner的y坐标加上dy，
+我们做个练习，编写一个叫做\ ``move_rectangle``\ 的函数，接受一个 ``Rectangle`` 以及两个数字\ ``dx``\ 和\ ``dy``\ 。
+它把 ``corner`` 的 ``x`` 坐标加上 ``dx``，把 ``corner`` 的 ``y`` 坐标加上 ``dy`` ，
 从而改变矩形的位置。
 
-Copying 复制
+复制
 ------------
 
-Aliasing can make a program difficult to read because changes in one
-place might have unexpected effects in another place. It is hard to keep
-track of all the variables that might refer to a given object.
-
-别名会造成程序的可读性降低，因为一个地方的变动可能会意外影响另一个地方。
+别名会降低程序的可读性，因为一个地方的变动可能对另一个地方造成预料之外的影响。
 跟踪所有引用同一个对象的变量是非常困难的。
 
-Copying an object is often an alternative to aliasing. The copy module
-contains a function called copy that can duplicate any object:
-
 通常用复制对象的方法取代为对象起别名。
-copy模块拥有一个叫做copy的函数，可以复制任何对象：
+\ ``copy``\ 模块拥有一个叫做 ``copy`` 的函数，可以复制任何对象：
 
 ::
 
@@ -304,9 +278,7 @@ copy模块拥有一个叫做copy的函数，可以复制任何对象：
     >>> import copy
     >>> p2 = copy.copy(p1)
 
-p1 and p2 contain the same data, but they are not the same Point.
-
-p1和p2拥有相同的数据，但是它们并不是同一个Point对象。
+\ ``p1``\ 和 ``p2`` 拥有相同的数据，但是它们并不是同一个 ``Point`` 对象。
 
 ::
 
@@ -319,25 +291,14 @@ p1和p2拥有相同的数据，但是它们并不是同一个Point对象。
     >>> p1 == p2
     False
 
-The is operator indicates that p1 and p2 are not the same object, which
-is what we expected. But you might have expected == to yield True
-because these points contain the same data. In that case, you will be
-disappointed to learn that for instances, the default behavior of the ==
-operator is the same as the is operator; it checks object identity, not
-object equivalence. That’s because for programmer-defined types, Python
-doesn’t know what should be considered equivalent. At least, not yet.
+正如我们预期的，``is`` 运算符显示了 ``p1`` 和 ``p2`` 并非同一个对象。
+不过你可能会认为 ``==`` 运算的结果应该是 ``True`` ，因为这两个点的数据是相同的。
+然而结果并不如你想象的那样，``==`` 运算符的默认行为和 ``is`` 运算符相同；
+它检查对象的标识（identity）是否相同，而非对象的值是否相同。
+因为 Python 并不知道什么样可以被认为相同。至少目前不知道。
 
-正如我们预期的，is运算符显示了p1和p2并非同一个对象。
-不过你可能会认为==运算的结果应该是True，因为这两个点的数据是相同的。
-然而结果并不如你想象的那样，==运算符的默认行为和is运算符相同；
-它检查对象的身份是否相同，而非对象的值是否相同。
-因为Python并不知道什么样可以被认为相同。至少目前Python不知道。
-
-If you use copy.copy to duplicate a Rectangle, you will find that it
-copies the Rectangle object but not the embedded Point.
-
-如果你使用copy.copy来复制一个矩形，
-你会发现它仅仅复制了Rectangle对象，但没有复制嵌套的Point对象。
+如果你使用 ``copy.copy`` 来复制一个 ``Rectangle`` ，
+你会发现它仅仅复制了 ``Rectangle`` 对象，但没有复制嵌套的 ``Point`` 对象。
 
 ::
 
@@ -347,37 +308,25 @@ copies the Rectangle object but not the embedded Point.
     >>> box2.corner is box.corner
     True
 
+.. _fig.rectangle2:
+
 .. figure:: figs/rectangle2.pdf
-   :alt: Object diagram.
+   :alt: 图15-3：对象图
 
-   Object diagram.
+   图15-3：对象图
 
-Figure [fig.rectangle2] shows what the object diagram looks like. This
-operation is called a **shallow copy** because it copies the object and
-any references it contains, but not the embedded objects.
-
-图[fig.rectangle2]展示了这个对象图。 这个操作叫做\ **浅复制（shallow
-copy）**\ ，因为仅复制了对象以及其包含的引用， 但未复制嵌套的对象。
-
-For most applications, this is not what you want. In this example,
-invoking ``grow_rectangle`` on one of the Rectangles would not affect
-the other, but invoking ``move_rectangle`` on either would affect both!
-This behavior is confusing and error-prone.
+\ :ref:`fig.rectangle2`\ 展示了相应的对象图。 这个操作叫做\ **浅复制（shallow
+copy）**\ ，因为它仅复制了对象以及其包含的引用， 但未复制嵌套的对象。
 
 对大多数应用来说，这并非是你想要的结果。
-在这个例子中，对其中一个Rectangle对象调用\ ``grow_rectangle``\ 并不会影响到另外一个，
-然而当对任何一个Rectangle对象调用\ ``move_rectangle``\ 的时候，两者都会被影响！
-这个行为很容易带来疑惑和错误。
+在这个例子中，对其中一个 ``Rectangle`` 对象调用\ ``grow_rectangle``\ 并不会影响到另外一个，
+然而当对任何一个 ``Rectangle`` 对象调用\ ``move_rectangle``\ 的时候，两者都会被影响！这个行为很容易带来疑惑和错误。
 
-Fortunately, the copy module provides a method named deepcopy that
-copies not only the object but also the objects it refers to, and the
-objects *they* refer to, and so on. You will not be surprised to learn
-that this operation is called a **deep copy**.
 
-幸运的是，copy模块拥有一个叫做deepcopy的方法，
+幸运的是，``copy`` 模块拥有一个叫做 ``deepcopy`` 的方法，
 它不仅可以复制一个对象，还可以复制这个对象所引用的对象，
 甚至可以复制\ *这个对象所引用的对象*\ 所引用的对象，等等。
-你可以很显然地想到这个操作叫做\ **深复制（deep copy）**\ 。
+没错！这个操作叫做\ **深复制（deep copy）**\ 。
 
 ::
 
@@ -387,25 +336,17 @@ that this operation is called a **deep copy**.
     >>> box3.corner is box.corner
     False
 
-box3 and box are completely separate objects.
+\ ``box3``\ 和 ``box`` 是完全互不相干的对象。
 
-box3和box是完全互不相干的对象。
 
-As an exercise, write a version of ``move_rectangle`` that creates and
-returns a new Rectangle instead of modifying the old one.
+我们做个练习，编写另一个版本的\ ``move_rectangle``\ ，
+函数创建并返回一个新的 ``Rectangle`` 对象而非修改原先的那个。
 
-编写另一个版本的\ ``move_rectangle``\ ，
-它创建并返回一个新的Rectangle对象而非修改原先的那个。
-
-Debugging 调试
+调试
 --------------
 
-When you start working with objects, you are likely to encounter some
-new exceptions. If you try to access an attribute that doesn’t exist,
-you get an AttributeError:
-
 当你开始学习对象的时候，你可能会遇到一些新的异常。
-如果你企图使用一个不存在的属性，你会得到Attributeerror的错误提示：
+如果你访问一个不存在的属性，你会得到 ``Attributeerror`` 的错误提示：
 
 ::
 
@@ -415,7 +356,6 @@ you get an AttributeError:
     >>> p.z
     AttributeError: Point instance has no attribute 'z'
 
-If you are not sure what type an object is, you can ask:
 
 如果你不确定一个对象的类型，你可以询问：
 
@@ -424,20 +364,16 @@ If you are not sure what type an object is, you can ask:
     >>> type(p)
     <class '__main__.Point'>
 
-You can also use isinstance to check whether an object is an instance of
-a class:
 
-你也可以用 isinstance 来检查某个对象是不是某个类的实例。
+你也可以用 ``isinstance`` 来检查某个对象是不是某个类的实例。
 
 ::
 
     >>> isinstance(p, Point)
     True
 
-If you are not sure whether an object has a particular attribute, you
-can use the built-in function hasattr:
 
-如果你不确定一个对象是否拥有某个属性， 你可以使用内置函数hasattr：
+如果你不确定一个对象是否拥有某个属性， 你可以使用内置函数 ``hasattr`` 检查：
 
 ::
 
@@ -446,17 +382,12 @@ can use the built-in function hasattr:
     >>> hasattr(p, 'z')
     False
 
-The first argument can be any object; the second argument is a *string*
-that contains the name of the attribute.
 
 第一个参数可以是任何对象；
 第二个参数是一个\ *字符串*\ ，代表了某个属性的名字。
 
 
-You can also use a try statement to see if the object has the attributes
-you need:
-
-你也可以使用 try　语句来检查某个对象是不是有你需要的属性:
+你也可以使用 ``try``　语句来检查某个对象是不是有你需要的属性:
 
 ::
 
@@ -465,144 +396,79 @@ you need:
     except AttributeError:
         x = 0
 
-This approach can make it easier to write functions that work with
-different types; more on that topic is coming up in
-Section [polymorphism].
+这个方法可以让你更容易编写出可以适应多种数据结构的函数。你可以在[polymorphism]节查看更多内容。
 
-这个方法可以让你更容易书写可以适应多种数据结构的函数。你可以在[polymorphism]节查看更多内容。
-
-Glossary 术语表
+术语表
 ---------------
 
-class:
-    A programmer-defined type. A class definition creates a new class
-    object.
-
-类:
+类（class）:
     一种程序员自定义的类型。类定义创建了一个新的类对象。
 
-class object:
-    An object that contains information about a programmer-defined type.
-    The class object can be used to create instances of the type.
-
-类对象:
+类对象（class object）:
     包含程序员自定义类型的细节信息的对象。类对象可以被用于创建该类型的实例。
 
-instance:
-    An object that belongs to a class.
-
-实例:
+实例（instance）:
     属于某个类的对象。
 
-instantiate:
-    To create a new object.
 
-实例化:
+实例化（instantiate）:
     创建新的对象。
 
-attribute:
-    One of the named values associated with an object.
+属性（attribute）:
+    和某个对象相关联的有命名的值。
 
-属性:
-    和某个对象相联系的变量值。
 
-embedded object:
-    An object that is stored as an attribute of another object.
-
-嵌套对象:
+嵌套对象（embedded object）:
     作为另一个对象的属性存储的对象。
 
-shallow copy:
-    To copy the contents of an object, including any references to
-    embedded objects; implemented by the copy function in the copy
-    module.
+浅复制（shallow copy）:
+    在复制对象内容的时候，只包含嵌套对象的引用，通过 ``copy`` 模块的 ``copy`` 函数实现。
 
-浅复制:
-    在复制对象内容的时候，只包含嵌套对象的引用，是copy模块的copy函数的实现方式。
+深复制（deep copy）:
+    在复制对象内容的时候，既复制对象属性，也复制所有嵌套对象及其中的所有嵌套对象，由 ``copy`` 模块的 ``deepcopy`` 函数实现。
 
-deep copy:
-    To copy the contents of an object as well as any embedded objects,
-    and any objects embedded in them, and so on; implemented by the
-    deepcopy function in the copy module.
-
-深复制:
-    在复制对象内容的时候，既复制对象属性也复制所有嵌套对象和其中的所有嵌套对象，是copy模块deepcopy函数的实现方式。
-
-object diagram:
-    A diagram that shows objects, their attributes, and the values of
-    the attributes.
-
-对象图:
+对象图（object diagram）:
     展示对象及其属性和属性值的图。
 
-Exercises 练习
+练习题
 --------------
 
 习题 15-1
-^^^^^^^^^^
+^^^^^^^^^^^^^
 
-Write a definition for a class named Circle with attributes center and
-radius, where center is a Point object and radius is a number.
 
-定义一个叫做 Circle　的类，类的属性是中心(center) 和 半径(radius),其中　中心(center) 是一个　Point 类而 半径(radius)　是一个数字。
+定义一个叫做 ``Circle``　的类，类的属性是圆心(``center``) 和半径(``radius``),其中，圆心(``center``) 是一个　``Point`` 类，而半径(``radius``)是一个数字。
 
-Instantiate a Circle object that represents a circle with its center at
-:math:`(150, 100)` and radius 75.
-
-实例化一个中心(center)是:math:`(150, 100)`,半径(radius)是75的 Circle 对象。
+实例化一个圆心(center)为\ :math:`(150, 100)`\ ，半径(radius)为 75 的 ``Circle`` 对象。
 
 习题 15-2
-^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
-Write a function named ``point_in_circle`` that takes a Circle and a
-Point and returns True if the Point lies in or on the boundary of the
-circle.
-
-写一个名称为``point_in_circle``的函数，该函数可以接受一个圆类(Circle)对象和点类 (Point)对象，然后可以判断该点是否在圆内。在园内返回True。
+编写一个名称为 ``point_in_circle`` 的函数，该函数可以接受一个圆类(``Circle``)对象和点类 (``Point``)对象，然后判断该点是否在圆内。在圆内则返回 ``True`` 。
 
 
 习题 15-3
-^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
-Write a function named ``rect_in_circle`` that takes a Circle and a
-Rectangle and returns True if the Rectangle lies entirely in or on the
-boundary of the circle.
+编写一个名称为 ``rect_in_circle`` 的函数，该函数接受一个圆类(``Circle``)对象和矩形(``Rectangle``)对象，如果该矩形是否完全在圆内或者在圆上则返回 ``True`` 。
 
-写一个名称为 ``rect_in_circle`` 的函数，该函数可以接受一个圆类(Circle)对象和矩形(Rectangle)对象，同时判断该矩形是否完全在圆内或者在圆上。
+习题 15-4
+^^^^^^^^^^^^^^^^
 
-习题 15-3
-^^^^^^^^^^
-
-Write a function named ``rect_circle_overlap`` that takes a Circle and a
-Rectangle and returns True if any of the corners of the Rectangle fall
-inside the circle. Or as a more challenging version, return True if any
-part of the Rectangle falls inside the circle.
-
-写一个名称为``rect_circle_overlap``函数，该函数可以接受一个圆类对象和一个矩形类对象，如果矩形有任意一个角落在圆内则返回True。或者做一个更具有挑战性的版本，如果该矩形有任何部分落在圆内返回True。
-
-
-Solution: http://thinkpython2.com/code/Circle.py.
+编写一个名为 ``rect_circle_overlap`` 函数，该函数接受一个圆类对象和一个矩形类对象，如果矩形有任意一个角落在圆内则返回 ``True`` 。或者写一个更具有挑战性的版本，如果该矩形有任何部分落在圆内返回 ``True`` 。
 
 答案:http://thinkpython2.com/code/Circle.py.
 
 
-习题 15-4
-^^^^^^^^^^
-Write a function called ``draw_rect`` that takes a Turtle object and a
-Rectangle and uses the Turtle to draw the Rectangle. See
-Chapter [turtlechap] for examples using Turtle objects.
-
-写一个名称为``draw_rect``的函数，该函数接受一个Turtle对象和一个Rectangle对象，使用Turtle画出该矩形。参考[turtlechap]章的例子来学习如何使用 Turtle 对象。
-
 习题 15-5
-^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
-Write a function called ``draw_circle`` that takes a Turtle and a Circle
-and draws the Circle.
+编写一个名为 ``draw_rect`` 的函数，该函数接受一个 ``Turtle`` 对象和一个 ``Rectangle`` 对象，使用 ``Turtle`` 画出该矩形。参考[turtlechap]章中使用 ``Turtle`` 的示例。
 
-写一个名称为　``draw_circle`` 的函数来接受一个　Turtle 对象和Circle对象同时画出该圆。
+习题 15-6
+^^^^^^^^^^^^^^^^
 
-Solution: http://thinkpython2.com/code/draw.py.
+编写一个名为　``draw_circle`` 的函数，该函数接受一个　``Turtle`` 对象和 ``Circle`` 对象，并画出该圆。
 
 答案:http://thinkpython2.com/code/draw.py.
 
