@@ -1,99 +1,55 @@
-Classes and objects 类和对象
+第十五章：类和对象
 ============================
 
-At this point you know how to use functions to organize code and
-built-in types to organize data. The next step is to learn
-“object-oriented programming”, which uses programmer-defined types to
-organize both code and data. Object-oriented programming is a big topic;
-it will take a few chapters to get there.
+目前你已经知道如何使用函数来组织你的代码，同时用内置的类型来管理数据。
+下一步我们将学习“面向对象编程”，即使用
+程序员定义的类来组织代码和数据。
+面向对象编程是一个很大的话题，讲完需要一些章节。
 
-目前你已经知道如何使用函数来组织你的代码同时用内置的类型来管理数据。下一步我们会学习“面向对象编程”，我们将使用
-程序员定义的代码和数据。面向对象编程是一个很广泛的领域，这个题目会花费不少章节学习。
+本章的示例代码可以在\ http://thinkpython2.com/code/Point1.py \ 获取；
+练习题的答案可以在\ http://thinkpython2.com/code/Point1_soln.py \ 获取。
 
-Code examples from this chapter are available from
-http://thinkpython2.com/code/Point1.py; solutions to the exercises are
-available from http://thinkpython2.com/code/Point1_soln.py.
-
-本章的示例代码可以在\ http://thinkpython2.com/code/Point1.py\ 获取；
-练习的答案可以在\ http://thinkpython2.com/code/Point1_soln.py\ 获取。
-
-Programmer-defined types 程序员自定义类型
+程序员自定义类型
 ------------------------------------------------
 
-We have used many of Python’s built-in types; now we are going to define
-a new type. As an example, we will create a type called Point that
-represents a point in two-dimensional space.
-
-我们已经使用过了许多Python的内置类型； 现在我们要定义一个新类型。
-作为例子，我们来创建一个叫做Point的类型，代表二维空间的一个点。
-
-In mathematical notation, points are often written in parentheses with a
-comma separating the coordinates. For example, :math:`(0,0)` represents
-the origin, and :math:`(x,y)` represents the point :math:`x` units to
-the right and :math:`y` units up from the origin.
+我们已经使用过了许多 Python 的内置类型；
+现在我们要定义一个新类型。举个例子，我们来创建一个叫做 ``Point`` 的类型，代表二维空间中的一个点。
 
 在数学记法中，点通常被写成在两个小括号中用一个逗号分隔坐标的形式。
-例如\ :math:`(0,0)`\ 代表原点，\ :math:`(x,y)`\ 代表原点向右x个单位，向上y个单位的点。
+例如\ :math:`(0,0)`\ 代表原点，\ :math:`(x,y)`\ 代表原点向右 x 个单位，向上 y 个单位的点。
 
-There are several ways we might represent points in Python:
+在 Python 中，有几种表示点的方法：
 
-在Python中，有几种表示点的方法：
+-  我们可以将坐标存储在两个独立的变量，x和y中。
 
--  We could store the coordinates separately in two variables, x and y.
-   
-   我们可以将坐标存储在两个独立的变量，x和y中。
+-  我们可以将坐标作为一个列表或者元组的元素存储。
 
--  We could store the coordinates as elements in a list or tuple.
+-  我们可以创建一个新类型将点表示为对象。
 
-   我们可以将坐标作为一个列表或者元组的元素存储。
+创建一个新类型比其他方法更复杂，但是它的优势一会儿会显现出来。
 
--  We could create a new type to represent points as objects.
-
-   我们可以创建一个新类型将点表示为对象。
-
-Creating a new type is more complicated than the other options, but it
-has advantages that will be apparent soon.
-
-创建一个新类型比另外的方法（有一点）更复杂，
-但是它的优势一会儿会显现出来。
-
-A programmer-defined type is also called a **class**. A class definition
-looks like this:
-
-程序员自定义类型( A programmer-defined type )也被称作\ **对象（class）**\ 。 像这样定义一个对象：
+程序员自定义类型( A programmer-defined type )也被称作\ **类（class）**\ 。 像这样定义一个对象：
 
 ::
 
     class Point:
         """Represents a point in 2-D space."""
 
-The header indicates that the new class is called Point. The body is a
-docstring that explains what the class is for. You can define variables
-and methods inside a class definition, but we will get back to that
-later.
-
-第一行表明新的类的名称是点( Point )。主体部分是文档字符串，用来解释这个类的作用。
+头部语句表明新类的名称是 ``Point`` 。
+主体部分是文档字符串，用来解释这个类的用途。
 你可以在一个类的定义中定义变量和函数，稍后会讨论这个。
 
-Defining a class named Point creates a **class object**.
-
-定义一个叫做Point的类便创建了一个类对象。
+定义一个叫做 ``Point`` 的类将创建了一个\ **类对象（class object）**\ 。
 
 ::
 
     >>> Point
     <class '__main__.Point'>
 
-Because Point is defined at the top level, its “full name” is
-``__main__.Point``.
+由于 ``Point`` 是定义在顶层的，所以它的“全名”是\ ``__main__.Point``\ 。
 
-由于Point是定义在顶层的，所以它的“全名”是\ ``__main__.Point``\ 。
-
-The class object is like a factory for creating objects. To create a
-Point, you call Point as if it were a function.
-
-类对象就像是一个用来创造对象的工厂。
-要创建一个点，你可以像调用函数那样调用Point。
+类对象就像是一个用来创建对象的工厂。
+要创建一个点，你可以像调用函数那样调用 ``Point`` 。
 
 ::
 
@@ -101,79 +57,46 @@ Point, you call Point as if it were a function.
     >>> blank
     <__main__.Point object at 0xb7e9d3ac>
 
-The return value is a reference to a Point object, which we assign to
-blank.
 
-返回值是一个Point对象的引用，我们将它赋值给blank。
-
-
-Creating a new object is called **instantiation**, and the object is an
-**instance** of the class.
+返回值是一个 ``Point`` 对象的引用，我们将它赋值给 ``blank`` 。
 
 创建一个新对象的过程叫做\ **实例化（instantiation）**\ ，这个新对象叫做这个类的一个\ **实例（instance）**\ 。
 
-When you print an instance, Python tells you what class it belongs to
-and where it is stored in memory (the prefix 0x means that the following
-number is in hexadecimal).
-
-当你试图打印一个实例，Python会告诉你它属于哪个类，
+当你试图打印一个实例，Python 会告诉你它属于哪个类，
 以及它在内存中的存储地址（前缀0x代表紧跟后面的数是以十六进制表示的）。
 
-Every object is an instance of some class, so “object” and “instance”
-are interchangeable. But in this chapter I use “instance” to indicate
-that I am talking about a programmer-defined type.
+每一个对象都是某种类的实例，所以对象和实例可以互换。但是在这章我用“实例”来表示我在讨论程序员自定义类型。
 
-每一个对象都是某种类的实例，所以对象和实例可以互换。但是在这章我用实例来表示我在讨论程序员自定义类型。
-
-Attributes 属性
+属性
 ---------------
 
-You can assign values to an instance using dot notation:
-
-你可以使用点标记法给一个实例进行赋值操作：
+你可以使用点标记法向一个实例进行赋值操作：
 
 ::
 
     >>> blank.x = 3.0
     >>> blank.y = 4.0
 
-This syntax is similar to the syntax for selecting a variable from a
-module, such as math.pi or string.whitespace. In this case, though, we
-are assigning values to named elements of an object. These elements are
-called **attributes**.
-
-这个语法类似于从一个模块中使用变量的语法，比如math.pi和string.whitespace。
+这个语法类似于从一个模块中使用变量的语法，比如 ``math.pi`` 和 ``string.whitespace`` 。
 不过在这个例子中，我们是给一个类中已命名的元素赋值。
-我们将这类元素称之为\ **属性（attributes）**\ 。
-
-As a noun, “AT-trib-ute” is pronounced with emphasis on the first
-syllable, as opposed to “a-TRIB-ute”, which is a verb.
+这类元素叫做\ **属性（attributes）**\ 。
 
 作为名词的时候，“属性”的英文“AT-trib-ute”的重音在第一个音节上，
 作为动词的时候，“a-TRIB-ute”重音在第二个音节上。
 
-The following diagram shows the result of these assignments. A state
-diagram that shows an object and its attributes is called an **object
-diagram**; see Figure [fig.point].
+下面这张图展示了这些赋值操作的结果。说明一个对象及其属性的状态图叫做\ **对象图（object diagram）**\ ；见图\ :ref:`fig.point`\ 。
 
-下面这张图展示了这些赋值操作的结果。
-这张状态图展示了一个对象和它的属性，我们称这张图为\ **对象图（object
-diagram）**\ ； 见图[fig.point]。
+.. _fig.point:
 
 .. figure:: figs/point.png
-   :alt: Object diagram.
+   :alt: 图15-1：对象图
 
-   Object diagram.
+   图15-1：对象图
 
-The variable blank refers to a Point object, which contains two
-attributes. Each attribute refers to a floating-point number.
-
-变量blank引用了一个Point类，这个类拥有了两个属性。
+变量 ``blank`` 引用了一个 ``Point`` 类，这个类拥有了两个属性。
 每个属性都引用了一个浮点数。
 
-You can read the value of an attribute using the same syntax:
-
-你可以使用相同的语法读出一个属性的值。
+你可以使用相同的语法读取一个属性的值：
 
 ::
 
@@ -183,16 +106,9 @@ You can read the value of an attribute using the same syntax:
     >>> x
     3.0
 
-The expression blank.x means, “Go to the object blank refers to and get
-the value of x.” In the example, we assign that value to a variable
-named x. There is no conflict between the variable x and the attribute
-x.
-
-表达式blank.x的意思是，“前往blank所引用的对象并且将x的值拿出来”。
-在这个例子中，我们将获取到的值赋值给了一个叫做x的变量。
-变量x和属性x并不会冲突。
-
-You can use dot notation as part of any expression. For example:
+表达式 ``blank.x`` 的意思是，“前往 ``blank`` 所引用的对象并且获取 ``x`` 的值”。
+在这个例子中，我们将获取到的值赋值给了一个叫做 ``x`` 的变量。
+变量 ``x`` 和属性 ``x`` 并不会冲突。
 
 你可以在任何表达式中使用点标记法。例如：
 
@@ -204,93 +120,60 @@ You can use dot notation as part of any expression. For example:
     >>> distance
     5.0
 
-You can pass an instance as an argument in the usual way. For example:
-
-你可以像往常那样将一个实例作为参数传递。 例如：
+你可以将一个实例作为参数传递。例如：
 
 ::
 
     def print_point(p):
         print('(%g, %g)' % (p.x, p.y))
 
-``print_point`` takes a point as an argument and displays it in
-mathematical notation. To invoke it, you can pass blank as an argument:
-
-``print_point``\ 将一个点作为参数，打印出其在数学中的表示方法。
-调用它的时候，你可以将blank作为参数传递：
+\ ``print_point``\ 接受一个点作为参数，打印出其在数学中的表示方法。
+调用它的时候，你可以将 ``blank`` 作为参数传递：
 
 ::
 
     >>> print_point(blank)
     (3.0, 4.0)
 
-Inside the function, p is an alias for blank, so if the function
-modifies p, blank changes.
+在这个函数内部，``p`` 是 ``blank`` 的别名，
+所以，如果函数修改了 ``p`` ，``blank`` 也会随之改变。
 
-在这个函数内部，p作为blank的别名，
-所以，当函数修改了p，blank也会随之改变。
+我们做个联系，编写一个叫做\ ``distance_between_points``\ 的函数，它接受两个 ``Point`` 作为参数，然后返回这两个点之间的距离。
 
-As an exercise, write a function called ``distance_between_points`` that
-takes two Points as arguments and returns the distance between them.
-
-编写一个叫做\ ``distance_between_points``\ 的函数，它将两个Point作为参数，
-返回这两个点之间的距离。
-
-Rectangles 矩形
+矩形
 ---------------
-
-Sometimes it is obvious what the attributes of an object should be, but
-other times you have to make decisions. For example, imagine you are
-designing a class to represent rectangles. What attributes would you use
-to specify the location and size of a rectangle? You can ignore angle;
-to keep things simple, assume that the rectangle is either vertical or
-horizontal.
 
 有时候，一个对象该拥有哪些属性是显而易见的，但有时候你需要好好考虑一番。
 比如，你需要设计一个代表矩形的类。
 为了描述一个矩形的位置和大小，你需要设计哪些属性呢？
-角度是可以忽略的；为了使事情更容易，假设矩形是水平或者竖直的。
-
-There are at least two possibilities:
+角度是可以忽略的；为了使事情更简单，我们假设矩形是水平或者竖直的。
 
 至少有两种可能的设计：
 
--  You could specify one corner of the rectangle (or the center), the
-   width, and the height.
-   
-   你可以指定矩形的一个角（或是中心），宽度，以及长度。
+-  你可以指定矩形的一个角（或是中心）、宽度以及长度。
 
--  You could specify two opposing corners.
-
-   你可以指定对角线上的两个角。
+-  你可以指定对角线上的两个角。
 
 At this point it is hard to say whether either is better than the other,
 so we’ll implement the first one, just as an example.
 
-这个时候还不能够说明哪个方法优于哪个方法，为了举例，我们先来实现前者。
+这个时候还不能够说明哪个方法优于哪个方法。我们先来实现前者。
 
-Here is the class definition:
-
-这是类的定义：
+下面是类的定义：
 
 ::
 
     class Rectangle:
-        """Represents a rectangle. 
+        """Represents a rectangle.
 
         attributes: width, height, corner.
         """
 
-The docstring lists the attributes: width and height are numbers; corner
-is a Point object that specifies the lower-left corner.
+文档字符串中列出了属性：``width`` 和 ``height`` 是数字；
+\ ``corner``\ 是一个 ``Point`` 对象，代表左下角的那个点。
 
-文档字符串中列出了属性：width和height是数字；
-corner是一个Point对象，代表了左下角的那个点。
 
-To represent a rectangle, you have to instantiate a Rectangle object and
-assign values to the attributes:
-
-为了描述一个矩形，你需要实例化一个Rectangle对象，并且为它的属性赋值。
+为了描述一个矩形，你需要实例化一个 ``Rectangle`` 对象，并且为它的属性赋值：
 
 ::
 
@@ -301,34 +184,25 @@ assign values to the attributes:
     box.corner.x = 0.0
     box.corner.y = 0.0
 
-The expression box.corner.x means, “Go to the object box refers to and
-select the attribute named corner; then go to that object and select the
-attribute named x.”
+表达式 ``box.corner.x`` 的意思是，
+“前往 ``box`` 所引用的对象，找到叫做 ``corner`` 的属性；
+然后前往 ``corner`` 所引用的对象，找到叫做 ``x`` 的属性。”
 
-表达式box.corner.x的意思是，
-“前往box所引用的对象，找到叫做corner的属性；
-然后前往corner所引用的对象，找到叫做x的属性。
+.. _fig.rectangle:
 
 .. figure:: figs/rectangle.pdf
-   :alt: Object diagram.
+   :alt: 图15-2：对象图
 
-   Object diagram.
+   图15-2：对象图
 
-Figure [fig.rectangle] shows the state of this object. An object that is
-an attribute of another object is **embedded**.
-
-图[fig.rectangle]展示了这个对象的状态。
+\ :ref:`fig.rectangle`\ 展示了这个对象的状态。
 一个对象作为另一个对象的属性叫做\ **嵌套（embedded）**\ 。
 
-Instances as return values 实例作为返回值
+实例作为返回值
 -----------------------------------------
 
-Functions can return instances. For example, ``find_center`` takes a
-Rectangle as an argument and returns a Point that contains the
-coordinates of the center of the Rectangle:
-
-函数可以返回实例。例如，\ ``find_center``\ 将一个Rectangle作为参数
-返回一个Point，代表了这个Rectangle的中心坐标：
+函数可以返回实例。例如，\ ``find_center``\ 接受一个 ``Rectangle`` 作为参数，
+返回一个 ``Point`` ，代表了这个 ``Rectangle`` 的中心坐标：
 
 ::
 
@@ -603,7 +477,7 @@ Glossary 术语表
 class:
     A programmer-defined type. A class definition creates a new class
     object.
-    
+
 类:
     一种程序员自定义的类型。类定义创建了一个新的类对象。
 
@@ -616,7 +490,7 @@ class object:
 
 instance:
     An object that belongs to a class.
-    
+
 实例:
     属于某个类的对象。
 
@@ -631,7 +505,7 @@ attribute:
 
 属性:
     和某个对象相联系的变量值。
-    
+
 embedded object:
     An object that is stored as an attribute of another object.
 
@@ -645,7 +519,7 @@ shallow copy:
 
 浅复制:
     在复制对象内容的时候，只包含嵌套对象的引用，是copy模块的copy函数的实现方式。
-    
+
 deep copy:
     To copy the contents of an object as well as any embedded objects,
     and any objects embedded in them, and so on; implemented by the
@@ -653,14 +527,14 @@ deep copy:
 
 深复制:
     在复制对象内容的时候，既复制对象属性也复制所有嵌套对象和其中的所有嵌套对象，是copy模块deepcopy函数的实现方式。
-    
+
 object diagram:
     A diagram that shows objects, their attributes, and the values of
     the attributes.
 
 对象图:
     展示对象及其属性和属性值的图。
-    
+
 Exercises 练习
 --------------
 
@@ -704,7 +578,7 @@ Rectangle and returns True if any of the corners of the Rectangle fall
 inside the circle. Or as a more challenging version, return True if any
 part of the Rectangle falls inside the circle.
 
-写一个名称为``rect_circle_overlap``函数，该函数可以接受一个圆类对象和一个矩形类对象，如果矩形有任意一个角落在圆内则返回True。或者做一个更具有挑战性的版本，如果该矩形有任何部分落在圆内返回True。 
+写一个名称为``rect_circle_overlap``函数，该函数可以接受一个圆类对象和一个矩形类对象，如果矩形有任意一个角落在圆内则返回True。或者做一个更具有挑战性的版本，如果该矩形有任何部分落在圆内返回True。
 
 
 Solution: http://thinkpython2.com/code/Circle.py.
@@ -718,7 +592,7 @@ Write a function called ``draw_rect`` that takes a Turtle object and a
 Rectangle and uses the Turtle to draw the Rectangle. See
 Chapter [turtlechap] for examples using Turtle objects.
 
-写一个名称为``draw_rect``的函数，该函数接受一个Turtle对象和一个Rectangle对象，使用Turtle画出该矩形。参考[turtlechap]章的例子来学习如何使用 Turtle 对象。 
+写一个名称为``draw_rect``的函数，该函数接受一个Turtle对象和一个Rectangle对象，使用Turtle画出该矩形。参考[turtlechap]章的例子来学习如何使用 Turtle 对象。
 
 习题 15-5
 ^^^^^^^^^^
