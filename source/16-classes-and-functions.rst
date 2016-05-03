@@ -1,48 +1,26 @@
-Classes and functions
-=====================
+第十六章：类和函数
+========================
 
-类和函数
-========
+现在我们已经知道如何去定义一个新的类型，下一步就是编写以自定义对象为参数的函数，并返回自定义对象作为结果。在本章中，我还将介绍“函数式编程风格”和两种新的编程开发方案。
 
-Now that we know how to create new types, the next step is to write
-functions that take programmer-defined objects as parameters and return
-them as results. In this chapter I also present “functional programming
-style” and two new program development plans.
+本章的代码示例可以从 http://thinkpython2.com/code/Time1.py 下载。练习的答案可以从 http://thinkpython2.com/code/Time1_soln.py 下载。
 
-现在我们已经知道如何去定义一个新的类型，下一步就是编写函数，接收自定义对象作为参数并返回结果。
-在本章中我也将介绍“函数式编程风格”和两种新的编程开发方案。
-
-Code examples from this chapter are available from
-http://thinkpython2.com/code/Time1.py. Solutions to the exercises are at
-http://thinkpython2.com/code/Time1_soln.py.
-
-本章的代码示例可以从 http://thinkpython2.com/code/Time1.py 下载。练习的解答可以从 http://thinkpython2.com/code/Time1_soln.py 下载。
-
-Time
-----
 
 时间
-----
+--------
 
-As another example of a programmer-defined type, we’ll define a class
-called Time that records the time of day. The class definition looks
-like this:
-
-作为用户定义类型的另一个例子，我们将定义一个叫Time的类，用于记录一天的时间。
+再举一个程序员自定义类型的例子，我们定义一个叫 ``Time`` 的类，用于记录时间。
 这个类的定义如下：
 
 ::
 
     class Time:
         """Represents the time of day.
-           
+
         attributes: hour, minute, second
         """
 
-We can create a new Time object and assign attributes for hours,
-minutes, and seconds:
-
-我们可以创建一个Time类的对象，并且给它的属性hour,minutes和seconds赋值：
+我们可以创建一个新的 ``Time`` 类对象，并且给它的属性 ``hour`` , ``minutes`` 和 ``seconds`` 赋值：
 
 ::
 
@@ -51,48 +29,29 @@ minutes, and seconds:
     time.minute = 59
     time.second = 30
 
-The state diagram for the Time object looks like Figure [fig.time].
+\ ``Time``\ 对象的状态图类似于\ :ref:`fig.time`\ 。
 
-Timer对象的状态图类似于图[fig.time]。
+我们做个练习，编写一个叫做 ``print_time`` 的函数，接收一个 ``Time`` 对象并用“时:分:秒”的格式打印它。
+提示：格式化序列 ``'%.2d'`` 可以至少两位数的形式打印一个整数，如果不足则在前面补0。
 
-As an exercise, write a function called ``print_time`` that takes a Time
-object and prints it in the form hour:minute:second. Hint: the format
-sequence ``'%.2d'`` prints an integer using at least two digits,
-including a leading zero if necessary.
+编写一个叫做 ``is_after`` 的布尔函数，接收两个 ``Time`` 对象，``t1`` 和 ``t2`` ，若 ``t1`` 的时间在 ``t2`` 之后，
+则返回 ``True`` ，否则返回 ``False`` 。挑战：不要使用 ``if`` 语句。
 
-练习：编写一个叫做 ``print_time`` 的函数，接收一个Time对象并用“时:分:秒”的格式打印它。
-提示：格式化序列 ``'%.2d'`` 可以以两位数的形式打印一个整数，如果不足则在前面补0。
+.. _fig.time:
 
-Write a boolean function called ``is_after`` that takes two Time
-objects, t1 and t2, and returns True if t1 follows t2 chronologically
-and False otherwise. Challenge: don’t use an if statement.
+.. figure:: figs/time.png
+   :alt: 图16-1：对象图
 
-练习：编写一个叫做 ``is_after`` 的布尔函数，接收两个Time对象，t1和t2，若t1的时间在t2之后，
-则返回True，否则返回False。挑战：不要使用if语句。
+   图16-1：对象图
 
-.. figure:: figs/time.pdf
-   :alt: Object diagram.
-
-   Object diagram.
-
-Pure functions
---------------
 
 纯函数
-------
+-----------
 
-In the next few sections, we’ll write two functions that add time
-values. They demonstrate two kinds of functions: pure functions and
-modifiers. They also demonstrate a development plan I’ll call
-**prototype and patch**, which is a way of tackling a complex problem by
-starting with a simple prototype and incrementally dealing with the
-complications.
-
-在下面几节中，我们将编写两个用来增加时间值的函数。它们展示了两种不同的函数：纯函数和修改器。
-它们也展示了我将其称为 **原型和补丁（prototype and patch）** 的开发方案。
+在下面几节中，我们将编写两个用来增加时间值的函数。
+它们展示了两种不同的函数：纯函数（pure functions）和修改器（modifiers）。
+它们也展示了我所称的 **原型和补丁（prototype and patch）** 的开发方案。
 这是一种处理复杂问题的方法，从简单的原型开始，逐步解决复杂情况。
-
-Here is a simple prototype of ``add_time``:
 
 下面是一个简单的 ``add_time`` 原型：
 
@@ -105,28 +64,14 @@ Here is a simple prototype of ``add_time``:
         sum.second = t1.second + t2.second
         return sum
 
-The function creates a new Time object, initializes its attributes, and
-returns a reference to the new object. This is called a **pure
-function** because it does not modify any of the objects passed to it as
-arguments and it has no effect, like displaying a value or getting user
-input, other than returning a value.
-
-这个函数创建了一个新的Time对象，初始化了对象的属性，并返回了这个对象的引用。
+这个函数创建了一个新的 ``Time`` 对象，初始化了对象的属性，并返回了这个对象的引用。
 我们把这个函数称为 **纯函数（pure function）**，因为它除了返回一个值以外，并不修改作为参数传入的任何对象，
-也没有受到如显示一个值或者获取用户输入的影响。
+也没有产生如显示一个值或者获取用户输入的影响。
 
-To test this function, I’ll create two Time objects: start contains the
-start time of a movie, like *Monty Python and the Holy Grail*, and
-duration contains the run time of the movie, which is one hour 35
-minutes.
+为了测试这个函数，我将创建两个 ``Time`` 对象：``start`` 用于存放一个电影
+（如 Monty Python and the Holy Grail）的开始时间，``duration`` 用于存放电影的放映时长，这里时长定为1小时35分钟。
 
-为了测试这个函数，我将创建两个Time对象：start用于存放一个电影
-（如Monty Python and the Holy Grail）的开始时间，duration用于存放电影的放映时长，
-这里时长定为1小时35分钟。
-
-``add_time`` figures out when the movie will be done.
-
-``add_time`` 计算出电影何时结束。
+\ ``add_time``\ 将计算电影何时结束。
 
 ::
 
@@ -144,16 +89,9 @@ minutes.
     >>> print_time(done)
     10:80:00
 
-The result, 10:80:00 might not be what you were hoping for. The problem
-is that this function does not deal with cases where the number of
-seconds or minutes adds up to more than sixty. When that happens, we
-have to “carry” the extra seconds into the minute column or the extra
-minutes into the hour column.
 
-这个结果，10:80:00可能不是你所希望得到的。问题在于这个函数并没有处理好秒数和分钟数在超过60的情况。
+这个结果 10:80:00 可能不是你所希望得到的。问题在于这个函数并没有处理好秒数和分钟数相加超过60的情况。
 当发生这种情况时，我们要把多余的秒数放进分钟栏，或者把多余的分钟加进小时栏。
-
-Here’s an improved version:
 
 下面是一个改进的版本：
 
@@ -175,16 +113,12 @@ Here’s an improved version:
 
         return sum
 
-Although this function is correct, it is starting to get big. We will
-see a shorter alternative later.
 
 这个函数虽然正确，但是它开始变得臃肿。我们会在后面看到一个较短的版本。
 
-Modifiers
----------
 
 修改器
-------
+-------------
 
 Sometimes it is useful for a function to modify the objects it gets as
 parameters. In that case, the changes are visible to the caller.
@@ -369,7 +303,7 @@ the investment of writing the conversion functions (``time_to_int`` and
 ``int_to_time``), we get a program that is shorter, easier to read and
 debug, and more reliable.
 
-但如果我们意识到把时间当作60进制，并预先做好编写转换函数（ ``time_to_int`` 
+但如果我们意识到把时间当作60进制，并预先做好编写转换函数（ ``time_to_int``
 和 ``int_to_time`` ）的投入，我们就能获得一个更短、更易读、更可靠的程序。
 
 It is also easier to add features later. For example, imagine
