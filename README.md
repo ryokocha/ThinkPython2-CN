@@ -21,8 +21,8 @@
 | [第十二章](./source/12-tuples.rst)     | [@SeikaScarlet](https://github.com/SeikaScarlet)     | 完成 | 完成 | TeX |
 | [第十三章 ](./source/13-case-study-data-structure-selection.rst)    |  [@ipyher](https://github.com/iphyer)  |  完成 | 完成 | TeX |
 | [第十四章](./source/14-files.rst)     |  [@obserthinker](https://github.com/obserthinker)    | 完成 | 完成 |  |
-| [第十五章](./source/15-classes-and-objects.rst)     |   [@ipyher](https://github.com/iphyer)    | 完成 |  |  |
-| [第十六章](./source/16-classes-and-functions.rst)     | [@cxyfreedom](https://github.com/cxyfreedom)     | 完成 |  |  |
+| [第十五章](./source/15-classes-and-objects.rst)     |   [@ipyher](https://github.com/iphyer)    | 完成 |  完成 |  |
+| [第十六章](./source/16-classes-and-functions.rst)     | [@cxyfreedom](https://github.com/cxyfreedom)     | 完成 | 完成 |  |
 | [第十七章](./source/17-classes-and-methods.rst)     | [@bingjin](https://github.com/bingjin)      | |  |  |
 | [第十八章](./source/18-inheritance.rst)     | [@bingjin](https://github.com/bingjin)     | |  |  |
 | [第十九章](./source/19-the-goodies.rst)     | [@bingjin](https://github.com/bingjin)     | |  |  |
