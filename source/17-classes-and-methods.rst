@@ -1,62 +1,40 @@
-Classes and methods
+第十七章：类和方法
 ===================
 
-Although we are using some of Python’s object-oriented features, the
-programs from the last two chapters are not really object-oriented
-because they don’t represent the relationships between
-programmer-defined types and the functions that operate on them. The
-next step is to transform those functions into methods that make the
-relationships explicit.
+虽然我们已经在使用部分 Python 面向对象的特性，前两个章节中的程序并不是真正面向对象的，
+因为它们没有呈现出程序员自定义类型与对其进行操作的函数（functions）之间的关系。
+下一步，我们将会把这些函数转换成明显突出这一关系的方法（methods）。
 
-Code examples from this chapter are available from
-http://thinkpython2.com/code/Time2.py, and solutions to the exercises
-are in http://thinkpython2.com/code/Point2_soln.py.
+本章代码可以从\ http://thinkpython2.com/code/Time2.py \ 获取，
+练习题的答案位于\ http://thinkpython2.com/code/Point2_soln.py \ 。
 
-Object-oriented features
+
+面向对象的特性
 ------------------------
 
-Python is an **object-oriented programming language**, which means that
-it provides features that support object-oriented programming, which has
-these defining characteristics:
+Python 是一门**面向对象的编程语言**，这意味它提供了能够支持面向对象编程的特性。
+面向对象编程具有以下特征：
 
--  Programs include class and method definitions.
+- 程序包含类和方法定义。
 
--  Most of the computation is expressed in terms of operations on
-   objects.
+- 大部分计算以对象上的操作表示。
 
--  Objects often represent things in the real world, and methods often
-   correspond to the ways things in the real world interact.
+- 对象通常代表现实世界的物体，方法对应现实世界中物体交互的方式。
 
-For example, the Time class defined in Chapter [time] corresponds to the
-way people record the time of day, and the functions we defined
-correspond to the kinds of things people do with times. Similarly, the
-Point and Rectangle classes in Chapter [clobjects] correspond to the
-mathematical concepts of a point and a rectangle.
+例如，第16章中定义的 ``Time`` 类对应人们用来记录一天中的时间，其中定义的各种函数对应人们使用时间的方式。类似的，第15章中的 ``Point`` 类和 ``Rectangle`` 类对应数学中点和矩形的概念。
 
-So far, we have not taken advantage of the features Python provides to
-support object-oriented programming. These features are not strictly
-necessary; most of them provide alternative syntax for things we have
-already done. But in many cases, the alternative is more concise and
-more accurately conveys the structure of the program.
+到目前为止，我们还没有利用Python提供的支持面向对象编程的特性。这些特性严格来说并不是必须的；大部分提供的是我们已经实现的功能的替代语法。但在很多情况下，这些替代语法更加简洁，更准确地表达了程序的结构。
 
-For example, in Time1.py there is no obvious connection between the
-class definition and the function definitions that follow. With some
-examination, it is apparent that every function takes at least one Time
-object as an argument.
+例如，在 ``Time1.py`` 中，类定义与之后的函数定义之间没有明显的联系。仔细检查之后，才会发现每个函数都至少接受一个 ``Time`` 对象作为参数。
 
-This observation is the motivation for **methods**; a method is a
-function that is associated with a particular class. We have seen
-methods for strings, lists, dictionaries and tuples. In this chapter, we
-will define methods for programmer-defined types.
+从这个观察中我们发现了\ **方法**\ ；方法是一个与特定的类相关联的函数。我们已经接触了字符串、列表、字典和元组的方法。在这章中，我们将会定义程序员自定义类型的方法。
 
-Methods are semantically the same as functions, but there are two
-syntactic differences:
+方法和函数的语义相同，但是有两处句法的不同：
 
--  Methods are defined inside a class definition in order to make the
-   relationship between the class and the method explicit.
+-  方法在一个类定义内部声明，为的是显示地与类进行关联。
 
--  The syntax for invoking a method is different from the syntax for
-   calling a function.
+-  调用方法的语法和调用函数的语法不同。
+
 
 In the next few sections, we will take the functions from the previous
 two chapters and transform them into methods. This transformation is
@@ -64,11 +42,14 @@ purely mechanical; you can do it by following a sequence of steps. If
 you are comfortable converting from one form to another, you will be
 able to choose the best form for whatever you are doing.
 
-Printing objects
+
+在接下来的几节中，我们会把前面两章中的函数转化为方法。这个转化是纯机械式的；你可以通
+过一系列步骤完成。如果你能够轻松地将一种形式转换成另一种形式，就可以选择最适合目前需求的形式。
+
+打印对象
 ----------------
 
-In Chapter [time], we defined a class named Time and in
-Section [isafter], you wrote a function named ``print_time``:
+在第16章中，我们定义了一个名叫 ``Time`` 的类，在\ :ref:`isafter`\ 一节中，你编写了一个叫做 ``print_time`` 的函数：
 
 ::
 
@@ -78,7 +59,7 @@ Section [isafter], you wrote a function named ``print_time``:
     def print_time(time):
         print('%.2d:%.2d:%.2d' % (time.hour, time.minute, time.second))
 
-To call this function, you have to pass a Time object as an argument:
+想要调用这个函数，你必须把一个 ``Time`` 对象作为一个参数传递给函数。
 
 ::
 
@@ -89,9 +70,8 @@ To call this function, you have to pass a Time object as an argument:
     >>> print_time(start)
     09:45:00
 
-To make ``print_time`` a method, all we have to do is move the function
-definition inside the class definition. Notice the change in
-indentation.
+将 ``print_time``` 变成一个方法，我们只需要将函数定义移到类定义里面即可。注意缩进
+的变化。
 
 ::
 
@@ -102,6 +82,8 @@ indentation.
 Now there are two ways to call ``print_time``. The first (and less
 common) way is to use function syntax:
 
+现在有两种方法可以调用\ ``print_time``\ 。第一种（也是不常用的）是使用函数的语法：
+
 ::
 
     >>> Time.print_time(start)
@@ -111,24 +93,22 @@ In this use of dot notation, Time is the name of the class, and
 ``print_time`` is the name of the method. start is passed as a
 parameter.
 
-The second (and more concise) way is to use method syntax:
+在这个点标记法的用法中，``Time`` 是类的名字，\ ``print_time``\ 是方法的名字。``start`` 是传递的参数。
+
+第二种语法（也更简洁）是使用方法语法：
 
 ::
 
     >>> start.print_time()
     09:45:00
 
-In this use of dot notation, ``print_time`` is the name of the method
-(again), and start is the object the method is invoked on, which is
-called the **subject**. Just as the subject of a sentence is what the
-sentence is about, the subject of a method invocation is what the method
-is about.
+在这个点标记法的用法中，\ ``print_time``\ 是方法的名称，然后 ``start`` 是调用方法的对象
+，被称为主语（\ **subject**\ ）。就像一个句子的主语是句子的核心，方法的主语也是方
+法作用的主要对象。
 
-Inside the method, the subject is assigned to the first parameter, so in
-this case start is assigned to time.
+在方法中，主语被赋值为第一个参数，所以在这里 ``start`` 被赋值给 ``time`` 上了。
 
-By convention, the first parameter of a method is called self, so it
-would be more common to write ``print_time`` like this:
+根据约定，方法的第一个参数写作 ``self`` ，所以\ ``print_time``\ 写成这样更常见：
 
 ::
 
@@ -136,32 +116,23 @@ would be more common to write ``print_time`` like this:
         def print_time(self):
             print('%.2d:%.2d:%.2d' % (self.hour, self.minute, self.second))
 
-The reason for this convention is an implicit metaphor:
+使用该约定原因在于一种暗喻：
 
--  The syntax for a function call, ``print_time(start)``, suggests that
-   the function is the active agent. It says something like, “Hey
-   ``print_time``! Here’s an object for you to print.”
+-  在函数调用的语法中，\ ``print_time(start)``\ 表示函数是一个活跃的代理。就像是在
+   说“Hi, ``print_time``! 这有一个对象需要你打印”。
 
--  In object-oriented programming, the objects are the active agents. A
-   method invocation like ``start.print_time()`` says “Hey start! Please
-   print yourself.”
+-  在面向对象编程中，对象是活跃的代理。一个类似\ ``start.print_time()``\ 的方法
+   调用，就像是在说“Hi start! 请打印你自己”。
 
-This change in perspective might be more polite, but it is not obvious
-that it is useful. In the examples we have seen so far, it may not be.
-But sometimes shifting responsibility from the functions onto the
-objects makes it possible to write more versatile functions (or
-methods), and makes it easier to maintain and reuse code.
+视角的转换似乎语气更文雅些了，但很难看出其好处。在前面的例子中，的确如此。
+但是将职责从函数上面转移到对象上，可以更加容易地写出多样化的函数（或方法），并且代码将更加容易维护和复用。
 
-As an exercise, rewrite ``time_to_int`` (from Section [prototype]) as a
-method. You might be tempted to rewrite ``int_to_time`` as a method,
-too, but that doesn’t really make sense because there would be no object
-to invoke it on.
+我们做个练习，将 ``time_to_int`` （见 \ :ref:`prototype`\ ）重写为方法。你或许也想将 ``int_to_time`` 改写为方法，但是那样做并没有什么意义，因为没有调用它的对象。
 
-Another example
+再举一例
 ---------------
 
-Here’s a version of increment (from Section [increment]) rewritten as a
-method:
+下面是 ``increment`` （见 \ :ref:`increment`\ ）改写为方法后的代码版本：
 
 ::
 
@@ -171,10 +142,9 @@ method:
             seconds += self.time_to_int()
             return int_to_time(seconds)
 
-This version assumes that ``time_to_int`` is written as a method. Also,
-note that it is a pure function, not a modifier.
+这个版本假设\ ``time_to_int``\ 已经改成了方法。另外，注意这是一个纯函数，不是修改器。
 
-Here’s how you would invoke increment:
+下面是调用 ``increment`` 的方法：
 
 ::
 
