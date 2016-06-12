@@ -687,7 +687,7 @@ constant time, so let's move on.
 但是在列表中间插入一个新的项是线性的， 因此这可能不是最好的选择。
 有其它的数据结构（见：\href{http://en.wikipedia.org/wiki/Red-black_tree}{维基百科}）
 能在 对数级 时间内实现 \li{add} 和 \li{get}，但是这仍然不如常数时间好，
-因此让我们继续。
+那么我们继续。
 \index{red-black tree}
 
 One way to improve {\tt LinearMap} is to break the list of key-value
@@ -697,9 +697,9 @@ in a second, the order of growth for {\tt get} is still linear,
 but {\tt BetterMap} is a step on the path toward hashtables:
 \index{BetterMap@{\tt BetterMap}}
 
-一种实现 \li{LinearMap} 的方法是将关键字-值对的列表分成小列表。
-这是一个被称作 \li{BetterMap} 的更好的实现，其是 100 个 \li{LinearMaps} 的列表。
-正如一会我们要看到的，\li{get} 的增长阶数仍然是线性的，
+另一种改良 \li{LinearMap} 的方法是 将 关键字-值 对的列表分成小列表。
+这是一个被称作 \li{BetterMap} 的更好的实现，它是 100 个 \li{LinearMaps} 的列表。
+正如一会儿我们将看到的，\li{get} 的增长阶数仍然是线性的，
 但是 \li{BetterMap} 是迈向哈希表的一步。
 
 \begin{lstlisting}
