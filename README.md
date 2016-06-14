@@ -5,19 +5,19 @@
 希望参与翻译的朋友，请提PR，直接在下面的表格中对应的章节（还未注明译者的章节）处加上自己的名字及Github主页链接。
 
 | 章节 | 译者 | 翻译进度 | 校对进度 | PDF进度 |
-|------|------| ------ | -------- | ------ | 
+|------|------| ------ | -------- | ------ |
 | [前言](./source/00-preface.rst) | [@bingjin](https://github.com/bingjin) | 完成 | 完成 | 完成 |
 | [第一章](./source/01-the-way-of-the-program.rst)     | [@bingjin](https://github.com/bingjin)  | 完成 | 完成 | 完成 |
 | [第二章](./source/02-variables-expressions-and-statements.rst)     | [@bingjin](https://github.com/bingjin)  | 完成 | 完成 | 完成 |
 | [第三章](./source/03-functions.rst)     | [@bingjin](https://github.com/bingjin)  | 完成 | 完成 | 完成 |
 | [第四章](./source/04-case-study-interface-design.rst)     | [@bingjin](https://github.com/bingjin)  | 完成 | 完成 | TeX |
 | [第五章](./source/05-conditionals-and-recursion.rst)     | [@ipyher](https://github.com/iphyer)    |完成 | 完成 | 完成 |
-| [第六章](./source/06-fruitful-functions.rst)     |   [@theJian](https://github.com/thejian)   | 完成 | 完成 | TeX |
-| [第七章](./source/07-iteration.rst)     | [@lroolle](https://github.com/lroolle)    | 完成 | 完成 | TeX |
-| [第八章](./source/08-strings.rst)     | [@xpgeng](https://github.com/xpgeng)    | 完成 | 完成 | TeX |
+| [第六章](./source/06-fruitful-functions.rst)     |   [@theJian](https://github.com/thejian)   | 完成 | 完成 | 完成 |
+| [第七章](./source/07-iteration.rst)     | [@lroolle](https://github.com/lroolle)    | 完成 | 完成 | 完成 |
+| [第八章](./source/08-strings.rst)     | [@xpgeng](https://github.com/xpgeng)    | 完成 | 完成 | 完成 |
 | [第九章](./source/09-case-study-word-play.rst)     | [@ipyher](https://github.com/iphyer)    | 完成 | 完成 | TeX |
-| [第十章](./source/10-lists.rst)     | [@obserthinker](https://github.com/obserthinker)     |完成 | 完成 | TeX |
-| [第十一章](./source/11-dictionaries.rst)     |   [@theJian](https://github.com/thejian)   | 完成 | 完成 | TeX |
+| [第十章](./source/10-lists.rst)     | [@obserthinker](https://github.com/obserthinker)     |完成 | 完成 | 完成 |
+| [第十一章](./source/11-dictionaries.rst)     |   [@theJian](https://github.com/thejian)   | 完成 | 完成 | 完成 |
 | [第十二章](./source/12-tuples.rst)     | [@SeikaScarlet](https://github.com/SeikaScarlet)     | 完成 | 完成 | TeX |
 | [第十三章 ](./source/13-case-study-data-structure-selection.rst)    |  [@ipyher](https://github.com/iphyer)  |  完成 | 完成 | TeX |
 | [第十四章](./source/14-files.rst)     |  [@obserthinker](https://github.com/obserthinker)    | 完成 | 完成 | TeX |
@@ -82,7 +82,7 @@
 
 ## TeX-PDF 放送计划
 
-如果您喜欢在 [```PDF```](https://github.com/bingjin/ThinkPython2-CN/blob/master/book/book_cn.pdf) 上阅读本书，或基于个人学习目的印刷纸质本，可以关注或参与本书的 [```TeX-PDF```](https://github.com/bingjin/ThinkPython2-CN/tree/master/book) 版本计划。  本书 PDF 旨在以精美的编排 ```(1)``` 原汁原味还原阅读书本的乐趣，同时 ```(2)``` 尽可能多的利用 TeX 提供的 索引、 链接、 脚注 等功能 方便读者阅读。 
+如果您喜欢在 [```PDF```](https://github.com/bingjin/ThinkPython2-CN/blob/master/book/book_cn.pdf) 上阅读本书，或基于个人学习目的印刷纸质本，可以关注或参与本书的 [```TeX-PDF```](https://github.com/bingjin/ThinkPython2-CN/tree/master/book) 版本计划。  本书 PDF 旨在以精美的编排 ```(1)``` 原汁原味还原阅读书本的乐趣，同时 ```(2)``` 尽可能多的利用 TeX 提供的 索引、 链接、 脚注 等功能 方便读者阅读。
 
 ## 支持本书的翻译计划
 
