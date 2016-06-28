@@ -34,7 +34,7 @@
 习题13-2
 ^^^^^^^^^^^^
 
-前往古腾堡项目（\ `gutenberg.org <gutenberg.org>`__\ ），以纯文本格式下载你喜欢的已无版权保护的图书。
+前往古腾堡项目（http://gutenberg.org），以纯文本格式下载你喜欢的已无版权保护的图书。
 
 修改前面习题的程序，读取你下载的书，
 跳过文件开始的头部信息，像之前那样处理其余的单词。
@@ -53,7 +53,7 @@
 ^^^^^^^^^^^^^
 
 修改上一个习题中的程序，读取一个单词列表（见\ :ref:`wordlist`\ 一节），
-然后打印书中所有没有出现在该单词表中的单词。 
+然后打印书中所有没有出现在该单词表中的单词。
 它们中有多少是拼写错误的？有多少是词表中 *应该* 包括的常用词？有多少是生僻词？
 
 随机数
@@ -146,7 +146,7 @@
 
     def process_line(line, hist):
         line = line.replace('-', ' ')
-        
+
         for word in line.split():
             word = word.strip(string.punctuation + string.whitespace)
             word = word.lower()
@@ -318,7 +318,7 @@ value）**\ 是10。
 ::
 
     Words in the book that aren't in the word list:
-    rencontre jane's blanche woodhouses disingenuousness 
+    rencontre jane's blanche woodhouses disingenuousness
     friend's venice apartment ...
 
 这些单词中，一些是名字和名词所有格。如“rencontre”这样的其他单词已经不常使用了。
@@ -439,10 +439,10 @@ bee”则可能跟着“has”或者“is”。
        amused, at such a stroke. She had never thought of Hannah till
        you were never meant for me?“ ”I cannot make speeches, Emma:" he
        soon cut it all himself.
-   
+
    在此例中，我保留了附在词后面的标点符号。从语法上看，结果几乎是正确的，但不完全。
    语义上讲，它几乎有意义，但也不完全。
-   
+
    如果你增加前缀的长度，会发生什么？随机文本更有意义是么？
 
 
@@ -532,7 +532,7 @@ Programming》* 一书中的示例。
 在调试一个程序的时候，特别是调试一个很难的错误时，应该做到以下五点：
 
 细读：
-    
+
     检查你的代码，仔细地阅读，并且检查是否实现了你的期望。
 
 运行：
@@ -542,7 +542,7 @@ Programming》* 一书中的示例。
     问题会变得很明显，但是有时你不得不搭建一些脚手架。
 
 思考：
-    
+
     花些时间思考！错误的类型是什么：语法、运行时、语义？
     你从错误信息或者程序的输出中能获得什么信息？
     什么类型的错误能引起你看到的问题？问题出现前，你最后的修改是什么？
@@ -555,7 +555,7 @@ Programming》* 一书中的示例。
     debugging**)的由来。这可不是我编造的，你可以看看这个维基页面： https://en.wikipedia.org/wiki/Rubber_duck_debugging 。
 
 回退：
-    
+
     有时候，最好的做法是回退，撤销最近的修改，
     直到你回到一个能运行并且你能理解的程序。然后你可以开始重建。
 
@@ -589,11 +589,11 @@ Programming》* 一书中的示例。
 
 术语表
 ---------------
-    
+
 确定性的（deterministic）：
 
     指的是给定相同的输入，一个程序每次运行的结果是一样的。
-    
+
 伪随机（pseudorandom）：
 
     指的是一串数字看上去是随机的，但是实际是由一个确定性程序生成的。
@@ -601,15 +601,15 @@ Programming》* 一书中的示例。
 默认值：
 
     没有提供实参时，赋给可选形参的值。
-    
+
 覆盖：
 
     用实参替代默认值。
-    
+
 基准测试（benchmarking）：
-    
+
     通过可能的输入样本对使用不同数据结构的实现进行测试，从而选择数据结构的过程。
-    
+
 小黄鸭调试法（rubberducking）：
 
     通过向小黄鸭这样的非生物体解释你的问题来进行调试。

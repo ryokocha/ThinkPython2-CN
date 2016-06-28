@@ -221,7 +221,7 @@ Jack、Kack、Lack、Mack、Nack、Ouack、Pack和Quack。此循环按顺序输�
 
 上面的示例中，我们将一个新的首字母拼接到 ``greeting`` 的一个切片上。它不影响原字符串。
 
-.. _search:
+.. _search1:
 
 搜索
 ---------
@@ -248,7 +248,7 @@ Jack、Kack、Lack、Mack、Nack、Ouack、Pack和Quack。此循环按顺序输�
 
 这种计算模式——遍历一个序列并在找到寻找的东西时返回——被称作 **搜索(search)** 。
 
-我们做个练习，修改 ``find``函数使得它接受第三个参数，即从何处开始搜索的索引。
+我们做个练习，修改 ``find`` 函数使得它接受第三个参数，即从何处开始搜索的索引。
 
 .. _counter:
 

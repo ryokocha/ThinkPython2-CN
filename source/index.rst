@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-《Think Python 2e》最新版中文翻译
+《Think Python 2e》中文版
 ========================================================================
 
 Contents:
@@ -34,13 +34,10 @@ Contents:
    19-the-goodies
    20-debugging
    21-analysis-of-algorithms
-   
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+.. Indices and tables
+   ==================
+   * :ref:`genindex`
+   * :ref:`modindex`
+   * :ref:`search`

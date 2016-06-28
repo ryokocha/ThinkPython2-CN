@@ -32,7 +32,8 @@ import os
 extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
-    'sphinx.ext.mathjax',
+    # 'sphinx.ext.mathjax',
+    'sphinx.ext.imgmath',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
 ]
@@ -52,17 +53,17 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = '《Think Python 2e》中译本'
+project = u'《Think Python 2e》中译本'
 copyright = '2016, EarlGrey et.al'
 author = 'Allen Downey'
-translator = 'EarlGrey'
+translator = 'EarlGrey et al'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = '持续更新中'
+version = '1.0'
 # The full version, including alpha/beta/rc tags.
 release = '1.0'
 
@@ -99,7 +100,7 @@ exclude_patterns = []
 #show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = 'tango'
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
@@ -211,29 +212,44 @@ html_use_smartypants = True
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = '《Think Python 2ed》中译本'
+htmlhelp_basename = u'《Think Python 2e》中译本'
 
 # -- Options for LaTeX output ---------------------------------------------
 
 latex_elements = {
+
 # The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+'papersize': 'letterpaper',
 
 # The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+'pointsize': '12pt',
+'babel':'',   #必須
+
+'inputenc':'', #必須
+
+'utf8extra':'', #必須
 
 # Additional stuff for the LaTeX preamble.
-#'preamble': '',
-
+'preamble': '''
+\usepackage{xeCJK}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\setCJKmainfont{WenQuanYi Zen Hei}
+\setCJKmonofont[Scale=0.9]{WenQuanYi Zen Hei Mono}
+\setCJKfamilyfont{song}{WenQuanYi Zen Hei}
+\setCJKfamilyfont{sf}{WenQuanYi Zen Hei}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+''',
 # Latex figure (float) alignment
-#'figure_align': 'htbp',
+'figure_align': 'htbp',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ThinkPython2ndEditionChineseTranslation.tex', 'Think Python 2nd Edition Chinese Translation Documentation',
+    (master_doc, 'ThinkPython2e.tex', 'ThinkPython2e中译版 ',
      'Allen Downey', 'manual'),
 ]
 
@@ -263,7 +279,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'thinkpython2ndeditionchinesetranslation', 'Think Python 2nd Edition Chinese Translation Documentation',
+    (master_doc, 'thinkpython2e-cn', u'Think Python 2e中文版',
      [author], 1)
 ]
 
@@ -277,8 +293,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'ThinkPython2ndEditionChineseTranslation', 'Think Python 2nd Edition Chinese Translation Documentation',
-     author, 'ThinkPython2ndEditionChineseTranslation', 'One line description of project.',
+    (master_doc, 'thinkpython2e-cn', u'Think Python 2e中文版',
+     author, 'thinkpython2e-cn', 'One line description of project.',
      'Miscellaneous'),
 ]
 
@@ -300,7 +316,7 @@ texinfo_documents = [
 # Bibliographic Dublin Core info.
 epub_title = project
 epub_author = author
-epub_publisher = author
+epub_publisher = translator
 epub_copyright = copyright
 
 # The basename for the epub file. It defaults to the project name.
@@ -317,17 +333,17 @@ epub_copyright = copyright
 #epub_language = ''
 
 # The scheme of the identifier. Typical schemes are ISBN or URL.
-#epub_scheme = ''
+epub_scheme = 'URL'
 
 # The unique identifier of the text. This can be a ISBN number
 # or the project homepage.
-#epub_identifier = ''
+epub_identifier = 'http://codingpy.com/books/thinkpython2/'
 
 # A unique identification for the text.
-#epub_uid = ''
+epub_uid = 'Think Python 2e'
 
 # A tuple containing the cover image and cover page html template filenames.
-#epub_cover = ()
+epub_cover = ('cover.jpg', '')
 
 # A sequence of (type, uri, title) tuples for the guide element of content.opf.
 #epub_guide = ()
@@ -359,7 +375,10 @@ epub_exclude_files = ['search.html']
 #epub_max_image_width = 0
 
 # How to display URL addresses: 'footnote', 'no', or 'inline'.
-#epub_show_urls = 'inline'
+epub_show_urls = 'no'
 
 # If false, no index is generated.
 #epub_use_index = True
+
+epub3_page_progression_direction = 'default'
+
