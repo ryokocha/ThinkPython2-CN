@@ -3,7 +3,7 @@
 
 我是一名自学Python的编程爱好者。之所以说是爱好者，是因为我不是计算机专业毕业的。我的第一个单位是一家媒体，因为工作关系对当时新闻界流行的数据视觉化十分感兴趣，从《鲜活的数据》一书中了解到Python编程语言。而我使用的第一本教材，就是Allen Downey的《Think Python》，副标题叫“如何像计算机科学家一样思考”。
 
-后来，我到了一家互联网公司，接触运营工作。我也利用业余时间开发出了自己的网站——[编程派](http://codingpy.com)，而网站的定位就是专注Python编程，这也是网站名称和网站域名的由来：“编程派”中的“派”字，取自Python前两个字母的发音；codingpy，则是coding python的缩略。了解Python的朋友都知道，Python脚本的默认文件名后缀就是`.py`。
+后来，我到了一家互联网公司，接触运营工作。我也利用业余时间开发出了自己的网站——\ `编程派 <http://codingpy.com>`_\ ，而网站的定位就是专注Python编程，这也是网站名称和网站域名的由来：“编程派”中的“派”字，取自Python前两个字母的发音；codingpy，则是coding python的缩略。了解Python的朋友都知道，Python脚本的默认文件名后缀就是`.py`。
 
 搭建“编程派”网站（后来还开通了“编程派”微信订阅号和今日头条号）的目的，就是为了能够让更多的人了解Python语言，更快地获取国外的Python教程和资源，一起交流、学习Python。因为我相信，每个人都值得学习一点编程知识，而在我看来，最好的入门语言就是Python。
 
@@ -36,20 +36,6 @@
 
 所以，我们需要Python 3版的《Think Python》。
 
-（另外一个原因，当然是因为Python 2版的已经有中译本，而且已经出版啦。。。本书在翻译过程中，会参考[车万翔老师组织翻译的Python 2版](https://github.com/carfly/thinkpython-cn)。）
-
-微信放送计划
---------------------
-
-本书最新版一共21章，我目前的计划是一周放送两章（视章节长短和翻译进度进行调整），尽量不将时间拖得太长。所有译文将在微信公众号首发。
-
-微信放送安排如下：
-
-- 周三早10点放送一个章节
-- 周六早10点再放送下一章
-
-中间会穿插一些其他的Python教程和资源推送。如果大家希望能在微信群交流学习心得 ，可以加我的个人微信号，说明希望加群交流。
-
 支持本书的翻译计划
 ---------------------
 
@@ -59,25 +45,8 @@
 
 当然，如果你愿意的话，你还可以扫描下面的二维码，让我能够一边翻书一边喝咖啡的。O(∩_∩)O~
 
-![赞助编程派的翻译计划](http://ww1.sinaimg.cn/mw690/006faQNTgw1f1g1gf903aj308w0ai74q.jpg)
-
-加入本书的翻译
------------------------
-
-已经有两位同学表示愿意加入本书的翻译工作，其他希望加入的同学可以fork该repo，并提交issue说明希望负责哪几章。你可以在所负责章节一开头处，注明你在Gitub的ID和链接。
-
-本书翻译完成后，我会将最终的文档托管在[编程派网站](http://codingpy.com)，并提供PDF等其他格式的分享链接。
 
 贡献者
 -------------------
 
-To be added。
 
-声明
-------------------
-
-本书的原作是一本自由书籍（Free Book），以知识共享协议（[Creative Commons Attribution-NonCommercial 3.0 Unported License](https://creativecommons.org/licenses/by-nc/3.0/us/)）发布。因此，该中译版将以同样的协议发布，不会用于商业用途。你可以自由分享、修改、复制该中译版，但请不要用于商业用途。
-
-此书原著版权归[Allen Downey](http://greenteapress.com/wp/think-python-2e/)所有，原作链接如下：[https://github.com/AllenDowney/ThinkPython2](https://github.com/AllenDowney/ThinkPython2)。
-
-该中译版在翻译过程中，将参考车万翔老师组织翻译的Python 2版：[https://github.com/carfly/thinkpython-cn](https://github.com/carfly/thinkpython-cn)。
