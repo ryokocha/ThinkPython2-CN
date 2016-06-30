@@ -61,7 +61,7 @@ greater than 0; otherwise it gets NaN”（如果 x 大于 0，y 的值则是 x 
 
         def __init__(self, name, contents=None):
             self.name = name
-            self.pouch_contents = [] if contents == None else contents 
+            self.pouch_contents = [] if contents == None else contents
 
 一般来说，如果条件语句的两个分支中均为简单的表达式，不是被返回就是被赋值给相同的变量，那么你可以用条件表达式替换调该条件语句。
 
@@ -172,7 +172,7 @@ Python提供了一个内建函数 ``any``，它接受一个布尔值序列，如
     >>> any(letter == 't' for letter in 'monty')
     True
 
-上面这个例子不是很有用，因为它的功能和 in 操作符一样。但是我们可以使用 ``any`` 重写\ :ref:`search`\ 一节中的部分搜索函数。例如，我们可以像这样编写 ``avoids`` 函数：
+上面这个例子不是很有用，因为它的功能和 in 操作符一样。但是我们可以使用 ``any`` 重写\ :ref:`search2`\ 一节中的部分搜索函数。例如，我们可以像这样编写 ``avoids`` 函数：
 
 ::
 
@@ -184,7 +184,7 @@ are not any forbidden letters in word.”（如果某个词中没有任何禁用
 
 将 ``any`` 与生成器表达式结合使用的效率较高，因为它只要一遇到真值就会终止，所以不会对整个序列进行计算。
 
-Python还提供了另一个内建函数 ``all``，如果序列中的每个元素均为 ``True`` 才会返回 ``True`` 。我们做个练习，使用 ``all`` 重写\ :ref:`search`\ 一节中 ``uses_all`` 函数。
+Python还提供了另一个内建函数 ``all``，如果序列中的每个元素均为 ``True`` 才会返回 ``True`` 。我们做个练习，使用 ``all`` 重写\ :ref:`search2`\ 一节中 ``uses_all`` 函数。
 
 
 集合
@@ -242,7 +242,7 @@ Python提供了另一个叫做集合的内建类型，它的行为类似没有�
 ::
 
     def uses_only(word, available):
-        for letter in word: 
+        for letter in word:
             if letter not in available:
                 return False
         return True
@@ -254,7 +254,7 @@ Python提供了另一个叫做集合的内建类型，它的行为类似没有�
     def uses_only(word, available):
         return set(word) <= set(available)
 
-操作符  ``<=``  检查某个集合是否是另一个集合的子集或本身，包括了二者相等的可能性。如果 ``word`` 中所有的字符都出现在 ``available`` 中，则返回 ``True`` 。  
+操作符  ``<=``  检查某个集合是否是另一个集合的子集或本身，包括了二者相等的可能性。如果 ``word`` 中所有的字符都出现在 ``available`` 中，则返回 ``True`` 。
 
 接下来做个练习，使用集合重写 ``avoids`` 函数。
 
@@ -506,7 +506,7 @@ init 方法将实参赋值给你提供的属性。str 方法打印 ``Point`` 对
 --------
 
 条件表达式（conditional expression）：
-    
+
     根据条件在两个值中二选一的表达式。
 
 列表推导式（list comprehension）：
