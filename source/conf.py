@@ -43,8 +43,13 @@ templates_path = ['_templates']
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
-# source_suffix = ['.rst', '.md']
-source_suffix = '.rst'
+from recommonmark.parser import CommonMarkParser
+
+source_parsers = {
+    '.md': CommonMarkParser,
+}
+
+source_suffix = ['.rst', '.md']
 
 # The encoding of source files.
 #source_encoding = 'utf-8-sig'
@@ -63,7 +68,7 @@ translator = 'EarlGrey et al'
 # built documents.
 #
 # The short X.Y version.
-version = '1.0'
+version = ''
 # The full version, including alpha/beta/rc tags.
 release = '1.0'
 
@@ -216,46 +221,38 @@ htmlhelp_basename = u'《Think Python 2e》中译本'
 
 # -- Options for LaTeX output ---------------------------------------------
 
+f = open('latexonly.tex', 'r+');
+PREAMBLE = f.read();
+
 latex_elements = {
-
-# The paper size ('letterpaper' or 'a4paper').
-'papersize': 'letterpaper',
-
-# The font size ('10pt', '11pt' or '12pt').
-'pointsize': '12pt',
-'babel':'',   #必須
-
-'inputenc':'', #必須
-
-'utf8extra':'', #必須
-
-# Additional stuff for the LaTeX preamble.
-'preamble': '''
-\usepackage{xeCJK}
-\usepackage{indentfirst}
-\setlength{\parindent}{2em}
-\setCJKmainfont{WenQuanYi Zen Hei}
-\setCJKmonofont[Scale=0.9]{WenQuanYi Zen Hei Mono}
-\setCJKfamilyfont{song}{WenQuanYi Zen Hei}
-\setCJKfamilyfont{sf}{WenQuanYi Zen Hei}
-\XeTeXlinebreaklocale "zh"
-\XeTeXlinebreakskip = 0pt plus 1pt
-''',
-# Latex figure (float) alignment
-'figure_align': 'htbp',
+    # The paper size ('letterpaper' or 'a4paper').
+    'papersize': 'letterpaper',
+    'pointsize': '10pt',
+    'babel':'',   #必須
+    'inputenc':'', #必須
+    'utf8extra':'', #必須
+    'fncychap':'\\usepackage[Sonny]{fncychap}',
+    'releasename': "",
+    'printindex': '',
+    'maketitle': '',
+    'fontpkg': '',
+    # Additional stuff for the LaTeX preamble.
+    'preamble': PREAMBLE,
+    # Latex figure (float) alignment
+    'figure_align': 'htbp',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ThinkPython2e.tex', 'ThinkPython2e中译版 ',
-     'Allen Downey', 'manual'),
+    (master_doc, 'ThinkPython2e.tex', 'Think Python 2e 中译版 ',
+     'Allen Downey', 'book'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-#latex_logo = None
+latex_logo = 'cover.jpg'
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
