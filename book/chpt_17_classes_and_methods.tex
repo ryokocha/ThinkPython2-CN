@@ -1,159 +1,218 @@
 
 
-\chapter{Classes and methods}
+%🍁% \chapter{Classes and methods}
+\chapter{类和方法}
 
-Although we are using some of Python's object-oriented features,
-the programs from the last two chapters are not really
-object-oriented because they don't represent the relationships
-between programmer-defined types and the functions that operate
-on them.  The next step is to transform those functions into
-methods that make the relationships explicit.
+%🍁% Although we are using some of Python's object-oriented features,
+%🍁% the programs from the last two chapters are not really
+%🍁% object-oriented because they don't represent the relationships
+%🍁% between programmer-defined types and the functions that operate
+%🍁% on them.  The next step is to transform those functions into
+%🍁% methods that make the relationships explicit.
 
-Code examples from this chapter are available from
-\url{http://thinkpython2.com/code/Time2.py}, and solutions
-to the exercises are in \url{http://thinkpython2.com/code/Point2_soln.py}.
+虽然我们已经在使用部分 Python 向对象的特性，
+前两个章节中的程序并不是真正面向对象的，
+因为它们没有呈现出程序员自定义类型与对其进行操作的函数 (functions) 之间的关系。
+下一步，我们将会把这些函数转换成明显突出这一关系的方法 (methods)。
 
 
-\section{Object-oriented features}
-\index{object-oriented programming}
+%🍁% Code examples from this chapter are available from
+%🍁% \url{http://thinkpython2.com/code/Time2.py}, and solutions
+%🍁% to the exercises are in \url{http://thinkpython2.com/code/Point2_soln.py}.
 
-Python is an {\bf object-oriented programming language}, which means
-that it provides features that support object-oriented
-programming, which has these defining characteristics:
+本章代码可以从 \href{http://thinkpython2.com/code/Time2.py}{这里} 获取，
+练习题的答案位于\href{http://thinkpython2.com/code/Point2_soln.py}{此处} 。
+
+
+%🍁% \section{Object-oriented features}
+\section{面向对象的特性}
+\index{object-oriented programming}  \index{面向对象编程}
+
+%🍁% Python is an {\bf object-oriented programming language}, which means
+%🍁% that it provides features that support object-oriented
+%🍁% programming, which has these defining characteristics:
+
+Python 是一门 {\em 面向对象的编程语言}，
+这意味它提供了能够支持面向对象编程的特性。
+面向对象编程具有以下特征：
+
+%🍁% \begin{itemize}
+%🍁%
+%🍁% \item Programs include class and method definitions.
+%🍁%
+%🍁% \item Most of the computation is expressed in terms of operations on
+%🍁%   objects.
+%🍁%
+%🍁% \item Objects often represent things
+%🍁% in the real world, and methods often
+%🍁% correspond to the ways things in the real world interact.
+%🍁%
+%🍁% \end{itemize}
 
 \begin{itemize}
 
-\item Programs include class and method definitions.
+\item 程序包含类和方法定义。
 
-\item Most of the computation is expressed in terms of operations on
-  objects.
+\item 大部分计算以对象上的操作表示。
 
-\item Objects often represent things
-in the real world, and methods often
-correspond to the ways things in the real world interact.
+\item 对象通常代表现实世界的物体，方法对应现实世界中物体交互的方式。
 
 \end{itemize}
 
-For example, the {\tt Time} class defined in Chapter~\ref{time}
-corresponds to the way people record the time of day, and the
-functions we defined correspond to the kinds of things people do with
-times.  Similarly, the {\tt Point} and {\tt Rectangle} classes
-in Chapter~\ref{clobjects}
-correspond to the mathematical concepts of a point and a rectangle.
+%🍁% For example, the {\tt Time} class defined in Chapter~\ref{time}
+%🍁% corresponds to the way people record the time of day, and the
+%🍁% functions we defined correspond to the kinds of things people do with
+%🍁% times.  Similarly, the {\tt Point} and {\tt Rectangle} classes
+%🍁% in Chapter~\ref{clobjects}
+%🍁% correspond to the mathematical concepts of a point and a rectangle.
 
-So far, we have not taken advantage of the features Python provides to
-support object-oriented programming.  These
-features are not strictly necessary; most of them provide
-alternative syntax for things we have already done.  But in many cases,
-the alternative is more concise and more accurately conveys the
-structure of the program.
+例如，第~\ref{time}章中定义的 \li{Time} 类对应人们用来记录一天中的时间，其中定义的各种函数对应人们使用时间的方式。
+类似的，第~\ref{clobjects}章中的 \li{Point} 类和 \li{Rectangle} 类对应数学中点和矩形的概念。
 
-For example, in {\tt Time1.py} there is no obvious
-connection between the class definition and the function definitions
-that follow.  With some examination, it is apparent that every function
-takes at least one {\tt Time} object as an argument.
-\index{method}
-\index{function}
+%🍁% So far, we have not taken advantage of the features Python provides to
+%🍁% support object-oriented programming.  These
+%🍁% features are not strictly necessary; most of them provide
+%🍁% alternative syntax for things we have already done.  But in many cases,
+%🍁% the alternative is more concise and more accurately conveys the
+%🍁% structure of the program.
 
-This observation is the motivation for {\bf methods}; a method is
-a function that is associated with a particular class.
-We have seen methods for strings, lists, dictionaries and tuples.
-In this chapter, we will define methods for programmer-defined types.
+到目前为止，我们还没有利用Python提供的支持面向对象编程的特性。
+这些特性严格来说并不是必须的；大部分提供的是我们已经实现的功能的替代语法。
+但在很多情况下，这些替代语法更加简洁，更准确地表达了程序的结构。
+
+%🍁% For example, in {\tt Time1.py} there is no obvious
+%🍁% connection between the class definition and the function definitions
+%🍁% that follow.  With some examination, it is apparent that every function
+%🍁% takes at least one {\tt Time} object as an argument.
+%🍁% \index{method}
+%🍁% \index{function}
+
+例如，在 \li{Time1.py} 中，类定义与之后的函数定义之间没有明显的联系。
+仔细检查之后，才会发现每个函数都至少接受一个 \li{Time} 对象作为参数。
+
+%🍁% This observation is the motivation for {\bf methods}; a method is
+%🍁% a function that is associated with a particular class.
+%🍁% We have seen methods for strings, lists, dictionaries and tuples.
+%🍁% In this chapter, we will define methods for programmer-defined types.
+
+从这个观察中我们发现了 {\em 方法} ； 方法是一个与特定的类相关联的函数。
+我们已经接触了字符串、列表、字典和元组的方法。
+在这章中，我们将会定义程序员自定义类型的方法。
+
 \index{syntax}
 \index{semantics}
 \index{programmer-defined type}
 \index{type!programmer-defined}
 
-Methods are semantically the same as functions, but there are
-two syntactic differences:
+%🍁% Methods are semantically the same as functions, but there are
+%🍁% two syntactic differences:
+
+方法和函数的语义相同，但是有两处句法的不同：
+
+%🍁% \begin{itemize}
+%🍁%
+%🍁% \item Methods are defined inside a class definition in order
+%🍁% to make the relationship between the class and the method explicit.
+%🍁%
+%🍁% \item The syntax for invoking a method is different from the
+%🍁% syntax for calling a function.
+%🍁%
+%🍁% \end{itemize}
 
 \begin{itemize}
 
-\item Methods are defined inside a class definition in order
-to make the relationship between the class and the method explicit.
+\item 方法在一个类定义内部声明，为的是显示地与类进行关联。
 
-\item The syntax for invoking a method is different from the
-syntax for calling a function.
+\item 调用方法的语法和调用函数的语法不同。
 
 \end{itemize}
 
-In the next few sections, we will take the functions from the previous
-two chapters and transform them into methods.  This transformation is
-purely mechanical; you can do it by following a sequence of
-steps.  If you are comfortable converting from one form to another,
-you will be able to choose the best form for whatever you are doing.
+%🍁% In the next few sections, we will take the functions from the previous
+%🍁% two chapters and transform them into methods.  This transformation is
+%🍁% purely mechanical; you can do it by following a sequence of
+%🍁% steps.  If you are comfortable converting from one form to another,
+%🍁% you will be able to choose the best form for whatever you are doing.
 
+在接下来的几节中， 我们会把前面两章中的函数转化为方法。
+这个转化是纯机械式的； 你可以通过一系列步骤完成。
+如果你能够轻松地将一种形式转换成另一种形式， 就可以选择最适合目前需求的形式。
 
-\section{Printing objects}
+%🍁% \section{Printing objects}
+\section{打印对象 }
 \index{object!printing}
 
-In Chapter~\ref{time}, we defined a class named
-{\tt Time} and in Section~\ref{isafter}, you
-wrote a function named \verb"print_time":
+%🍁% In Chapter~\ref{time}, we defined a class named
+%🍁% {\tt Time} and in Section~\ref{isafter}, you
+%🍁% wrote a function named \verb"print_time":
 
-\begin{verbatim}
+\begin{lstlisting}
 class Time:
     """Represents the time of day."""
 
 def print_time(time):
     print('%.2d:%.2d:%.2d' % (time.hour, time.minute, time.second))
-\end{verbatim}
-%
-To call this function, you have to pass a {\tt Time} object as an
-argument:
+\end{lstlisting}
 
-\begin{verbatim}
+%🍁% %
+%🍁% To call this function, you have to pass a {\tt Time} object as an
+%🍁% argument:
+
+\begin{lstlisting}
 >>> start = Time()
 >>> start.hour = 9
 >>> start.minute = 45
 >>> start.second = 00
 >>> print_time(start)
 09:45:00
-\end{verbatim}
-%
-To make \verb"print_time" a method, all we have to do is
-move the function definition inside the class definition.  Notice
-the change in indentation.
+\end{lstlisting}
+
+%🍁% %
+%🍁% To make \verb"print_time" a method, all we have to do is
+%🍁% move the function definition inside the class definition.  Notice
+%🍁% the change in indentation.
 \index{indentation}
 
-\begin{verbatim}
+\begin{lstlisting}
 class Time:
     def print_time(time):
         print('%.2d:%.2d:%.2d' % (time.hour, time.minute, time.second))
-\end{verbatim}
-%
-Now there are two ways to call \verb"print_time".  The first
-(and less common) way is to use function syntax:
+\end{lstlisting}
+
+%🍁% %
+%🍁% Now there are two ways to call \verb"print_time".  The first
+%🍁% (and less common) way is to use function syntax:
 \index{function syntax}
 \index{dot notation}
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> Time.print_time(start)
 09:45:00
-\end{verbatim}
-%
-In this use of dot notation, {\tt Time} is the name of the class,
-and \verb"print_time" is the name of the method.  {\tt start} is
-passed as a parameter.
+\end{lstlisting}
 
-The second (and more concise) way is to use method syntax:
+%🍁% %
+%🍁% In this use of dot notation, {\tt Time} is the name of the class,
+%🍁% and \verb"print_time" is the name of the method.  {\tt start} is
+%🍁% passed as a parameter.
+
+%🍁% The second (and more concise) way is to use method syntax:
 \index{method syntax}
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> start.print_time()
 09:45:00
-\end{verbatim}
-%
-In this use of dot notation, \verb"print_time" is the name of the
-method (again), and {\tt start} is the object the method is
-invoked on, which is called the {\bf subject}.  Just as the
-subject of a sentence is what the sentence is about, the subject
-of a method invocation is what the method is about.
+\end{lstlisting}
+
+%🍁% %
+%🍁% In this use of dot notation, \verb"print_time" is the name of the
+%🍁% method (again), and {\tt start} is the object the method is
+%🍁% invoked on, which is called the {\bf subject}.  Just as the
+%🍁% subject of a sentence is what the sentence is about, the subject
+%🍁% of a method invocation is what the method is about.
 \index{subject}
 
-Inside the method, the subject is assigned to the first
-parameter, so in this case {\tt start} is assigned
-to {\tt time}.
+%🍁% Inside the method, the subject is assigned to the first
+%🍁% parameter, so in this case {\tt start} is assigned
+%🍁% to {\tt time}.
 \index{self (parameter name)}
 \index{parameter!self}
 
@@ -161,11 +220,12 @@ By convention, the first parameter of a method is
 called {\tt self}, so it would be more common to write
 \verb"print_time" like this:
 
-\begin{verbatim}
+\begin{lstlisting}
 class Time:
     def print_time(self):
         print('%.2d:%.2d:%.2d' % (self.hour, self.minute, self.second))
-\end{verbatim}
+\end{lstlisting}
+
 %
 The reason for this convention is an implicit metaphor:
 \index{metaphor, method invocation}
@@ -182,32 +242,34 @@ The reason for this convention is an implicit metaphor:
 
 \end{itemize}
 
-This change in perspective might be more polite, but it is not obvious
-that it is useful.  In the examples we have seen so far, it may not
-be.  But sometimes shifting responsibility from the functions onto the
-objects makes it possible to write more versatile functions (or
-methods), and makes it easier to maintain and reuse code.
+%🍁% This change in perspective might be more polite, but it is not obvious
+%🍁% that it is useful.  In the examples we have seen so far, it may not
+%🍁% be.  But sometimes shifting responsibility from the functions onto the
+%🍁% objects makes it possible to write more versatile functions (or
+%🍁% methods), and makes it easier to maintain and reuse code.
+%🍁%
+%🍁% As an exercise, rewrite \verb"time_to_int" (from
+%🍁% Section~\ref{prototype}) as a method.  You might be tempted to
+%🍁% rewrite \verb"int_to_time" as a method, too, but that doesn't
+%🍁% really make sense because there would be no object to invoke
+%🍁% it on.
 
-As an exercise, rewrite \verb"time_to_int" (from
-Section~\ref{prototype}) as a method.  You might be tempted to
-rewrite \verb"int_to_time" as a method, too, but that doesn't
-really make sense because there would be no object to invoke
-it on.
 
-
+%🍁% \section{Another example}
 \section{Another example}
 \index{increment}
 
 Here's a version of {\tt increment} (from Section~\ref{increment})
 rewritten as a method:
 
-\begin{verbatim}
+\begin{lstlisting}
 # inside class Time:
 
     def increment(self, seconds):
         seconds += self.time_to_int()
         return int_to_time(seconds)
-\end{verbatim}
+\end{lstlisting}
+
 %
 This version assumes that \verb"time_to_int" is written
 as a method.  Also, note that
@@ -215,13 +277,14 @@ it is a pure function, not a modifier.
 
 Here's how you would invoke {\tt increment}:
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> start.print_time()
 09:45:00
 >>> end = start.increment(1337)
 >>> end.print_time()
 10:07:17
-\end{verbatim}
+\end{lstlisting}
+
 %
 The subject, {\tt start}, gets assigned to the first parameter,
 {\tt self}.  The argument, {\tt 1337}, gets assigned to the
@@ -233,10 +296,11 @@ get:
 \index{exception!TypeError}
 \index{TypeError}
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> end = start.increment(1337, 460)
 TypeError: increment() takes 2 positional arguments but 3 were given
-\end{verbatim}
+\end{lstlisting}
+
 %
 The error message is initially confusing, because there are
 only two arguments in parentheses.  But the subject is also
@@ -248,14 +312,15 @@ argument.  In this function call:
 \index{positional argument}
 \index{argument!positional}
 
-\begin{verbatim}
+\begin{lstlisting}
 sketch(parrot, cage, dead=True)
-\end{verbatim}
+\end{lstlisting}
 
 {\tt parrot} and {\tt cage} are positional, and {\tt dead} is
 a keyword argument.
 
 
+%🍁% \section{A more complicated example}
 \section{A more complicated example}
 
 Rewriting \verb"is_after" (from Section~\ref{isafter}) is slightly
@@ -264,25 +329,28 @@ this case it is conventional to name the first parameter {\tt self}
 and the second parameter {\tt other}: \index{other (parameter name)}
 \index{parameter!other}
 
-\begin{verbatim}
+\begin{lstlisting}
 # inside class Time:
 
     def is_after(self, other):
         return self.time_to_int() > other.time_to_int()
-\end{verbatim}
+\end{lstlisting}
+
 %
 To use this method, you have to invoke it on one object and pass
 the other as an argument:
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> end.is_after(start)
 True
-\end{verbatim}
+\end{lstlisting}
+
 %
 One nice thing about this syntax is that it almost reads
 like English: ``end is after start?''
 
 
+%🍁% \section{The init method}
 \section{The init method}
 \index{init method}
 \index{method!init}
@@ -293,21 +361,23 @@ Its full name is \verb"__init__" (two underscore characters,
 followed by {\tt init}, and then two more underscores).  An
 init method for the {\tt Time} class might look like this:
 
-\begin{verbatim}
+\begin{lstlisting}
 # inside class Time:
 
     def __init__(self, hour=0, minute=0, second=0):
         self.hour = hour
         self.minute = minute
         self.second = second
-\end{verbatim}
+\end{lstlisting}
+
 %
 It is common for the parameters of \verb"__init__"
 to have the same names as the attributes.  The statement
 
-\begin{verbatim}
+\begin{lstlisting}
         self.hour = hour
-\end{verbatim}
+\end{lstlisting}
+
 %
 stores the value of the parameter {\tt hour} as an attribute
 of {\tt self}.
@@ -319,28 +389,31 @@ of {\tt self}.
 The parameters are optional, so if you call {\tt Time} with
 no arguments, you get the default values.
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> time = Time()
 >>> time.print_time()
 00:00:00
-\end{verbatim}
+\end{lstlisting}
+
 %
 If you provide one argument, it overrides {\tt hour}:
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> time = Time (9)
 >>> time.print_time()
 09:00:00
-\end{verbatim}
+\end{lstlisting}
+
 %
 If you provide two arguments, they override {\tt hour} and
 {\tt minute}.
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> time = Time(9, 45)
 >>> time.print_time()
 09:45:00
-\end{verbatim}
+\end{lstlisting}
+
 %
 And if you provide three arguments, they override all three
 default values.
@@ -352,6 +425,7 @@ them to the corresponding attributes.
 \index{class!Point}
 
 
+%🍁% \section{The {\tt \_\_str\_\_} method}
 \section{The {\tt \_\_str\_\_} method}
 \index{str method@\_\_str\_\_ method}
 \index{method!\_\_str\_\_}
@@ -362,22 +436,24 @@ that is supposed to return a string representation of an object.
 
 For example, here is a {\tt str} method for Time objects:
 
-\begin{verbatim}
+\begin{lstlisting}
 # inside class Time:
 
     def __str__(self):
         return '%.2d:%.2d:%.2d' % (self.hour, self.minute, self.second)
-\end{verbatim}
+\end{lstlisting}
+
 %
 When you {\tt print} an object, Python invokes the {\tt str} method:
 \index{print statement}
 \index{statement!print}
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> time = Time(9, 45)
 >>> print(time)
 09:45:00
-\end{verbatim}
+\end{lstlisting}
+
 %
 When I write a new class, I almost always start by writing
 \verb"__init__", which makes it easier to instantiate objects, and
@@ -387,6 +463,7 @@ As an exercise, write a {\tt str} method for the {\tt Point} class.
 Create a Point object and print it.
 
 
+%🍁% \section{Operator overloading}
 \section{Operator overloading}
 \label{operator.overloading}
 
@@ -401,22 +478,24 @@ Here is what the definition might look like:
 \index{add method}
 \index{method!add}
 
-\begin{verbatim}
+\begin{lstlisting}
 # inside class Time:
 
     def __add__(self, other):
         seconds = self.time_to_int() + other.time_to_int()
         return int_to_time(seconds)
-\end{verbatim}
+\end{lstlisting}
+
 %
 And here is how you could use it:
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> start = Time(9, 45)
 >>> duration = Time(1, 35)
 >>> print(start + duration)
 11:20:00
-\end{verbatim}
+\end{lstlisting}
+
 %
 When you apply the {\tt +} operator to Time objects, Python invokes
 \verb"__add__".  When you print the result, Python invokes
@@ -432,6 +511,7 @@ operator in Python there is a corresponding special method, like
 As an exercise, write an {\tt add} method for the Point class.
 
 
+%🍁% \section{Type-based dispatch}
 \section{Type-based dispatch}
 
 In the previous section we added two Time objects, but you
@@ -440,7 +520,7 @@ following is a version of \verb"__add__"
 that checks the type of {\tt other} and invokes either
 \verb"add_time" or {\tt increment}:
 
-\begin{verbatim}
+\begin{lstlisting}
 # inside class Time:
 
     def __add__(self, other):
@@ -456,7 +536,8 @@ that checks the type of {\tt other} and invokes either
     def increment(self, seconds):
         seconds += self.time_to_int()
         return int_to_time(seconds)
-\end{verbatim}
+\end{lstlisting}
+
 %
 The built-in function {\tt isinstance} takes a value and a
 class object, and returns {\tt True} if the value is an instance
@@ -476,23 +557,25 @@ arguments.
 Here are examples that use the {\tt +} operator with different
 types:
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> start = Time(9, 45)
 >>> duration = Time(1, 35)
 >>> print(start + duration)
 11:20:00
 >>> print(start + 1337)
 10:07:17
-\end{verbatim}
+\end{lstlisting}
+
 %
 Unfortunately, this implementation of addition is not commutative.
 If the integer is the first operand, you get
 \index{commutativity}
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> print(1337 + start)
 TypeError: unsupported operand type(s) for +: 'int' and 'instance'
-\end{verbatim}
+\end{lstlisting}
+
 %
 The problem is, instead of asking the Time object to add an integer,
 Python is asking an integer to add a Time object, and it doesn't know
@@ -503,19 +586,21 @@ the {\tt +} operator.  Here's the definition:
 \index{radd method}
 \index{method!radd}
 
-\begin{verbatim}
+\begin{lstlisting}
 # inside class Time:
 
     def __radd__(self, other):
         return self.__add__(other)
-\end{verbatim}
+\end{lstlisting}
+
 %
 And here's how it's used:
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> print(1337 + start)
 10:07:17
-\end{verbatim}
+\end{lstlisting}
+
 %
 
 As an exercise, write an {\tt add} method for Points that works with
@@ -536,6 +621,7 @@ element to the $y$ coordinate, and return a new Point with the result.
 
 
 
+%🍁% \section{Polymorphism}
 \section{Polymorphism}
 \label{polymorphism}
 
@@ -551,7 +637,7 @@ For example, in Section~\ref{histogram}
 we used {\tt histogram} to count the number of times each letter
 appears in a word.
 
-\begin{verbatim}
+\begin{lstlisting}
 def histogram(s):
     d = dict()
     for c in s:
@@ -560,17 +646,17 @@ def histogram(s):
         else:
             d[c] = d[c]+1
     return d
-\end{verbatim}
+\end{lstlisting}
 %
 This function also works for lists, tuples, and even dictionaries,
 as long as the elements of {\tt s} are hashable, so they can be used
 as keys in {\tt d}.
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> t = ['spam', 'egg', 'spam', 'spam', 'bacon', 'spam']
 >>> histogram(t)
 {'bacon': 1, 'egg': 1, 'spam': 4}
-\end{verbatim}
+\end{lstlisting}
 %
 Functions that work with several types are called {\bf polymorphic}.
 Polymorphism can facilitate code reuse.  For example, the built-in
@@ -581,14 +667,14 @@ as long as the elements of the sequence support addition.
 Since Time objects provide an {\tt add} method, they work
 with {\tt sum}:
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> t1 = Time(7, 43)
 >>> t2 = Time(7, 41)
 >>> t3 = Time(7, 37)
 >>> total = sum([t1, t2, t3])
 >>> print(total)
 23:01:00
-\end{verbatim}
+\end{lstlisting}
 %
 In general, if all of the operations inside a function
 work with a given type, the function works with that type.
@@ -598,6 +684,7 @@ you discover that a function you already wrote can be
 applied to a type you never planned for.
 
 
+%🍁% \section{Debugging}
 \section{Debugging}
 \index{debugging}
 
@@ -620,20 +707,22 @@ Another way to access attributes is the built-in function {\tt vars},
 which takes an object and returns a dictionary that maps from
 attribute names (as strings) to their values:
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> p = Point(3, 4)
 >>> vars(p)
 {'y': 4, 'x': 3}
-\end{verbatim}
+\end{lstlisting}
+
 %
 For purposes of debugging, you might find it useful to keep this
 function handy:
 
-\begin{verbatim}
+\begin{lstlisting}
 def print_attributes(obj):
     for attr in vars(obj):
         print(attr, getattr(obj, attr))
-\end{verbatim}
+\end{lstlisting}
+
 %
 \verb"print_attributes" traverses the dictionary
 and prints each attribute name and its corresponding value.
@@ -646,6 +735,7 @@ name (as a string) and returns the attribute's value.
 \index{function!getattr}
 
 
+%🍁% \section{Interface and implementation}
 \section{Interface and implementation}
 
 One of the goals of object-oriented design is to make software more
@@ -688,6 +778,7 @@ change the implementation without changing the interface, which
 means that other parts of the program don't have to change.
 
 
+%🍁% \section{Glossary}
 \section{Glossary}
 
 \begin{description}
@@ -735,6 +826,7 @@ the representation of its attributes.
 \end{description}
 
 
+%🍁% \section{Exercises}
 \section{Exercises}
 
 \begin{exercise}
