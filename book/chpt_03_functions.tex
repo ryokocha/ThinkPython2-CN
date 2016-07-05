@@ -312,8 +312,8 @@ def print_lyrics():
 变量和函数同名。
 \index{def keyword}  \index{keyword!def}  \index{argument}
 
-The empty parentheses after the name indicate that this function
-doesn't take any arguments.
+%🍁% The empty parentheses after the name indicate that this function
+%🍁% doesn't take any arguments.
 
 函数名后面的圆括号是空的，表明该函数不接受任何实参。
 \index{parentheses!empty}  \index{header}
@@ -339,7 +339,7 @@ doesn't take any arguments.
 %🍁% located next to Enter on the keyboard.  ``Curly quotes'', like
 %🍁% the ones in this sentence, are not legal in Python.
 
-所有引号（单引号和双引号）必须是"{\em 直引号}" (straight quotes)，它们通常位于键盘上 Enter 键的旁边。像这句话中使用的 ``{\em 弯引号}'' (curly quotes)， 在 Python 语言中则是不合法的。
+所有引号（单引号和双引号）必须是``{\em 直引号}'' (straight quotes)，它们通常位于键盘上 Enter 键的旁边。像这句话中使用的 ``{\em 弯引号}'' (curly quotes)， 在 Python 语言中则是不合法的。
 
 %🍁% If you type a function definition in interactive mode, the interpreter
 %🍁% prints dots ({\tt ...}) to let you know that the definition
@@ -456,6 +456,7 @@ repeat_lyrics()
 该程序包含两个函数定义：\li{print_lyrics} 和 \li{repeat_lyrics}。
 函数定义和其它语句一样，都会被执行，但是其作用是创建函数对象。
 函数内部的语句在函数被调用之前，是不会执行的，而且函数定义不会产生任何输出。
+
 \index{use before def}
 
 %🍁% As you might expect, you have to create a function before you can
@@ -559,6 +560,7 @@ repeat_lyrics()
 
 在函数内部，实参被赋给称作 {\em 形参} (parameters) 的变量。
 下面的代码定义了一个接受一个实参的函数：
+
 \index{parentheses!parameters in}
 
 \begin{lstlisting}
@@ -595,7 +597,8 @@ Spam
 %🍁% apply to programmer-defined functions, so we can use any kind of expression
 %🍁% as an argument for \verb"print_twice":
 
-组合规则不仅适用于内建函数，而且也适用于开发者自定义的函数（programmer-defined functions），因此我们可以使用任意类型的表达式作为 \li{print_twice} 的实参：
+组合规则不仅适用于内建函数，而且也适用于开发者自定义的函数 (programmer-defined functions)， 因此我们可以使用任意类型的表达式作为 \li{print_twice} 的实参：
+
 \index{composition}  \index{programmer-defined function}
 \index{function!programmer defined}
 
@@ -613,9 +616,11 @@ Spam Spam Spam Spam
 %🍁% in the examples the expressions \verb"'Spam '*4" and
 %🍁% {\tt math.cos(math.pi)} are only evaluated once.
 
-在函数被调用之前，实参会先进行计算，因此在这些例子中，
+在函数被调用之前， 实参会先进行计算， 因此在这些例子中， 
 表达式 \li{Spam '*4} 和 \li{math.cos(math.pi)} 都只被计算了一次。
+
 \index{argument}
+\index{实参}
 
 %🍁% You can also use a variable as an argument:
 
@@ -702,8 +707,9 @@ NameError: name 'cat' is not defined
 % \section{Stack diagrams  |  堆栈图}
 \section{堆栈图}
 \label{stackdiagram}
+
 \index{stack diagram}  \index{function frame}  \index{frame}
-\index{堆栈图}  \index{function frame}  \index{frame}
+\index{堆栈图}
 
 %🍁% To keep track of which variables can be used where, it is sometimes
 %🍁% useful to draw a {\bf stack diagram}.  Like state diagrams, stack
@@ -756,8 +762,8 @@ NameError: name 'cat' is not defined
 %🍁% it, and the name of the function that called {\em that}, all the
 %🍁% way back to \verb"__main__".
 
-如果函数调用时发生错误，Python会打印出错函数的名字以及调用它的函数的名字，
-以及调用 *后面这个函数* 的函数的名字，一直追溯到 \li{__main__} 为止。
+如果函数调用时发生错误，Python 会打印出错函数的名字以及调用它的函数的名字，
+以及调用 后面{\bf 这个函数} 的名字，一直追溯到 \li{__main__} 为止。
 
 %🍁% For example, if you try to access {\tt cat} from within
 %🍁% \verb"print_twice", you get a {\tt NameError}:

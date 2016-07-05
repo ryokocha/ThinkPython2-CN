@@ -21,13 +21,13 @@
 %🍁% Code examples from this chapter are available from
 %🍁% \url{http://thinkpython2.com/code/polygon.py}.
 
-本章将通过一个案例研究，介绍如何设计出相互配合的函数。
+本章将通过一个案例研究， 介绍如何设计出相互配合的函数。
 
-本章会介绍 \lstinline{turtle} 模块，它可以让你使用海龟图形 (turtle graphics) 绘制图像。大部分的Python安装环境下都包含了这个模块，但是如果你是在 PythonAnywhere 上运行 Python 的，你将无法运行本章中的代码示例（至少在我写这章时是做不到的）。
+本章会介绍 \li{turtle} 模块，它可以让你使用海龟图形 (turtle graphics) 绘制图像。大部分的Python安装环境下都包含了这个模块，但是如果你是在 PythonAnywhere 上运行 Python 的，你将无法运行本章中的代码示例（至少在我写这章时是做不到的）。
 
-如果你已经在自己的电脑上安装了 Python，那么不会有问题。如果没有，现在就是安装 Python 的好时机。我在 http://tinyurl.com/thinkpython2e 这个页面上发布了相关指南。
+如果你已经在自己的电脑上安装了 Python，那么不会有问题。如果没有，现在就是安装 Python 的好时机。我在 \href{http://tinyurl.com/thinkpython2e}{这个页面} 上发布了相关指南。
 
-本章的示例代码可以从 http://thinkpython2.com/code/polygon.py 获得。
+本章的示例代码可以 \href{http://thinkpython2.com/code/polygon.py}{从这获得}。
 
 %🍁% \section{The turtle module  |  turtle 模块}
 \section{turtle 模块}
@@ -36,7 +36,7 @@
 %🍁% To check whether you have the {\tt turtle} module, open the Python
 %🍁% interpreter and type
 
-打开Python解释器，输入以下代码，检查你是否安装了 \lstinline{turltle} 模块：
+打开Python解释器，输入以下代码，检查你是否安装了 \li{turltle} 模块：
 
 \begin{lstlisting}
 >>> import turtle
@@ -51,7 +51,7 @@
 %🍁% Create a file named {\tt mypolygon.py} and type in the following
 %🍁% code:
 
-新建一个名叫  \lstinline{mypolygon.py} 的文件，输入以下代码：
+新建一个名叫  \li{mypolygon.py} 的文件，输入以下代码：
 
 \begin{lstlisting}
 import turtle
@@ -66,7 +66,7 @@ turtle.mainloop()
 %🍁% object, which we assign to a variable named {\tt bob}.
 %🍁% Printing {\tt bob} displays something like:
 
-\lstinline{turtle} 模块（小写的 \lstinline{'t'} ）提供了一个叫作 \lstinline{Turtle} 的函数（大写的 \lstinline{'T'}），这个函数会创建一个 \lstinline{Turtle} 对象，我们将其赋值给名为 \lstinline{bob} 的变量。打印 \lstinline{bob} 的话，会输出下面这样的结果：
+\li{turtle} 模块（小写的 \li{'t'} ）提供了一个叫作 \li{Turtle} 的函数（大写的 \li{'T'}），这个函数会创建一个 \li{Turtle} 对象，我们将其赋值给名为 \li{bob} 的变量。打印 \li{bob} 的话，会输出下面这样的结果：
 
 \begin{lstlisting}
 <turtle.Turtle object at 0xb7bfbf4c>
@@ -77,20 +77,20 @@ turtle.mainloop()
 %🍁% {\tt Turtle}
 %🍁% as defined in module {\tt turtle}.
 
-这意味着，\lstinline{bob} 指向一个类型为Turtle的对象，这个类型是由 \lstinline{turtle} 模块定义的。
+这意味着，\li{bob} 指向一个类型为Turtle的对象，这个类型是由 \li{turtle} 模块定义的。
 
 %🍁% \verb"mainloop" tells the window to wait for the user
 %🍁% to do something, although in this case there's not much for
 %🍁% the user to do except close the window.
 
-\lstinline{mainloop} 告诉窗口等待用户操作，尽管在这个例子中，用户除了关闭窗口之外，并没有其他可做的事情。
+\li{mainloop} 告诉窗口等待用户操作，尽管在这个例子中，用户除了关闭窗口之外，并没有其他可做的事情。
 
 %🍁% Once you create a Turtle, you can call a {\bf method} to move it
 %🍁% around the window.  A method is similar to a function, but it
 %🍁% uses slightly different syntax.  For example, to move the turtle
 %🍁% forward:
 
-创建了一个 \lstinline{Turtle} 对象之后，你可以调用 \emph{方法} (method) 来在窗口中移动该对象。方法与函数类似，但是其语法略有不同。例如，要让海龟向前走：
+创建了一个 \li{Turtle} 对象之后，你可以调用 \emph{方法} (method) 来在窗口中移动该对象。方法与函数类似，但是其语法略有不同。例如，要让海龟向前走：
 
 \begin{lstlisting}
 bob.fd(100)
@@ -102,30 +102,30 @@ bob.fd(100)
 %🍁% Calling a method is like making a request: you are asking {\tt bob}
 %🍁% to move forward.
 
-方法 \lstinline{fd} 与我们称之为 \lstinline{bob} 的对象是相关联的。调用方法就像提出一个请求：你在请求 \lstinline{bob} 往前走。
+方法 \li{fd} 与我们称之为 \li{bob} 的对象是相关联的。调用方法就像提出一个请求：你在请求 \li{bob} 往前走。
 
 %🍁% The argument of {\tt fd} is a distance in pixels, so the actual
 %🍁% size depends on your display.
 
-\lstinline{fd} 方法的实参是像素距离，所以实际前进的距离取决于你的屏幕。
+\li{fd} 方法的实参是像素距离，所以实际前进的距离取决于你的屏幕。
 
 %🍁% Other methods you can call on a Turtle are {\tt bk} to move
 %🍁% backward, {\tt lt} for left turn, and {\tt rt} right turn.  The
 %🍁% argument for {\tt lt} and {\tt rt} is an angle in degrees.
 
-\lstinline{Turtle} 对象中你能调用的其他方法还包括：让它向后走的 \lstinline{bk} ，向左转的 \lstinline{lt} ，向右转的 \lstinline{rt} 。 \lstinline{lt} 和 \lstinline{rt} 这两个方法接受的实参是角度。
+\li{Turtle} 对象中你能调用的其他方法还包括：让它向后走的 \li{bk} ，向左转的 \li{lt} ，向右转的 \li{rt} 。 \li{lt} 和 \li{rt} 这两个方法接受的实参是角度。
 
 %🍁% Also, each Turtle is holding a pen, which is
 %🍁% either down or up; if the pen is down, the Turtle leaves
 %🍁% a trail when it moves.  The methods {\tt pu} and {\tt pd}
 %🍁% stand for ``pen up'' and ``pen down''.
 
-另外，每个 \lstinline{Turtle} 都握着一支笔，不是落笔就是抬笔；如果落笔了， \lstinline{Turtle} 就会在移动时留下痕迹。 \lstinline{pu} 和 \lstinline{pd} 这两个方法分别代表``抬笔 (pen up)''和 ``落笔 (pen down)''。
+另外，每个 \li{Turtle} 都握着一支笔，不是落笔就是抬笔；如果落笔了， \li{Turtle} 就会在移动时留下痕迹。 \li{pu} 和 \li{pd} 这两个方法分别代表``抬笔 (pen up)''和 ``落笔 (pen down)''。
 
 %🍁% To draw a right angle, add these lines to the program
 %🍁% (after creating {\tt bob} and before calling \verb"mainloop"):
 
-如果要画一个直角 (right angle)，请在程序中添加以下代码（放在创建 \lstinline{bob} 之后，调用 \lstinline{mainloop} 之前）：
+如果要画一个直角 (right angle)，请在程序中添加以下代码（放在创建 \li{bob} 之后，调用 \li{mainloop} 之前）：
 
 \begin{lstlisting}
 bob.fd(100)
@@ -137,7 +137,7 @@ bob.fd(100)
 %🍁% When you run this program, you should see {\tt bob} move east and then
 %🍁% north, leaving two line segments behind.
 
-当你运行此程序时，你应该会看到 \lstinline{bob} 先朝东移动，然后向北移动，同时在身后留下两条线段 (line segment)。
+当你运行此程序时，你应该会看到 \li{bob} 先朝东移动，然后向北移动，同时在身后留下两条线段 (line segment)。
 
 %🍁% Now modify the program to draw a square.  Don't go on until
 %🍁% you've got it working!
@@ -173,8 +173,8 @@ bob.fd(100)
 %🍁% We can do the same thing more concisely with a {\tt for} statement.
 %🍁% Add this example to {\tt mypolygon.py} and run it again:
 
-我们可以利用一个 \lstinline{for} 语句，以更简洁的代码来做相同的事情。
-将下面的示例代码加入 \lstinline{mypolygon.py} ，并重新运行：
+我们可以利用一个 \li{for} 语句，以更简洁的代码来做相同的事情。
+将下面的示例代码加入 \li{mypolygon.py} ，并重新运行：
 \index{for loop}  \index{loop!for}  \index{statement!for}
 
 \begin{lstlisting}
@@ -199,12 +199,12 @@ Hello!
 %🍁% more later.  But that should be enough to let you rewrite your
 %🍁% square-drawing program.  Don't go on until you do.
 
-这是 \lstinline{for} 语句最简单的用法；后面我们会介绍更多的用法。
+这是 \li{for} 语句最简单的用法；后面我们会介绍更多的用法。
 但是这对于让你重写画正方形的程序已经足够了。 如果没有完成，请不要往下看。
 
 %🍁% Here is a {\tt for} statement that draws a square:
 
-下面是一个画正方形的 \lstinline{for} 语句：
+下面是一个画正方形的 \li{for} 语句：
 
 \begin{lstlisting}
 for i in range(4):
@@ -218,7 +218,7 @@ for i in range(4):
 %🍁% body.  The body can contain any number of statements.
 
 for语句的语法和函数定义类似。
-它有一个以冒号结尾的语句头（header）以及一个缩进的语句体（body）。
+它有一个以冒号结尾的语句头 (header) 以及一个缩进的语句体 (body)。
 语句体可以包含任意条语句。
 
 %🍁% A {\tt for} statement is also called a {\bf loop} because
@@ -226,7 +226,9 @@ for语句的语法和函数定义类似。
 %🍁% to the top.  In this case, it runs the body four times.
 \index{loop}
 
-\lstinline{for} 语句有时也被称为 \emph{循环} (loop) ，因为执行流程会贯穿整个语句体，然后再循环回顶部。
+\li{for} 语句有时也被称为 \emph{循环} (loop) ， 
+因为执行流程会贯穿整个语句体，然后再循环回顶部。  
+
 在此例中，它将运行语句体四次。
 
 
@@ -238,10 +240,11 @@ for语句的语法和函数定义类似。
 %🍁% of leaving the turtle back in the starting position, facing in
 %🍁% the starting direction.
 
-这个版本事实上和前面画正方形的代码有所不同，因为它在画完正方形的最后一条边后，
-又多转了一下。这个额外的转动多花了些时间，
-但是如果我们每次都通过循环来做这件事情，这样反而是简化了代码。
-这个版本还让海龟回到了初始位置，朝向也与出发时一致。
+这个版本事实上和前面画正方形的代码有所不同， 因为它在画完正方形的最后一条边后， 
+又多转了一下。  
+这个额外的转动多花了些时间，
+但是如果我们每次都通过循环来做这件事情， 这样反而是简化了代码。  
+这个版本还让海龟回到了初始位置， 朝向也与出发时一致。  
 
 
 
@@ -252,7 +255,7 @@ for语句的语法和函数定义类似。
 %🍁% are meant to be fun, but they have a point, too.  While you are
 %🍁% working on them, think about what the point is.
 
-下面是一系列学习使用 \lstinline{Turtle} \footnote{译注：原文中使用的还是 \lstinline{TurtleWorld} ，应该是作者忘了修改。} 的练习。
+下面是一系列学习使用 \li{Turtle} \footnote{译注：原文中使用的还是 \li{TurtleWorld} ，应该是作者忘了修改。} 的练习。
 这些练习也许很好玩，但它们是有针对性设计的。
 在做这些练习的时候，可以思考一下它们的目的是什么。
 
@@ -303,24 +306,24 @@ for语句的语法和函数定义类似。
 
 \begin{enumerate}
 
-\item 写一个名为 \lstinline{square} 的函数，接受一个名为 \lstinline{t} 的形参， \lstinline {t} 是一个海龟。 这个函数应用这只海龟画一个正方形。
+\item 写一个名为 \li{square} 的函数，接受一个名为 \li{t} 的形参， \li {t} 是一个海龟。 这个函数应用这只海龟画一个正方形。
 
-写一个函数调用，将 \lstinline{bob} 作为实参传给 \lstinline{square} ，然后再重新运行程序。
+写一个函数调用，将 \li{bob} 作为实参传给 \li{square} ，然后再重新运行程序。
 
-\item 给 \lstinline{square} 增加另一个名为 \lstinline{length} 的形参。
- 修改函数体，使得正方形边的长度是 \lstinline{length} ，然后修改函数调用，提供第二个实参。
- 重新运行程序。用一系列 \lstinline{length} 值测试你的程序。
+\item 给 \li{square} 增加另一个名为 \li{length} 的形参。
+ 修改函数体，使得正方形边的长度是 \li{length} ，然后修改函数调用，提供第二个实参。
+ 重新运行程序。用一系列 \li{length} 值测试你的程序。
 
-\item 复制 \lstinline{square} ，并将函数改名为 \lstinline{polygon} 。
-   增加另外一个名为 \lstinline{n} 的形参并修改函数体，让它画一个正 n 边形 (n-sided regular polygon)。
+\item 复制 \li{square} ，并将函数改名为 \li{polygon} 。
+   增加另外一个名为 \li{n} 的形参并修改函数体，让它画一个正 n 边形 (n-sided regular polygon)。
 
 提示：正n边形的外角是 $360/n$ 度。
 
-\item 编写一个名为 \lstinline{circle} 的函数，它接受一个海龟t和半径r作为形参， 然后以合适的边长和边数调用 \lstinline{polygon} ，画一个近似圆形。用一系列r值测试你的函数。
+\item 编写一个名为 \li{circle} 的函数，它接受一个海龟t和半径r作为形参， 然后以合适的边长和边数调用 \li{polygon} ，画一个近似圆形。用一系列r值测试你的函数。
 
-提示：算出圆的周长，并确保 \lstinline{length \* n = circumference} 。
+提示：算出圆的周长，并确保 \li{length \* n = circumference} 。
 
-\item 完成一个更泛化 (general) 的 \lstinline{circle} 函数，称其为 \lstinline{arc} ，接受一个额外的参数 \lstinline{angle} ，确定画多完整的圆。 \lstinline{angle} 的单位是度，因此当 \lstinline{angle = 360} 时， \lstinline{arc} 应该画一个完整的圆。
+\item 完成一个更泛化 (general) 的 \li{circle} 函数，称其为 \li{arc} ，接受一个额外的参数 \li{angle} ，确定画多完整的圆。 \li{angle} 的单位是度，因此当 \li{angle = 360} 时， \li{arc} 应该画一个完整的圆。
 
 \index{arc function}  \index{function!arc}
 
@@ -353,7 +356,7 @@ square(bob)
 %🍁% the left margin, which indicates the end of both the {\tt for} loop
 %🍁% and the function definition.
 
-最内层的语句 \lstinline{fd} 和 \lstinline{lt} 被缩进两次，以显示它们处在 \lstinline{for} 循环内， 而该循环又在函数定义内。下一行 \lstinline{square(bob)} 和左边界（left margin）对齐， 表示 \lstinline{for} 循环和函数定义结束。
+最内层的语句 \li{fd} 和 \li{lt} 被缩进两次，以显示它们处在 \li{for} 循环内， 而该循环又在函数定义内。下一行 \li{square(bob)} 和左边界（left margin）对齐， 表示 \li{for} 循环和函数定义结束。
 
 %🍁% Inside the function, {\tt t} refers to the same turtle {\tt bob}, so
 %🍁% {\tt t.lt(90)} has the same effect as {\tt bob.lt(90)}.  In that
@@ -362,9 +365,9 @@ square(bob)
 %🍁% turtle, not just {\tt bob}, so you could create a second turtle and
 %🍁% pass it as an argument to {\tt square}:
 
-在函数内部， \lstinline{t} 指的是同一只海龟 \lstinline{bob} ， 所以 \lstinline{t.lt(90)} 和 \lstinline{bob.lt(90)} 的效果相同。
-那么既然这样，为什么不将形参命名为 \lstinline{bob} 呢？ 因为 \lstinline{t} 可以是任何海龟而不仅仅是 \lstinline{bob} ，
-也就是说你可以创建第二只海龟，并且将它作为实参传递给 \lstinline{square} ：
+在函数内部， \li{t} 指的是同一只海龟 \li{bob} ， 所以 \li{t.lt(90)} 和 \li{bob.lt(90)} 的效果相同。
+那么既然这样，为什么不将形参命名为 \li{bob} 呢？ 因为 \li{t} 可以是任何海龟而不仅仅是 \li{bob} ，
+也就是说你可以创建第二只海龟，并且将它作为实参传递给 \li{square} ：
 
 \begin{lstlisting}
 alice = Turtle()
@@ -392,7 +395,7 @@ square(alice)
 %🍁% The next step is to add a {\tt length} parameter to {\tt square}.
 %🍁% Here is a solution:
 
-下一个练习是给 \lstinline{square} 增加一个 \lstinline{length} 形参。下面是一个解法：
+下一个练习是给 \li{square} 增加一个 \li{length} 形参。下面是一个解法：
 
 \begin{lstlisting}
 def square(t, length):
@@ -419,7 +422,7 @@ square(bob, 100)
 %🍁% squares, {\tt polygon} draws regular polygons with any number of
 %🍁% sides.  Here is a solution:
 
-下一个练习也是泛化。泛化之后不再是只能画一个正方形，\lstinline{polygon} 可以画任意的正多边形。 下面是一个方案：
+下一个练习也是泛化。泛化之后不再是只能画一个正方形，\li{polygon} 可以画任意的正多边形。 下面是一个方案：
 
 \begin{lstlisting}
 def polygon(t, n, length):
@@ -441,7 +444,7 @@ polygon(bob, 7, 70)
 %🍁% {\tt angle = 360.0 / n}.  Because the numerator is a floating-point
 %🍁% number, the result is floating point.
 
-如果你在使用Python 2，\lstinline{angle} 的值可能由于整型数除法 (integer division) 出现偏差。一个简单的解决办法是这样计算 \lstinline{angle} ： \lstinline{angle = 360.0 / n} 。因为分子 (numerator) 是一个浮点数，最终的结果也会是一个浮点数。
+如果你在使用Python 2，\li{angle} 的值可能由于整型数除法 (integer division) 出现偏差。一个简单的解决办法是这样计算 \li{angle} ： \li{angle = 360.0 / n} 。因为分子 (numerator) 是一个浮点数，最终的结果也会是一个浮点数。
 \index{Python 2}
 
 %🍁% When a function has more than a few numeric arguments, it is easy to
@@ -462,7 +465,7 @@ polygon(bob, n=7, length=70)
 %🍁% Python keywords like {\tt while} and {\tt def}).
 
 这些被称作 \emph{关键字实参} (keyword arguments) ，
-因为它们j加上了形参名作为 ``关键字''（不要和 Python 的关键字搞混了，如 \lstinline{while} 和 \lstinline{def} ）。
+因为它们j加上了形参名作为 ``关键字''（不要和 Python 的关键字搞混了，如 \li{while} 和 \li{def} ）。
 \index{keyword argument}  \index{argument!keyword}
 
 %🍁% This syntax makes the program more readable.  It is also a reminder
@@ -479,8 +482,8 @@ polygon(bob, n=7, length=70)
 %🍁% {\tt r}, as a parameter.  Here is a simple solution that uses
 %🍁% {\tt polygon} to draw a 50-sided polygon:
 
-下一个练习是编写接受半径r作为形参的 \lstinline{circle} 函数。
-下面是一个使用 \lstinline{polygon} 画一个50边形的简单解法：
+下一个练习是编写接受半径r作为形参的 \li{circle} 函数。
+下面是一个使用 \li{polygon} 画一个50边形的简单解法：
 
 \begin{lstlisting}
 import math
@@ -499,15 +502,15 @@ def circle(t, r):
 %🍁% are usually at the beginning of the script.
 
 函数的第一行通过半径r计算圆的周长，公式是 $2 \pi r$ 。
-由于用了 \lstinline{math.pi} ，我们需要导入 \lstinline{math} 模块。
-按照惯例，\lstinline{import} 语句通常位于脚本的开始位置。
+由于用了 \li{math.pi} ，我们需要导入 \li{math} 模块。
+按照惯例，\li{import} 语句通常位于脚本的开始位置。
 
 %🍁% {\tt n} is the number of line segments in our approximation of a circle,
 %🍁% so {\tt length} is the length of each segment.  Thus, {\tt polygon}
 %🍁% draws a 50-sides polygon that approximates a circle with radius {\tt r}.
 
-\lstinline{n} 是我们的近似圆中线段的条数， \lstinline{length} 是每一条线段的长度。
-这样 \lstinline{polygon} 画出的就是一个50边形，近似一个半径为 \lstinline{r} 的圆。
+\li{n} 是我们的近似圆中线段的条数， \li{length} 是每一条线段的长度。
+这样 \li{polygon} 画出的就是一个50边形，近似一个半径为 \li{r} 的圆。
 
 %🍁% One limitation of this solution is that {\tt n} is a constant, which
 %🍁% means that for very big circles, the line segments are too long, and
@@ -516,10 +519,10 @@ def circle(t, r):
 %🍁% a parameter.  This would give the user (whoever calls {\tt circle})
 %🍁% more control, but the interface would be less clean.
 
-这种解法的一个局限在于， \lstinline{n} 是一个常量，意味着对于非常大的圆，
+这种解法的一个局限在于， \li{n} 是一个常量，意味着对于非常大的圆，
 线段会非常长，而对于小圆，我们会浪费时间画非常小的线段。
 一个解决方案是将n作为形参，泛化函数。
-这将给用户（调用 \lstinline{circle} 的人）更多的掌控力， 但是接口就不那么干净了。
+这将给用户（调用 \li{circle} 的人）更多的掌控力， 但是接口就不那么干净了。
 \index{interface}
 
 %🍁% The {\bf interface} of a function is a summary of how it is used: what
@@ -536,14 +539,14 @@ def circle(t, r):
 %🍁% because it pertains to the details of {\em how} the circle should
 %🍁% be rendered.
 
-在这个例子中， \lstinline{r} 属于接口的一部分，因为它指定了要画多大的圆。
+在这个例子中， \li{r} 属于接口的一部分，因为它指定了要画多大的圆。
 n就不太合适，因为它是关于 \emph{如何} 画圆的细节。
 
 %🍁% Rather than clutter up the interface, it is better
 %🍁% to choose an appropriate value of {\tt n}
 %🍁% depending on {\tt circumference}:
 
-与其把接口弄乱，不如根据周长 (circumference) 选择一个合适的\lstinline{n}值：
+与其把接口弄乱，不如根据周长 (circumference) 选择一个合适的\li{n}值：
 
 \begin{lstlisting}
 def circle(t, r):
@@ -573,16 +576,16 @@ def circle(t, r):
 %🍁% But {\tt arc} is not as cooperative; we can't use {\tt polygon}
 %🍁% or {\tt circle} to draw an arc.
 
-当我写 \lstinline{circle} 程序的时候，我能够复用 \lstinline{polygon} ，
+当我写 \li{circle} 程序的时候，我能够复用 \li{polygon} ，
 因为一个多边形是与圆形非常近似。
-但是 \lstinline{arc} 就不那么容易实现了；我们不能使用 \lstinline{polygon} 或者 \lstinline{circle} 来画一个弧。
+但是 \li{arc} 就不那么容易实现了；我们不能使用 \li{polygon} 或者 \li{circle} 来画一个弧。
 
 %🍁% One alternative is to start with a copy
 %🍁% of {\tt polygon} and transform it into {\tt arc}.  The result
 %🍁% might look like this:
 
-一种替代方案是从复制 \lstinline{polygon} 开始，
-然后将它转化为 \lstinline{arc} 。最后的函数看上去可像这样：
+一种替代方案是从复制 \li{polygon} 开始，
+然后将它转化为 \li{arc} 。最后的函数看上去可像这样：
 
 \begin{lstlisting}
 def arc(t, r, angle):
@@ -603,9 +606,9 @@ def arc(t, r, angle):
 %🍁% but then {\tt polygon} would no longer be an appropriate name!
 %🍁% Instead, let's call the more general function {\tt polyline}:
 
-该函数的后半部分看上去很像 \lstinline{polygon} ，
-但是在不改变接口的条件下，我们无法复用 \lstinline{polygon} 。
-我们可以泛化 \lstinline{polygon} 来接受一个角度作为第三个实参， 但是这样 \lstinline{polygon} 就不再是一个合适的名字了！ 让我们称这个更通用的函数为 \lstinline{polyline} ：
+该函数的后半部分看上去很像 \li{polygon} ，
+但是在不改变接口的条件下，我们无法复用 \li{polygon} 。
+我们可以泛化 \li{polygon} 来接受一个角度作为第三个实参， 但是这样 \li{polygon} 就不再是一个合适的名字了！ 让我们称这个更通用的函数为 \li{polyline} ：
 
 \begin{lstlisting}
 def polyline(t, n, length, angle):
@@ -617,7 +620,7 @@ def polyline(t, n, length, angle):
 %🍁% %
 %🍁% Now we can rewrite {\tt polygon} and {\tt arc} to use {\tt polyline}:
 
-现在，我们可以用 \lstinline{polyline} 重写 \lstinline{polygon} 和 \lstinline{arc} ：
+现在，我们可以用 \li{polyline} 重写 \li{polygon} 和 \li{arc} ：
 
 \begin{lstlisting}
 def polygon(t, n, length):
@@ -635,7 +638,7 @@ def arc(t, r, angle):
 %🍁% %
 %🍁% Finally, we can rewrite {\tt circle} to use {\tt arc}:
 
-最后，我们可以用 \lstinline{arc} 重写 \lstinline{circle} ：
+最后，我们可以用 \li{arc} 重写 \li{circle} ：
 
 \begin{lstlisting}
 def circle(t, r):
@@ -651,8 +654,8 @@ def circle(t, r):
 
 重新整理一个程序以改进函数接口和促进代码复用的这个过程，
 被称作 \emph{重构} (refactoring) 。
-在此例中，我们注意到 \lstinline{arc} 和 \lstinline{polygon} 中有相似的代码，
-因此，我们“将它分解出来”（factor it out），放入 \lstinline{polyline} 函数。
+在此例中，我们注意到 \li{arc} 和 \li{polygon} 中有相似的代码，
+因此，我们“将它分解出来”（factor it out），放入 \li{polyline} 函数。
 
 %🍁% If we had planned ahead, we might have written {\tt polyline} first
 %🍁% and avoided refactoring, but often you don't know enough at the
@@ -660,7 +663,7 @@ def circle(t, r):
 %🍁% coding, you understand the problem better.  Sometimes refactoring is a
 %🍁% sign that you have learned something.
 
-如果我们提前已经计划好了，我们可能会首先写 \lstinline{polyline} 函数，避免重构，
+如果我们提前已经计划好了，我们可能会首先写 \li{polyline} 函数，避免重构，
 但是在一个项目开始的时候，你常常并不知道那么多，不能设计好全部的接口。
 一旦你开始编码后，你才能更好地理解问题。
 有时重构是一个说明你已经学到某些东西的预兆。
@@ -679,7 +682,7 @@ def circle(t, r):
 \emph{开发计划} (development plan) 是一种编写程序的过程。
 此例中我们使用的过程是 ``封装和泛化''。 这个过程的具体步骤是：
 
-因此，我们 ``将它分解出来'' (factor it out)，放入 \lstinline{polyline} 函数。
+因此，我们 ``将它分解出来'' (factor it out)，放入 \li{polyline} 函数。
 
 %🍁% \begin{enumerate}
 %🍁% 
@@ -794,9 +797,9 @@ def polyline(t, n, length, angle):
 %🍁% integer; {\tt length} should be a positive number; and {\tt
 %🍁%   angle} has to be a number, which is understood to be in degrees.
 
-例如， \lstinline{polyline} 函数需要4个实参： \lstinline{t} 必须是一个 \lstinline{Turtle} ；
-\lstinline{n} 必须是一个整型数； \lstinline{length} 应该是一个正数；
-\lstinline{angle} 必须是一个数，单位是度数。
+例如， \li{polyline} 函数需要4个实参： \li{t} 必须是一个 \li{Turtle} ；
+\li{n} 必须是一个整型数； \li{length} 应该是一个正数；
+\li{angle} 必须是一个数，单位是度数。
 
 %🍁% These requirements are called {\bf preconditions} because they
 %🍁% are supposed to be true before the function starts executing.
@@ -809,7 +812,7 @@ def polyline(t, n, length, angle):
 因为它们应当在函数开始执行之前成立（true）。
 相反，函数结束时的条件是 \emph{后置条件} (postconditions) 。
 后置条件包括函数预期的效果（如画线段）以及任何其他附带效果
-（如移动 \lstinline{Turtle} 或者做其它改变）。
+（如移动 \li{Turtle} 或者做其它改变）。
 \index{precondition}  \index{postcondition}
 
 %🍁% Preconditions are the responsibility of the caller.  If the caller
@@ -940,9 +943,9 @@ def polyline(t, n, length, angle):
 
 \begin{enumerate}
 
-\item 画一个执行 \lstinline{circle(bob, radius)} 时的堆栈图 (stack diagram) ，说明程序的各个状态。你可以手动进行计算，也可以在代码中加入打印语句。
+\item 画一个执行 {\em \li{circle(bob, radius)}} 时的堆栈图 (stack diagram) ，说明程序的各个状态。你可以手动进行计算，也可以在代码中加入打印语句。
 
-\item Section~\ref{refactoring} 中给出的 \lstinline{arc} 函数版本并不太精确，因为圆形的线性近似（linear approximation）永远处在真正的圆形之外。因此，\lstinline{Turtle} 总是和正确的终点相差几个像素。我的答案中展示了降低这个错误影响的一种方法。阅读其中的代码，看看你是否能够理解。如果你画一个堆栈图的话，你可能会更容易明白背后的原理。
+\item Section~\ref{refactoring} 中给出的 \li{arc} 函数版本并不太精确，因为圆形的线性近似（linear approximation）永远处在真正的圆形之外。因此，\li{Turtle} 总是和正确的终点相差几个像素。我的答案中展示了降低这个错误影响的一种方法。阅读其中的代码，看看你是否能够理解。如果你画一个堆栈图的话，你可能会更容易明白背后的原理。
 
 \end{enumerate}
 
@@ -1012,8 +1015,8 @@ def polyline(t, n, length, angle):
 %🍁% ``turtle typewriter'' from \url{http://thinkpython2.com/code/typewriter.py}
 %🍁% to help you test your code.
 
-你应该为每个字母写一个函数，起名为 \lstinline{draw_a}，\lstinline{draw_b} 等等，
-然后将你的函数放在一个名为 \lstinline{letters.py} 的文件里。
+你应该为每个字母写一个函数，起名为 \li{draw_a}，\li{draw_b} 等等，
+然后将你的函数放在一个名为 \li{letters.py} 的文件里。
 你可以从 \href{http://thinkpython2.com/code/typewriter.py}{这里}
 下载一个``海龟打字员''来帮你测试代码。
 
