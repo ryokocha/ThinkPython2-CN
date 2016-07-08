@@ -59,7 +59,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'《Think Python 2e》中译本'
-copyright = '2016, EarlGrey et.al'
+copyright = '2016, EarlGrey et.al@codingpy.com'
 author = 'Allen Downey'
 translator = 'EarlGrey et al'
 
@@ -105,7 +105,7 @@ exclude_patterns = []
 #show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'tango'
+pygments_style = 'sphinx'
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
@@ -221,17 +221,17 @@ htmlhelp_basename = u'《Think Python 2e》中译本'
 
 # -- Options for LaTeX output ---------------------------------------------
 
-f = open('latexonly.tex', 'r+');
-PREAMBLE = f.read();
+f = open('latexonly.tex', 'r+')
+PREAMBLE = f.read()
 
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     'papersize': 'letterpaper',
     'pointsize': '10pt',
-    'babel':'',   #必須
-    'inputenc':'', #必須
-    'utf8extra':'', #必須
-    'fncychap':'\\usepackage[Sonny]{fncychap}',
+    'babel': '',  # 必須
+    'inputenc': '',  # 必須
+    'utf8extra': '',  # 必須
+    'fncychap': '\\usepackage[Sonny]{fncychap}',
     'releasename': "",
     'printindex': '',
     'maketitle': '',
@@ -354,7 +354,8 @@ epub_cover = ('cover.jpg', '')
 #epub_post_files = []
 
 # A list of files that should not be packed into the epub file.
-epub_exclude_files = ['search.html']
+epub_exclude_files = ['search.html', '_static/opensearch.xml', '_static/doctools.js', '_static/jquery.js',
+                      '_static/searchtools.js', '_static/underscore.js', '_static/basic.css', '_static/websupport.js']
 
 # The depth of the table of contents in toc.ncx.
 #epub_tocdepth = 3
@@ -379,3 +380,43 @@ epub_show_urls = 'no'
 
 epub3_page_progression_direction = 'default'
 
+# -- Options for Mobi output ---------------------------------------------------
+
+mobi_theme = "mobi"
+mobi_title = project
+mobi_author = author
+mobi_publisher = translator
+mobi_copyright = copyright
+
+# The scheme of the identifier. Typical schemes are ISBN or URL.
+#mobi_scheme = ''
+
+# The unique identifier of the text. This can be a ISBN number
+# or the project homepage.
+#mobi_identifier = ''
+
+# A unique identification for the text.
+#mobi_uid = ''
+
+mobi_cover = "cover.png"
+
+# HTML files that should be inserted before the pages created by sphinx.
+# The format is a list of tuples containing the path and title.
+#mobi_pre_files = []
+
+# HTML files shat should be inserted after the pages created by sphinx.
+# The format is a list of tuples containing the path and title.
+#mobi_post_files = []
+
+# A list of files that should not be packed into the mobi file.
+mobi_exclude_files = ['_static/opensearch.xml', '_static/doctools.js',
+    '_static/jquery.js', '_static/searchtools.js', '_static/underscore.js',
+    '_static/basic.css', 'search.html', '_static/websupport.js']
+
+# The depth of the table of contents in toc.ncx.
+mobi_tocdepth = 2
+
+# Allow duplicate toc entries.
+mobi_tocdup = False
+
+mobi_add_visible_links = False
