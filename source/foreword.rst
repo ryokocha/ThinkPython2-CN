@@ -3,7 +3,7 @@
 
 我是一名自学Python的编程爱好者。之所以说是爱好者，是因为我不是计算机专业毕业的。我的第一个单位是一家媒体，因为工作关系对当时新闻界流行的数据视觉化十分感兴趣，从《鲜活的数据》一书中了解到Python编程语言。而我使用的第一本教材，就是Allen Downey的《Think Python》，副标题叫“如何像计算机科学家一样思考”。
 
-后来，我到了一家互联网公司，接触运营工作。我也利用业余时间开发出了自己的网站——[编程派](http://codingpy.com)，而网站的定位就是专注Python编程，这也是网站名称和网站域名的由来：“编程派”中的“派”字，取自Python前两个字母的发音；codingpy，则是coding python的缩略。了解Python的朋友都知道，Python脚本的默认文件名后缀就是`.py`。
+后来，我到了一家互联网公司，接触运营工作。我也利用业余时间开发出了自己的网站——\ `编程派 <http://codingpy.com>`_\ ，而网站的定位就是专注Python编程，这也是网站名称和网站域名的由来：“编程派”中的“派”字，取自Python前两个字母的发音；codingpy，则是coding python的缩略。了解Python的朋友都知道，Python脚本的默认文件名后缀就是`.py`。
 
 搭建“编程派”网站（后来还开通了“编程派”微信订阅号和今日头条号）的目的，就是为了能够让更多的人了解Python语言，更快地获取国外的Python教程和资源，一起交流、学习Python。因为我相信，每个人都值得学习一点编程知识，而在我看来，最好的入门语言就是Python。
 
@@ -35,8 +35,8 @@
 虽然现在很多公司还在使用2.7，从Python 2迁移到Python 3的过程也非常的艰难，但是可以肯定的是，Python 3才是Python的未来！
 
 所以，我们需要Python 3版的《Think Python》。
-
 （另外一个原因，当然是因为Python 2版的已经有中译本，而且已经出版啦。。。本书在翻译过程中，会参考[车万翔老师组织翻译的Python 2版](https://github.com/carfly/thinkpython-cn)。）
+
 
 贡献者
 -------------------
@@ -61,3 +61,4 @@
 此书原著版权归[Allen Downey](http://greenteapress.com/wp/think-python-2e/)所有，原作链接如下：[https://github.com/AllenDowney/ThinkPython2](https://github.com/AllenDowney/ThinkPython2)。
 
 该中译版在翻译过程中，参考了车万翔老师组织翻译的Python 2版：[https://github.com/carfly/thinkpython-cn](https://github.com/carfly/thinkpython-cn)。
+
