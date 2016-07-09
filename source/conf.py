@@ -247,13 +247,15 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'ThinkPython2e.tex', 'Think Python 2e 中译版 ',
-     'Allen Downey', 'book'),
+     'Allen Downey', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-latex_logo = 'cover.jpg'
-
+latex_logo = '_static/cover.jpg'
+latex_show_pagerefs = False
+latex_domain_indices = False
+latex_use_modindex = False
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
 #latex_use_parts = False
@@ -323,7 +325,7 @@ epub_copyright = copyright
 # optimized for small screen space, using the same theme for HTML and epub
 # output is usually not wise. This defaults to 'epub', a theme designed to save
 # visual space.
-#epub_theme = 'epub'
+epub_theme = 'epub'
 
 # The language of the text. It defaults to the language option
 # or 'en' if the language is not set.
@@ -340,7 +342,7 @@ epub_identifier = 'http://codingpy.com/books/thinkpython2/'
 epub_uid = 'Think Python 2e'
 
 # A tuple containing the cover image and cover page html template filenames.
-epub_cover = ('cover.jpg', '')
+epub_cover = ('_static/cover.jpg', 'epub_cover.html')
 
 # A sequence of (type, uri, title) tuples for the guide element of content.opf.
 #epub_guide = ()

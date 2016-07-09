@@ -11,7 +11,6 @@ Contents:
 .. toctree::
    :maxdepth: 1
 
-   foreword
    00-preface
    01-the-way-of-the-program
    02-variables-expressions-and-statements
@@ -34,6 +33,7 @@ Contents:
    19-the-goodies
    20-debugging
    21-analysis-of-algorithms
+   foreword
 
 
 .. Indices and tables
