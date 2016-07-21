@@ -59,7 +59,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'《Think Python 2e》中译本'
-copyright = '2016, EarlGrey et.al'
+copyright = '2016, EarlGrey et.al@codingpy.com'
 author = 'Allen Downey'
 translator = 'EarlGrey et al'
 
@@ -105,7 +105,7 @@ exclude_patterns = []
 #show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'tango'
+pygments_style = 'sphinx'
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
@@ -221,17 +221,17 @@ htmlhelp_basename = u'《Think Python 2e》中译本'
 
 # -- Options for LaTeX output ---------------------------------------------
 
-f = open('latexonly.tex', 'r+');
-PREAMBLE = f.read();
+f = open('latexonly.tex', 'r+')
+PREAMBLE = f.read()
 
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     'papersize': 'letterpaper',
     'pointsize': '10pt',
-    'babel':'',   #必須
-    'inputenc':'', #必須
-    'utf8extra':'', #必須
-    'fncychap':'\\usepackage[Sonny]{fncychap}',
+    'babel': '',  # 必須
+    'inputenc': '',  # 必須
+    'utf8extra': '',  # 必須
+    'fncychap': '\\usepackage[Sonny]{fncychap}',
     'releasename': "",
     'printindex': '',
     'maketitle': '',
@@ -247,13 +247,15 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'ThinkPython2e.tex', 'Think Python 2e 中译版 ',
-     'Allen Downey', 'book'),
+     'Allen Downey', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-latex_logo = 'cover.jpg'
-
+latex_logo = '_static/cover.jpg'
+latex_show_pagerefs = False
+latex_domain_indices = False
+latex_use_modindex = False
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
 #latex_use_parts = False
@@ -323,7 +325,7 @@ epub_copyright = copyright
 # optimized for small screen space, using the same theme for HTML and epub
 # output is usually not wise. This defaults to 'epub', a theme designed to save
 # visual space.
-#epub_theme = 'epub'
+epub_theme = 'epub'
 
 # The language of the text. It defaults to the language option
 # or 'en' if the language is not set.
@@ -340,7 +342,7 @@ epub_identifier = 'http://codingpy.com/books/thinkpython2/'
 epub_uid = 'Think Python 2e'
 
 # A tuple containing the cover image and cover page html template filenames.
-epub_cover = ('cover.jpg', '')
+epub_cover = ('_static/cover.jpg', 'epub_cover.html')
 
 # A sequence of (type, uri, title) tuples for the guide element of content.opf.
 #epub_guide = ()
@@ -354,7 +356,8 @@ epub_cover = ('cover.jpg', '')
 #epub_post_files = []
 
 # A list of files that should not be packed into the epub file.
-epub_exclude_files = ['search.html']
+epub_exclude_files = ['search.html', '_static/opensearch.xml', '_static/doctools.js', '_static/jquery.js',
+                      '_static/searchtools.js', '_static/underscore.js', '_static/basic.css', '_static/websupport.js']
 
 # The depth of the table of contents in toc.ncx.
 #epub_tocdepth = 3
@@ -379,3 +382,43 @@ epub_show_urls = 'no'
 
 epub3_page_progression_direction = 'default'
 
+# -- Options for Mobi output ---------------------------------------------------
+
+mobi_theme = "mobi"
+mobi_title = project
+mobi_author = author
+mobi_publisher = translator
+mobi_copyright = copyright
+
+# The scheme of the identifier. Typical schemes are ISBN or URL.
+#mobi_scheme = ''
+
+# The unique identifier of the text. This can be a ISBN number
+# or the project homepage.
+#mobi_identifier = ''
+
+# A unique identification for the text.
+#mobi_uid = ''
+
+mobi_cover = "cover.png"
+
+# HTML files that should be inserted before the pages created by sphinx.
+# The format is a list of tuples containing the path and title.
+#mobi_pre_files = []
+
+# HTML files shat should be inserted after the pages created by sphinx.
+# The format is a list of tuples containing the path and title.
+#mobi_post_files = []
+
+# A list of files that should not be packed into the mobi file.
+mobi_exclude_files = ['_static/opensearch.xml', '_static/doctools.js',
+    '_static/jquery.js', '_static/searchtools.js', '_static/underscore.js',
+    '_static/basic.css', 'search.html', '_static/websupport.js']
+
+# The depth of the table of contents in toc.ncx.
+mobi_tocdepth = 2
+
+# Allow duplicate toc entries.
+mobi_tocdup = False
+
+mobi_add_visible_links = False
