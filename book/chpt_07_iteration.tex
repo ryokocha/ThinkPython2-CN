@@ -46,7 +46,7 @@
 %🍁% like in a state diagram.
 %🍁% \index{state diagram} \index{diagram!state}
 
-图~\ref{fig.assign2} 展示了 {\em 重新赋值} 在状态图中看起来是什么样子。
+图~\ref{fig.assign2} 展示了 {\bf 重新赋值} 在状态图中看起来是什么样子。
 \index{state diagram} \index{diagram!state}
 
 %🍁% At this point I want to address a common source of confusion.
@@ -98,7 +98,7 @@
 
 \begin{figure}
 \centerline
-{\includegraphics[scale=0.8]{../source/figs/assign2.pdf}}
+{\includegraphics[scale=0.99]{../source/figs/assign2.pdf}}
 % \caption {State diagram.}
 \caption {重新赋值的状态图。}
 \label{fig.assign2}
@@ -143,10 +143,11 @@ NameError: name 'x' is not defined
 %
 %🍁% Before you can update a variable, you have to {\bf initialize}
 %🍁% it, usually with a simple assignment:
-\index{initialization (before update)}
+%🍁% \index{initialization (before update)}
 
 在更新变量之前，你得先 {\em 初始化} (initialize) 它，通常是通过一个简单的赋值实现：
 \index{initialization (before update)}
+\index{初始化}
 
 \begin{lstlisting}
 >>> x = 0
@@ -156,22 +157,28 @@ NameError: name 'x' is not defined
 %
 %🍁% Updating a variable by adding 1 is called an {\bf increment};
 %🍁% subtracting 1 is called a {\bf decrement}.
-\index{increment}  \index{decrement}
+%🍁% \index{increment}  \index{decrement}
 
 通过加 \li{1} 来更新变量叫做 {\em 递增} (increment)； 减 \li{1} 叫做 {\em 递减} (decrement)。
 \index{increment}  \index{decrement}
+\index{递增}  \index{递减}
+
 
 %🍁% \section{The {\tt while} statement  |  {\tt while} 语句}
 \section{{\tt while} 语句}
+
 \index{statement!while}  \index{while loop}
 \index{loop!while}  \index{iteration}
+
 
 %🍁% Computers are often used to automate repetitive tasks.  Repeating
 %🍁% identical or similar tasks without making errors is something that
 %🍁% computers do well and people do poorly.  In a computer program,
 %🍁% repetition is also called {\bf iteration}.
 
-计算机经常被用来自动处理重复性的任务。 计算机很擅长无纰漏地重复相同或者相似的任务， 而人类在这方面做的不好。 在计算机程序中， 重复也被称为 {\em 迭代} (iteration)。
+计算机经常被用来自动处理重复性的任务。
+计算机很擅长无纰漏地重复相同或者相似的任务， 而人类在这方面做的不好。
+在计算机程序中， 重复也被称为 {\em 迭代} (iteration)。
 
 %🍁% We have already seen two functions, {\tt countdown} and
 %🍁% \verb"print_n", that iterate using recursion.  Because iteration is so
@@ -179,7 +186,7 @@ NameError: name 'x' is not defined
 %🍁% One is the {\tt for} statement we saw in Section~\ref{repetition}.
 %🍁% We'll get back to that later.
 
-我们已经见过两个利用递归来迭代的函数： \li{countdown} 和 \li{print_n} 。 由于迭代的使用非常普遍， 所以 Python 提供了使其更容易实现的语言特性。 其中之一就是我们在~\:ref{repetition} 一节看到的 \li{for} 语句。 后面我们还会继续介绍。
+我们已经见过两个利用递归来迭代的函数： \li{countdown} 和 \li{print_n} 。 由于迭代的使用非常普遍， 所以 Python 提供了使其更容易实现的语言特性。 其中之一就是我们在 \ref{repetition}~节 看到的 \li{for} 语句。 后面我们还会继续介绍。
 
 % add hyperref of 后面 here
 
@@ -236,7 +243,7 @@ def countdown(n):
 \index{condition}  \index{loop}  \index{body}
 
 这种形式的流程叫做 {\em 循环} (loop)， 因为第三步后又循环回到了第一步。
-\index{condition}  \index{loop}  \index{body}
+\index{条件}  \index{循环}  \index{循环体}
 
 %🍁% The body of the loop should change the value of one or more variables
 %🍁% so that the condition becomes false eventually and the loop
@@ -249,7 +256,7 @@ def countdown(n):
 循环主体应该改变一个或多个变量的值，这样的话才能让条件判断最终变为假，
 从而终止循环。 否则，循环将会永远重复下去，这被称为 {\em 无限循环} (infinite loop)。 在计算机科学家看来，洗发水的使用说明 —— ``抹洗发水，
 清洗掉，重复'' 便是个无限循环，这总是会让他们觉得好笑。
-\index{infinite loop}  \index{loop!infinite}
+\index{无限循环}  \index{循环!无限}
 
 %🍁% In the case of {\tt countdown}, we can prove that the loop
 %🍁% terminates: if {\tt n} is zero or negative, the loop never runs.
@@ -305,7 +312,8 @@ def sequence(n):
 %🍁%   \url{http://en.wikipedia.org/wiki/Collatz_conjecture}.)
 
 难点在于是否能证明程序对于 {\bf 所有} 的正整数 \li{n} 都会终止。 目前为止，
-还没有人证明 {\bf 或者} 证伪该命题。（见：\url{http://en.wikipedia.org/wiki/Collatz_conjecture} 。）
+还没有人证明 {\bf 或者} 证伪该命题\footnote{见：\href{http://en.wikipedia.org/wiki/Collatz_conjecture}{考拉兹猜想}}。
+\index{考拉兹猜想}  \index{维基百科}
 
 %🍁% As an exercise, rewrite the function \verb"print_n" from
 %🍁% Section~\ref{recursion} using iteration instead of recursion.
@@ -372,14 +380,15 @@ Done!
 %🍁% \section{Square roots  |  平方根}
 \section{平方根}
 \label{squareroot}
-\index{square root}
+\index{square root}  \index{平方根}
 
 %🍁% Loops are often used in programs that compute
 %🍁% numerical results by starting with an approximate answer and
 %🍁% iteratively improving it.
 \index{Newton's method}
 
-循环常用于计算数值的程序中， 这类程序一般从一个大概的值开始， 然后迭代式地进行改进。 \index{Newton's method}
+循环常用于计算数值的程序中， 这类程序一般从一个大概的值开始， 然后迭代式地进行改进。
+\index{牛顿法}
 
 %🍁% For example, one way of computing square roots is Newton's method.
 %🍁% Suppose that you want to know the square root of $a$.  If you start
@@ -509,8 +518,7 @@ while True:
 %🍁% mechanical process for solving a category of problems (in this
 %🍁% case, computing square roots).
 
-牛顿法就是一个 {\em 算法} (Algorithm) 示例： 它是解决一类问题的计算机制
-（本例中是计算平方根）。
+牛顿法就是一个 {\em 算法} (Algorithm) 示例： 它是解决一类问题的计算机制 (本例中是计算平方根)。
 
 %🍁% To understand what an algorithm is, it might help to start with
 %🍁% something that is not an algorithm.  When you learned to multiply
@@ -596,7 +604,7 @@ while True:
 %🍁% lines you have to search.  After six steps (which is fewer than 100),
 %🍁% you would be down to one or two lines of code, at least in theory.
 
-每次你都这样检查， 就可以将需要搜索的代码行数减少一半。 经过6步之后（这比100小多了）， 你将会找到那或者两行出错的代码， 至少理论上是这样。
+每次你都这样检查， 就可以将需要搜索的代码行数减少一半。 经过6步之后 (这比100小多了)， 你将会找到那或者两行出错的代码， 至少理论上是这样。
 
 %🍁% In practice it is not always clear what
 %🍁% the ``middle of the program'' is and not always possible to
@@ -619,55 +627,55 @@ while True:
 %🍁% already exists.
 %🍁% \index{reassignment}
 
-\item[重新赋值（reassignment）：] 给已经存在的变量赋一个新的值。
+\item[重新赋值 (reassignment)：] 给已经存在的变量赋一个新的值。
 \index{reassignment}
 
 %🍁% \item[update:] An assignment where the new value of the variable
 %🍁% depends on the old.
 %🍁% \index{update}
 
-\item[更新（update）：] 变量的新值取决于旧值的一种赋值方法。
+\item[更新 (update)：] 变量的新值取决于旧值的一种赋值方法。
 \index{update}
 
 %🍁% \item[initialization:] An assignment that gives an initial value to
 %🍁% a variable that will be updated.
 %🍁% \index{initialization!variable}
 
-\item[初始化（initialize）：] 给后面将要更新的变量一个初始值的一种赋值方法。
+\item[初始化 (initialize)：] 给后面将要更新的变量一个初始值的一种赋值方法。
 \index{initialization!variable}
 
 %🍁% \item[increment:] An update that increases the value of a variable
 %🍁% (often by one).
 %🍁% \index{increment}
 
-\item[递增（increment）：] 通过增加变量的值的方式更新变量（通常是加 1）。
+\item[递增 (increment)：] 通过增加变量的值的方式更新变量 (通常是加 1)。
 \index{increment}
 
 %🍁% \item[decrement:] An update that decreases the value of a variable.
 %🍁% \index{decrement}
 
-\item[递减（decrement）：] 通过减少变量的值的方式来更新变量。
+\item[递减 (decrement)：] 通过减少变量的值的方式来更新变量。
 \index{decrement}
 
 %🍁% \item[iteration:] Repeated execution of a set of statements using
 %🍁% either a recursive function call or a loop.
 %🍁% \index{iteration}
 
-\item[迭代（iteration）：] 利用递归或者循环的方式来重复执行代一组语句的过程。
+\item[迭代 (iteration)：] 利用递归或者循环的方式来重复执行代一组语句的过程。
 \index{iteration}
 
 %🍁% \item[infinite loop:] A loop in which the terminating condition is
 %🍁% never satisfied.
 %🍁% \index{infinite loop}
 
-\item[无限循环（infinite loop）：] 无法满足终止条件的循环。
+\item[无限循环 (infinite loop)：] 无法满足终止条件的循环。
 \index{infinite loop}
 
 %🍁% \item[algorithm:]  A general process for solving a category of
 %🍁% problems.
 %🍁% \index{algorithm}
 
-\item[算法（algorithm）：] 解决一类问题的通用过程。
+\item[算法 (algorithm)：] 解决一类问题的通用过程。
 \index{algorithm}
 
 \end{description}
@@ -684,7 +692,7 @@ while True:
 %🍁% reasonable value of {\tt x}, and returns an estimate of the square
 %🍁% root of {\tt a}.  \index{encapsulation}
 
-复制 \ref{squareroot} 小节中的循环， 将其封装进一个叫 {\em \li{mysqrt}} 的函数中。 这个函数接受 {\em \li{a}} 作为形参，选择一个合适的 {\em \li{x}} 值，并返回 {\em \li{a}} 的平方根估算值。
+复制{\em \ref{squareroot}}~小节中的循环， 将其封装进一个叫 {\em \li{mysqrt}} 的函数中。 这个函数接受 {\em \li{a}} 作为形参，选择一个合适的 {\em \li{x}} 值，并返回 {\em \li{a}} 的平方根估算值。
 
 %🍁% To test it, write a function named \verb"test_square_root"
 %🍁% that prints a table like this:
@@ -724,8 +732,9 @@ a   mysqrt(a)     math.sqrt(a)  diff
 %🍁% The built-in function {\tt eval} takes a string and evaluates
 %🍁% it using the Python interpreter.  For example:
 
-内置函数 {\em \li{eval}} 接受一个字符串，并使用 Python 解释器来计算该字符串。例如：
+内置函数 {\em \li{eval}} 接受一个字符串，并使用 {\em Python} 解释器来计算该字符串。例如：
 
+\begin{em}
 \begin{lstlisting}
 >>> eval('1 + 2 * 3')
 7
@@ -735,6 +744,7 @@ a   mysqrt(a)     math.sqrt(a)  diff
 >>> eval('type(math.pi)')
 <class 'float'>
 \end{lstlisting}
+\end{em}
 
 %
 %🍁% Write a function called \verb"eval_loop" that iteratively
@@ -760,8 +770,8 @@ a   mysqrt(a)     math.sqrt(a)  diff
 %🍁% approximation of $1 / \pi$:
 \index{pi}
 
-数学家斯里尼瓦瑟·拉马努金 (Srinivasa Ramanujan) 发现了一个可以用来生成 $1 / \pi$
-近似值的无穷级数 (infinite series)：
+数学家斯里尼瓦瑟·拉马努金 {\em (Srinivasa Ramanujan)} 发现了一个可以用来生成 $1 / \pi$
+近似值的无穷级数 {\em (infinite series)}：
 
 \[ \frac{1}{\pi} = \frac{2\sqrt{2}}{9801}
 \sum^\infty_{k=0} \frac{(4k)!(1103+26390k)}{(k!)^4 396^{4k}} \]
@@ -773,7 +783,7 @@ a   mysqrt(a)     math.sqrt(a)  diff
 %🍁% You can check the result by comparing it to {\tt math.pi}.
 
 编写一个名为 {\em \li{estimate_pi}} 的函数，利用上面公式来估算并返回 $\pi$
-的值。 这个函数应该使用 \li{while} 循环来计算所有项的和， 直到最后一项小于 {\em \li{1e-15}} (Python 中用于表达 $10^{-15}$ 的写法) 时终止循环。 你可以将该值与 $math.pi$ 进行比较， 检测是否准确。
+的值。 这个函数应该使用 {\em \li{while}} 循环来计算所有项的和， 直到最后一项小于 {\em \li{1e-15}} {\em (Python} 中用于表达 $10^{-15}$ 的写法{\em )} 时终止循环。 你可以将该值与 {\em \li{math.pi}} 进行比较， 检测是否准确。
 
 %🍁% Solution: \url{http://thinkpython2.com/code/pi.py}.
 

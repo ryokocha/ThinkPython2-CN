@@ -67,7 +67,7 @@ y = math.log(x) if x > 0 else float('nan')
 
 这条语句读起来很像英语：``y gets log-x if x is
 greater than 0; otherwise it gets NaN''
-（如果 x 大于 0，y 的值则是 x 的 log；否则 y 的值为 NaN ）。
+(如果 x 大于 0，y 的值则是 x 的 log；否则 y 的值为 NaN )。
 
 %🍁% Recursive functions can sometimes be rewritten using conditional
 %🍁% expressions.  For example, here is a recursive version of {\tt factorial}:
@@ -164,7 +164,7 @@ def capitalize_all(t):
 %🍁% of the list, and the {\tt for} clause indicates what sequence
 %🍁% we are traversing.
 
-方括号操作符表示，我们正在构造一个新列表。  
+方括号操作符表示，我们正在构造一个新列表。
 方括号中的表达式指定列表中的元素， \li{for} 子句表示我们要遍历的序列。
 
 \index{list}  \index{for loop}
@@ -207,8 +207,8 @@ def only_upper(t):
 %🍁% loops, sometimes much faster.  So if you are mad at me for not
 %🍁% mentioning them earlier, I understand.
 
-列表推导式非常简洁、易读，至少对简单的表达式是这样的。  
-而且通常比对应的 \li{for} 循环要更快， 有时要快很多。  
+列表推导式非常简洁、易读，至少对简单的表达式是这样的。
+而且通常比对应的 \li{for} 循环要更快， 有时要快很多。
 所以， 如果你埋怨我之前没介绍， 可以理解。
 
 %🍁% But, in my defense, list comprehensions are harder to debug because
@@ -216,8 +216,8 @@ def only_upper(t):
 %🍁% use them only if the computation is simple enough that you are likely
 %🍁% to get it right the first time.  And for beginners that means never.
 
-但是， 我这么做也是有原因的， 列表推导式的调试难度更大， 因为你不能在循环中添加打印语句。  
-我建议你只在计算足够简单、 第一次就能写出正确代码的前提下使用。  
+但是， 我这么做也是有原因的， 列表推导式的调试难度更大， 因为你不能在循环中添加打印语句。
+我建议你只在计算足够简单、 第一次就能写出正确代码的前提下使用。
 不过对初学来说， 第一次就写对几乎不可能。
 
 \index{debugging}
@@ -261,7 +261,7 @@ def only_upper(t):
 %🍁% StopIteration exception.  You can also use a {\tt for} loop to iterate
 %🍁% through the values:
 
-抵达序列的末尾时， \li{next} 会抛出 \li{StopIteration} 异常。  
+抵达序列的末尾时， \li{next} 会抛出 \li{StopIteration} 异常。
 你还可以使用 \li{for} 循环遍历这些值：
 
 \index{StopIteration}
@@ -352,7 +352,7 @@ def avoids(word, forbidden):
 
 上面的函数读取来和英语没什么区别：``word avoids forbidden if there
 are not any forbidden letters in word.''
-（如果某个词中没有任何禁用字母，那么该词就算避免了使用禁用词。）
+(如果某个词中没有任何禁用字母，那么该词就算避免了使用禁用词。)
 
 %🍁% Using {\tt any} with a generator expression is efficient because
 %🍁% it stops immediately if it finds a {\tt True} value,
@@ -382,8 +382,8 @@ Python还提供了另一个内建函数 \li{all}， 如果序列中的每个元�
 %🍁% returns a dictionary that contains the keys from {\tt d1} that
 %🍁% are not in {\tt d2}.
 
-在 \ref{dictsub}~节 中， 我使用字典对那些在文档中但不在单词列表里的单词进行了查找。  
-我写的那个函数接受参数 \li{d1} 和 \li{d2} ， 分别包含文档中的单词（作为键使用）和单词列表。  
+在 \ref{dictsub}~节 中， 我使用字典对那些在文档中但不在单词列表里的单词进行了查找。
+我写的那个函数接受参数 \li{d1} 和 \li{d2} ， 分别包含文档中的单词(作为键使用)和单词列表。
 它返回不在 \li{d2} 中但在 \li{d1} 里的键组成的字典。
 
 \begin{lstlisting}
@@ -409,8 +409,8 @@ def subtract(d1, d2):
 \index{set}
 \index{object!set}
 
-Python 提供了另一个叫做集合的内建类型， 它的行为类似没有值的字典键集合。  
-往集合中添加元素是非常快的； 成员关系检测也很快。 
+Python 提供了另一个叫做集合的内建类型， 它的行为类似没有值的字典键集合。
+往集合中添加元素是非常快的； 成员关系检测也很快。
 另外， 集合还提供了计算常见集合操作的方法和操作符。
 
 %🍁% For example, set subtraction is available as a method called
@@ -418,7 +418,7 @@ Python 提供了另一个叫做集合的内建类型， 它的行为类似没有
 %🍁% {\tt subtract} like this:
 \index{set subtraction}
 
-例如，集合差集就有一个对应的 \li{difference} 方法，或者操作符 \li{-}。  
+例如，集合差集就有一个对应的 \li{difference} 方法，或者操作符 \li{-}。
 因此，我们可以这样重写 \li{subtract} 函数：
 
 \begin{lstlisting}
@@ -437,7 +437,7 @@ def subtract(d1, d2):
 %🍁% \verb"has_duplicates", from
 %🍁% Exercise~\ref{duplicate}, that uses a dictionary:
 
-如果使用集合来完成本书中的部分练习题， 代码会比较简洁、 高效。  
+如果使用集合来完成本书中的部分练习题， 代码会比较简洁、 高效。
 例如， 下面是 \ref{duplicate} 中 \li{has_duplicates} 函数的一种使用字典的实现：
 
 \begin{lstlisting}
@@ -477,7 +477,7 @@ def has_duplicates(t):
 %🍁% Chapter~\ref{wordplay}.  For example, here's a version of
 %🍁% \verb"uses_only" with a loop:
 
-我们还可以使用集合完成 \ref{wordplay} 中的部分练习题。  
+我们还可以使用集合完成 \ref{wordplay} 中的部分练习题。
 例如， 下面是使用循环实现的 \li{uses_only} 函数：
 
 \begin{lstlisting}
@@ -492,7 +492,7 @@ def uses_only(word, available):
 %🍁% \verb"uses_only" checks whether all letters in {\tt word} are
 %🍁% in {\tt available}.  We can rewrite it like this:
 
-\li{uses_only} 检查 \li{word} 中的所有字符也在 \li{available} 中。  
+\li{uses_only} 检查 \li{word} 中的所有字符也在 \li{available} 中。
 我们可以像这样重写该函数：
 
 \begin{lstlisting}
@@ -506,7 +506,7 @@ def uses_only(word, available):
 %🍁% the letters in {\tt word} appear in {\tt available}.
 \index{subset}
 
-操作符 \li{<=} 检查某个集合是否是另一个集合的子集或本身， 包括了二者相等的可能性。  
+操作符 \li{<=} 检查某个集合是否是另一个集合的子集或本身， 包括了二者相等的可能性。
 如果 \li{word} 中所有的字符都出现在 \li{available} 中，则返回 \li{True} 。
 
 %🍁% As an exercise, rewrite \verb"avoids" using sets.
@@ -524,7 +524,7 @@ def uses_only(word, available):
 \index{object!Counter}
 \index{multiset}
 
-计数器 (Counter)类似集合， 区别在于如果某个元素出现次数超过一次， 计数器就会记录其出现次数。  如果你熟悉数学中的 {\em 多重集} 概念， 计数器就是用来表示一个多重集的自然选择。
+{\em 计数器} (Counter) 类似集合， 区别在于如果某个元素出现次数超过一次， 计数器就会记录其出现次数。  如果你熟悉数学中的 {\em 多重集} 概念， 计数器就是用来表示一个多重集的自然选择。
 
 %🍁% Counter is defined in a standard module called {\tt collections},
 %🍁% so you have to import it.  You can initialize a Counter with a string,
@@ -532,7 +532,7 @@ def uses_only(word, available):
 \index{collections}
 \index{module!collections}
 
-计数器定义在叫做 \li{collections} 的标准模块中， 因此你必须首先导入该模块。  
+计数器定义在叫做 \li{collections} 的标准模块中， 因此你必须首先导入该模块。
 你可以通过字符串、 列表或任何支持迭代的数据结构来初始化计数器：
 
 \begin{lstlisting}
@@ -546,7 +546,7 @@ Counter({'r': 2, 't': 1, 'o': 1, 'p': 1, 'a': 1})
 %🍁% key to the number of times it appears.  As in dictionaries,
 %🍁% the keys have to be hashable.
 
-计数器的行为与字典有很多相似的地方： 它们将每个键映射至其出现的次数。  
+计数器的行为与字典有很多相似的地方： 它们将每个键映射至其出现的次数。
 与字典一样， 键必须是可哈希的。
 
 %🍁% Unlike dictionaries, Counters don't raise an exception if you access
@@ -580,7 +580,7 @@ def is_anagram(word1, word2):
 %🍁% returns a list of value-frequency pairs, sorted from most common to
 %🍁% least:
 
-计数器提供了执行类似集合操作的方法和操作符， 包括集合添加、 差集、 并集和交集。  
+计数器提供了执行类似集合操作的方法和操作符， 包括集合添加、 差集、 并集和交集。
 另外， 还提供了一个通常非常有用的方法 \li{most_common} ，返回一个由 值-频率 对组成的列表，按照频率高低
 
 \begin{lstlisting}
@@ -612,7 +612,7 @@ a 1
 %🍁% and other types can be used as factories:
 \index{factory function}
 
-在创建 \li{defaultdict} 时， 你提供一个用于创建新值的函数。  
+在创建 \li{defaultdict} 时， 你提供一个用于创建新值的函数。
 这个用于创建对象的函数有时也被称为 {\em 工厂} 。  用于创建列表、 集合和其他类型的内建函数也可以用作工厂：
 
 \begin{lstlisting}
@@ -624,7 +624,7 @@ a 1
 %🍁% not {\tt list()}, which is a new list.  The function you provide
 %🍁% doesn't get called unless you access a key that doesn't exist.
 
-请注意，这里的实参是 \li{list}， 它是一个类对象， 而不是 \li{list()} ， 后者是一个新列表。  
+请注意，这里的实参是 \li{list}， 它是一个类对象， 而不是 \li{list()} ， 后者是一个新列表。
 你提供的函数只有在访问不存在的键时， 才会被调用。
 
 \begin{lstlisting}
@@ -636,7 +636,7 @@ a 1
 %🍁% The new list, which we're calling {\tt t}, is also added to the
 %🍁% dictionary.  So if we modify {\tt t}, the change appears in {\tt d}:
 
-新列表 \li{t} 也被添加至字典中。  
+新列表 \li{t} 也被添加至字典中。
 因此如果我们修改 \li{t} ， 改动也会出现在 \li{d} 中。
 
 \begin{lstlisting}
@@ -654,8 +654,8 @@ defaultdict(<class 'list'>, {'new key': ['new value']})
 %🍁%   'opst'} maps to the list {\tt ['opts', 'post', 'pots', 'spot',
 %🍁%     'stop', 'tops']}.
 
-如果你要创建一个列表组成的字典， 通常你可以使用 \li{defaultdict} 来简化代码。  
-在\ref{anagrams} 的 \href{http://thinkpython2.com/code/anagram_sets.py}{答案}中， 我创建的字典将排好序的字符串映射至一个可以由这些字符串构成的单词列表。  
+如果你要创建一个列表组成的字典， 通常你可以使用 \li{defaultdict} 来简化代码。
+在\ref{anagrams} 的 \href{http://thinkpython2.com/code/anagram_sets.py}{答案}中， 我创建的字典将排好序的字符串映射至一个可以由这些字符串构成的单词列表。
 例如，\li{'opst'} 映射至列表 \li{['opts', 'post', 'pots', 'spot', 'stop', 'tops']}。
 
 %🍁% Here's the original code:
@@ -697,7 +697,7 @@ def all_anagrams(filename):
 %🍁% function is complicated, it might be.
 \index{factory function}
 
-这种方案有一个缺点， 即不管是否需要， 每次都会创建一个新列表。  
+这种方案有一个缺点， 即不管是否需要， 每次都会创建一个新列表。
 如果只是创建列表， 这问题你不大， 但是如果工厂函数非常复杂， 就可能会成为一个大问题。
 
 %🍁% We can avoid this problem and
@@ -723,8 +723,8 @@ def all_anagrams(filename):
 %🍁% it is needed or not.  As an exercise, rewrite it using
 %🍁% a defaultdict.
 
-练习~\ref{poker} 的 \href{http://thinkpython2.com/code/PokerHandSoln.py}{答案}中， \li{has_straightflush} 函数使用了 \li{setdefault}。  
-这个答案的缺点就是每次循环时都会创建一个 \li{Hand} 对象， 不管是否需要。  
+练习~\ref{poker} 的 \href{http://thinkpython2.com/code/PokerHandSoln.py}{答案}中， \li{has_straightflush} 函数使用了 \li{setdefault}。
+这个答案的缺点就是每次循环时都会创建一个 \li{Hand} 对象， 不管是否需要。
 我们做个练习， 使用 \li{defaultdict} 改写这个函数。
 
 
@@ -736,8 +736,8 @@ def all_anagrams(filename):
 %🍁% two numbers, {\tt x} and {\tt y}.  When you define a class like
 %🍁% this, you usually start with an init method and a str method:
 
-许多简单对象基本上就是相关值的集合。  
-例如，\ref{clobjects} 中定义的 \li{Point} 对象包含两个数字 \li{x} 和 \li{y} 。  
+许多简单对象基本上就是相关值的集合。
+例如，\ref{clobjects} 中定义的 \li{Point} 对象包含两个数字 \li{x} 和 \li{y} 。
 当你像下面这样定义类时， 你通常先开始定义 init 和 str 方法：
 
 \begin{lstlisting}
@@ -754,7 +754,7 @@ class Point:
 %🍁% This is a lot of code to convey a small amount of information.
 %🍁% Python provides a more concise way to say the same thing:
 
-但是编写了这么多代码， 却只传递了很少的信息。  
+但是编写了这么多代码， 却只传递了很少的信息。
 Python提供了一个更简洁的实现方式：
 
 \begin{lstlisting}
@@ -798,7 +798,7 @@ Point(x=1, y=2)
 %🍁% you provided.  The str method prints a representation of the Point
 %🍁% object and its attributes.
 
-init 方法将实参赋值给你提供的属性。  
+init 方法将实参赋值给你提供的属性。
 str 方法打印 \li{Point} 对象的字符串呈现及其属性。
 
 %🍁% You can access the elements of the named tuple by name:
@@ -830,9 +830,9 @@ str 方法打印 \li{Point} 对象的字符串呈现及其属性。
 %🍁% the named tuple:
 \index{inheritance}
 
-命名元组是定义简单类的一种便捷方式。  
-缺点是这些简单类不会一成不变。  
-之后你可能会发现想要给命名元组添加更多的方法。  
+命名元组是定义简单类的一种便捷方式。
+缺点是这些简单类不会一成不变。
+之后你可能会发现想要给命名元组添加更多的方法。
 在这种情况下， 你可以定义一个继承自命名元组的新类：
 
 \begin{lstlisting}
@@ -864,7 +864,7 @@ def printall(*args):
 \index{positional argument}
 \index{argument!positional}
 
-你可以使用任意数量的位置实参（即不带关键字的参数）调用该函数：
+你可以使用任意数量的位置实参(即不带关键字的参数)调用该函数：
 
 \begin{lstlisting}
 >>> printall(1, 2.0, '3')
@@ -898,7 +898,7 @@ def printall(*args, **kwargs):
 %🍁% {\tt kwargs} is a common choice.  The result is a dictionary that maps
 %🍁% keywords to values:
 
-你可以给关键字汇集形参取任意的名称，但是 \li{kwargs} 是常用名。  
+你可以给关键字汇集形参取任意的名称，但是 \li{kwargs} 是常用名。
 上面函数的结果是一个将关键字映射至值的字典：
 
 \begin{lstlisting}
@@ -911,7 +911,7 @@ def printall(*args, **kwargs):
 %🍁% scatter operator, {\tt **} to call a function:
 \index{scatter}
 
-如果你有一个有关键字和值组成的字典， 可以使用分散操作符（scatter operator） \li{**} 调用函数：
+如果你有一个有关键字和值组成的字典， 可以使用分散操作符(scatter operator) \li{**} 调用函数：
 
 \begin{lstlisting}
 >>> d = dict(x=1, y=2)
@@ -959,7 +959,7 @@ TypeError: __new__() missing 1 required positional argument: 'y'
 
 \item[列表推导式 (list comprehension):]  位于方括号中带 for 循环的表达式， 最终生成一个新列表。
 
-%🍁% \item[generator expression:] An expression with a {\tt for} loop in 
+%🍁% \item[generator expression:] An expression with a {\tt for} loop in
 %🍁% parentheses that yields a generator object.
 \index{generator expression}
 \index{expression!generator}
@@ -1019,12 +1019,12 @@ def binomial_coeff(n, k):
 
 %🍁% One note: this function is not very efficient because it ends up computing
 %🍁% the same values over and over.  You could make it more efficient by
-%🍁% memoizing (see Section~\ref{memoize}).  But you will find that it's harder 
+%🍁% memoizing (see Section~\ref{memoize}).  But you will find that it's harder
 %🍁% to memoize if you write it using conditional expressions.
 
-注意： 这个函数不是特别高效， 因为它最后在不断地重复计算相同的值。  
+注意： 这个函数不是特别高效， 因为它最后在不断地重复计算相同的值。
 你可以通过备忘录模式\footnote{memoizing，也可理解为缓存} 来提高效率
-（参见 {\em \ref{memoize}}~节）。  
+(参见 {\em \ref{memoize}}~节)。
 不过你会发现，如果使用条件表达式，进行缓存的难度会更大。
 
 \end{exercise}

@@ -148,9 +148,10 @@ bob.fd(100)
 %\newpage
 
 %🍁% \section{Simple repetition  |  简单重复}
-\section{Simple repetition  |  简单重复}
+\section{简单重复}
 \label{repetition}
-\index{repetition}  \index{重复}
+\index{repetition}  
+\index{重复}
 
 %🍁% Chances are you wrote something like this:
 
@@ -249,15 +250,15 @@ for语句的语法和函数定义类似。
 
 
 %🍁% \section{Exercises  |  练习}
-\section{Exercises  |  练习}
+\section{练习}
 
 %🍁% The following is a series of exercises using TurtleWorld.  They
 %🍁% are meant to be fun, but they have a point, too.  While you are
 %🍁% working on them, think about what the point is.
 
-下面是一系列学习使用 \li{Turtle} \footnote{译注：原文中使用的还是 \li{TurtleWorld} ，应该是作者忘了修改。} 的练习。
-这些练习也许很好玩，但它们是有针对性设计的。
-在做这些练习的时候，可以思考一下它们的目的是什么。
+下面是一系列学习使用 \li{Turtle} \footnote{译注：原文中使用的还是 \li{TurtleWorld} ，应该是作者忘了修改。} 的练习。  
+这些练习很有意思，但它们的设计是有针对性。
+做这些练习的时候，可以思考一下它们的目的是什么。
 
 %🍁% The following sections have solutions to the exercises, so
 %🍁% don't look until you have finished (or at least tried).
@@ -323,7 +324,7 @@ for语句的语法和函数定义类似。
 
 提示：算出圆的周长，并确保 \li{length \* n = circumference} 。
 
-\item 完成一个更泛化 (general) 的 \li{circle} 函数，称其为 \li{arc} ，接受一个额外的参数 \li{angle} ，确定画多完整的圆。 \li{angle} 的单位是度，因此当 \li{angle = 360} 时， \li{arc} 应该画一个完整的圆。
+\item 完成一个更泛化 (general) 的 \li{circle} 函数，称其为 \li{arc} ，接受一个额外的参数 \li{angle} ， 确定画多完整的圆。 \li{angle} 的单位是度，因此当 \li{angle = 360} 时， \li{arc} 应该画一个完整的圆。
 
 \index{arc function}  \index{function!arc}
 
@@ -524,6 +525,7 @@ def circle(t, r):
 一个解决方案是将n作为形参，泛化函数。
 这将给用户（调用 \li{circle} 的人）更多的掌控力， 但是接口就不那么干净了。
 \index{interface}
+\index{接口}
 
 %🍁% The {\bf interface} of a function is a summary of how it is used: what
 %🍁% are the parameters?  What does the function do?  And what is the return
@@ -651,6 +653,7 @@ def circle(t, r):
 %🍁% In this case, we noticed that there was similar code in {\tt arc} and
 %🍁% {\tt polygon}, so we ``factored it out'' into {\tt polyline}.
 \index{refactoring}
+\index{重构}
 
 重新整理一个程序以改进函数接口和促进代码复用的这个过程，
 被称作 \emph{重构} (refactoring) 。
@@ -767,10 +770,10 @@ def polyline(t, n, length, angle):
 %🍁% the function and what type each parameter should be (if it is not
 %🍁% obvious).
 
-它很简要（terse），但是包括了他人使用此函数时需要了解的关键信息。
+它很简要\footnote{terse}，但是包括了他人使用此函数时需要了解的关键信息。
 它扼要地说明该函数做什么（不介绍背后的具体细节）。
 它解释了每个形参对函数的行为有什么影响，以及每个形参应有的类型
-（如果它不
+（如果它不明显的话）。
 
 %🍁% Writing this kind of documentation is an important part of interface
 %🍁% design.  A well-designed interface should be simple to explain;
@@ -784,6 +787,7 @@ def polyline(t, n, length, angle):
 %🍁% \section{Debugging  |  调试}
 \section{调试}
 \index{debugging}  \index{interface}
+\index{调试}  \index{接口}
 
 %🍁% An interface is like a contract between a function and a caller.
 %🍁% The caller agrees to provide certain parameters and the function
@@ -809,18 +813,19 @@ def polyline(t, n, length, angle):
 %🍁% side effects (like moving the Turtle or making other changes).
 
 这些要求被称作 \emph{先决条件} (preconditions) ，
-因为它们应当在函数开始执行之前成立（true）。
-相反，函数结束时的条件是 \emph{后置条件} (postconditions) 。
+因为它们应当在函数开始执行之前成立（true）。  
+相反， 函数结束时的条件是 \emph{后置条件} (postconditions) 。  
 后置条件包括函数预期的效果（如画线段）以及任何其他附带效果
 （如移动 \li{Turtle} 或者做其它改变）。
 \index{precondition}  \index{postcondition}
+\index{先决条件}  \index{后置条件}
 
 %🍁% Preconditions are the responsibility of the caller.  If the caller
 %🍁% violates a (properly documented!) precondition and the function
 %🍁% doesn't work correctly, the bug is in the caller, not the function.
 
 先决条件由调用者负责满足。如果调用者违反一个（已经充分记录文档的！）
-先决条件，导致函数没有正确工作，则故障（bug）出现在调用者一方，而不是函数。
+先决条件，导致函数没有正确工作，则故障 (bug) 出现在调用者一方，而不是函数。
 
 %🍁% If the preconditions are satisfied and the postconditions are
 %🍁% not, the bug is in the function.  If your pre- and postconditions
@@ -838,20 +843,20 @@ def polyline(t, n, length, angle):
 %🍁% using dot notation.
 \index{method}
 
-\item[方法（method）：]
-    与对象相关联的函数，并使用点标记法（dot notation）调用。
+\item[方法 (method)：]
+    与对象相关联的函数，并使用点标记法 (dot notation)调用。
 
 %🍁% \item[loop:] A part of a program that can run repeatedly.
 \index{loop}
 
-\item[循环（loop）：]
+\item[循环 (loop)：]
     程序中能够重复执行的那部分代码。
 
 %🍁% \item[encapsulation:] The process of transforming a sequence of
 %🍁% statements into a function definition.
 \index{encapsulation}
 
-\item[封装（encapsulation）：]
+\item[封装 (encapsulation)：]
     将一个语句序列转换成函数定义的过程。
 
 %🍁% \item[generalization:] The process of replacing something
@@ -859,56 +864,56 @@ def polyline(t, n, length, angle):
 %🍁% general (like a variable or parameter).
 \index{generalization}
 
-\item[泛化（generalization）：]
-    使用某种可以算是比较通用的东西（像变量和形参），替代某些没必要那么具体的东西（像一个数字）的过程。
+\item[泛化 (generalization)：]
+    使用某种可以算是比较通用的东西 (像变量和形参)，替代某些没必要那么具体的东西 (像一个数字)的过程。
 
 %🍁% \item[keyword argument:] An argument that includes the name of
 %🍁% the parameter as a ``keyword''.
 \index{keyword argument}
 \index{argument!keyword}
 
-\item[关键字实参（keyword argument）：]
+\item[关键字实参 (keyword argument)：]
     包括了形参名称作为“关键字”的实参。
 
 %🍁% \item[interface:] A description of how to use a function, including
 %🍁% the name and descriptions of the arguments and return value.
 \index{interface}
 
-\item[接口（interface）：]
+\item[接口 (interface)：]
     对如何使用一个函数的描述，包括函数名、参数说明和返回值。
 
 %🍁% \item[refactoring:] The process of modifying a working program to
 %🍁%   improve function interfaces and other qualities of the code.
 \index{refactoring}
 
-\item[重构（refactoring）：]
+\item[重构 (refactoring)：]
     修改一个正常运行的函数，改善函数接口及其他方面代码质量的过程。
 
 %🍁% \item[development plan:] A process for writing programs.
 \index{development plan}
 
-\item[开发计划（development plan）：]
+\item[开发计划 (development plan)：]
     编写程序的一种过程。
 
 %🍁% \item[docstring:] A string that appears at the top of a function
 %🍁%   definition to document the function's interface.
 \index{docstring}
 
-\item[文档字符串（docstring）：]
+\item[文档字符串 (docstring)：]
     出现在函数定义顶部的一个字符串，用于记录函数的接口。
 
 %🍁% \item[precondition:] A requirement that should be satisfied by
 %🍁% the caller before a function starts.
 \index{precondition}
 
-\item[先决条件（preconditions）：]
+\item[先决条件 (preconditions)：]
     在函数运行之前，调用者应该满足的要求。
 
 %🍁% \item[postcondition:] A requirement that should be satisfied by
 %🍁% the function before it ends.
 \index{precondition}
 
-\item[后置条件（postconditions）：]
+\item[后置条件 (postconditions)：]
     函数终止之前应该满足的条件。
 
 \end{description}
@@ -922,7 +927,7 @@ def polyline(t, n, length, angle):
 %🍁% Download the code in this chapter from
 %🍁% \url{http://thinkpython2.com/code/polygon.py}.
 
-可从 \href{http://thinkpython2.com/code/polygon.py}{http://thinkpython2.com/code/polygon.py} 下载本章的代码。
+可从 \href{http://thinkpython2.com/code/polygon.py}{此处}下载本章的代码。
 
 %🍁% \begin{enumerate}
 %🍁% 
@@ -943,9 +948,13 @@ def polyline(t, n, length, angle):
 
 \begin{enumerate}
 
-\item 画一个执行 {\em \li{circle(bob, radius)}} 时的堆栈图 (stack diagram) ，说明程序的各个状态。你可以手动进行计算，也可以在代码中加入打印语句。
+\item 画一个执行 {\em \li{circle(bob, radius)}} 时的堆栈图 {\em (stack diagram) } ，说明程序的各个状态。 你可以手动进行计算，也可以在代码中加入打印语句。
 
-\item Section~\ref{refactoring} 中给出的 \li{arc} 函数版本并不太精确，因为圆形的线性近似（linear approximation）永远处在真正的圆形之外。因此，\li{Turtle} 总是和正确的终点相差几个像素。我的答案中展示了降低这个错误影响的一种方法。阅读其中的代码，看看你是否能够理解。如果你画一个堆栈图的话，你可能会更容易明白背后的原理。
+\item {\em \ref{refactoring}}~节 中给出的 {\em \li{arc} } 函数版本并不太精确，因为圆形的线性近似\footnote{linear approximation}永远处在真正的圆形之外。  
+因此，{\em \li{Turtle}} 总是和正确的终点相差几个像素。  
+我的答案中展示了降低这个错误影响的一种方法。  
+阅读其中的代码， 看看你是否能够理解。  
+如果你画一个堆栈图的话， 你可能会更容易明白背后的原理。
 
 \end{enumerate}
 
@@ -954,7 +963,7 @@ def polyline(t, n, length, angle):
 
 \begin{figure}
 \centerline
-{\includegraphics[scale=0.8]{../source/figs/flowers.pdf}}
+{\includegraphics[scale=0.85]{../source/figs/flowers.pdf}}
 \caption{Turtle flowers.}
 \label{fig.flowers}
 \end{figure}
@@ -978,7 +987,7 @@ def polyline(t, n, length, angle):
 
 \begin{figure}
 \centerline
-{\includegraphics[scale=0.8]{../source/figs/pies.pdf}}
+{\includegraphics[scale=0.99]{../source/figs/pies.pdf}}
 \caption{Turtle pies.}
 \label{fig.pies}
 \end{figure}
@@ -990,13 +999,14 @@ def polyline(t, n, length, angle):
 %🍁% Write an appropriately general set of functions that
 %🍁% can draw shapes as in Figure~\ref{fig.pies}.
 
-编写比较通用的一个可以画出图4-2中那样图形的函数集，。
+编写比较通用的一个可以画出图~{\em \ref{fig.flowers} }中那样图形的函数集。
 
 %🍁% Solution: \url{http://thinkpython2.com/code/pie.py}.
 
 \href{http://thinkpython2.com/code/pie.py}{参考答案}
 
 \end{exercise}
+
 
 \begin{exercise}
 \index{alphabet}  \index{turtle typewriter}  \index{typewriter, turtle}
@@ -1015,8 +1025,8 @@ def polyline(t, n, length, angle):
 %🍁% ``turtle typewriter'' from \url{http://thinkpython2.com/code/typewriter.py}
 %🍁% to help you test your code.
 
-你应该为每个字母写一个函数，起名为 \li{draw_a}，\li{draw_b} 等等，
-然后将你的函数放在一个名为 \li{letters.py} 的文件里。
+你应该为每个字母写一个函数，起名为 {\em \li{draw_a} } ，{\em \li{draw_b} }  等等，
+然后将你的函数放在一个名为 {\em \li{letters.py} }  的文件里。
 你可以从 \href{http://thinkpython2.com/code/typewriter.py}{这里}
 下载一个``海龟打字员''来帮你测试代码。
 
@@ -1027,13 +1037,14 @@ def polyline(t, n, length, angle):
 
 \end{exercise}
 
+
 \begin{exercise}
 
 %🍁% Read about spirals at \url{http://en.wikipedia.org/wiki/Spiral}; then
 %🍁% write a program that draws an Archimedian spiral (or one of the other
 %🍁% kinds).  Solution: \url{http://thinkpython2.com/code/spiral.py}.
 
-阅读关于 \href{https://zh.wikipedia.org/wiki/%E8%9E%BA%E7%BA%BF}{螺线} (\href{http://en.wikipedia.org/wiki/Spiral}{spiral}) 的相关知识；
+阅读关于 \href{https://zh.wikipedia.org/wiki/%E8%9E%BA%E7%BA%BF}{螺线} {\em (\href{http://en.wikipedia.org/wiki/Spiral}{spiral})} 的相关知识；
 然后编写一个绘制阿基米德螺线（或者其他种类的螺线）的程序。
 \index{spiral}  \index{Archimedian spiral}
 
@@ -1043,3 +1054,4 @@ def polyline(t, n, length, angle):
 
 % SEIKA
 % 23 Mar 2016
+% 09 Jul 2016

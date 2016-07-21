@@ -83,7 +83,7 @@
 %🍁% A programmer-defined type is also called a {\bf class}.
 %🍁% A class definition looks like this:
 
-程序员自定义类型 (A programmer-defined type) 也被称作 {\em 类} (class)。  像这样定义一个对象：
+程序员自定义类型 \footnote{programmer-defined type} 也被称作 {\em 类} (class)。  像这样定义一个对象：
 
 \index{class}  \index{object!class}
 \index{class definition}  \index{definition!class}
@@ -197,7 +197,7 @@ class Point:
 %🍁% A state diagram that shows an object and its attributes is
 %🍁% called an {\bf object diagram}; see Figure~\ref{fig.point}.
 
-下面\hyperref[fig.point]{这张图}展示了这些赋值操作的结果。 说明一个对象及其属性的状态图叫做 {\em 对象图} (object diagram)； 见图~\ref{fig.point}。
+见图~\ref{fig.point}展示了这些赋值操作的结果。  描述一个对象及其属性的状态图叫做 {\em 对象图} (object diagram)； 。
 
 \index{state diagram}  \index{diagram!state}
 \index{object diagram}  \index{diagram!object}
@@ -205,7 +205,8 @@ class Point:
 \begin{figure}
 \centerline
 {\includegraphics[scale=0.8]{../source/figs/point.pdf}}
-\caption{Object diagram.}
+% \caption{Object diagram.}
+\caption{对象图。}
 \label{fig.point}
 \end{figure}
 
@@ -380,7 +381,8 @@ box.corner.y = 0.0
 \begin{figure}
 \centerline
 {\includegraphics[scale=0.8]{../source/figs/rectangle.pdf}}
-\caption{Object diagram.}
+% \caption{Object diagram.}
+\caption{对象图。}
 \label{fig.rectangle}
 \end{figure}
 
@@ -572,7 +574,8 @@ True
 \begin{figure}
 \centerline
 {\includegraphics[scale=0.8]{../source/figs/rectangle2.pdf}}
-\caption{Object diagram.}
+% \caption{Object diagram.}
+\caption{对象图。}
 \label{fig.rectangle2}
 \end{figure}
 
@@ -799,24 +802,24 @@ except AttributeError:
 %🍁% {\tt center} and {\tt radius}, where {\tt center} is a Point object
 %🍁% and radius is a number.
 
-定义一个叫做 {\em \li{Circle}} 类，类的属性是圆心( {\em \li{center}} ) 和半径( {\em \li{radius}} ),其中，圆心( {\em \li{center}}) 是一个　{\em \li{Point}} 类，而半径( {\em \li{radius}})是一个数字。
+定义一个叫做 {\em \li{Circle}} 类，类的属性是圆心 {\em (\li{center})}  和半径 {\em (\li{radius})} ,其中，圆心 {\em (\li{center})} 是一个　{\em \li{Point}} 类，而半径 {\em (\li{radius})}是一个数字。
 
 %🍁% Instantiate a Circle object that represents a circle with its center
 %🍁% at $(150, 100)$ and radius 75.
 
-实例化一个圆心 {\em (center)} 为 $(150, 100)$ ，半径 {\em (radius)} 为 $75$ 的 $Circle$ 对象。
+实例化一个圆心 {\em (center)} 为 $(150, 100)$ ，半径 {\em (radius)} 为 $75$ 的 {\em \li{Circle}} 对象。
 
 %🍁% Write a function named \verb"point_in_circle" that takes a Circle and
 %🍁% a Point and returns True if the Point lies in or on the boundary of
 %🍁% the circle.
 
-编写一个名称为 {\em \li{point_in_circle}} 的函数，该函数可以接受一个圆类( {\em \li{Circle}})对象和点类 ( {\em \li{Point}} )对象，然后判断该点是否在圆内。 在圆内则返回 {\em \li{True}} 。
+编写一个名称为 {\em \li{point_in_circle}} 的函数，该函数可以接受一个圆类 {\em (\li{Circle})}对象和点类 {\em (\li{Point})} 对象，然后判断该点是否在圆内。 在圆内则返回 {\em \li{True}} 。
 
 %🍁% Write a function named \verb"rect_in_circle" that takes a Circle and a
 %🍁% Rectangle and returns True if the Rectangle lies entirely in or on the boundary
 %🍁% of the circle.
 
-编写一个名称为 {\em \li{rect_in_circle}} 的函数，该函数接受一个圆类( {\em \li{Circle}})对象和矩形( {\em \li{Rectangle}})对象，如果该矩形是否完全在圆内或者在圆上则返回 {\em \li{True}} 。
+编写一个名称为 {\em \li{rect_in_circle}} 的函数，该函数接受一个圆类 {\em (\li{Circle})} 对象和矩形 {\em (\li{Rectangle})}对象，如果该矩形是否完全在圆内或者在圆上则返回 {\em \li{True}} 。
 
 %🍁% Write a function named \verb"rect_circle_overlap" that takes a Circle
 %🍁% and a Rectangle and returns True if any of the corners of the Rectangle fall
