@@ -8,7 +8,9 @@
 %🍁% ability to manipulate {\bf variables}.  A variable is a name that
 %🍁% refers to a value.
 
-编程语言最强大的特性之一，是操作变量的能力。 {\em 变量}是指向某个值的名称。
+编程语言最强大的特性之一，是操作变量的能力。  
+{\em 变量}是指向某个值的名称。
+
 \index{variable}  \index{变量}
 
 % \section{Assignment statements  |  赋值语句}
@@ -20,7 +22,7 @@
 %🍁% An {\bf assignment statement} creates a new variable and gives
 %🍁% it a value:
 
-{\em 赋值语句} (assignment statement) 可用于新建变量，并为该变量赋值。
+{\em 赋值语句} (assignment statement) 可用于新建变量， 并为该变量赋值。  
 
 \begin{lstlisting}
 >>> message = 'And now for something completely different'
@@ -33,7 +35,9 @@
 %🍁% the second gives the integer {\tt 17} to {\tt n}; the third
 %🍁% assigns the (approximate) value of $\pi$ to {\tt pi}.
 
-这个例子进行了三次赋值。 第一句将一个字符串赋给了名为 \li{message} 的新变量； 第二句将整型数 \li{17} 赋给变量 \li{n}； 第三句将 $\pi$ 的（近似）值赋给变量 \li{pi}。
+这个例子进行了三次赋值。  
+第一句将一个字符串赋给了名为 \li{message} 的新变量； 第二句将整型数 \li{17} 赋给变量 \li{n}； 第三句将 $\pi$ 的 (近似) 值赋给变量 \li{pi}。
+
 \index{state diagram}  \index{diagram!state}
 
 %🍁% A common way to represent variables on paper is to write the name with
@@ -42,12 +46,16 @@
 %🍁% variables is in (think of it as the variable's state of mind).
 %🍁% Figure~\ref{fig.state2} shows the result of the previous example.
 
-书面上更常用的表示变量的方法是写下变量名，并用箭头指向变量的值。 这种图被称为状态图 (state diagram) ，因为它展示了每个变量所处的状态（可以把其看成是变量的心理状态）。 图~\ref{fig.state2} 展示了前面例子的结果。
+书面上更常用的表示变量的方法是写下变量名，并用箭头指向变量的值。  
+这种图被称为{\em 状态图} (state diagram) ， 
+因为它展示了每个变量所处的状态 (可以把其看成是变量的心理状态)。  
+图~\ref{fig.state2} 展示了前面例子的结果。
 
 \begin{figure}
 \centerline
 {\includegraphics[scale=0.8]{../source/figs/state2.pdf}}
-\caption{State diagram.  |  状态图。}
+%🍁% \caption{State diagram.  |  状态图。}
+\caption{状态图。}
 \label{fig.state2}
 \end{figure}
 
@@ -216,13 +224,15 @@ break      except     in         raise
 %🍁% and script mode that can be confusing.
 %🍁% \index{interactive mode}  \index{script mode}
 
-由于Python支持这两种模式，在将代码写入脚本之前，你可以在交互模式下对代码片段进行测试。不过，交互模式和脚本模式之间存在一些差异，可能会让你感到疑惑。
+由于Python支持这两种模式，在将代码写入脚本之前，你可以在交互模式下对代码片段进行测试。  
+不过，交互模式和脚本模式之间存在一些差异，可能会让你感到疑惑。
+
 \index{interactive mode}  \index{script mode}
 \index{交互模式}  \index{脚本模式}
 
 %🍁% For example, if you are using Python as a calculator, you might type
 
-举个例子，如果你把Python当计算器使用，你可能会输入下面这样的代码：
+举个例子，如果你把 Python 当计算器使用，你可能会输入下面这样的代码：
 
 \begin{lstlisting}
 >>> miles = 26.2

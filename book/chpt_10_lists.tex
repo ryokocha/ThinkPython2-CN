@@ -7,7 +7,7 @@
 %🍁% You will also learn more about objects and what can happen when you have
 %🍁% more than one name for the same object.
 
-本章介绍Python中最有用的内置类型之一：{\em 列表} (list)。 你还将进一步学习关于对象的知识以及同一个对象拥有多个名称时会发生什么。
+本章介绍Python中最有用的内置类型之一：{\em 列表} (list)。  你还将进一步学习关于对象的知识以及同一个对象拥有多个名称时会发生什么。
 
 %🍁% \section{A list is a sequence  |  列表是一个序列}
 \section{列表是一个序列}
@@ -17,8 +17,8 @@
 %🍁% values are characters; in a list, they can be any type.  The values in
 %🍁% a list are called {\bf elements} or sometimes {\bf items}.
 
-与字符串类似，{\em 列表} 是由多个值组成的序列。 在字符串中，每个值都是字符；
-在列表中，值可以是任何数据类型。列表中的值称为 {\em 元素} (element) ，有时也被称为 {\em 项} (item)。
+与字符串类似， {\em 列表} 是由多个值组成的序列。  在字符串中， 每个值都是字符；
+在列表中， 值可以是任何数据类型。  列表中的值称为 {\em 元素} (element) ， 有时也被称为 {\em 项} (item)。
 
 \index{list}  \index{type!list}
 \index{element}  \index{sequence}
@@ -52,7 +52,7 @@
 %
 %🍁% A list within another list is {\bf nested}.
 
-一个列表在另一个列表中，称为 {\em 嵌套} (nested) 列表。
+一个列表在另一个列表中， 称为 {\em 嵌套\footnote{nested}列表}。
 \index{nested list}  \index{list!nested}
 
 %🍁% A list that contains no elements is
@@ -65,7 +65,7 @@
 
 %🍁% As you might expect, you can assign list values to variables:
 
-正如你想的那样，你可以将列表的值赋给变量：
+正如你想的那样， 你可以将列表的值赋给变量：
 
 \begin{lstlisting}
 >>> cheeses = ['Cheddar', 'Edam', 'Gouda']
@@ -91,7 +91,7 @@
 
 访问列表中元素的语法， 与访问字符串中字符的语法相同， 都是通过方括号运算符实现的。
 括号中的表达式指定了元素的索引。
-记住，索引从0开始：
+记住， 索引从0开始：
 
 \begin{lstlisting}
 >>> cheeses[0]
@@ -103,8 +103,8 @@
 %🍁% on the left side of an assignment, it identifies the element of the
 %🍁% list that will be assigned.
 
-和字符串不同的是，列表是可变的。
-当括号运算符出现在赋值语句的左边时，它就指向了列表中将被赋值的元素。
+和字符串不同的是， 列表是可变的。
+当括号运算符出现在赋值语句的左边时， 它就指向了列表中将被赋值的元素。
 
 \index{mutability}
 
@@ -119,7 +119,7 @@
 %🍁% The one-eth element of {\tt numbers}, which
 %🍁% used to be 123, is now 5.
 
-\li{numbers} 中索引为 1 的元素，原来是 123，现在变成了 5。
+\li{numbers} 中索引为 1 的元素， 原来是 123， 现在变成了 5。
 \index{index!starting at zero}  \index{zero, index starting at}
 
 %🍁% Figure~\ref{fig.liststate} shows the state diagram for {\tt
@@ -130,9 +130,9 @@
 
 \begin{figure}
 \centerline
-{\includegraphics[scale=0.8]{../source/figs/liststate.pdf}}
+{\includegraphics[scale=0.9]{../source/figs/liststate.pdf}}
 % \caption{State diagram.}
-\caption{状态图。}
+\caption{状态图。  }
 \label{fig.liststate}
 \end{figure}
 
@@ -145,8 +145,8 @@
 \index{item assignment}  \index{assignment!item}
 \index{reassignment}
 
-列表用外部标有 ``list'' 的盒子表示，盒子内部是列表的元素。 \li{cheeses} 指向一个有3个元素的列表，3个元素的下标分别是0、1、2。 \li{numbers} 包含两个元素；
-状态图显示第二个元素原来是123，被重新赋值为5。 \li{empty} 对应一个没有元素的列表。
+列表用外部标有 ``list'' 的盒子表示， 盒子内部是列表的元素。  \li{cheeses} 指向一个有3个元素的列表， 3个元素的下标分别是0、1、2。  \li{numbers} 包含两个元素；
+状态图显示第二个元素原来是123， 被重新赋值为5。  \li{empty} 对应一个没有元素的列表。
 
 %🍁% List indices work the same way as string indices:
 
@@ -169,9 +169,10 @@
 
 \item 任何整数表达式都可以用作下标。
 
-\item 如果你试图读或写一个不存在的元素，你将会得到一个 {\em 索引错误} (IndexError)。
+\item 如果你试图读或写一个不存在的元素， 你将会得到一个 {\em 索引错误 \footnote{ \li{IndexError}}}。
+\index{exception!IndexError}  \index{IndexError}
 
-\item 如果下标是负数，它将从列表的末端开始访问列表。
+\item 如果下标是负数， 它将从列表的末端开始访问列表。
 
 \end{itemize}
 \index{list!index}  \index{list!membership}
@@ -196,11 +197,14 @@ False
 \index{list!traversal}  \index{traversal!list}
 \index{for loop}  \index{loop!for}
 \index{statement!for}
+\index{列表!遍历}  \index{遍历!列表}
+\index{for 循环}  \index{循环!for}
+\index{语句!for}
 
 %🍁% The most common way to traverse the elements of a list is
 %🍁% with a {\tt for} loop.  The syntax is the same as for strings:
 
-最常用的遍历列表的方式是使用for循环。语法和字符串遍历类似：
+最常用的遍历列表的方式是使用 \li{for} 循环。  语法和字符串遍历类似：
 
 \begin{lstlisting}
 for cheese in cheeses:
@@ -213,8 +217,8 @@ for cheese in cheeses:
 %🍁% need the indices.  A common way to do that is to combine
 %🍁% the built-in functions {\tt range} and {\tt len}:
 
-如果你只需要读取列表中的元素，这种方法已经足够。 然而，如果你想要写入或者更新列表中的元素，你需要通过下标访问。一种常用的方法是结合内置函数 \li{range} 和 \li{len} ：
-\index{looping!with indices}  \index{index!looping with}
+如果你只需要读取列表中的元素， 这种方法已经足够。  然而， 如果你想要写入或者更新列表中的元素， 你需要通过下标访问。  一种常用的方法是结合内置函数 \li{range} 和 \li{len} ：
+\index{循环!使用索引}  \index{索引!控制循环}
 
 \begin{lstlisting}
 for i in range(len(numbers)):
@@ -230,13 +234,13 @@ for i in range(len(numbers)):
 %🍁% {\tt i} to read the old value of the element and to assign the
 %🍁% new value.
 
-这个循环将遍历列表并更新每个元素。 \li{len} 返回列表中的元素个数。 \li{range} 返回一个包含从 0 到 $n-1$ 下标的列表，其中 $n$ 是列表的长度。
-每次循环中，\li{i} 得到下一个元素的下标。循环主体中的赋值语句使用 \li{i} 读取该元素的旧值，并赋予其一个新值。
+这个循环将遍历列表并更新每个元素。  \li{len} 返回列表中的元素个数。  \li{range} 返回一个包含从 0 到 $n-1$ 下标的列表， 其中 $n$ 是列表的长度。
+每次循环中， \li{i} 得到下一个元素的下标。  循环主体中的赋值语句使用 \li{i} 读取该元素的旧值， 并赋予其一个新值。
 \index{item update}  \index{update!item}
 
 %🍁% A {\tt for} loop over an empty list never runs the body:
 
-对一个空列表执行 \li{for} 循环时，将不会执行循环的主体：
+对一个空列表执行 \li{for} 循环时， 将不会执行循环的主体：
 
 \begin{lstlisting}
 for x in []:
@@ -248,7 +252,7 @@ for x in []:
 %🍁% list still counts as a single element.  The length of this list is
 %🍁% four:
 
-尽管一个列表可以包含另一个列表，嵌套的列表本身还是被看作一个单个元素。
+尽管一个列表可以包含另一个列表， 嵌套的列表本身还是被看作一个单个元素。
 下面这个列表的长度是4：
 \index{nested list}  \index{list!nested}
 
@@ -292,7 +296,7 @@ for x in []:
 %🍁% The first example repeats {\tt [0]} four times.  The second example
 %🍁% repeats the list {\tt [1, 2, 3]} three times.
 
-第一个例子重复 4 次。 第二个例子重复了那个列表 3 次。
+第一个例子重复 4 次。  第二个例子重复了那个列表 3 次。
 
 %🍁% \section{List slices  |  列表切片}
 \section{列表切片}
@@ -318,8 +322,8 @@ for x in []:
 %🍁% If you omit the second, the slice goes to the end.  So if you
 %🍁% omit both, the slice is a copy of the whole list.
 
-如果你省略第一个索引，切片将从列表头开始。 如果你省略第二个索引，切片将会到列表尾结束。
-所以如果你两者都省略，切片就是整个列表的一个拷贝。
+如果你省略第一个索引， 切片将从列表头开始。  如果你省略第二个索引， 切片将会到列表尾结束。
+所以如果你两者都省略， 切片就是整个列表的一个拷贝。
 \index{list!copy}  \index{slice!copy}
 \index{copy!slice}
 
@@ -332,13 +336,13 @@ for x in []:
 %🍁% Since lists are mutable, it is often useful to make a copy
 %🍁% before performing operations that modify lists.
 
-由于列表是可变的，通常在修改列表之前，对列表进行拷贝是很有用的。
+由于列表是可变的， 通常在修改列表之前， 对列表进行拷贝是很有用的。
 \index{mutability}
 
 %🍁% A slice operator on the left side of an assignment
 %🍁% can update multiple elements:
 
-切片运算符放在赋值语句的左边时，可以一次更新多个元素：
+切片运算符放在赋值语句的左边时， 可以一次更新多个元素：
 \index{slice!update}  \index{update!slice}
 
 \begin{lstlisting}
@@ -398,7 +402,7 @@ Python为列表提供了一些方法. 例如, \li{append} 添加一个新元素�
 %🍁% {\tt extend} takes a list as an argument and appends all of
 %🍁% the elements:
 
-\li{extend} 将接受一个列表作为参数，并将其其中的所有元素添加至目标列表中：
+\li{extend} 将接受一个列表作为参数， 并将其其中的所有元素添加至目标列表中：
 \index{extend method}  \index{method!extend}
 
 \begin{lstlisting}
@@ -431,7 +435,7 @@ Python为列表提供了一些方法. 例如, \li{append} 添加一个新元素�
 %🍁% If you accidentally write {\tt t = t.sort()}, you will be disappointed
 %🍁% with the result.
 
-大部分的列表方法都是无返回值的；它们对列表进行修改，然后返回None。
+大部分的列表方法都是无返回值的；它们对列表进行修改， 然后返回None。
 如果你意外的写了 \li{t.sort()}， 你将会对结果感到失望的。
 \index{void method}  \index{method!void}
 \index{None special value}  \index{special value!None}
@@ -443,7 +447,7 @@ Python为列表提供了一些方法. 例如, \li{append} 添加一个新元素�
 
 %🍁% To add up all the numbers in a list, you can use a loop like this:
 
-你可以这样使用循环，对列表中所有元素求和:
+你可以这样使用循环， 对列表中所有元素求和:
 
 % see add.py
 
@@ -459,8 +463,8 @@ def add_all(t):
 %🍁% {\tt x} gets one element from the list.  The {\tt +=} operator
 %🍁% provides a short way to update a variable.  This {\bf augmented assignment %🍁% statement},
 
-\li{total} 被初始化为 0。 每次循环时, \li{x} 从列表中获取一个元素。
-运算符 \li{+=} 提供了一个快捷的更新变量的方法。 这个 {\em 增量赋值语句} (augmented assignment statement) 。
+\li{total} 被初始化为 0。  每次循环时, \li{x} 从列表中获取一个元素。
+运算符 \li{+=} 提供了一个快捷的更新变量的方法。  这个 {\em 增量赋值语句} (augmented assignment statement) 。
 
 \index{update operator}  \index{operator!update}
 \index{assignment!augmented}  \index{augmented assignment}
@@ -483,7 +487,7 @@ def add_all(t):
 %🍁% elements; a variable used this way is sometimes called an
 %🍁% {\bf accumulator}.
 
-当循环执行时，\li{total} 将累计元素的和；一个这样的变量有时被称为 {\em 累加器} (accumulator) 。
+当循环执行时， \li{total} 将累计元素的和；一个这样的变量有时被称为 {\em 累加器} (accumulator) 。
 
 \index{accumulator!sum}
 
@@ -511,7 +515,7 @@ def add_all(t):
 %🍁% another.  For example, the following function takes a list of strings
 %🍁% and returns a new list that contains capitalized strings:
 
-有时，你在构建一个列表时还需要遍历另一个列表。  例如，下面的函数接受一个字符串列表
+有时， 你在构建一个列表时还需要遍历另一个列表。   例如， 下面的函数接受一个字符串列表
 
 \begin{lstlisting}
 def capitalize_all(t):
@@ -526,7 +530,7 @@ def capitalize_all(t):
 %🍁% the loop, we append the next element.  So {\tt res} is another
 %🍁% kind of accumulator.
 
-\li{res} 被初始化为一个空列表；每次循环时，我们添加下一个元素。
+\li{res} 被初始化为一个空列表；每次循环时， 我们添加下一个元素。
 所以 \li{res} 是另一种形式的累加器。
 
 \index{accumulator!list}
@@ -535,7 +539,7 @@ def capitalize_all(t):
 %🍁% map} because it ``maps'' a function (in this case the method {\tt
 %🍁% capitalize}) onto each of the elements in a sequence.
 
-类似 \li{capitalize_all} 这样的操作有时被称为 {\em 映射} (map) ，因为它 ``映射''一个函数（在本例中是方法 \li{capitalize} ）到序列中的每个元素上。
+类似 \li{capitalize_all} 这样的操作有时被称为 {\em 映射} (map) ， 因为它 ``映射''一个函数(在本例中是方法 \li{capitalize} )到序列中的每个元素上。
 
 \index{map pattern}  \index{pattern!map}
 \index{filter pattern}  \index{pattern!filter}
@@ -545,7 +549,7 @@ def capitalize_all(t):
 %🍁% function takes a list of strings and returns a list that contains
 %🍁% only the uppercase strings:
 
-另一个常见的操作是从列表中选择一些元素，并返回一个子列表。例如，下面的函数读取一个字符串列表，并返回一个仅包含大写字符串的列表：
+另一个常见的操作是从列表中选择一些元素， 并返回一个子列表。  例如， 下面的函数读取一个字符串列表， 并返回一个仅包含大写字符串的列表：
 
 \begin{lstlisting}
 def only_upper(t):
@@ -560,12 +564,12 @@ def only_upper(t):
 %🍁% {\tt isupper} is a string method that returns {\tt True} if
 %🍁% the string contains only upper case letters.
 
-\li{isupper} 是一个字符串方法，如果字符串仅含有大写字母，则返回 \li{True}。
+\li{isupper} 是一个字符串方法， 如果字符串仅含有大写字母， 则返回 \li{True}。
 
 %🍁% An operation like \verb"only_upper" is called a {\bf filter} because
 %🍁% it selects some of the elements and filters out the others.
 
-类似 \li{only_upper} 这样的操作被称为 {\em 筛选} (filter) ，因为它选中某些元素，然后剔除剩余的元素。
+类似 \li{only_upper} 这样的操作被称为 {\em 筛选} (filter) ， 因为它选中某些元素， 然后剔除剩余的元素。
 
 %🍁% Most common list operations can be expressed as a combination
 %🍁% of map, filter and reduce.
@@ -581,7 +585,7 @@ def only_upper(t):
 %🍁% know the index of the element you want, you can use
 %🍁% {\tt pop}:
 
-有多种方法可以从列表中删除一个元素。如果你知道元素的下标，你可以使用 \li{pop} ：
+有多种方法可以从列表中删除一个元素。  如果你知道元素的下标， 你可以使用 \li{pop} ：
 
 \index{pop method}  \index{method!pop}
 
@@ -599,12 +603,12 @@ def only_upper(t):
 %🍁% If you don't provide an index, it deletes and returns the
 %🍁% last element.
 
-\li{pop} 修改列表，并返回被移除的元素。 如果你不提供下标，它将移除并返回最后一个元素。
+\li{pop} 修改列表， 并返回被移除的元素。  如果你不提供下标， 它将移除并返回最后一个元素。
 
 %🍁% If you don't need the removed value, you can use the {\tt del}
 %🍁% operator:
 
-如果你不需要被移除的元素，可以使用 \li{del} 运算符：
+如果你不需要被移除的元素， 可以使用 \li{del} 运算符：
 
 \index{del operator}  \index{operator!del}
 
@@ -619,7 +623,7 @@ def only_upper(t):
 %🍁% If you know the element you want to remove (but not the index), you
 %🍁% can use {\tt remove}:
 
-如果你知道要删除的值（但是不知道其下标），你可以使用 \li{remove} ：
+如果你知道要删除的值(但是不知道其下标)， 你可以使用 \li{remove} ：
 
 \index{remove method}  \index{method!remove}
 
@@ -639,7 +643,7 @@ def only_upper(t):
 %🍁% To remove more than one element, you can use {\tt del} with
 %🍁% a slice index:
 
-要移除多个元素，你可以结合切片索引使用 \li{del} ：
+要移除多个元素， 你可以结合切片索引使用 \li{del} ：
 
 \begin{lstlisting}
 >>> t = ['a', 'b', 'c', 'd', 'e', 'f']
@@ -652,7 +656,7 @@ def only_upper(t):
 %🍁% As usual, the slice selects all the elements up to but not
 %🍁% including the second index.
 
-同样的，切片选择到第二个下标（不包含第二个下标）处的所有元素。
+同样的， 切片选择到第二个下标(不包含第二个下标)处的所有元素。
 
 
 %🍁% \section{Lists and strings  |  列表和字符串}
@@ -665,7 +669,7 @@ def only_upper(t):
 %🍁% string.  To convert from a string to a list of characters,
 %🍁% you can use {\tt list}:
 
-一个字符串是多个字符组成的序列，一个列表是多个值组成的序列。 但是一个由字符组成的列表不同于字符串。可以使用 \li{list} 将一个字符串转换为字符的列表:
+一个字符串是多个字符组成的序列， 一个列表是多个值组成的序列。  但是一个由字符组成的列表不同于字符串。  可以使用 \li{list} 将一个字符串转换为字符的列表:
 
 \index{list!function}  \index{function!list}
 
@@ -681,13 +685,13 @@ def only_upper(t):
 %🍁% avoid using it as a variable name.  I also avoid {\tt l} because
 %🍁% it looks too much like {\tt 1}.  So that's why I use {\tt t}.
 
-由于 \li{list} 是内置函数的名称，你应避免将它用作变量名。我同样避免使用 \li{l} ，因为它看起来很像 \li{1}。 这就是为什么我用了 \li{t} 。
+由于 \li{list} 是内置函数的名称， 你应避免将它用作变量名。  我同样避免使用 \li{l} ， 因为它看起来很像 \li{1}。  这就是为什么我用了 \li{t} 。
 
 %🍁% The {\tt list} function breaks a string into individual letters.  If
 %🍁% you want to break a string into words, you can use the {\tt split}
 %🍁% method:
 
-\li{list} 函数将字符串分割成单独的字符。 如果你想将一个字符串分割成一些单词， 你可以使用 \li{split} 方法：
+\li{list} 函数将字符串分割成单独的字符。  如果你想将一个字符串分割成一些单词， 你可以使用 \li{split} 方法：
 
 \index{split method}  \index{method!split}
 
@@ -704,7 +708,7 @@ def only_upper(t):
 %🍁% The following example
 %🍁% uses a hyphen as a delimiter:
 
-可以提高一个叫做 {\em 分隔符} (delimiter) 的可选参数，指定什么字符作为单词之间的分界线。 下面的例子使用连字符作为分隔符：
+可以提高一个叫做 {\em 分隔符} (delimiter) 的可选参数， 指定什么字符作为单词之间的分界线。  下面的例子使用连字符作为分隔符：
 
 \index{optional argument}  \index{argument!optional}
 \index{delimiter}
@@ -724,7 +728,7 @@ def only_upper(t):
 %🍁% so you have to invoke it on the delimiter and pass the
 %🍁% list as a parameter:
 
-\li{join} 的功能和 \li{split} 相反。 它将一个字符串列表的元素拼接起来。 \li{join} 是一个字符串方法，所以你需要在一个分隔符上调用它，并传入一个列表作为参数：
+\li{join} 的功能和 \li{split} 相反。  它将一个字符串列表的元素拼接起来。  \li{join} 是一个字符串方法， 所以你需要在一个分隔符上调用它， 并传入一个列表作为参数：
 
 \index{join method}  \index{method!join}
 \index{concatenation}
@@ -743,7 +747,7 @@ def only_upper(t):
 %🍁% strings without spaces, you can use the empty string,
 %🍁% \verb"''", as a delimiter.
 
-在这个例子中，分隔符是一个空格，所以 \li{join} 在单词之间添加一个空格。如果不使用空格拼接字符串，你可以使用空字符串 \li{''} 作为分隔符。
+在这个例子中， 分隔符是一个空格， 所以 \li{join} 在单词之间添加一个空格。  如果不使用空格拼接字符串， 你可以使用空字符串 \li{''} 作为分隔符。
 
 \index{empty string}  \index{string!empty}
 
@@ -768,14 +772,14 @@ b = 'banana'
 %🍁% know whether they refer to the {\em same} string.
 %🍁% There are two possible states, shown in Figure~\ref{fig.list1}.
 
-我们知道 \li{a} 和 \li{b} 都指向一个字符串， 但是我们不知道是否他们指向 {\bf 同一个} 字符串。 这里有两种可能的状态，如 图~\ref{fig.list1} 所示。
+我们知道 \li{a} 和 \li{b} 都指向一个字符串， 但是我们不知道是否他们指向 {\bf 同一个} 字符串。  这里有两种可能的状态， 如 图~\ref{fig.list1} 所示。
 
 \index{aliasing}
 
 \begin{figure}
 \centerline
 {\includegraphics[scale=0.8]{../source/figs/list1.pdf}}
-\caption{State diagram.}
+\caption{状态图。}
 \label{fig.list1}
 \end{figure}
 
@@ -783,15 +787,15 @@ b = 'banana'
 %🍁% have the same value.  In the second case, they refer to the same
 %🍁% object.
 
-一种情况是，\li{a} 和 \li{b} 指向两个有相同值的不同对象。
-第二种情况是，它们指向同一个对象。
+一种情况是， \li{a} 和 \li{b} 指向两个有相同值的不同对象。
+第二种情况是， 它们指向同一个对象。
 
 \index{is operator}  \index{operator!is}
 
 %🍁% To check whether two variables refer to the same object, you can
 %🍁% use the {\tt is} operator.
 
-为了查看两个变量是否指向同一个对象，你可以使用 \li{is} 运算符。
+为了查看两个变量是否指向同一个对象， 你可以使用 \li{is} 运算符。
 
 \begin{lstlisting}
 >>> a = 'banana'
@@ -805,7 +809,7 @@ True
 %🍁%   a} and {\tt b} refer to it.  But when you create two lists, you get
 %🍁% two objects:
 
-在这个例子中，Python仅生成了一个字符串对象，\li{a} 和 \li{b} 都指向它。 但是当你创建两个列表时，你得到的是两个对象：
+在这个例子中， Python仅生成了一个字符串对象， \li{a} 和 \li{b} 都指向它。  但是当你创建两个列表时， 你得到的是两个对象：
 
 \begin{lstlisting}
 >>> a = [1, 2, 3]
@@ -824,7 +828,7 @@ False
 \begin{figure}
 \centerline
 {\includegraphics[scale=0.8]{../source/figs/list2.pdf}}
-\caption{State diagram.}
+\caption{状态图。}
 \label{fig.list2}
 \end{figure}
 
@@ -834,7 +838,7 @@ False
 %🍁% also equivalent, but if they are equivalent, they are not necessarily
 %🍁% identical.
 
-在这个例子中，我们称这两个列表是 {\em 相等}的 (equivalent)，因为它们有相同的元素。 但它们并不 {\em 相同} (identical) ，因为他们不是同一个对象。 如果两个对象 {\em 相同}，它们也是相等的，但是如果它们是相等的，它们不一定是相同的。
+在这个例子中， 我们称这两个列表是 {\bf 相等\footnote{equivalent}}的， 因为它们有相同的元素。  但它们并不 {\bf 相同\footnote{identical}} ， 因为他们不是同一个对象。  如果两个对象 {\bf 相同}， 它们也是相等的， 但是如果它们是相等的， 它们不一定是相同的。
 
 \index{equivalence}  \index{identity}
 
@@ -845,8 +849,8 @@ False
 %🍁% list has the same elements, we say it has the same value, but
 %🍁% it is not the same object.
 
-至此，我们一直在等价地使用``对象'' 和 ``值''，但是更准确的说， 一个对象拥有一个值。 如果你对 \li{[1, 2, 3]} 求值，会得到一个值为整数序列的列表对象。
-如果另一个列表有同样的元素，我们说它们有相同的值，但是它们并不是同一个对象。
+至此， 我们一直在等价地使用``对象'' 和 ``值''， 但是更准确的说， 一个对象拥有一个值。  如果你对 \li{[1, 2, 3]} 求值， 会得到一个值为整数序列的列表对象。
+如果另一个列表有同样的元素， 我们说它们有相同的值， 但是它们并不是同一个对象。
 
 \index{object}  \index{value}
 
@@ -858,7 +862,7 @@ False
 %🍁% If {\tt a} refers to an object and you assign {\tt b = a},
 %🍁% then both variables refer to the same object:
 
-如果 \li{a} 指向一个对象，然后你赋值 \li{b = a} ，那么两个变量指向同一个对象：
+如果 \li{a} 指向一个对象， 然后你赋值 \li{b = a} ， 那么两个变量指向同一个对象：
 
 \begin{lstlisting}
 >>> a = [1, 2, 3]
@@ -877,7 +881,7 @@ True
 \begin{figure}
 \centerline
 {\includegraphics[scale=0.8]{../source/figs/list3.pdf}}
-\caption{State diagram.}
+\caption{状态图。}
 \label{fig.list3}
 \end{figure}
 
@@ -886,22 +890,22 @@ True
 %🍁% object.
 
 变量和对象之间的关联称为 {\em 引用} (reference) 。
-在这个例子中，有两个对同一个对象的引用。
+在这个例子中， 有两个对同一个对象的引用。
 
 \index{reference}
 
 %🍁% An object with more than one reference has more
 %🍁% than one name, so we say that the object is {\bf aliased}.
 
-如果一个对象有多于一个引用，那它也会有多个名称，
-我们称这个对象是 {\em 有别名的} (aliased) 。
+如果一个对象有多于一个引用， 那它也会有多个名称，
+我们称这个对象是 {\bf 有别名\footnote{aliased; 别名, alias。}的} 。
 
 \index{mutability}
 
 %🍁% If the aliased object is mutable, changes made with one alias affect
 %🍁% the other:
 
-如果一个有别名的对象是可变的，对其中一个别名 (alias) 的改变对影响到其它的别名：
+如果一个有别名的对象是可变的， 对其中一个别名的改变对影响到其它的别名：
 
 \begin{lstlisting}
 >>> b[0] = 42
@@ -914,15 +918,15 @@ True
 %🍁% it is safer to avoid aliasing when you are working with mutable
 %🍁% objects.
 
-尽管这个行为很有用，但是容易导致出现错误。
-通常，避免对于可变对象使用别名相对更安全。
+尽管这个行为很有用， 但是容易导致出现错误。
+通常， 避免对于可变对象使用别名相对更安全。
 
 \index{immutability}
 
 %🍁% For immutable objects like strings, aliasing is not as much of a
 %🍁% problem.  In this example:
 
-对于像字符串这样的不可变对象，使用别名没有什么问题。例如：
+对于像字符串这样的不可变对象， 使用别名没有什么问题。  例如：
 
 \begin{lstlisting}
 a = 'banana'
@@ -943,12 +947,16 @@ b = 'banana'
 \index{argument!list}  \index{reference}
 \index{parameter}
 
+\index{列表!参数}  \index{实参}
+\index{参数!列表}  \index{引用}
+\index{参数}
+
 %🍁% When you pass a list to a function, the function gets a reference to
 %🍁% the list.  If the function modifies the list, the caller sees
 %🍁% the change.  For example, \verb"delete_head" removes the first element
 %🍁% from a list:
 
-当你将一个列表作为参数传给一个函数，函数将得到这个列表的一个引用。如果函数对这个列表进行了修改，会在调用者中有所体现。 例如， ``delete\_head'' 删除列表的第一个元素：
+当你将一个列表作为参数传给一个函数， 函数将得到这个列表的一个引用。  如果函数对这个列表进行了修改， 会在调用者中有所体现。  例如， ``delete\_head'' 删除列表的第一个元素：
 
 \begin{lstlisting}
 def delete_head(t):
@@ -987,7 +995,7 @@ def delete_head(t):
 %🍁% Since the list is shared by two frames, I drew
 %🍁% it between them.
 
-由于列表被两个帧共享，我把它画在它们中间。
+由于列表被两个帧共享， 我把它画在它们中间。
 
 %🍁% It is important to distinguish between operations that
 %🍁% modify lists and operations that create new lists.  For
@@ -995,7 +1003,7 @@ def delete_head(t):
 %🍁% {\tt +} operator creates a new list:
 
 需要注意的是修改列表操作和创建列表操作间的区别。
-例如，\li{append} 方法是修改一个列表，而 \li{+} 运算符是创建一个新的列表：
+例如， \li{append} 方法是修改一个列表， 而 \li{+} 运算符是创建一个新的列表：
 
 \index{append method}  \index{method!append}
 \index{list!concatenation}  \index{concatenation!list}
@@ -1029,14 +1037,14 @@ None
 %🍁% The {\tt +} operator creates a new list and leaves the
 %🍁% original list unchanged.
 
-运算符 \li{+} 创建了一个新列表，而不改变原始的列表。
+运算符 \li{+} 创建了一个新列表， 而不改变原始的列表。
 
 %🍁% This difference is important when you write functions that
 %🍁% are supposed to modify lists.  For example, this function
 %🍁% {\em does not} delete the head of a list:
 
-如果你要编写一个修改列表的函数，这一点就很重要。
-例如，这个函数 {\em 不会} 删除列表的第一个元素：
+如果你要编写一个修改列表的函数， 这一点就很重要。
+例如， 这个函数 {\em 不会} 删除列表的第一个元素：
 
 %
 \begin{lstlisting}
@@ -1048,7 +1056,7 @@ def bad_delete_head(t):
 %🍁% The slice operator creates a new list and the assignment
 %🍁% makes {\tt t} refer to it, but that doesn't affect the caller.
 
-切片运算符创建了一个新列表，然后这个表达式让 \li{t} 指向了它，
+切片运算符创建了一个新列表， 然后这个表达式让 \li{t} 指向了它，
 但是并不会影响原来被调用的列表。
 
 \index{slice operator}  \index{operator!slice}
@@ -1066,14 +1074,14 @@ def bad_delete_head(t):
 %🍁% refer to the same list.  At the end, {\tt t} refers to a new list,
 %🍁% but {\tt t4} still refers to the original, unmodified list.
 
-在 \li{bad_delete_head} 的开始处，\li{t} 和 \li{t4} 指向同一个列表。在结束时，\li{t} 指向一个新列表，但是 \li{t4} 仍然指向原来的、没有被改动的列表。
+在 \li{bad_delete_head} 的开始处， \li{t} 和 \li{t4} 指向同一个列表。  在结束时， \li{t} 指向一个新列表， 但是 \li{t4} 仍然指向原来的、没有被改动的列表。
 
 %🍁% An alternative is to write a function that creates and
 %🍁% returns a new list.  For example, {\tt tail} returns all but the first
 %🍁% element of a list:
 
-一个替代的写法是，写一个创建并返回一个新列表的函数。
-例如，\li{tail} 返回列表中除了第一个之外的所有元素：
+一个替代的写法是， 写一个创建并返回一个新列表的函数。
+例如， \li{tail} 返回列表中除了第一个之外的所有元素：
 
 \begin{lstlisting}
 def tail(t):
@@ -1084,7 +1092,7 @@ def tail(t):
 %🍁% This function leaves the original list unmodified.
 %🍁% Here's how it is used:
 
-这个函数不会修改原来的列表。下面是函数的使用方法：
+这个函数不会修改原来的列表。  下面是函数的使用方法：
 
 \begin{lstlisting}
 >>> letters = ['a', 'b', 'c']
@@ -1102,7 +1110,7 @@ def tail(t):
 %🍁% can lead to long hours of debugging.  Here are some common
 %🍁% pitfalls and ways to avoid them:
 
-粗心地使用列表（以及其他可变对象）会导致长时间的调试。
+粗心地使用列表(以及其他可变对象)会导致长时间的调试。
 下面列举一些常见的陷阱以及避免它们的方法：
 
 %🍁% \begin{enumerate}
@@ -1197,7 +1205,7 @@ def tail(t):
 
 \begin{enumerate}
 
-\item 大多数的列表方法会对参数进行修改，然后返回 \li{None} 。这和字符串方法相反，后者保留原始的字符串并返回一个新的字符串。
+\item 大多数的列表方法会对参数进行修改， 然后返回 \li{None} 。  这和字符串方法相反， 后者保留原始的字符串并返回一个新的字符串。
 
 如果你习惯这样写字符串代码：
 
@@ -1213,15 +1221,15 @@ t = t.sort()           # WRONG!
 \index{sort method}
 \index{method!sort}
 
-因为 \li{sort} 返回 \li{None} ，所以你的下一个对 \li{t} 执行的操作很可能会失败。
+因为 \li{sort} 返回 \li{None} ， 所以你的下一个对 \li{t} 执行的操作很可能会失败。
 
-在使用 \li{list} 方法和操作符之前，你应该仔细阅读文档，然后在交互模式下测试。
+在使用 \li{list} 方法和操作符之前， 你应该仔细阅读文档， 然后在交互模式下测试。
 
-\item 选择一种写法，坚持下去。
+\item 选择一种写法， 坚持下去。
 
-列表的一个问题就是有太多方法可以做同样的事情。  例如，要删除列表中的一个元素，你可以使用 \li{pop} 、 \li{remove} 、 \li{del} 甚至是切片赋值。
+列表的一个问题就是有太多方法可以做同样的事情。   例如， 要删除列表中的一个元素， 你可以使用 \li{pop} 、 \li{remove} 、 \li{del} 甚至是切片赋值。
 
- 要添加一个元素，你可以使用 \li{append} 方法或者 \li{+} 运算符。 假设 \li{t} 是一个列表，\li{x} 是一个列表元素，以下这些写法都是正确的：
+ 要添加一个元素， 你可以使用 \li{append} 方法或者 \li{+} 运算符。  假设 \li{t} 是一个列表， \li{x} 是一个列表元素， 以下这些写法都是正确的：
 
 \begin{lstlisting}
 t.append(x)
@@ -1238,14 +1246,14 @@ t + [x]                # WRONG!
 t = t + x              # WRONG!
 \end{lstlisting}
 
-在交互模式下尝试每一个例子，保证你明白它们做了什么。  注意只有最后一个会导致运行时错误；其他的都是合乎规范的的，但结果却是错的。
+在交互模式下尝试每一个例子， 保证你明白它们做了什么。   注意只有最后一个会导致运行时错误；其他的都是合乎规范的的， 但结果却是错的。
 
 
 \item 通过创建拷贝来避免别名.
 \index{aliasing!copying to avoid}  \index{copy!to avoid aliasing}
 
 如果你要使用类似 \li{sort} 这样的方法来修改参数，
-   但同时有要保留原列表，你可以创建一个拷贝。
+   但同时有要保留原列表， 你可以创建一个拷贝。
 
 
 \begin{lstlisting}
@@ -1258,7 +1266,7 @@ t = t + x              # WRONG!
 [1, 2, 3]
 \end{lstlisting}
 
-在这个例子中，你还可以使用内置函数 \li{sorted}， 它将返回一个新的已排序的列表，原列表将保持不变。
+在这个例子中， 你还可以使用内置函数 \li{sorted}， 它将返回一个新的已排序的列表， 原列表将保持不变。
 
 \begin{lstlisting}
 >>> t2 = sorted(t)
@@ -1279,27 +1287,27 @@ t = t + x              # WRONG!
 %🍁% \item[list:] A sequence of values.
 %🍁% \index{list}
 
-\item[列表（list）:] 多个值组成的序列。
+\item[列表 (list):] 多个值组成的序列。
 \index{list}
 
 %🍁% \item[element:] One of the values in a list (or other sequence),
 %🍁% also called items.
 %🍁% \index{element}
 
-\item[元素（element）:] 列表（或序列）中的一个值，也称为项。
+\item[元素 (element):] 列表(或序列)中的一个值， 也称为项。
 \index{element}
 
 %🍁% \item[nested list:] A list that is an element of another list.
 %🍁% \index{nested list}
 
-\item[嵌套列表（nested list）:] 作为另一个列表的元素的列表。
+\item[嵌套列表 (nested list):] 作为另一个列表的元素的列表。
 \index{nested list}
 
 %🍁% \item[accumulator:] A variable used in a loop to add up or
 %🍁% accumulate a result.
 %🍁% \index{accumulator}
 
-\item[累加器（accumulator）:] 循环中用于相加或累积出一个结果的变量。
+\item[累加器 (accumulator):] 循环中用于相加或累积出一个结果的变量。
 \index{accumulator}
 
 %🍁% \item[augmented assignment:] A statement that updates the value
@@ -1307,7 +1315,7 @@ t = t + x              # WRONG!
 %🍁% \index{assignment!augmented}  \index{augmented assignment}
 %🍁% \index{traversal}
 
-\item[增量赋值语句（augmented assignment）:] 一个使用类似 \li{+=} 操作符来更新一个变量的值的语句。
+\item[增量赋值语句 (augmented assignment):] 一个使用类似 \li{+=} 操作符来更新一个变量的值的语句。
 \index{assignment!augmented}  \index{augmented assignment}
 \index{traversal}
 
@@ -1315,46 +1323,46 @@ t = t + x              # WRONG!
 %🍁% and accumulates the elements into a single result.
 %🍁% \index{reduce pattern}  \index{pattern!reduce}
 
-\item[归并（reduce）:] 遍历序列，将所有元素求和为一个值的处理模式。
+\item[归并 (reduce):] 遍历序列， 将所有元素求和为一个值的处理模式。
 \index{reduce pattern}  \index{pattern!reduce}
 
 %🍁% \item[map:] A processing pattern that traverses a sequence and
 %🍁% performs an operation on each element.
 %🍁% \index{map pattern}  \index{pattern!map}
 
-\item[映射（map）:] 遍历序列，对每个元素执行操作的处理模式。
+\item[映射 (map):] 遍历序列， 对每个元素执行操作的处理模式。
 \index{map pattern}  \index{pattern!map}
 
 %🍁% \item[filter:] A processing pattern that traverses a list and
 %🍁% selects the elements that satisfy some criterion.
 %🍁% \index{filter pattern}  \index{pattern!filter}
 
-\item[筛选（filter）:] 遍历序列，选出满足一定标准的元素的处理模式。
+\item[筛选 (filter):] 遍历序列， 选出满足一定标准的元素的处理模式。
 \index{filter pattern}  \index{pattern!filter}
 
 %🍁% \item[object:] Something a variable can refer to.  An object
 %🍁% has a type and a value.
 %🍁% \index{object}
 
-\item[对象（object）] 变量可以指向的东西。一个对象有数据类型和值。
+\item[对象 (object)] 变量可以指向的东西。  一个对象有数据类型和值。
 \index{object}
 
 %🍁% \item[equivalent:] Having the same value.
 %🍁% \index{equivalent}
 
-\item[相等（equivalent）:] 有相同的值。
+\item[相等 (equivalent):] 有相同的值。
 \index{equivalent}
 
 %🍁% \item[identical:] Being the same object (which implies equivalence).
 %🍁% \index{identical}
 
-\item[相同（identical）:] 是同一个对象（隐含着相等）。
+\item[相同 (identical):] 是同一个对象(隐含着相等)。
 \index{identical}
 
 %🍁% \item[reference:] The association between a variable and its value.
 %🍁% \index{reference}
 
-\item[引用（reference）:] 一个变量和它的值之间的关联。
+\item[引用 (reference):] 一个变量和它的值之间的关联。
 \index{reference}
 
 %🍁% \item[aliasing:] A circumstance where two or more variables refer to the same
@@ -1368,7 +1376,7 @@ t = t + x              # WRONG!
 %🍁% string should be split.
 %🍁% \index{delimiter}
 
-\item[分隔符（delimiter）:] 一个用于指示字符串分割位置的字符或者字符串。
+\item[分隔符 (delimiter):] 一个用于指示字符串分割位置的字符或者字符串。
 \index{delimiter}
 
 \end{description}
@@ -1388,13 +1396,15 @@ t = t + x              # WRONG!
 %🍁% of integers and adds up the elements from all of the nested lists.
 %🍁% For example:
 
-编写一个叫做 \li{nested_sum} 的函数， 接受一个由一些整数列表构成的列表作为参数， 并将所有嵌套列表中的元素相加。 例如：
+编写一个叫做 {\em \li{nested_sum}} 的函数， 接受一个由一些整数列表构成的列表作为参数， 并将所有嵌套列表中的元素相加。  例如：
 
+\begin{em}
 \begin{lstlisting}
 >>> t = [[1, 2], [3], [4, 5, 6]]
 >>> nested_sum(t)
 21
 \end{lstlisting}
+\end{em}
 
 \end{exercise}
 
@@ -1407,15 +1417,17 @@ t = t + x              # WRONG!
 %🍁% element is the sum of the first $i+1$ elements from the original list.
 %🍁% For example:
 
-编写一个叫做 \li{cumsum} 的函数，接受一个由数值组成的列表，并返回累加和；
-即一个新列表，其中第 $i+1$ 个元素是原列表中前 $i$ 个元素的和。
+编写一个叫做 {\em \li{cumsum}} 的函数， 接受一个由数值组成的列表， 并返回累加和；
+即一个新列表， 其中第 $i+1$ 个元素是原列表中前 $i$ 个元素的和。
 例如：
 
+\begin{em}
 \begin{lstlisting}
 >>> t = [1, 2, 3]
 >>> cumsum(t)
 [1, 3, 6]
 \end{lstlisting}
+\end{em}
 
 \end{exercise}
 
@@ -1425,15 +1437,16 @@ t = t + x              # WRONG!
 %🍁% returns a new list that contains all but the first and last
 %🍁% elements.  For example:
 
-编写一个叫做 \li{middle} 的函数，接受一个列表作为参数，并返回一个除了第一个和最后一个元素的列表。
+编写一个叫做 {\em \li{middle}} 的函数， 接受一个列表作为参数， 并返回一个除了第一个和最后一个元素的列表。
 例如：
 
-
+\begin{em}
 \begin{lstlisting}
 >>> t = [1, 2, 3, 4]
 >>> middle(t)
 [2, 3]
 \end{lstlisting}
+\end{em}
 
 \end{exercise}
 
@@ -1443,15 +1456,17 @@ t = t + x              # WRONG!
 %🍁% by removing the first and last elements, and returns {\tt None}.
 %🍁% For example:
 
-编写一个叫做 \li{chop} 的函数，接受一个列表作为参数，移除第一个和最后一个元素，并返回 \li{None}。
+编写一个叫做 {\em \li{chop}} 的函数， 接受一个列表作为参数， 移除第一个和最后一个元素， 并返回 {\em \li{None}}。
 例如：
 
+\begin{em}
 \begin{lstlisting}
 >>> t = [1, 2, 3, 4]
 >>> chop(t)
 >>> t
 [2, 3]
 \end{lstlisting}
+\end{em}
 
 \end{exercise}
 
@@ -1461,16 +1476,18 @@ t = t + x              # WRONG!
 %🍁% parameter and returns {\tt True} if the list is sorted in ascending
 %🍁% order and {\tt False} otherwise.  For example:
 
-编写一个叫做 \li{is_sorted} 的函数，接受一个列表作为参数，
-如果列表是递增排列的则返回 \li{True} ，否则返回 \li{False}。
+编写一个叫做 {\em \li{is_sorted}} 的函数， 接受一个列表作为参数，
+如果列表是递增排列的则返回 {\em \li{True}} ， 否则返回 {\em \li{False}}。
 例如：
 
+\begin{em}
 \begin{lstlisting}
 >>> is_sorted([1, 2, 2])
 True
 >>> is_sorted(['b', 'a'])
 False
 \end{lstlisting}
+\end{em}
 
 \end{exercise}
 
@@ -1484,9 +1501,9 @@ False
 %🍁% that takes two strings and returns {\tt True} if they are anagrams.
 
 
-如果可以通过重排一个单词中字母的顺序，得到另外一个单词，那么称这两个单词是变位词。
-编写一个叫做 \li{is_anagram} 的函数，接受两个字符串作为参数，
-如果它们是变位词则返回 \li{True} 。
+如果可以通过重排一个单词中字母的顺序， 得到另外一个单词， 那么称这两个单词是变位词。
+编写一个叫做 {\em \li{is_anagram}} 的函数， 接受两个字符串作为参数，
+如果它们是变位词则返回 {\em \li{True}} 。
 \end{exercise}
 
 
@@ -1500,8 +1517,8 @@ False
 %🍁% appears more than once.  It should not modify the original
 %🍁% list.
 
-编写一个叫做 \li{has_duplicates} 的函数，接受一个列表作为参数，
-如果一个元素在列表中出现了不止一次，则返回 \li{True} 。
+编写一个叫做 {\em \li{has_duplicates}} 的函数， 接受一个列表作为参数，
+如果一个元素在列表中出现了不止一次， 则返回 {\em \li{True}} 。
 这个函数不能改变原列表。
 
 \end{exercise}
@@ -1514,7 +1531,8 @@ False
 \index{birthday paradox}
 
 这个习题与所谓的生日悖论有关。
-你可以在 \href{http://en.wikipedia.org/wiki/Birthday_paradox}{此处}了解更多相关的内容。
+你可以在 \href{http://en.wikipedia.org/wiki/Birthday_paradox}{维基百科}了解更多相关的内容。
+\index{维基百科}
 
 %🍁% If there are 23 students in your class, what are the chances
 %🍁% that two of you have the same birthday?  You can estimate this
@@ -1522,9 +1540,9 @@ False
 %🍁% and checking for matches.  Hint: you can generate random birthdays
 %🍁% with the {\tt randint} function in the {\tt random} module.
 
-如果你的班级上有 23 个学生， 2 个学生生日相同的概率是多少？
-你可以通过随机产生 23 个生日，并检查匹配来估算概率。
-提示：你可以使用 \li{random} 模块中的 \li{randint} 函
+如果你的班级上有 {\em 23} 个学生， {\em 2} 个学生生日相同的概率是多少？
+你可以通过随机产生 {\em 23} 个生日， 并检查匹配来估算概率。
+提示：你可以使用 {\em \li{random}} 模块中的 {\em \li{randint}} 函
 数来生成随机生日。
 
 \index{random module}  \index{module!random}
@@ -1549,8 +1567,8 @@ False
 %🍁% other using the idiom {\tt t = t + [x]}.  Which one takes
 %🍁% longer to run?  Why?
 
-编写一个函数，读取文件 \li{words.txt}，建立一个列表，其中每个单词为一个元素。
-编写两个版本，一个使用 \li{append} 方法，另一个使用 \li{t = t + [x]}。
+编写一个函数， 读取文件 {\em \li{words.txt}}， 建立一个列表， 其中每个单词为一个元素。
+编写两个版本， 一个使用 {\em \li{append}} 方法， 另一个使用 {\em \li{t = t + [x]}}。
 那个版本运行得慢？为什么？
 
 %🍁% Solution: \url{http://thinkpython2.com/code/wordlist.py}.
@@ -1569,11 +1587,16 @@ False
 \index{search, bisection}  \index{membership!binary search}
 \index{binary search}  \index{search, binary}
 
+\index{membership!bisection search}  \index{bisection search}
+\index{search, bisection}  \index{membership!binary search}
+\index{二叉树搜索}  \index{搜索, 二叉树}
+
+
 %🍁% To check whether a word is in the word list, you could use
 %🍁% the {\tt in} operator, but it would be slow because it searches
 %🍁% through the words in order.
 
-使用 \li{in} 运算符可以检查一个单词是否在单词表中， 但这很慢， 因为它是按顺序查找单词。
+使用 {\em \li{in}} 运算符可以检查一个单词是否在单词表中， 但这很慢， 因为它是按顺序查找单词。
 
 %🍁% Because the words are in alphabetical order, we can speed things up
 %🍁% with a bisection search (also known as binary search), which is
@@ -1583,29 +1606,29 @@ False
 %🍁% search the first half of the list the same way.  Otherwise you search
 %🍁% the second half.
 
-由于单词是按照字母顺序排序的，我们可以使用两分法（也称二进制搜索）来加快速度，
-类似你在字典中查找单词的方法。 你从中间开始，如果你要找的单词在中间的单词之前，你查找前半部分，否则你查找后半部分。
+由于单词是按照字母顺序排序的， 我们可以使用两分法{\em (}也称二叉树搜索{\em)}来加快速度，
+类似于在字典中查找单词的方法。  你从中间开始， 如果你要找的单词在中间的单词之前， 你查找前半部分， 否则你查找后半部分。
 
 %🍁% Either way, you cut the remaining search space in half.  If the
 %🍁% word list has 113,809 words, it will take about 17 steps to
 %🍁% find the word or conclude that it's not there.
 
-不管怎样，你都会将搜索范围减小一半。
-如果单词表有 113,809 个单词，你只需要 17步就可以找到这个单词，或着得出单词不存在的结论。
+不管怎样， 你都会将搜索范围减小一半。
+如果单词表有 {\em 113,809} 个单词， 你只需要 {\em 17} 步就可以找到这个单词， 或着得出单词不存在的结论。
 
 %🍁% Write a function called \verb"in_bisect" that takes a sorted list
 %🍁% and a target value and returns the index of the value
 %🍁% in the list if it's there, or {\tt None} if it's not.
 
-编写一个叫做 \li{in_bisect} 的函数，接受一个已排序的列表和一个目标值作为参数，
-返回该值在列表中的位置，如果不存在则返回 \li{None} 。
+编写一个叫做 {\em \li{in_bisect}} 的函数， 接受一个已排序的列表和一个目标值作为参数，
+返回该值在列表中的位置， 如果不存在则返回 {\em \li{None}} 。
 
 \index{bisect module}  \index{module!bisect}
 
 %🍁% Or you could read the documentation of the {\tt bisect} module
 %🍁% and use that!  Solution: \url{http://thinkpython2.com/code/inlist.py}.
 
-或者你可以阅读 \li{bisect} 模块的文档并使用它！
+或者你可以阅读 {\em \li{bisect}} 模块的文档并使用它！
 
 \href{http://thinkpython2.com/code/inlist.py}{参考答案}
 
@@ -1618,8 +1641,8 @@ False
 %🍁% other.  Write a program that finds all the reverse pairs in the
 %🍁% word list.  Solution: \url{http://thinkpython2.com/code/reverse_pair.py}.
 
-两个单词中如果一个是另一个的反转，则二者被称为是``反转词对''。
-编写一个函数，找出单词表中所有的反转词对。
+两个单词中如果一个是另一个的反转， 则二者被称为是``反转词对''。
+编写一个函数， 找出单词表中所有的反转词对。
 
 \href{http://thinkpython2.com/code/reverse_pair.py}{参考答案}
 
@@ -1634,15 +1657,15 @@ False
 %🍁% Solution: \url{http://thinkpython2.com/code/interlock.py}.
 %🍁% Credit: This exercise is inspired by an example at \url{http://puzzlers.org}.
 
-如果交替的从两个单词中取出字符将组成一个新的单词，这两个单词被称为是``连锁词''。
-例如，``shoe'' 和 ``cold'' 连锁后成为 ``schooled''。
+如果交替的从两个单词中取出字符将组成一个新的单词， 这两个单词被称为是``连锁词''。
+例如， {\em ``shoe''} 和 {\em ``cold''} 连锁后成为 {\em ``schooled''}。
 
 \begin{enumerate}
 
 %🍁% \item Write a program that finds all pairs of words that interlock.
 %🍁%   Hint: don't enumerate all pairs!
 
-\item 编写一个程序，找出单词表中所有的连锁词。提示：不要枚举所有的单词对。
+\item 编写一个程序， 找出单词表中所有的连锁词。  提示：不要枚举所有的单词对。
 
 %🍁% \item Can you find any words that are three-way interlocked; that is,
 %🍁%   every third letter forms a word, starting from the first, second or

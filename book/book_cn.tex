@@ -40,10 +40,12 @@
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{codeback}{rgb}{0.92,0.97,0.94}
 
-\newfontfamily\CodeFont{Consolas}
+\newfontfamily\CodeFont{Ubuntu Mono}
+% \newfontfamily\CodeFont{Consolas}
 % \newfontfamily\CodeFont{Monaco}
+
 %🍁%
-%🍁%
+
 \usepackage{listings}
 \lstset{ %
   backgroundcolor=\color{codeback},    % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
@@ -56,7 +58,7 @@
   escapeinside={\%*}{*)},            % if you want to add LaTeX within your code
   extendedchars=true,                % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
   frame=single,                      % adds a frame around the code
-  frameround=tttt,
+  frameround=ftft,
   keepspaces=true,                   % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
   keywordstyle=\color{blue},         % keyword style
   language=Python,                   % the language of the code
@@ -120,7 +122,6 @@
     \@esphack%
 }
 
-
 \else
 % skip the following for plastex
 
@@ -147,7 +148,7 @@
 
 \begin{spacing}{3}
 {\huge Think Python}\\
-{\Large 如何像计算机科学家一样思考}
+{\Large How to Think Like a Computer Scientist \\ {\bf 像计算机科学家一样思考}}
 \end{spacing}
 
 \vspace{0.25in}
@@ -178,7 +179,7 @@
 
 \begin{spacing}{3}
 {\huge Think Python}\\
-{\Large 如何像计算机科学家一样思考}
+{\Large How to Think Like a Computer Scientist \\ {\bf 像计算机科学家一样思考}}
 \end{spacing}
 
 \vspace{0.25in}
@@ -186,6 +187,7 @@
 \theversion
 
 \thedate
+{\scriptsize \today}
 
 \vspace{1in}
 
@@ -268,23 +270,23 @@ The \LaTeX\ source for this book is available from
 % START THE BOOK
 \mainmatter
 
-\include{chpt_1_way_of_program}
+\include{chpt_01_way_of_program}
 
-\include{chpt_2_variables}
+\include{chpt_02_variables}
 
-\include{chpt_3}
+\include{chpt_03_functions}
 
-\include{chpt_4}
+\include{chpt_04_interface_design}
 
-\include{chpt_5}
+\include{chpt_05_conditionals_and_recursion}
 
-\include{chpt_6}
+\include{chpt_06_fruitful_functions}
 
-\include{chpt_7}
+\include{chpt_07_iteration}
 
-\include{chpt_8}
+\include{chpt_08_strings}
 
-\include{chpt_9}
+\include{chpt_09_word_play}
 
 \include{chpt_10_lists}
 
@@ -304,11 +306,11 @@ The \LaTeX\ source for this book is available from
 
 \include{chpt_18_inheritance}
 
-\include{chpt_19}
+\include{chpt_19_the_goodies}
 
 \appendix
 
-\include{chpt_20_appendix}
+\include{chpt_20_debugging}
 
 \include{chpt_21_analysis_of_algorithms}
 

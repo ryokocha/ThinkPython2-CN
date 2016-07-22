@@ -42,7 +42,7 @@ height = radius * math.sin(radians)
 %🍁% with the given radius:
 
 本章中， 我们（终于）要开始写有返回值的函数了。
-第一个例子是 \li{area} ， 返回给定半径的圆的面积。
+第一个例子是 \li{area} ， 返回给定半径圆的面积。
 
 \begin{lstlisting}
 def area(radius):
@@ -166,12 +166,13 @@ None
 
 为了应对越来越复杂的程序，你可以开始尝试叫作 {\em 增量式开发} (incremental development) 的方法。 增量式开发的目标，是通过每次只增加和测试少量代码，来避免长时间的调试。
 \index{testing!incremental development}  \index{Pythagorean theorem}
+\index{测试!增量开发}
 
 %🍁% As an example, suppose you want to find the distance between two
 %🍁% points, given by the coordinates $(x_1, y_1)$ and $(x_2, y_2)$.
 %🍁% By the Pythagorean theorem, the distance is:
 
-举个例子，假设你想计算两个给定坐标点 $(x_1, y_1)$ 和 $(x_2, y_2)$ 之间的距离。根据毕达哥拉斯定理\footnote{译注：即勾股定理} (the Pythagorean theorem)，二者的距离是：
+举个例子，假设你想计算两个给定坐标点 $(x_1, y_1)$ 和 $(x_2, y_2)$ 之间的距离。根据毕达哥拉斯定理\footnote{译注：the Pythagorean theorem, 即勾股定理}，二者的距离是：
 
 
 \begin{displaymath}
@@ -222,9 +223,11 @@ def distance(x1, y1, x2, y2):
 %🍁% of a 3-4-5 triangle. When testing a function, it is
 %🍁% useful to know the right answer.
 
-我选择的这些值，可以使水平距离为 3 ，垂直距离为 4 ；这样结果自然是 5（构成一个勾三股四弦五的直角三角形）。 测试一个函数时，知道正确的答案是很有用的。
+我选择的这些值，可以使水平距离为 3 ，垂直距离为 4 ；
+这样结果自然是 5，构成了一个勾三股四弦五的直角三角形。
+测试一个函数时，知道正确的答案是很有用的。
 \index{testing!knowing the answer}
-\index{勾三股四弦五}
+\index{测试!已知结果}
 
 %🍁% At this point we have confirmed that the function is syntactically
 %🍁% correct, and we can start adding code to the body.
@@ -273,7 +276,8 @@ def distance(x1, y1, x2, y2):
 %🍁% (which should be 25).
 %🍁% Finally, you can use {\tt math.sqrt} to compute and return the result:
 
-再一次运行程序并检查结果（应该是 25 ）。最后，你可以使用 \li{math.sqrt} 计算并返回结果。
+再一次运行程序并检查结果 (应该是 25 )。
+最后，你可以使用 \li{math.sqrt} 计算并返回结果。
 \index{sqrt}  \index{function!sqrt}
 
 \begin{lstlisting}
@@ -517,8 +521,8 @@ if is_divisible(x, y) == True:
 %🍁% Theory of Computation}.
 
 阿兰·图灵 (Alan Turing) 首次证明了这种说法的正确性，这是一项非凡的工作。
-他是首批计算机科学家之一（一些人认为他是数学家，
-但很多早期的计算机科学家也是出身于数学家）。
+他是首批计算机科学家之一\footnote{一些人认为他是数学家，
+但很多早期的计算机科学家出身于数学家。}
 相应地，这被称为图灵理论。关于图灵理论更完整（和更准确）的讨论，
 我推荐 Michael Sipser 的书 《{\em Introduction to the Theory of Computation}》。
 
@@ -625,6 +629,11 @@ def factorial(n):
 程序的执行流程和第~\ref{recursion}节中的 \li{countdown} 类似。
 如果我们传入参数的值是 3 ：
 
+
+% \begin{lstlisting}
+% \end{lstlisting}
+
+
 %🍁% Since 3 is not 0, we take the second branch and calculate the factorial
 %🍁% of {\tt n-1}...
 
@@ -680,7 +689,7 @@ def factorial(n):
 \begin{figure}
 \centerline
 {\includegraphics[scale=0.8]{../source/figs/stack3.pdf}}
-\caption{Stack diagram.}
+\caption{堆栈图。}
 \label{fig.stack3}
 \end{figure}
 
@@ -709,7 +718,7 @@ def factorial(n):
 
 跟随程序执行流程是阅读程序代码的一种方法，但它可能很快会变得错综复杂。
 有另外一种替代方法，我称之为``信仰之跃''。
-当你遇到一个函数调用时，不再去跟踪执行流程，而是 **假设** 这个函数正确运行并返回了正确的结果。
+当你遇到一个函数调用时，不再去跟踪执行流程，而是 {\bf 假设} 这个函数正确运行并返回了正确的结果。
 
 %🍁% In fact, you are already practicing this leap of faith when you use
 %🍁% built-in functions.  When you call {\tt math.cos} or {\tt math.exp},
@@ -741,7 +750,7 @@ def factorial(n):
 %🍁% can, by multiplying by $n$.
 
 递归程序也是这样。
-当你遇到递归调用时， 不用顺着执行流程，你应该假设每次递归调用能够正确工作（返回正确的结果），然后问你自己，“假设我可以找到 :math:`n-1` 的阶乘，我可以找到 $n$ 的阶乘吗？
+当你遇到递归调用时， 不用顺着执行流程，你应该假设每次递归调用能够正确工作 (返回正确的结果)， 然后问你自己，``假设我可以找到 $n-1$ 的阶乘，我可以找到 $n$ 的阶乘吗？''
 很明显你能，只要再乘以 $n$ 即可。
 
 %🍁% Of course, it's a bit strange to assume that the function works
@@ -762,7 +771,9 @@ def factorial(n):
 %🍁% following definition (see
   %🍁% \url{http://en.wikipedia.org/wiki/Fibonacci_number}):
 
-除了阶乘以外，使用递归定义的最常见数学函数是 \li{fibonacci} （斐波那契数列），其定义见 \url{http://en.wikipedia.org/wiki/Fibonacci_number} ：
+除了阶乘以外，使用递归定义的最常见数学函数是 \li{fibonacci} (斐波那契数列)，见其 \href{http://en.wikipedia.org/wiki/Fibonacci_number}{定义} ：
+
+\index{维基百科}
 
 %
 \begin{eqnarray*}
@@ -837,6 +848,7 @@ RuntimeError: Maximum recursion depth exceeded
 
 我们有两个选择。我们可以试着泛化 \li{factorial} 函数，使其能处理浮点数，或者我们可以让 \li{factorial} 检查实参的类型。第一个选择被称作 \li{gamma} 函数，它有点儿超过本书的范围了。 所以我们将采用第二种方法。
 \index{gamma function}
+\index{gamma 函数}
 
 %🍁% We can use the built-in function {\tt isinstance} to verify the type
 %🍁% of the argument.  While we're at it, we can also make sure the
@@ -879,8 +891,8 @@ None
 \end{lstlisting}
 
 %
-If we get past both checks, we know that $n$ is positive or
-zero, so we can prove that the recursion terminates.
+%🍁% If we get past both checks, we know that $n$ is positive or
+%🍁% zero, so we can prove that the recursion terminates.
 
 如果我们通过了这两个检查，那么我们知道 $n$ 是一个正数或 $0$ ， 因此我们可以证明递归会终止。
 \index{guardian pattern}  \index{pattern!guardian}
@@ -1017,34 +1029,39 @@ def factorial(n):
 %🍁% \item[temporary variable:]  A variable used to store an intermediate value in
 %🍁% a complex calculation.
 \index{temporary variable}  \index{variable!temporary}
+\index{临时变量}  \index{变量!临时}
 
-\item[临时变量（temporary variable）：] 一个在复杂计算中用于存储过度值的变量。
+\item[临时变量 (temporary variable)：] 一个在复杂计算中用于存储过度值的变量。
 
 %🍁% \item[dead code:]  Part of a program that can never run, often because
 %🍁% it appears after a {\tt return} statement.
 \index{dead code}
+\index{死代码}
 
-\item[死代码（dead code）：] 程序中永远无法执行的那部分代码，通常是因为其出现在一个返回语句之后。
+\item[死代码 (dead code)：] 程序中永远无法执行的那部分代码，通常是因为其出现在一个返回语句之后。
 
 %🍁% \item[incremental development:]  A program development plan intended to
 %🍁% avoid debugging by adding and testing only
 %🍁% a small amount of code at a time.
 \index{incremental development}
+\index{增量式开发}
 
-\item[增量式开发（incremental development）：] 一种程序开发计划，目的是通过一次增加及测试少量代码的方式，来避免长时间的调试。
+\item[增量式开发 (incremental development)：] 一种程序开发计划，目的是通过一次增加及测试少量代码的方式，来避免长时间的调试。
 
 %🍁% \item[scaffolding:]  Code that is used during program development but is
 %🍁% not part of the final version.
 \index{scaffolding}
+\index{脚手架代码}
 
-\item[脚手架代码（scaffolding）：] 程序开发中使用的代码，但并不是最终版本的一部分。
+\item[脚手架代码 (scaffolding)：] 程序开发中使用的代码，但并不是最终版本的一部分。
 
 %🍁% \item[guardian:]  A programming pattern that uses a conditional
 %🍁% statement to check for and handle circumstances that
 %🍁% might cause an error.
 \index{guardian pattern}  \index{pattern!guardian}
+\index{监护人模式}  \index{模式!监护人}
 
-\item[监护人（guardian）：] 一种编程模式，使用条件语句来检查并处理可能引发错误的情形。
+\item[监护人 (guardian)：] 一种编程模式，使用条件语句来检查并处理可能引发错误的情形。
 
 \end{description}
 
@@ -1056,9 +1073,11 @@ def factorial(n):
 
 %🍁% Draw a stack diagram for the following program.  What does the program print?
 
-画出下面程序的堆栈图。这个程序的最终输出是什么？
-\index{stack diagram}
+画出下面程序的堆栈图。
+这个程序的最终输出是什么？
+\index{stack diagram}  \index{堆栈图}
 
+\begin{em}
 \begin{lstlisting}
 def b(z):
     prod = a(z, z)
@@ -1078,6 +1097,7 @@ x = 1
 y = x + 1
 print(c(x, y+3, x+y))
 \end{lstlisting}
+\end{em}
 
 \end{exercise}
 
@@ -1087,8 +1107,7 @@ print(c(x, y+3, x+y))
 
 %🍁% The Ackermann function, $A(m, n)$, is defined:
 
-Ackermann 函数 $A(m, n)$ 的定义如下：
-
+{\em Ackermann} 函数 $A(m, n)$ 的定义如下：
 
 \begin{eqnarray*}
 A(m, n) = \begin{cases}
@@ -1105,13 +1124,15 @@ A(m-1, A(m, n-1)) & \mbox{if } m > 0 \mbox{ and } n > 0.
 %🍁% What happens for larger values of {\tt m} and {\tt n}?
 %🍁% Solution: \url{http://thinkpython2.com/code/ackermann.py}.
 
-查看 \url{http://en.wikipedia.org/wiki/Ackermann_function}。
-编写一个叫作 \li{ack} 的函数来计算 Ackermann 函数。
-使用你的函数计算 \li{ack(3，4)}，其结果应该为 $125$ 。
-如果 \li{m} 和 \li{n} 的值较大时，会发生什么？
+查看 \href{http://en.wikipedia.org/wiki/Ackermann_function}{维基百科的定义}，
+编写一个叫作 {\em \li{ack}} 的函数来计算 {\em Ackermann} 函数。
+使用你的函数计算 {\em \li{ack(3，4)}}，其结果应该为 $125$ 。
+如果 {\em \li{m}} 和 {\em \li{n}} 的值较大时，会发生什么？
 \href{http://thinkpython2.com/code/ackermann.py}{参考答案}
-\index{Ackermann function}  \index{function!ack}
 
+\index{Ackermann function}  \index{function!ack}
+\index{阿克曼函数}  \index{函数!阿克曼}
+\index{维基百科}
 \end{exercise}
 
 
@@ -1123,7 +1144,7 @@ A(m-1, A(m, n-1)) & \mbox{if } m > 0 \mbox{ and } n > 0.
 %🍁% is a palindrome if the first and last letters are the same
 %🍁% and the middle is a palindrome.
 
-回文词（palindrome）指的是正着拼反着拼都一样的单词，如 ``noon'' 和 ``redivider''。
+回文词 {\em (palindrome)} 指的是正着拼反着拼都一样的单词，如 {\em ``noon''} 和 {\em ``redivider''}。
 按照递归定义的话， 如果某个词的首字母和尾字母相同， 而且中间部分也是一个回文词， 那它就是一个回文词。
 \index{palindrome}
 
@@ -1132,6 +1153,7 @@ A(m-1, A(m, n-1)) & \mbox{if } m > 0 \mbox{ and } n > 0.
 
 下面的函数接受一个字符串实参，并返回第一个、最后一个和中间的字母：
 
+\begin{em}
 \begin{lstlisting}
 def first(word):
     return word[0]
@@ -1142,6 +1164,7 @@ def last(word):
 def middle(word):
     return word[1:-1]
 \end{lstlisting}
+\end{em}
 
 %
 %🍁% We'll see how they work in Chapter~\ref{strings}.
@@ -1164,9 +1187,9 @@ def middle(word):
 
 \begin{enumerate}
 
-\item 将它们录入到文件 \li{palindrome.py} 中并测试。当你用一个两个字母的字符串调用 \li{middle} 时会发生什么？一个字母的呢？空字符串呢？空字符串这样 \li{"''"} 表示，中间不含任何字母。
+\item 将它们录入到文件 {\em \li{palindrome.py}} 中并测试。当你用一个两个字母的字符串调用 {\em \li{middle}} 时会发生什么？一个字母的呢？空字符串呢？空字符串这样 {\em \li{"''"}} 表示，中间不含任何字母。
 
-\item 编写一个叫 \li{is_palindrome} 的函数， 接受一个字符串作为实参。 如果是回文词， 就返回 \li{True} ，反之则返回 \li{False} 。记住， 你可以使用内建函数 \li{len} 来检查字符串的长度。
+\item 编写一个叫 {\em \li{is_palindrome}} 的函数， 接受一个字符串作为实参。 如果是回文词， 就返回 {\em \li{True}} ，反之则返回 {\em \li{False}} 。记住， 你可以使用内建函数 {\em \li{len}} 来检查字符串的长度。
 
 \end{enumerate}
 
@@ -1184,7 +1207,8 @@ def middle(word):
 %🍁% and returns {\tt True} if {\tt a} is a power of {\tt b}.
 %🍁% Note: you will have to think about the base case.
 
-当数字 $a$ 能被  $b$ 整除，并且 $a$b` 是 $b$ 的幂时， 它就是 $b$ 的幂。编写一个叫 \li{is_power} 的函数，接受两个参数 \li{a} 和 \li{b}， 并且当 \li{a} 是 \li{b} 的幂时返回 \li{True}。
+当数字 $a$ 能被  $b$ 整除，并且 $a/b$ 是 $b$ 的幂时， 它就是 $b$ 的幂。
+编写一个叫 {\em \li{is_power}} 的函数，接受两个参数 {\em \li{a}} 和 {\em \li{b}}， 并且当 {\em \li{a}} 是 {\em \li{b}} 的幂时返回 {\em \li{True}}。
 注意：你必须要想好基础情形。
 
 \end{exercise}
@@ -1195,7 +1219,7 @@ def middle(word):
 %🍁% The greatest common divisor (GCD) of $a$ and $b$ is the largest number
 %🍁% that divides both of them with no remainder.
 
-$a$ 和 $b$ 的最大公约数 (reatest common divisor, GCD) 是能被二者整除的最大数。
+$a$ 和 $b$ 的最大公约数 {\em (reatest common divisor, GCD)}是能被二者整除的最大数。
 
 %🍁% One way to find the GCD of two numbers is based on the observation
 %🍁% that if $r$ is the remainder when $a$ is divided by $b$, then $gcd(a,
@@ -1207,11 +1231,11 @@ $a$ 和 $b$ 的最大公约数 (reatest common divisor, GCD) 是能被二者整�
 %🍁% \verb"gcd" that takes parameters {\tt a} and {\tt b}
 %🍁% and returns their greatest common divisor.
 
-编写一个叫 \li{gcd} 的函数，接受两个参数 \li{a} 和 \li{b}，并返回二者的最大公约数。
+编写一个叫 {\em \li{gcd}} 的函数，接受两个参数 {\em \li{a}} 和 {\em \li{b}}，并返回二者的最大公约数。
 
 %🍁% Credit: This exercise is based on an example from Abelson and
 %🍁% Sussman's {\em Structure and Interpretation of Computer Programs}.
 
-致谢：这道习题基于 Abelson 和 Sussman 编写的 《Structure and Interpretation of Computer Programs》 中的例子。
+致谢：这道习题基于 {\em Abelson} 和 {\em Sussman} 编写的 《Structure and Interpretation of Computer Programs》 中的例子。
 
 \end{exercise}
